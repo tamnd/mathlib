@@ -4,6 +4,21 @@ Each release has a section. The newest release is first.
 
 ## Unreleased
 
+### Decided
+
+The owner signed these recommendations of spec 16 on 2026-11-27.
+
+- Q-03. The volume plan is the 35 volumes of 06.2. The plan changes only at the M1 report, from the measured pages.
+- Q-04. About 4% of the declarations are at E3 and 12% at E2, as in 04.7, with the measurement of M1. If the pages are more than 1.5 times the plan, cut E2 first, then E3 outside the curated lists.
+- Q-07. Keep the index assets of the last 90 days and one for each edition. An edition index stays for as long as the edition is on the site.
+- Q-08. The monospace font is JuliaMono. The glyph check passed: JuliaMono Regular and Bold have a glyph for each of the 130 characters in the Lean blocks and the inline code of V00, V01 and V34. tamnd/mathlib-handbook#8 applies the decision.
+- Q-10. The LeanSearch v2 corpus is an input to the informalizer for the first pass only, with attribution in `NOTICE`. New declarations get no seed. A seed sentence never becomes an E1 record.
+- Q-12. `Archive` and `Counterexamples` get pointers only, from the volume of each result. The Mathlib box says that the result is not part of the library and cannot be imported.
+- Q-15. Send the three kinds of fix of 10.6, as a small number of pull requests that a person has read and signs as the author. First ask on the Lean Zulip which kinds the maintainers welcome. The project sends no pull request before that answer, and it never blocks a section on a Mathlib review.
+- Q-18. Graduate students review each section for `reviewed`, and an area expert signs the volume. A course that uses a draft volume is welcome when a teacher offers.
+- Q-19. Both: a line on the copyright page of each volume and on `/about/`, and the roles and models of each section in `drafted_by` and `reviewed_by`.
+- Q-23. The budget stays at 200 dollars a day until the M1 report. After M1, it is set from the measured cost of a section and of an E1 record.
+
 ## v0.1.1 - 2026-11-26
 
 ### Added
