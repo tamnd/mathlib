@@ -9,7 +9,7 @@
 #   1. mathlib-lean: a release PR that moves the Unreleased section of CHANGELOG.md, then the tag and the release.
 #   2. mathlib-agent: the same. The release workflow of the tag attaches the binaries.
 #   3. mathlib: the same.
-#   4. mathlib-handbook: the same, and the PR also pins EDITION to the release commits of mathlib and mathlib-lean.
+#   4. mathlib-handbook: the same, and the PR also pins EDITION to the release commits of mathlib and mathlib-lean, with a line in CHANGELOG.md.
 # Each PR has the labels release and type/chore, and the script merges it at once.
 set -eu
 
@@ -112,6 +112,16 @@ s = re.sub(r"(?m)^version .*$", "version " + v.lstrip("v"), s)
 s = re.sub(r"(?m)^mathlib( .*)?$", "mathlib " + mathlib, s)
 s = re.sub(r"(?m)^mathlib-lean( .*)?$", "mathlib-lean " + lean, s)
 open("EDITION", "w").write(s)
+line = f"- `EDITION` pins mathlib at `{mathlib[:10]}` and mathlib-lean at `{lean[:10]}`, the commits of their release {v}.\n"
+c = open("CHANGELOG.md").read()
+head = "## Unreleased\n"
+i = c.index(head) + len(head)
+rest = c[i:]
+if rest.startswith("\n### Changed\n\n"):
+    c = c[:i] + "\n### Changed\n\n" + line + rest[len("\n### Changed\n\n"):]
+else:
+    c = c[:i] + "\n### Changed\n\n" + line + rest
+open("CHANGELOG.md", "w").write(c)
 EOF
 release_repo mathlib-handbook
 
