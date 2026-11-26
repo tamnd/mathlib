@@ -4,6 +4,8 @@ Each release has a section. The newest release is first.
 
 ## Unreleased
 
+## v0.1.1 - 2026-11-26
+
 ### Added
 
 - `blueprint/milestones.yaml` gives the date when M0 closed and the volumes of each milestone, from the exit criteria of spec 15. The work queue of `mlib queue` uses them for the weight of a volume (spec 11.5).
