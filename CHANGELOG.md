@@ -9,6 +9,7 @@ Each release has a section. The newest release is first.
 - The workflow index. It moves here from tamnd/mathlib-lean. Each day at 05:40 UTC it checks out mathlib-lean, writes the index of Mathlib at the commit of its `lake-manifest.json` and uploads it to the release `index` of this repository with `GITHUB_TOKEN`. It keeps the newest 30 indexes.
 - The edition log `records/editions.json`, with the v4.36.0 edition in the state open. The edition is at Mathlib `fc4f59e577`, and the branch `edition/v4.36.0` of mathlib-lean is at `529587fcca`.
 - The drafts of the post on the Lean Zulip and the letters to the Mathlib maintainers and to the area reviewers, in `outreach/`. Nobody sent them. The owner sends them.
+- The first records of the tools: `records/coverage.json` and `records/modules.json` from `mlib coverage` at Mathlib `e54979a532`, and `records/drift/2026-11-26.json` from the first `mlib sync`, from `4472534b60` to `e54979a532`, with 19 drift items.
 
 ## v0.0.1 - 2026-11-26
 

@@ -1,0 +1,898 @@
+{
+ "mathlib": "e54979a532247ae4eb9d5578a8fd40a1bc332101",
+ "toolchain": "4.37.0-rc1",
+ "date": "2026-11-26",
+ "total": {
+  "volume": "all",
+  "title": "Mathlib",
+  "modules": 8738,
+  "cHome": 0,
+  "cDepth": 0,
+  "cE3": 0,
+  "decls": 335808,
+  "depth": {
+   "E0": 141229,
+   "E1": 184989,
+   "E2": 1365,
+   "E3": 8225
+  },
+  "kind": {
+   "abbrev": 7238,
+   "class": 2025,
+   "ctor": 5070,
+   "def": 39033,
+   "inductive": 323,
+   "instance": 32455,
+   "opaque": 329,
+   "structure": 1703,
+   "theorem": 247632
+  }
+ },
+ "volumes": [
+  {
+   "volume": "V00",
+   "title": "Guide: how to read Mathlib",
+   "modules": 1,
+   "cHome": 0,
+   "cDepth": 0,
+   "cE3": null,
+   "decls": 3,
+   "depth": {
+    "E1": 3
+   },
+   "kind": {
+    "opaque": 3
+   }
+  },
+  {
+   "volume": "V01",
+   "title": "The language of Mathlib",
+   "modules": 187,
+   "cHome": 0,
+   "cDepth": 0,
+   "cE3": 0,
+   "decls": 5002,
+   "depth": {
+    "E0": 2192,
+    "E1": 2734,
+    "E2": 16,
+    "E3": 60
+   },
+   "kind": {
+    "abbrev": 117,
+    "class": 19,
+    "ctor": 94,
+    "def": 1011,
+    "inductive": 13,
+    "instance": 406,
+    "opaque": 13,
+    "structure": 26,
+    "theorem": 3303
+   }
+  },
+  {
+   "volume": "V02",
+   "title": "Numbers",
+   "modules": 253,
+   "cHome": 0,
+   "cDepth": 0,
+   "cE3": 0,
+   "decls": 7978,
+   "depth": {
+    "E0": 3422,
+    "E1": 4401,
+    "E2": 31,
+    "E3": 124
+   },
+   "kind": {
+    "abbrev": 35,
+    "class": 9,
+    "ctor": 28,
+    "def": 658,
+    "inductive": 6,
+    "instance": 623,
+    "opaque": 1,
+    "structure": 5,
+    "theorem": 6613
+   }
+  },
+  {
+   "volume": "V03",
+   "title": "Sets, finite structures and big operators",
+   "modules": 309,
+   "cHome": 0,
+   "cDepth": 0,
+   "cE3": 0,
+   "decls": 12412,
+   "depth": {
+    "E0": 4901,
+    "E1": 7338,
+    "E2": 41,
+    "E3": 132
+   },
+   "kind": {
+    "abbrev": 45,
+    "class": 14,
+    "ctor": 28,
+    "def": 722,
+    "inductive": 2,
+    "instance": 733,
+    "structure": 8,
+    "theorem": 10860
+   }
+  },
+  {
+   "volume": "V04",
+   "title": "Order and lattices",
+   "modules": 363,
+   "cHome": 0,
+   "cDepth": 0,
+   "cE3": 0,
+   "decls": 21777,
+   "depth": {
+    "E0": 10075,
+    "E1": 11251,
+    "E2": 122,
+    "E3": 329
+   },
+   "kind": {
+    "abbrev": 336,
+    "class": 165,
+    "ctor": 278,
+    "def": 1428,
+    "inductive": 11,
+    "instance": 2295,
+    "structure": 84,
+    "theorem": 17180
+   }
+  },
+  {
+   "volume": "V05",
+   "title": "Groups",
+   "modules": 446,
+   "cHome": 0,
+   "cDepth": 0,
+   "cE3": 0,
+   "decls": 24928,
+   "depth": {
+    "E0": 12161,
+    "E1": 12304,
+    "E2": 86,
+    "E3": 377
+   },
+   "kind": {
+    "abbrev": 462,
+    "class": 222,
+    "ctor": 362,
+    "def": 2437,
+    "inductive": 17,
+    "instance": 2789,
+    "structure": 79,
+    "theorem": 18560
+   }
+  },
+  {
+   "volume": "V06",
+   "title": "Rings, fields and ordered algebra",
+   "modules": 327,
+   "cHome": 0,
+   "cDepth": 0,
+   "cE3": 0,
+   "decls": 12225,
+   "depth": {
+    "E0": 6518,
+    "E1": 5431,
+    "E2": 48,
+    "E3": 228
+   },
+   "kind": {
+    "abbrev": 267,
+    "class": 95,
+    "ctor": 161,
+    "def": 1021,
+    "inductive": 3,
+    "instance": 1728,
+    "structure": 43,
+    "theorem": 8907
+   }
+  },
+  {
+   "volume": "V07",
+   "title": "Linear algebra",
+   "modules": 342,
+   "cHome": 0,
+   "cDepth": 0,
+   "cE3": 0,
+   "decls": 11967,
+   "depth": {
+    "E0": 5322,
+    "E1": 6180,
+    "E2": 33,
+    "E3": 432
+   },
+   "kind": {
+    "abbrev": 149,
+    "class": 35,
+    "ctor": 76,
+    "def": 1289,
+    "inductive": 3,
+    "instance": 931,
+    "structure": 37,
+    "theorem": 9447
+   }
+  },
+  {
+   "volume": "V08",
+   "title": "Multilinear algebra and forms",
+   "modules": 191,
+   "cHome": 0,
+   "cDepth": 0,
+   "cE3": 0,
+   "decls": 5928,
+   "depth": {
+    "E0": 3023,
+    "E1": 2719,
+    "E2": 23,
+    "E3": 163
+   },
+   "kind": {
+    "abbrev": 95,
+    "class": 36,
+    "ctor": 132,
+    "def": 957,
+    "inductive": 13,
+    "instance": 520,
+    "structure": 28,
+    "theorem": 4147
+   }
+  },
+  {
+   "volume": "V09",
+   "title": "Commutative algebra I: ideals, polynomials, factorization",
+   "modules": 448,
+   "cHome": 0,
+   "cDepth": 0,
+   "cE3": 0,
+   "decls": 15250,
+   "depth": {
+    "E0": 6208,
+    "E1": 8447,
+    "E2": 59,
+    "E3": 536
+   },
+   "kind": {
+    "abbrev": 137,
+    "class": 31,
+    "ctor": 72,
+    "def": 1280,
+    "inductive": 1,
+    "instance": 998,
+    "structure": 29,
+    "theorem": 12702
+   }
+  },
+  {
+   "volume": "V10",
+   "title": "Commutative algebra II: valuations, Dedekind domains, local algebra",
+   "modules": 328,
+   "cHome": 0,
+   "cDepth": 0,
+   "cE3": 0,
+   "decls": 8612,
+   "depth": {
+    "E0": 3332,
+    "E1": 4721,
+    "E2": 25,
+    "E3": 534
+   },
+   "kind": {
+    "abbrev": 143,
+    "class": 70,
+    "ctor": 124,
+    "def": 1056,
+    "inductive": 2,
+    "instance": 996,
+    "structure": 45,
+    "theorem": 6176
+   }
+  },
+  {
+   "volume": "V11",
+   "title": "Fields and Galois theory",
+   "modules": 125,
+   "cHome": 0,
+   "cDepth": 0,
+   "cE3": 0,
+   "decls": 4132,
+   "depth": {
+    "E0": 1513,
+    "E1": 2362,
+    "E2": 5,
+    "E3": 252
+   },
+   "kind": {
+    "abbrev": 27,
+    "class": 25,
+    "ctor": 34,
+    "def": 385,
+    "inductive": 1,
+    "instance": 456,
+    "structure": 8,
+    "theorem": 3196
+   }
+  },
+  {
+   "volume": "V12",
+   "title": "Number theory",
+   "modules": 256,
+   "cHome": 0,
+   "cDepth": 0,
+   "cE3": 0,
+   "decls": 7355,
+   "depth": {
+    "E0": 2209,
+    "E1": 4763,
+    "E2": 32,
+    "E3": 351
+   },
+   "kind": {
+    "abbrev": 103,
+    "class": 23,
+    "ctor": 43,
+    "def": 787,
+    "inductive": 1,
+    "instance": 549,
+    "structure": 12,
+    "theorem": 5837
+   }
+  },
+  {
+   "volume": "V13",
+   "title": "General topology",
+   "modules": 427,
+   "cHome": 0,
+   "cDepth": 0,
+   "cE3": 0,
+   "decls": 20493,
+   "depth": {
+    "E0": 7428,
+    "E1": 12480,
+    "E2": 96,
+    "E3": 489
+   },
+   "kind": {
+    "abbrev": 201,
+    "class": 140,
+    "ctor": 263,
+    "def": 1511,
+    "inductive": 4,
+    "instance": 2087,
+    "structure": 90,
+    "theorem": 16197
+   }
+  },
+  {
+   "volume": "V14",
+   "title": "Topological algebra and infinite sums",
+   "modules": 210,
+   "cHome": 0,
+   "cDepth": 0,
+   "cE3": 0,
+   "decls": 8617,
+   "depth": {
+    "E0": 3570,
+    "E1": 4832,
+    "E2": 17,
+    "E3": 198
+   },
+   "kind": {
+    "abbrev": 70,
+    "class": 60,
+    "ctor": 97,
+    "def": 751,
+    "inductive": 1,
+    "instance": 1372,
+    "structure": 38,
+    "theorem": 6228
+   }
+  },
+  {
+   "volume": "V15",
+   "title": "Real analysis in one variable",
+   "modules": 167,
+   "cHome": 0,
+   "cDepth": 0,
+   "cE3": 0,
+   "decls": 6632,
+   "depth": {
+    "E0": 1429,
+    "E1": 4886,
+    "E2": 68,
+    "E3": 249
+   },
+   "kind": {
+    "abbrev": 3,
+    "class": 1,
+    "ctor": 4,
+    "def": 181,
+    "instance": 63,
+    "structure": 3,
+    "theorem": 6377
+   }
+  },
+  {
+   "volume": "V16",
+   "title": "Normed spaces and functional analysis",
+   "modules": 365,
+   "cHome": 0,
+   "cDepth": 0,
+   "cE3": 0,
+   "decls": 13515,
+   "depth": {
+    "E0": 5074,
+    "E1": 7739,
+    "E2": 109,
+    "E3": 593
+   },
+   "kind": {
+    "abbrev": 221,
+    "class": 86,
+    "ctor": 138,
+    "def": 1049,
+    "instance": 1353,
+    "structure": 53,
+    "theorem": 10615
+   }
+  },
+  {
+   "volume": "V17",
+   "title": "Differential calculus in normed spaces",
+   "modules": 114,
+   "cHome": 0,
+   "cDepth": 0,
+   "cE3": 0,
+   "decls": 4095,
+   "depth": {
+    "E0": 711,
+    "E1": 3248,
+    "E2": 26,
+    "E3": 110
+   },
+   "kind": {
+    "abbrev": 14,
+    "class": 1,
+    "ctor": 16,
+    "def": 170,
+    "instance": 18,
+    "structure": 15,
+    "theorem": 3861
+   }
+  },
+  {
+   "volume": "V18",
+   "title": "Measure and integration",
+   "modules": 362,
+   "cHome": 0,
+   "cDepth": 0,
+   "cE3": 0,
+   "decls": 13872,
+   "depth": {
+    "E0": 3740,
+    "E1": 9498,
+    "E2": 215,
+    "E3": 419
+   },
+   "kind": {
+    "abbrev": 45,
+    "class": 77,
+    "ctor": 131,
+    "def": 809,
+    "inductive": 2,
+    "instance": 1036,
+    "structure": 38,
+    "theorem": 11734
+   }
+  },
+  {
+   "volume": "V19",
+   "title": "Complex and harmonic analysis",
+   "modules": 137,
+   "cHome": 0,
+   "cDepth": 0,
+   "cE3": 0,
+   "decls": 4481,
+   "depth": {
+    "E0": 1381,
+    "E1": 2856,
+    "E2": 67,
+    "E3": 177
+   },
+   "kind": {
+    "abbrev": 17,
+    "class": 19,
+    "ctor": 26,
+    "def": 364,
+    "instance": 277,
+    "structure": 7,
+    "theorem": 3771
+   }
+  },
+  {
+   "volume": "V20",
+   "title": "Probability",
+   "modules": 141,
+   "cHome": 0,
+   "cDepth": 0,
+   "cE3": 0,
+   "decls": 4358,
+   "depth": {
+    "E0": 1041,
+    "E1": 3064,
+    "E2": 29,
+    "E3": 224
+   },
+   "kind": {
+    "abbrev": 8,
+    "class": 13,
+    "ctor": 36,
+    "def": 275,
+    "instance": 243,
+    "structure": 23,
+    "theorem": 3760
+   }
+  },
+  {
+   "volume": "V21",
+   "title": "Dynamics, ergodic theory and information theory",
+   "modules": 47,
+   "cHome": 0,
+   "cDepth": 0,
+   "cE3": 0,
+   "decls": 1197,
+   "depth": {
+    "E0": 362,
+    "E1": 774,
+    "E2": 6,
+    "E3": 55
+   },
+   "kind": {
+    "abbrev": 9,
+    "class": 6,
+    "ctor": 18,
+    "def": 86,
+    "instance": 48,
+    "structure": 12,
+    "theorem": 1018
+   }
+  },
+  {
+   "volume": "V22",
+   "title": "Affine, Euclidean and convex geometry",
+   "modules": 123,
+   "cHome": 0,
+   "cDepth": 0,
+   "cE3": 0,
+   "decls": 4821,
+   "depth": {
+    "E0": 1941,
+    "E1": 2677,
+    "E2": 25,
+    "E3": 178
+   },
+   "kind": {
+    "abbrev": 34,
+    "class": 8,
+    "ctor": 32,
+    "def": 347,
+    "inductive": 1,
+    "instance": 225,
+    "structure": 22,
+    "theorem": 4152
+   }
+  },
+  {
+   "volume": "V23",
+   "title": "Manifolds and bundles",
+   "modules": 95,
+   "cHome": 0,
+   "cDepth": 0,
+   "cE3": 0,
+   "decls": 4795,
+   "depth": {
+    "E0": 1469,
+    "E1": 3146,
+    "E2": 17,
+    "E3": 163
+   },
+   "kind": {
+    "abbrev": 75,
+    "class": 34,
+    "ctor": 72,
+    "def": 505,
+    "instance": 377,
+    "opaque": 2,
+    "structure": 40,
+    "theorem": 3690
+   }
+  },
+  {
+   "volume": "V24",
+   "title": "Category theory",
+   "modules": 714,
+   "cHome": 0,
+   "cDepth": 0,
+   "cE3": 0,
+   "decls": 34120,
+   "depth": {
+    "E0": 18650,
+    "E1": 15259,
+    "E2": 31,
+    "E3": 180
+   },
+   "kind": {
+    "abbrev": 1447,
+    "class": 328,
+    "ctor": 832,
+    "def": 6506,
+    "inductive": 41,
+    "instance": 3696,
+    "opaque": 4,
+    "structure": 306,
+    "theorem": 20960
+   }
+  },
+  {
+   "volume": "V25",
+   "title": "Higher structures in categories",
+   "modules": 452,
+   "cHome": 0,
+   "cDepth": 0,
+   "cE3": 0,
+   "decls": 13591,
+   "depth": {
+    "E0": 6477,
+    "E1": 6918,
+    "E2": 22,
+    "E3": 174
+   },
+   "kind": {
+    "abbrev": 468,
+    "class": 214,
+    "ctor": 390,
+    "def": 1977,
+    "inductive": 26,
+    "instance": 2087,
+    "structure": 102,
+    "theorem": 8327
+   }
+  },
+  {
+   "volume": "V26",
+   "title": "Homological algebra",
+   "modules": 347,
+   "cHome": 0,
+   "cDepth": 0,
+   "cE3": 0,
+   "decls": 13840,
+   "depth": {
+    "E0": 7599,
+    "E1": 6148,
+    "E2": 19,
+    "E3": 74
+   },
+   "kind": {
+    "abbrev": 579,
+    "class": 43,
+    "ctor": 271,
+    "def": 2513,
+    "inductive": 7,
+    "instance": 1897,
+    "structure": 111,
+    "theorem": 8419
+   }
+  },
+  {
+   "volume": "V27",
+   "title": "Algebraic topology and condensed mathematics",
+   "modules": 284,
+   "cHome": 0,
+   "cDepth": 0,
+   "cE3": 0,
+   "decls": 8301,
+   "depth": {
+    "E0": 3788,
+    "E1": 4415,
+    "E2": 13,
+    "E3": 85
+   },
+   "kind": {
+    "abbrev": 488,
+    "class": 50,
+    "ctor": 140,
+    "def": 1619,
+    "inductive": 7,
+    "instance": 1059,
+    "structure": 73,
+    "theorem": 4865
+   }
+  },
+  {
+   "volume": "V28",
+   "title": "Algebraic geometry",
+   "modules": 182,
+   "cHome": 0,
+   "cDepth": 0,
+   "cE3": 0,
+   "decls": 7613,
+   "depth": {
+    "E0": 3536,
+    "E1": 3807,
+    "E2": 7,
+    "E3": 263
+   },
+   "kind": {
+    "abbrev": 185,
+    "class": 69,
+    "ctor": 103,
+    "def": 1090,
+    "inductive": 1,
+    "instance": 1323,
+    "structure": 30,
+    "theorem": 4812
+   }
+  },
+  {
+   "volume": "V29",
+   "title": "Representation theory and Lie theory",
+   "modules": 120,
+   "cHome": 0,
+   "cDepth": 0,
+   "cE3": 0,
+   "decls": 4974,
+   "depth": {
+    "E0": 2436,
+    "E1": 2245,
+    "E2": 9,
+    "E3": 284
+   },
+   "kind": {
+    "abbrev": 201,
+    "class": 35,
+    "ctor": 85,
+    "def": 674,
+    "inductive": 3,
+    "instance": 587,
+    "structure": 38,
+    "theorem": 3351
+   }
+  },
+  {
+   "volume": "V30",
+   "title": "Combinatorics",
+   "modules": 176,
+   "cHome": 0,
+   "cDepth": 0,
+   "cE3": 0,
+   "decls": 8131,
+   "depth": {
+    "E0": 2998,
+    "E1": 4712,
+    "E2": 37,
+    "E3": 384
+   },
+   "kind": {
+    "abbrev": 124,
+    "class": 17,
+    "ctor": 102,
+    "def": 754,
+    "inductive": 6,
+    "instance": 373,
+    "structure": 62,
+    "theorem": 6693
+   }
+  },
+  {
+   "volume": "V31",
+   "title": "Set theory",
+   "modules": 58,
+   "cHome": 0,
+   "cDepth": 0,
+   "cE3": 0,
+   "decls": 3268,
+   "depth": {
+    "E0": 1397,
+    "E1": 1821,
+    "E2": 8,
+    "E3": 42
+   },
+   "kind": {
+    "abbrev": 21,
+    "class": 3,
+    "ctor": 29,
+    "def": 219,
+    "inductive": 5,
+    "instance": 232,
+    "structure": 9,
+    "theorem": 2750
+   }
+  },
+  {
+   "volume": "V32",
+   "title": "Logic, model theory and computability",
+   "modules": 67,
+   "cHome": 0,
+   "cDepth": 0,
+   "cE3": 0,
+   "decls": 4442,
+   "depth": {
+    "E0": 1680,
+    "E1": 2561,
+    "E2": 9,
+    "E3": 192
+   },
+   "kind": {
+    "abbrev": 157,
+    "class": 15,
+    "ctor": 254,
+    "def": 671,
+    "inductive": 40,
+    "instance": 347,
+    "structure": 33,
+    "theorem": 2925
+   }
+  },
+  {
+   "volume": "V33",
+   "title": "Data structures and computation",
+   "modules": 147,
+   "cHome": 0,
+   "cDepth": 0,
+   "cE3": 0,
+   "decls": 5632,
+   "depth": {
+    "E0": 2172,
+    "E1": 3360,
+    "E2": 8,
+    "E3": 92
+   },
+   "kind": {
+    "abbrev": 81,
+    "class": 25,
+    "ctor": 106,
+    "def": 953,
+    "inductive": 19,
+    "instance": 401,
+    "structure": 10,
+    "theorem": 4037
+   }
+  },
+  {
+   "volume": "V34",
+   "title": "The tactics of Mathlib",
+   "modules": 426,
+   "cHome": 0,
+   "cDepth": 0,
+   "cE3": 0,
+   "decls": 7451,
+   "depth": {
+    "E0": 1474,
+    "E1": 5889,
+    "E2": 6,
+    "E3": 82
+   },
+   "kind": {
+    "abbrev": 874,
+    "class": 37,
+    "ctor": 493,
+    "def": 2978,
+    "inductive": 87,
+    "instance": 330,
+    "opaque": 306,
+    "structure": 184,
+    "theorem": 2162
+   }
+  }
+ ],
+ "orphans": 0,
+ "aliases": 6560
+}

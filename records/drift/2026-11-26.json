@@ -1,0 +1,142 @@
+{
+ "date": "2026-11-26",
+ "from": "4472534b607bbff9621756cca1be340c60e7272a",
+ "to": "e54979a532247ae4eb9d5578a8fd40a1bc332101",
+ "toolchain": [
+  "4.37.0-rc1",
+  "4.37.0-rc1"
+ ],
+ "counts": {
+  "added": 3,
+  "attr-changed": 3,
+  "deprecated": 1,
+  "doc-changed": 2,
+  "renamed": 2,
+  "type-changed": 6,
+  "value-changed": 2
+ },
+ "items": [
+  {
+   "class": "added",
+   "name": "Matrix.charmatrix_submatrix",
+   "module": "Mathlib.LinearAlgebra.Matrix.Charpoly.Basic",
+   "severity": "info"
+  },
+  {
+   "class": "added",
+   "name": "Matrix.det_toBlock_congr",
+   "module": "Mathlib.LinearAlgebra.Matrix.Block",
+   "severity": "info"
+  },
+  {
+   "class": "added",
+   "name": "Matrix.toBlock_def",
+   "module": "Mathlib.Data.Matrix.Block",
+   "severity": "info"
+  },
+  {
+   "class": "attr-changed",
+   "name": "Matrix.toBlock",
+   "module": "Mathlib.Data.Matrix.Block",
+   "severity": "minor",
+   "note": "none to reducible"
+  },
+  {
+   "class": "attr-changed",
+   "name": "Matrix.toBlock_apply",
+   "module": "Mathlib.Data.Matrix.Block",
+   "severity": "minor",
+   "note": "simp to none"
+  },
+  {
+   "class": "attr-changed",
+   "name": "Matrix.toSquareBlock",
+   "module": "Mathlib.Data.Matrix.Block",
+   "severity": "minor",
+   "note": "none to reducible"
+  },
+  {
+   "class": "deprecated",
+   "name": "Matrix.toSquareBlockProp_def",
+   "module": "Mathlib.Data.Matrix.Block",
+   "severity": "info",
+   "note": "deprecated since 2026-11-15"
+  },
+  {
+   "class": "doc-changed",
+   "name": "CartanMatrix.D",
+   "module": "Mathlib.LinearAlgebra.Matrix.Cartan.Basic",
+   "severity": "info"
+  },
+  {
+   "class": "doc-changed",
+   "name": "Matrix.toBlock",
+   "module": "Mathlib.Data.Matrix.Block",
+   "severity": "info"
+  },
+  {
+   "class": "renamed",
+   "name": "Matrix.equiv_block_det",
+   "to": "Matrix.det_toBlock_congr",
+   "module": "Mathlib.LinearAlgebra.Matrix.Block",
+   "severity": "rename",
+   "note": "deprecated alias since 2026-11-15"
+  },
+  {
+   "class": "renamed",
+   "name": "Matrix.toSquareBlockProp",
+   "to": "Matrix.toBlock",
+   "module": "Mathlib.Data.Matrix.Block",
+   "severity": "rename",
+   "note": "deprecated alias since 2026-11-15"
+  },
+  {
+   "class": "type-changed",
+   "name": "CartanMatrix.D_four",
+   "module": "Mathlib.LinearAlgebra.Matrix.Cartan.Basic",
+   "severity": "minor"
+  },
+  {
+   "class": "type-changed",
+   "name": "CartanMatrix.D_three",
+   "module": "Mathlib.LinearAlgebra.Matrix.Cartan.Basic",
+   "severity": "minor"
+  },
+  {
+   "class": "type-changed",
+   "name": "CartanMatrix.D_three'",
+   "module": "Mathlib.LinearAlgebra.Matrix.Cartan.Basic",
+   "severity": "minor"
+  },
+  {
+   "class": "type-changed",
+   "name": "Matrix.toSquareBlock_def",
+   "module": "Mathlib.Data.Matrix.Block",
+   "severity": "minor"
+  },
+  {
+   "class": "type-changed",
+   "name": "Matrix.twoBlockTriangular_det",
+   "module": "Mathlib.LinearAlgebra.Matrix.Block",
+   "severity": "minor"
+  },
+  {
+   "class": "type-changed",
+   "name": "Matrix.twoBlockTriangular_det'",
+   "module": "Mathlib.LinearAlgebra.Matrix.Block",
+   "severity": "minor"
+  },
+  {
+   "class": "value-changed",
+   "name": "CartanMatrix.D",
+   "module": "Mathlib.LinearAlgebra.Matrix.Cartan.Basic",
+   "severity": "minor"
+  },
+  {
+   "class": "value-changed",
+   "name": "Matrix.toSquareBlock",
+   "module": "Mathlib.Data.Matrix.Block",
+   "severity": "minor"
+  }
+ ]
+}
