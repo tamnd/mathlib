@@ -1,0 +1,701 @@
+# The section plan of V03 (spec 09.1, 07.7). mlib plan made the draft from the index at e54979a532. A person accepts it and then edits it by hand.
+volume: V03
+title: Sets, finite structures and big operators
+mathlib: e54979a532247ae4eb9d5578a8fd40a1bc332101
+date: "2026-11-26"
+by: mlib plan dev
+status: proposed
+pages: 356.8
+chapters:
+    - id: C01
+      title: Card, Finite and Lattice
+      prefixes: [Mathlib/Data/Set/Card, Mathlib/Data/Set/Finite, Mathlib/Data/Set/Lattice]
+      requires: [V03.C02, V03.C07, V04]
+      sections:
+        - id: V03.C01.S01
+          title: Card
+          kind: theory
+          modules:
+            - Mathlib.Data.Set.Card
+            - Mathlib.Data.Set.Card.Arithmetic
+          E3: [Set.exists_union_disjoint_cardinal_eq_iff, Set.exists_union_disjoint_ncard_eq_of_even]
+          families: [F-simp-eq, F-simp, F-def, F-simp-coe, F-simp-iff]
+          requires: [V03.C02, V04]
+          counts: {E0: 83, E1: 180, E3: 2}
+          pages: 7.6
+          status: planned
+        - id: V03.C01.S02
+          title: Finite
+          kind: theory
+          modules:
+            - Mathlib.Data.Set.Finite.Basic
+            - Mathlib.Data.Set.Finite.Lattice
+            - Mathlib.Data.Set.Finite.Lemmas
+            - Mathlib.Data.Set.Finite.List
+            - Mathlib.Data.Set.Finite.Monad
+            - Mathlib.Data.Set.Finite.Powerset
+            - Mathlib.Data.Set.Finite.Range
+          E3: [Set.Finite.toFinset]
+          E2: [Set.Finite.induction_on, Set.Finite.induction_on_subset]
+          families: [F-simp, F-instance, F-simp-eq, F-simp-mem, F-simp-apply, F-simp-coe, F-def, F-to-dual]
+          requires: [V03.C02, V03.C07]
+          counts: {E0: 99, E1: 179, E2: 2, E3: 1}
+          pages: 7.1
+          status: planned
+        - id: V03.C01.S03
+          title: Lattice
+          kind: reference
+          modules:
+            - Mathlib.Data.Set.Lattice
+            - Mathlib.Data.Set.Lattice.Bounded
+            - Mathlib.Data.Set.Lattice.Disjoint
+            - Mathlib.Data.Set.Lattice.Image
+            - Mathlib.Data.Set.Lattice.Indexed
+            - Mathlib.Data.Set.Lattice.Order
+          families: [F-def, F-simp, F-simp-apply, F-simp-coe, F-simp-eq, F-simp-iff, F-to-dual]
+          counts: {E0: 101, E1: 365}
+          pages: 12.2
+          status: planned
+    - id: C02
+      title: Pairwise and Set
+      prefixes: [Mathlib/Data/Set/Pairwise, Mathlib/Data/Set]
+      requires: [V01, V04]
+      sections:
+        - id: V03.C02.S01
+          title: 'Set: Basic'
+          kind: theory
+          modules:
+            - Mathlib.Data.Set.Pairwise.Basic
+            - Mathlib.Data.Set.Pairwise.Chain
+            - Mathlib.Data.Set.Pairwise.Lattice
+            - Mathlib.Data.Set.Pairwise.List
+            - Mathlib.Data.Set.Accumulate
+            - Mathlib.Data.Set.Basic
+            - Mathlib.Data.Set.BoolIndicator
+            - Mathlib.Data.Set.BooleanAlgebra
+            - Mathlib.Data.Set.CoeSort
+          E3: [Set.PairwiseDisjoint, Set.Elem]
+          E2: [Set.Pairwise.mono]
+          families: [F-simp, F-simp-eq, F-simp-iff, F-simp-apply, F-simp-coe, F-simp-mem, F-def, F-instance, F-ext, F-ext-iff]
+          requires: [V01, V04]
+          counts: {E0: 131, E1: 253, E2: 1, E3: 2}
+          pages: 10.2
+          status: planned
+        - id: V03.C02.S02
+          title: 'Set: Constructions'
+          kind: theory
+          modules:
+            - Mathlib.Data.Set.Constructions
+            - Mathlib.Data.Set.Countable
+            - Mathlib.Data.Set.Defs
+            - Mathlib.Data.Set.Disjoint
+            - Mathlib.Data.Set.Dissipate
+            - Mathlib.Data.Set.Enumerate
+            - Mathlib.Data.Set.Equitable
+            - Mathlib.Data.Set.FiniteExhaustion
+            - Mathlib.Data.Set.Function
+          E3: [Set]
+          E2: [Function.Injective.injOn, Set.SurjOn.image_invFunOn_image_of_subset, Set.SurjOn.image_invFunOn_image, Set.BijOn.injOn]
+          families: [F-ctor, F-simp, F-simp-iff, F-to-dual, F-ext, F-instance, F-simp-mem, F-ext-iff, F-simp-eq]
+          counts: {E0: 104, E1: 375, E2: 4, E3: 1}
+          pages: 13.9
+          status: planned
+        - id: V03.C02.S03
+          title: 'Set: Functor'
+          kind: theory
+          modules:
+            - Mathlib.Data.Set.Functor
+            - Mathlib.Data.Set.Image
+            - Mathlib.Data.Set.Inclusion
+            - Mathlib.Data.Set.Insert
+            - Mathlib.Data.Set.List
+          E3: [Set.Nontrivial.image, Set.Subsingleton.image, Set.Nonempty.image]
+          E2: [Set.image_preimage_eq_inter_range, Set.image_preimage_subset]
+          families: [F-def, F-instance, F-simp-eq, F-simp, F-simp-iff, F-simp-coe, F-simp-mk, F-simp-mem]
+          counts: {E0: 222, E1: 219, E2: 2, E3: 3}
+          pages: 10
+          status: planned
+        - id: V03.C02.S04
+          title: 'Set: Mem partition'
+          kind: theory
+          modules:
+            - Mathlib.Data.Set.MemPartition
+            - Mathlib.Data.Set.Monotone
+            - Mathlib.Data.Set.MulAntidiagonal
+            - Mathlib.Data.Set.NAry
+            - Mathlib.Data.Set.Notation
+            - Mathlib.Data.Set.Operations
+          E3: [memPartition, Set.restrictPreimage, Set.InvOn, Set.LeftInvOn, Set.RightInvOn, Set.prod, Set.offDiag, Set.diagonal, Set.graphOn, Set.image2, Set.pi, Set.InjOn, Set.MapsTo.restrict, Set.seq]
+          families: [F-simp, F-instance, F-to-dual, F-simp-mem, F-aux-snake, F-simp-iff, F-simp-eq]
+          counts: {E0: 69, E1: 135, E3: 14}
+          pages: 15.7
+          status: planned
+        - id: V03.C02.S05
+          title: 'Set: Opposite'
+          kind: theory
+          modules:
+            - Mathlib.Data.Set.Opposite
+            - Mathlib.Data.Set.Order
+            - Mathlib.Data.Set.Piecewise
+            - Mathlib.Data.Set.Pointwise.Support
+            - Mathlib.Data.Set.PowersetCard
+            - Mathlib.Data.Set.Prod
+            - Mathlib.Data.Set.Restrict
+            - Mathlib.Data.Set.SMulAntidiagonal
+            - Mathlib.Data.Set.Semiring
+            - Mathlib.Data.Set.Sigma
+          E2: [Set.VAddAntidiagonal.finite_of_isPWO]
+          families: [F-simp-mem, F-simp-apply, F-simp, F-to-dual, F-simp-eq, F-simp-coe, F-instance, F-simp-iff, F-def, F-simp-mk, F-ctor, F-ext, F-ext-iff]
+          requires: [V04]
+          counts: {E0: 241, E1: 299, E2: 1}
+          pages: 10.1
+          status: planned
+        - id: V03.C02.S06
+          title: 'Set: Subset'
+          kind: reference
+          modules:
+            - Mathlib.Data.Set.Subset
+            - Mathlib.Data.Set.Subsingleton
+            - Mathlib.Data.Set.Sups
+            - Mathlib.Data.Set.SymmDiff
+            - Mathlib.Data.Set.UnionLift
+          families: [F-simp, F-simp-iff, F-to-dual, F-instance, F-simp-mem, F-simp-eq, F-ctor, F-def, F-simp-mk]
+          counts: {E0: 75, E1: 146}
+          pages: 4.9
+          status: planned
+    - id: C03
+      title: Lattice and Finset
+      prefixes: [Mathlib/Data/Finset/Lattice, Mathlib/Data/Finset]
+      requires: [V01, V02, V03.C02, V03.C04, V03.C07, V03.C08, V04, V05]
+      sections:
+        - id: V03.C03.S01
+          title: Lattice
+          kind: theory
+          modules:
+            - Mathlib.Data.Finset.Lattice.Basic
+            - Mathlib.Data.Finset.Lattice.Fold
+            - Mathlib.Data.Finset.Lattice.Lemmas
+            - Mathlib.Data.Finset.Lattice.Pi
+            - Mathlib.Data.Finset.Lattice.Prod
+            - Mathlib.Data.Finset.Lattice.Union
+          E2: [Finset.subset_union_left, Finset.subset_union_right]
+          families: [F-simp, F-instance, F-simp-mem, F-simp-coe, F-simp-eq, F-to-dual, F-simp-iff, F-simp-apply, F-def]
+          requires: [V04]
+          counts: {E0: 133, E1: 224, E2: 2}
+          pages: 7.8
+          status: planned
+        - id: V03.C03.S02
+          title: 'Finset: Attach'
+          kind: theory
+          modules:
+            - Mathlib.Data.Finset.Attach
+            - Mathlib.Data.Finset.Attr
+            - Mathlib.Data.Finset.Basic
+            - Mathlib.Data.Finset.BooleanAlgebra
+            - Mathlib.Data.Finset.Card
+          E3: [Finset.attach, Finset.choose, Finset.card]
+          E2: [Finset.inter_nonempty_of_card_lt_card_add_card]
+          families: [F-simp-mem, F-simp-coe, F-simp, F-simp-iff, F-simp-eq, F-instance, F-def, F-simp-mk]
+          counts: {E0: 136, E1: 234, E2: 1, E3: 3}
+          pages: 10.4
+          status: planned
+        - id: V03.C03.S03
+          title: 'Finset: Cast card'
+          kind: theory
+          modules:
+            - Mathlib.Data.Finset.CastCard
+            - Mathlib.Data.Finset.Dedup
+            - Mathlib.Data.Finset.Defs
+            - Mathlib.Data.Finset.DenselyOrdered
+            - Mathlib.Data.Finset.Density
+            - Mathlib.Data.Finset.Disjoint
+            - Mathlib.Data.Finset.Empty
+          E3: [Finset.cast_card_union, Finset.cast_card_erase_of_mem, Finset.cast_card_sdiff, Finset.cast_card_inter, Finset, Finset.nodup, Finset.val, Finset.disjUnion, Finset.empty, Finset.Nonempty]
+          E2: [Finset.Nonempty.mono]
+          families: [F-ext-iff, F-simp-mem, F-simp, F-instance, F-simp-eq, F-simp-coe, F-ext, F-simp-iff, F-def, F-ctor]
+          requires: [V02, V03.C04, V05]
+          counts: {E0: 145, E1: 83, E2: 1, E3: 10}
+          pages: 10.9
+          status: planned
+        - id: V03.C03.S04
+          title: 'Finset: Erase'
+          kind: theory
+          modules:
+            - Mathlib.Data.Finset.Erase
+            - Mathlib.Data.Finset.Filter
+            - Mathlib.Data.Finset.Fin
+            - Mathlib.Data.Finset.Finsupp
+            - Mathlib.Data.Finset.Fold
+            - Mathlib.Data.Finset.Functor
+            - Mathlib.Data.Finset.Grade
+            - Mathlib.Data.Finset.Image
+            - Mathlib.Data.Finset.Insert
+          E3: [Finset.erase, Finset.filter, Finset.map, Finset.filterMap, Finset.subtype, Finset.image, Finset.cons, Finset.induction_on]
+          E2: [Finset.Nonempty.image]
+          families: [F-simp-coe, F-simp-mem, F-simp, F-simp-eq, F-simp-iff, F-instance, F-def, F-simp-apply, F-simp-mk]
+          requires: [V01, V03.C04]
+          counts: {E0: 252, E1: 203, E2: 1, E3: 8}
+          pages: 13.3
+          status: planned
+        - id: V03.C03.S05
+          title: 'Finset: Interval'
+          kind: theory
+          modules:
+            - Mathlib.Data.Finset.Interval
+            - Mathlib.Data.Finset.Max
+            - Mathlib.Data.Finset.MulAntidiagonal
+            - Mathlib.Data.Finset.NAry
+            - Mathlib.Data.Finset.NatAntidiagonal
+            - Mathlib.Data.Finset.NatDivisors
+            - Mathlib.Data.Finset.NoncommProd
+          E3: [Finset.noncommProd, Multiset.noncommProd]
+          E2: [Finset.induction_on_max, Finset.induction_on_min, Finset.induction_on_min_value, Finset.induction_on_max_value]
+          families: [F-instance, F-to-dual, F-simp-iff, F-simp, F-simp-eq, F-simp-mem, F-simp-coe, F-simp-apply, F-aux-snake]
+          requires: [V01, V03.C04, V03.C08, V04, V05]
+          counts: {E0: 106, E1: 254, E2: 4, E3: 2}
+          pages: 10.7
+          status: planned
+        - id: V03.C03.S06
+          title: 'Finset: Option'
+          kind: theory
+          modules:
+            - Mathlib.Data.Finset.Option
+            - Mathlib.Data.Finset.Order
+            - Mathlib.Data.Finset.PImage
+            - Mathlib.Data.Finset.Pairwise
+            - Mathlib.Data.Finset.Pi
+            - Mathlib.Data.Finset.PiInduction
+            - Mathlib.Data.Finset.Piecewise
+            - Mathlib.Data.Finset.Powerset
+            - Mathlib.Data.Finset.Preimage
+            - Mathlib.Data.Finset.Prod
+          E3: [Finset.pi, Finset.mem_powersetCard, Finset.card_powersetCard, Finset.card_powerset, Finset.diag, Finset.offDiag, Finset.product]
+          E2: [Finset.induction_on_pi_of_choice, Finset.induction_on_pi_min, Finset.induction_on_pi_max, Finset.Nonempty.snd, Finset.Nonempty.fst]
+          families: [F-simp, F-simp-coe, F-simp-mem, F-instance, F-def, F-simp-eq]
+          requires: [V01, V03.C07, V03.C08, V04, V05]
+          counts: {E0: 117, E1: 174, E2: 5, E3: 7}
+          pages: 12.2
+          status: planned
+        - id: V03.C03.S07
+          title: 'Finset: Range'
+          kind: theory
+          modules:
+            - Mathlib.Data.Finset.Range
+            - Mathlib.Data.Finset.SDiff
+            - Mathlib.Data.Finset.SMulAntidiagonal
+            - Mathlib.Data.Finset.Sigma
+            - Mathlib.Data.Finset.Slice
+            - Mathlib.Data.Finset.Sort
+            - Mathlib.Data.Finset.Sum
+            - Mathlib.Data.Finset.Sups
+          E3: [Finset.instGeneralizedBooleanAlgebra, Finset.instSDiff, Finset.slice, Set.Sized, Finset.diffs, Finset.compls]
+          E2: [Finset.nonempty_range_add_one]
+          families: [F-simp, F-simp-coe, F-simp-iff, F-simp-mem, F-instance, F-simp-eq, F-to-dual, F-simp-mk, F-aux-snake, F-simp-apply]
+          requires: [V04]
+          counts: {E0: 169, E1: 301, E2: 1, E3: 6}
+          pages: 15
+          status: planned
+        - id: V03.C03.S08
+          title: 'Finset: Sym'
+          kind: theory
+          modules:
+            - Mathlib.Data.Finset.Sym
+            - Mathlib.Data.Finset.SymmDiff
+            - Mathlib.Data.Finset.Union
+            - Mathlib.Data.Finset.Update
+          E3: [Finset.biUnion]
+          families: [F-simp, F-simp-mem, F-simp-iff, F-simp-eq, F-instance, F-simp-coe, F-def]
+          counts: {E0: 58, E1: 77, E3: 1}
+          pages: 3.4
+          status: planned
+    - id: C04
+      title: Multiset
+      prefixes: [Mathlib/Data/Multiset]
+      requires: [V04, V33]
+      sections:
+        - id: V03.C04.S01
+          title: 'Multiset: Add sub'
+          kind: theory
+          modules:
+            - Mathlib.Data.Multiset.AddSub
+            - Mathlib.Data.Multiset.Antidiagonal
+            - Mathlib.Data.Multiset.Basic
+            - Mathlib.Data.Multiset.Bind
+            - Mathlib.Data.Multiset.Count
+            - Mathlib.Data.Multiset.Dedup
+            - Mathlib.Data.Multiset.Defs
+          E3: [Multiset.sigma, Multiset.join, Multiset.product, Multiset.bind, Multiset.Nodup, Multiset, Multiset.pmap, Multiset.card, Multiset.Pairwise, Multiset.attach]
+          families: [F-simp, F-simp-coe, F-simp-mem, F-instance, F-simp-iff, F-simp-eq, F-ext]
+          counts: {E0: 171, E1: 159, E3: 10}
+          pages: 13.3
+          status: planned
+        - id: V03.C04.S02
+          title: 'Multiset: Dershowitz manna'
+          kind: theory
+          modules:
+            - Mathlib.Data.Multiset.DershowitzManna
+            - Mathlib.Data.Multiset.Filter
+            - Mathlib.Data.Multiset.Find
+            - Mathlib.Data.Multiset.FinsetOps
+            - Mathlib.Data.Multiset.Fintype
+            - Mathlib.Data.Multiset.Fold
+            - Mathlib.Data.Multiset.Functor
+            - Mathlib.Data.Multiset.Interval
+            - Mathlib.Data.Multiset.Lattice
+            - Mathlib.Data.Multiset.MapFold
+          E3: [Multiset.wellFounded_isDershowitzMannaLT, Multiset.IsDershowitzMannaLT, Multiset.filterMap, Multiset.filter, Multiset.foldr, Multiset.map, Multiset.foldl]
+          families: [F-instance, F-simp-eq, F-simp, F-simp-mem, F-simp-iff, F-simp-apply, F-simp-coe, F-simp-cast, F-aux, F-def, F-to-dual]
+          requires: [V04]
+          counts: {E0: 199, E1: 145, E3: 7}
+          pages: 10.4
+          status: planned
+        - id: V03.C04.S03
+          title: 'Multiset: Nat antidiagonal'
+          kind: theory
+          modules:
+            - Mathlib.Data.Multiset.NatAntidiagonal
+            - Mathlib.Data.Multiset.OrderedMonoid
+            - Mathlib.Data.Multiset.Pairwise
+            - Mathlib.Data.Multiset.Pi
+            - Mathlib.Data.Multiset.Powerset
+            - Mathlib.Data.Multiset.Range
+            - Mathlib.Data.Multiset.Replicate
+            - Mathlib.Data.Multiset.Sections
+            - Mathlib.Data.Multiset.Sort
+            - Mathlib.Data.Multiset.Sum
+            - Mathlib.Data.Multiset.Sym
+            - Mathlib.Data.Multiset.UnionInter
+            - Mathlib.Data.Multiset.ZeroCons
+          E3: [Multiset.sym2, Multiset.rec]
+          families: [F-simp, F-simp-mem, F-aux, F-simp-iff, F-simp-eq, F-instance, F-simp-coe, F-def, F-ctor]
+          counts: {E0: 185, E1: 181, E3: 2}
+          pages: 7.6
+          status: planned
+    - id: C05
+      title: Fintype
+      prefixes: [Mathlib/Data/Fintype]
+      requires: [V01, V03.C02, V03.C03, V03.C04, V03.C07, V03.C08, V05]
+      sections:
+        - id: V03.C05.S01
+          title: 'Fintype: Basic'
+          kind: theory
+          modules:
+            - Mathlib.Data.Fintype.Basic
+            - Mathlib.Data.Fintype.BigOperators
+            - Mathlib.Data.Fintype.Card
+            - Mathlib.Data.Fintype.CardEmbedding
+            - Mathlib.Data.Fintype.Defs
+            - Mathlib.Data.Fintype.EquivFin
+          E3: [Finite.surjective_of_injective, Finset.univ, Fintype, Infinite.of_injective, Fintype.truncEquivFin, Fintype.equivFin, Infinite.of_surjective, Fintype.equivOfCardEq, Fintype.truncEquivOfCardEq, Infinite.natEmbedding]
+          E2: [exists_seq_of_forall_finset_exists, exists_seq_of_forall_finset_exists', Fintype.card_piFinset_const, Fintype.card_pi_const]
+          families: [F-def, F-instance, F-simp, F-simp-eq, F-aux, F-simp-mem, F-simp-coe, F-ctor, F-simp-apply]
+          requires: [V01, V03.C03, V03.C04, V03.C07, V05]
+          counts: {E0: 145, E1: 180, E2: 4, E3: 10}
+          pages: 14.6
+          status: planned
+        - id: V03.C05.S02
+          title: 'Fintype: Fin'
+          kind: theory
+          modules:
+            - Mathlib.Data.Fintype.Fin
+            - Mathlib.Data.Fintype.Inv
+            - Mathlib.Data.Fintype.Lattice
+            - Mathlib.Data.Fintype.List
+            - Mathlib.Data.Fintype.OfMap
+            - Mathlib.Data.Fintype.Option
+            - Mathlib.Data.Fintype.Order
+            - Mathlib.Data.Fintype.Parity
+            - Mathlib.Data.Fintype.Perm
+            - Mathlib.Data.Fintype.Pi
+            - Mathlib.Data.Fintype.Pigeonhole
+            - Mathlib.Data.Fintype.Powerset
+            - Mathlib.Data.Fintype.Prod
+            - Mathlib.Data.Fintype.Quotient
+            - Mathlib.Data.Fintype.Sets
+            - Mathlib.Data.Fintype.Shrink
+            - Mathlib.Data.Fintype.Sigma
+            - Mathlib.Data.Fintype.Sort
+            - Mathlib.Data.Fintype.Sum
+            - Mathlib.Data.Fintype.Units
+            - Mathlib.Data.Fintype.Vector
+            - Mathlib.Data.Fintype.WithTopBot
+          E3: [Fintype.exists_ne_map_eq_of_card_lt, Function.Embedding.isEmpty_of_card_lt, Finite.exists_ne_map_eq_of_infinite, Finite.exists_infinite_fiber, Fintype.finsetEquivSet, Set.toFinset, Finset.fintypeCoeSort]
+          families: [F-instance, F-simp, F-simp-apply, F-simp-coe, F-simp-eq, F-simp-iff, F-simp-mem, F-simp-mk, F-to-dual]
+          requires: [V01, V03.C02, V03.C03, V03.C07]
+          counts: {E0: 169, E1: 167, E3: 7}
+          pages: 11.2
+          status: planned
+    - id: C06
+      title: Finite and Finsupp
+      prefixes: [Mathlib/Data/Finite, Mathlib/Data/Finsupp]
+      requires: [V01, V03.C02, V03.C03, V03.C08, V05]
+      sections:
+        - id: V03.C06.S01
+          title: Card
+          kind: theory
+          modules:
+            - Mathlib.Data.Finite.Card
+            - Mathlib.Data.Finite.Defs
+            - Mathlib.Data.Finite.Perm
+            - Mathlib.Data.Finite.Prod
+            - Mathlib.Data.Finite.Set
+            - Mathlib.Data.Finite.Sigma
+            - Mathlib.Data.Finite.Sum
+            - Mathlib.Data.Finite.Vector
+            - Mathlib.Data.Finsupp.AList
+            - Mathlib.Data.Finsupp.Antidiagonal
+            - Mathlib.Data.Finsupp.Basic
+            - Mathlib.Data.Finsupp.BigOperators
+            - Mathlib.Data.Finsupp.Defs
+          E3: [Finsupp.mapDomain, Finsupp.frange, Finsupp.graph, Finsupp.comapDomain, Finsupp.filter, Finsupp.split, Finsupp.mapRange.equiv, Finsupp.support, Finsupp.onFinset, Finsupp.zipWith, Finsupp.embDomain, Finsupp.mapRange, Finsupp]
+          families: [F-simp, F-simp-mem, F-simp-apply, F-instance, F-simp-coe, F-simp-eq, F-simp-cast, F-ext, F-ctor, F-simp-iff, F-coe-mk, F-ext-iff]
+          requires: [V01, V03.C03, V05]
+          counts: {E0: 198, E1: 164, E3: 13}
+          pages: 15.9
+          status: planned
+        - id: V03.C06.S02
+          title: Finsupp
+          kind: theory
+          modules:
+            - Mathlib.Data.Finsupp.Encodable
+            - Mathlib.Data.Finsupp.Ext
+            - Mathlib.Data.Finsupp.Fin
+            - Mathlib.Data.Finsupp.Fintype
+            - Mathlib.Data.Finsupp.Indicator
+            - Mathlib.Data.Finsupp.Interval
+            - Mathlib.Data.Finsupp.Lex
+            - Mathlib.Data.Finsupp.MonomialOrder
+            - Mathlib.Data.Finsupp.MonomialOrder.DegLex
+            - Mathlib.Data.Finsupp.Multiset
+            - Mathlib.Data.Finsupp.NeLocus
+            - Mathlib.Data.Finsupp.Notation
+            - Mathlib.Data.Finsupp.Option
+            - Mathlib.Data.Finsupp.Order
+            - Mathlib.Data.Finsupp.PWO
+            - Mathlib.Data.Finsupp.Pointwise
+            - Mathlib.Data.Finsupp.Quotient
+            - Mathlib.Data.Finsupp.SMul
+            - Mathlib.Data.Finsupp.SMulWithZero
+            - Mathlib.Data.Finsupp.Sigma
+            - Mathlib.Data.Finsupp.Single
+            - Mathlib.Data.Finsupp.ToDFinsupp
+            - Mathlib.Data.Finsupp.Weight
+            - Mathlib.Data.Finsupp.WellFounded
+          E3: [Finsupp.addHom_ext, Finsupp.add_closure_setOfPred_eq_single, Finsupp.smulZeroClass, Finsupp.erase, Finsupp.update, Finsupp.single]
+          families: [F-ctor, F-def, F-instance, F-simp, F-simp-apply, F-simp-coe, F-simp-eq, F-simp-iff, F-simp-mem, F-simp-mk]
+          requires: [V01, V03.C03, V05]
+          counts: {E0: 326, E1: 270, E3: 6}
+          pages: 13.8
+          status: planned
+    - id: C07
+      title: DFinsupp, Sym, Fin enum and other topics
+      prefixes: [Mathlib/Data/DFinsupp, Mathlib/Data/Sym, Mathlib/Data/FinEnum, Mathlib/Data/Countable, Mathlib/Data/SetLike, Mathlib/Basic/Finite]
+      requires: [V01, V03.C02, V03.C03, V03.C04, V04, V05]
+      sections:
+        - id: V03.C07.S01
+          title: DFinsupp
+          kind: theory
+          modules:
+            - Mathlib.Data.DFinsupp.BigOperators
+            - Mathlib.Data.DFinsupp.Defs
+            - Mathlib.Data.DFinsupp.Encodable
+            - Mathlib.Data.DFinsupp.Ext
+            - Mathlib.Data.DFinsupp.FiniteInfinite
+            - Mathlib.Data.DFinsupp.Interval
+            - Mathlib.Data.DFinsupp.Lex
+            - Mathlib.Data.DFinsupp.Module
+            - Mathlib.Data.DFinsupp.Multiset
+            - Mathlib.Data.DFinsupp.NeLocus
+            - Mathlib.Data.DFinsupp.Notation
+            - Mathlib.Data.DFinsupp.Order
+            - Mathlib.Data.DFinsupp.Sigma
+          E3: [DFinsupp, DFinsupp.addHom_ext', DFinsupp.addHom_ext, DFinsupp.orderEmbeddingToFun, DFinsupp.sigmaCurryEquiv, DFinsupp.sigmaUncurry, DFinsupp.sigmaCurry]
+          families: [F-simp-apply, F-simp, F-simp-iff, F-simp-coe, F-simp-eq, F-ext, F-def, F-simp-mem, F-instance, F-ext-iff, F-ctor, F-to-dual]
+          requires: [V01, V03.C03, V03.C04, V04, V05]
+          counts: {E0: 336, E1: 176, E3: 7}
+          pages: 11.5
+          status: planned
+        - id: V03.C07.S02
+          title: Small
+          kind: reference
+          modules:
+            - Mathlib.Data.DFinsupp.Small
+            - Mathlib.Data.DFinsupp.Submonoid
+            - Mathlib.Data.DFinsupp.WellFounded
+            - Mathlib.Data.Sym.Basic
+            - Mathlib.Data.Sym.Card
+            - Mathlib.Data.Sym.NatCard
+            - Mathlib.Data.Sym.Sym2
+            - Mathlib.Data.Sym.Sym2.Card
+            - Mathlib.Data.Sym.Sym2.Finsupp
+            - Mathlib.Data.Sym.Sym2.Init
+            - Mathlib.Data.Sym.Sym2.Order
+          families: [F-instance, F-simp, F-simp-eq, F-simp-mem, F-simp-cast, F-simp-mk, F-coe-mk, F-simp-coe, F-simp-apply, F-ext-iff, F-ext, F-simp-iff, F-ctor]
+          counts: {E0: 207, E1: 210}
+          pages: 7
+          status: planned
+        - id: V03.C07.S03
+          title: Fin enum
+          kind: theory
+          modules:
+            - Mathlib.Data.FinEnum
+            - Mathlib.Data.FinEnum.Option
+            - Mathlib.Data.Countable.Basic
+            - Mathlib.Data.Countable.Defs
+            - Mathlib.Data.Countable.Small
+            - Mathlib.Data.SetLike.Basic
+            - Mathlib.Data.SetLike.Fintype
+            - Mathlib.Basic.Finite.Defs
+            - Mathlib.Basic.Finite.Prod
+            - Mathlib.Basic.Finite.Set
+            - Mathlib.Basic.Finite.Sigma
+            - Mathlib.Basic.Finite.Sum
+          E3: [Finite, Set.Finite, Set.toFinite, Infinite]
+          E2: [Finite.exists_equiv_fin]
+          families: [F-instance, F-simp, F-simp-mem, F-ctor, F-simp-eq]
+          requires: [V03.C02]
+          counts: {E0: 102, E1: 68, E2: 1, E3: 4}
+          pages: 5.6
+          status: planned
+    - id: C08
+      title: Countable, Denumerable, Set like and Big operators
+      prefixes: [Mathlib/Basic/Countable, Mathlib/Basic/Denumerable, Mathlib/Basic/SetLike, Mathlib/Algebra/BigOperators]
+      requires: [V01, V02, V03.C03, V03.C05, V03.C06, V04, V05, V06]
+      sections:
+        - id: V03.C08.S01
+          title: Basic
+          kind: theory
+          modules:
+            - Mathlib.Basic.Countable.Basic
+            - Mathlib.Basic.Countable.Defs
+            - Mathlib.Basic.Countable.Small
+            - Mathlib.Basic.Denumerable
+            - Mathlib.Basic.SetLike.Basic
+            - Mathlib.Algebra.BigOperators.Associated
+            - Mathlib.Algebra.BigOperators.Balance
+            - Mathlib.Algebra.BigOperators.Expect
+            - Mathlib.Algebra.BigOperators.Field
+            - Mathlib.Algebra.BigOperators.Fin
+          E3: [finFunctionFinEquiv]
+          E2: [Fin.sum_sum_eq_sum_triangle_add]
+          families: [F-simp, F-instance, F-simp-iff, F-ctor, F-simp-eq, F-simp-coe, F-ext-iff, F-simp-mem, F-ext, F-simp-apply, F-def]
+          requires: [V03.C05, V04, V05]
+          counts: {E0: 164, E1: 282, E2: 1, E3: 1}
+          pages: 10.4
+          status: planned
+        - id: V03.C08.S02
+          title: 'Big operators: Finprod'
+          kind: theory
+          modules:
+            - Mathlib.Algebra.BigOperators.Finprod
+            - Mathlib.Algebra.BigOperators.Finsupp.Basic
+          E3: [Finsupp.sum, Finsupp.liftAddHom]
+          families: [F-simp, F-simp-apply, F-def, F-simp-cast, F-simp-eq, F-simp-iff, F-simp-coe]
+          requires: [V01, V03.C06, V05]
+          counts: {E0: 108, E1: 306, E3: 2}
+          pages: 11.8
+          status: planned
+        - id: V03.C08.S03
+          title: 'Big operators: Fin'
+          kind: reference
+          modules:
+            - Mathlib.Algebra.BigOperators.Finsupp.Fin
+            - Mathlib.Algebra.BigOperators.Group.Finset.Basic
+            - Mathlib.Algebra.BigOperators.Group.Finset.Defs
+          families: [F-simp-apply, F-simp-eq, F-simp, F-simp-iff, F-simp-mem, F-to-additive, F-simp-coe, F-simp-mk, F-map-op]
+          counts: {E0: 104, E1: 326}
+          pages: 10.9
+          status: planned
+        - id: V03.C08.S04
+          title: Group
+          kind: reference
+          modules:
+            - Mathlib.Algebra.BigOperators.Group.Finset.Gaps
+            - Mathlib.Algebra.BigOperators.Group.Finset.Indicator
+            - Mathlib.Algebra.BigOperators.Group.Finset.Interval
+            - Mathlib.Algebra.BigOperators.Group.Finset.Lemmas
+            - Mathlib.Algebra.BigOperators.Group.Finset.Pi
+            - Mathlib.Algebra.BigOperators.Group.Finset.Piecewise
+            - Mathlib.Algebra.BigOperators.Group.Finset.Powerset
+            - Mathlib.Algebra.BigOperators.Group.Finset.Preimage
+            - Mathlib.Algebra.BigOperators.Group.Finset.Sigma
+            - Mathlib.Algebra.BigOperators.Group.List.Basic
+            - Mathlib.Algebra.BigOperators.Group.List.Defs
+            - Mathlib.Algebra.BigOperators.Group.List.Lemmas
+            - Mathlib.Algebra.BigOperators.Group.Multiset.Basic
+            - Mathlib.Algebra.BigOperators.Group.Multiset.Defs
+          families: [F-simp-apply, F-simp, F-simp-eq, F-to-additive, F-simp-coe, F-instance]
+          counts: {E0: 107, E1: 309}
+          pages: 10.3
+          status: planned
+        - id: V03.C08.S05
+          title: 'Big operators: Action'
+          kind: theory
+          modules:
+            - Mathlib.Algebra.BigOperators.GroupWithZero.Action
+            - Mathlib.Algebra.BigOperators.GroupWithZero.Finset
+            - Mathlib.Algebra.BigOperators.Intervals
+            - Mathlib.Algebra.BigOperators.ModEq
+            - Mathlib.Algebra.BigOperators.Module
+            - Mathlib.Algebra.BigOperators.NatAntidiagonal
+            - Mathlib.Algebra.BigOperators.Option
+            - Mathlib.Algebra.BigOperators.Pi
+            - Mathlib.Algebra.BigOperators.Ring.Finset
+            - Mathlib.Algebra.BigOperators.Ring.List
+            - Mathlib.Algebra.BigOperators.Ring.Multiset
+            - Mathlib.Algebra.BigOperators.Ring.Nat
+            - Mathlib.Algebra.BigOperators.RingEquiv
+            - Mathlib.Algebra.BigOperators.Sym
+            - Mathlib.Algebra.BigOperators.WithTop
+          E3: [Finset.sum_range_id]
+          E2: [Finset.sum_Ico_by_parts, Finset.Nat.sum_antidiagonal_eq_sum_range_succ, Finset.Nat.prod_antidiagonal_eq_prod_range_succ, Finset.prod_one_sub_ordered]
+          families: [F-simp-apply, F-simp-eq, F-to-additive, F-simp, F-simp-cast, F-simp-iff, F-to-dual, F-simp-coe]
+          requires: [V02, V03.C03, V04, V05, V06]
+          counts: {E0: 60, E1: 228, E2: 4, E3: 1}
+          pages: 9
+          status: planned
+    - id: C09
+      title: Finite support, Big operators and Antidiag
+      prefixes: [Mathlib/Algebra/FiniteSupport, Mathlib/Algebra/Order/BigOperators, Mathlib/Algebra/Order/Antidiag]
+      requires: [V01, V02, V03.C03, V03.C08, V04, V05, V06, V07]
+      sections:
+        - id: V03.C09.S01
+          title: Basic
+          kind: theory
+          modules:
+            - Mathlib.Algebra.FiniteSupport.Basic
+            - Mathlib.Algebra.FiniteSupport.Defs
+            - Mathlib.Algebra.Order.BigOperators.Expect
+            - Mathlib.Algebra.Order.BigOperators.Group.Finset
+            - Mathlib.Algebra.Order.BigOperators.Group.List
+            - Mathlib.Algebra.Order.BigOperators.Group.LocallyFinite
+          E2: [Finset.expect_mul_sq_le_sq_mul_sq]
+          families: [F-to-dual, F-simp]
+          requires: [V02, V04, V05, V06, V07]
+          counts: {E0: 17, E1: 321, E2: 1}
+          pages: 10.9
+          status: planned
+        - id: V03.C09.S02
+          title: Order
+          kind: theory
+          modules:
+            - Mathlib.Algebra.Order.BigOperators.Group.Multiset
+            - Mathlib.Algebra.Order.BigOperators.GroupWithZero.Finset
+            - Mathlib.Algebra.Order.BigOperators.GroupWithZero.List
+            - Mathlib.Algebra.Order.BigOperators.GroupWithZero.Multiset
+            - Mathlib.Algebra.Order.BigOperators.Ring.Finset
+            - Mathlib.Algebra.Order.BigOperators.Ring.List
+            - Mathlib.Algebra.Order.BigOperators.Ring.Multiset
+            - Mathlib.Algebra.Order.Antidiag.Finsupp
+            - Mathlib.Algebra.Order.Antidiag.FinsuppEquiv
+            - Mathlib.Algebra.Order.Antidiag.Nat
+            - Mathlib.Algebra.Order.Antidiag.Pi
+            - Mathlib.Algebra.Order.Antidiag.Prod
+            - Mathlib.Algebra.Order.Antidiag.Tendsto
+          E3: [Finset.piAntidiag, Finset.HasMulAntidiagonal]
+          E2: [Finset.sum_sq_le_sum_mul_sum_of_sq_le_mul, Finset.sq_sum_div_le_sum_sq_div, Finset.sum_mul_sq_le_sq_mul_sq, Finset.HasAntidiagonal.antidiagonal_subtype_ext, Finset.HasMulAntidiagonal.mulAntidiagonal_subtype_ext]
+          families: [F-to-dual, F-simp, F-simp-coe, F-simp-mem, F-simp-apply, F-instance, F-ctor]
+          requires: [V01, V03.C03, V03.C08, V04, V05, V06]
+          counts: {E0: 62, E1: 145, E2: 5, E3: 2}
+          pages: 7.2
+          status: planned

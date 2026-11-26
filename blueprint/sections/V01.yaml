@@ -1,0 +1,345 @@
+# The section plan of V01 (spec 09.1, 07.7). mlib plan made the draft from the index at e54979a532. A person accepts it and then edits it by hand.
+volume: V01
+title: The language of Mathlib
+mathlib: e54979a532247ae4eb9d5578a8fd40a1bc332101
+date: "2026-11-26"
+by: mlib plan dev
+status: proposed
+pages: 141.5
+chapters:
+    - id: C01
+      title: Embedding and Equiv
+      prefixes: [Mathlib/Logic/Embedding, Mathlib/Logic/Equiv]
+      requires: [V01.C03, V03]
+      sections:
+        - id: V01.C01.S01
+          title: Basic
+          kind: theory
+          modules:
+            - Mathlib.Logic.Embedding.Basic
+            - Mathlib.Logic.Embedding.Set
+            - Mathlib.Logic.Equiv.Array
+            - Mathlib.Logic.Equiv.Basic
+            - Mathlib.Logic.Equiv.Bool
+            - Mathlib.Logic.Equiv.Defs
+          E3: [Equiv.piCongrLeft, Equiv.piCongrRight, Equiv, Equiv.piUnique, Equiv.Perm, Equiv.symm]
+          E2: [Function.Embedding.injective, Equiv.right_inv, Equiv.injective, Equiv.left_inv]
+          families: [F-instance, F-simp, F-simp-apply, F-simp-eq, F-simp-coe, F-simp-iff, F-ctor, F-simp-mk, F-ext, F-ext-iff, F-def, F-to-dual, F-simp-cast]
+          requires: [V01.C03]
+          counts: {E0: 315, E1: 292, E2: 4, E3: 6}
+          pages: 15.1
+          status: planned
+        - id: V01.C01.S02
+          title: 'Equiv: Embedding'
+          kind: theory
+          modules:
+            - Mathlib.Logic.Equiv.Embedding
+            - Mathlib.Logic.Equiv.Fin.Basic
+            - Mathlib.Logic.Equiv.Fin.Rotate
+            - Mathlib.Logic.Equiv.Finset
+            - Mathlib.Logic.Equiv.Fintype
+            - Mathlib.Logic.Equiv.Functor
+            - Mathlib.Logic.Equiv.List
+            - Mathlib.Logic.Equiv.Multiset
+            - Mathlib.Logic.Equiv.Nat
+            - Mathlib.Logic.Equiv.Option
+            - Mathlib.Logic.Equiv.Pairwise
+            - Mathlib.Logic.Equiv.PartialEquiv
+          E3: [Function.Embedding.toEquivRange, PartialEquiv, PartialEquiv.ofSet, PartialEquiv.trans, PartialEquiv.symm, Equiv.toPartialEquiv, PartialEquiv.EqOnSource, PartialEquiv.refl]
+          families: [F-simp-apply, F-simp, F-simp-eq, F-simp-coe, F-to-additive, F-instance, F-simp-mem, F-aux-snake, F-aux, F-simp-iff, F-ext, F-ext-iff, F-ctor]
+          requires: [V03]
+          counts: {E0: 258, E1: 226, E3: 8}
+          pages: 13.9
+          status: planned
+        - id: V01.C01.S03
+          title: 'Equiv: Prod'
+          kind: theory
+          modules:
+            - Mathlib.Logic.Equiv.Prod
+            - Mathlib.Logic.Equiv.Set
+            - Mathlib.Logic.Equiv.Sigma
+            - Mathlib.Logic.Equiv.Sum
+          E3: [Equiv.sumPiEquivProdPi]
+          families: [F-simp, F-simp-apply, F-simp-eq, F-simp-coe, F-to-dual, F-simp-mem, F-to-additive]
+          counts: {E0: 182, E1: 137, E3: 1}
+          pages: 5.4
+          status: planned
+    - id: C02
+      title: Function, Small and Logic
+      prefixes: [Mathlib/Logic/Function, Mathlib/Logic/Small, Mathlib/Logic]
+      requires: [V03]
+      sections:
+        - id: V01.C02.S01
+          title: Function
+          kind: theory
+          modules:
+            - Mathlib.Logic.Function.Basic
+            - Mathlib.Logic.Function.Coequalizer
+            - Mathlib.Logic.Function.CompTypeclasses
+            - Mathlib.Logic.Function.Conjugate
+            - Mathlib.Logic.Function.Const
+            - Mathlib.Logic.Function.Defs
+            - Mathlib.Logic.Function.DependsOn
+          E3: [Function.cantor_surjective]
+          E2: [Function.not_surjective_Type, Function.Bijective.surjective, Function.Commute.id_left, Function.Semiconj.id_left]
+          families: [F-ctor, F-instance, F-simp-eq, F-simp, F-def, F-simp-cast, F-simp-apply, F-simp-iff, F-simp-mk]
+          counts: {E0: 161, E1: 262, E2: 4, E3: 1}
+          pages: 10.1
+          status: planned
+        - id: V01.C02.S02
+          title: Fiber partition
+          kind: theory
+          modules:
+            - Mathlib.Logic.Function.FiberPartition
+            - Mathlib.Logic.Function.FromTypes
+            - Mathlib.Logic.Function.Iterate
+            - Mathlib.Logic.Function.OfArity
+            - Mathlib.Logic.Function.ULift
+            - Mathlib.Logic.Small.Basic
+            - Mathlib.Logic.Small.Defs
+            - Mathlib.Logic.Small.List
+            - Mathlib.Logic.Small.Set
+            - Mathlib.Logic.OpClass
+            - Mathlib.Logic.Pairwise
+            - Mathlib.Logic.Relation
+            - Mathlib.Logic.Relator
+          E3: [Set.Pairwise, Pairwise, Relation.SymmGen]
+          E2: [ULift.down_injective]
+          families: [F-simp-apply, F-simp, F-instance, F-ext-iff, F-ctor, F-simp-eq, F-ext, F-simp-iff]
+          counts: {E0: 178, E1: 236, E2: 1, E3: 3}
+          pages: 10.4
+          status: planned
+    - id: C03
+      title: Basic
+      prefixes: [Mathlib/Basic]
+      requires: [V03]
+      sections:
+        - id: V01.C03.S01
+          title: Exists unique
+          kind: theory
+          modules:
+            - Mathlib.Basic.ExistsUnique
+            - Mathlib.Basic.FunLike.Basic
+            - Mathlib.Basic.FunLike.Embedding
+            - Mathlib.Basic.FunLike.Equiv
+            - Mathlib.Basic.IsEmpty.Basic
+            - Mathlib.Basic.IsEmpty.Defs
+            - Mathlib.Basic.Logic.Basic
+            - Mathlib.Basic.Logic.Lemmas
+          E3: [DFunLike, Fact]
+          E2: [Iff.not, Fact.out]
+          families: [F-simp-eq, F-instance, F-simp, F-ctor, F-ext, F-ext-iff, F-simp-coe, F-simp-apply, F-simp-iff, F-simp-cast, F-def]
+          counts: {E0: 150, E1: 250, E2: 2, E3: 2}
+          pages: 10.2
+          status: planned
+        - id: V01.C03.S02
+          title: Nonempty
+          kind: theory
+          modules:
+            - Mathlib.Basic.Nonempty
+            - Mathlib.Basic.Nontrivial.Basic
+            - Mathlib.Basic.Nontrivial.Defs
+            - Mathlib.Basic.Opposite
+            - Mathlib.Basic.PEquiv
+            - Mathlib.Basic.Rel
+          E3: [Opposite, PEquiv.injective_of_forall_isSome, PEquiv.ofSet, PEquiv.single, PEquiv.injective_of_forall_ne_isSome, PEquiv.toFun, PEquiv, SetRel.cod, SetRel.id, SetRel.inv, Function.graph, SetRel.restrictDomain, SetRel.dom, SetRel.core, SetRel.comp, SetRel.image, SetRel.preimage, Rel]
+          E2: [Nonempty.map]
+          families: [F-simp, F-simp-iff, F-instance, F-ctor, F-simp-apply, F-coe-mk, F-ext-iff, F-simp-eq, F-def, F-ext, F-simp-mem]
+          requires: [V03]
+          counts: {E0: 159, E1: 172, E2: 1, E3: 18}
+          pages: 20.3
+          status: planned
+        - id: V01.C03.S03
+          title: Cover
+          kind: theory
+          modules:
+            - Mathlib.Basic.Rel.Cover
+            - Mathlib.Basic.Rel.Separated
+            - Mathlib.Basic.SProd
+            - Mathlib.Basic.Sign.Basic
+            - Mathlib.Basic.Sign.Defs
+            - Mathlib.Basic.TwoPointing
+            - Mathlib.Basic.Unique
+            - Mathlib.Basic.UnivLE
+          E3: [Function.Injective.unique, Function.Surjective.unique, Function.Injective.subsingleton, Unique, Unique.mk']
+          families: [F-simp, F-ctor, F-simp-iff, F-simp-apply, F-simp-coe, F-instance, F-simp-eq, F-ext-iff, F-ext, F-def]
+          counts: {E0: 126, E1: 101, E3: 5}
+          pages: 7.4
+          status: planned
+    - id: C04
+      title: Util and Lean
+      prefixes: [Mathlib/Util, Mathlib/Lean]
+      sections:
+        - id: V01.C04.S01
+          title: Add related decl
+          kind: theory
+          modules:
+            - Mathlib.Util.AddRelatedDecl
+            - Mathlib.Util.AliasIn
+            - Mathlib.Util.AssertNoSorry
+            - Mathlib.Util.AtLocation
+            - Mathlib.Util.AtomM
+            - Mathlib.Util.AtomM.Recurse
+            - Mathlib.Util.CodeActions
+            - Mathlib.Util.CodeActions.BinderPlicity
+            - Mathlib.Util.CompileInductive
+            - Mathlib.Util.CountHeartbeats
+            - Mathlib.Util.DelabNonCanonical
+            - Mathlib.Util.Delaborators
+            - Mathlib.Util.DischargerAsTactic
+            - Mathlib.Util.ElabWithoutMVars
+            - Mathlib.Util.Export
+            - Mathlib.Util.FormatTable
+            - Mathlib.Util.GetAllModules
+            - Mathlib.Util.LongNames
+            - Mathlib.Util.Notation3
+            - Mathlib.Util.PPOptions
+            - Mathlib.Util.ParseCommand
+            - Mathlib.Util.PrintSorries
+            - Mathlib.Util.Qq
+            - Mathlib.Util.Simp
+            - Mathlib.Util.SleepHeartbeats
+            - Mathlib.Util.Superscript
+          E3: [Mathlib.Tactic.AtomM.RecurseM.run, Mathlib.Tactic.AtomM.RecurseM, Mathlib.Tactic.AtomM.recurse]
+          families: [F-instance, F-ctor, F-simp]
+          counts: {E0: 62, E1: 247, E3: 3}
+          pages: 10.6
+          status: planned
+        - id: V01.C04.S02
+          title: Synthesize using
+          kind: theory
+          modules:
+            - Mathlib.Util.SynthesizeUsing
+            - Mathlib.Util.Tactic
+            - Mathlib.Util.TermReduce
+            - Mathlib.Util.TransImports
+            - Mathlib.Util.VersoRoles
+            - Mathlib.Util.WhatsNew
+            - Mathlib.Util.WithWeakNamespace
+            - Mathlib.Lean.ContextInfo
+            - Mathlib.Lean.CoreM
+            - Mathlib.Lean.Elab.InfoTree
+            - Mathlib.Lean.Elab.Tactic.Basic
+            - Mathlib.Lean.Elab.Tactic.Meta
+            - Mathlib.Lean.Elab.Term
+            - Mathlib.Lean.EnvExtension
+            - Mathlib.Lean.Environment
+            - Mathlib.Lean.Exception
+            - Mathlib.Lean.Expr.Basic
+            - Mathlib.Lean.Expr.ExtraRecognizers
+            - Mathlib.Lean.Expr.Rat
+            - Mathlib.Lean.FoldEnvironment
+            - Mathlib.Lean.GoalsLocation
+            - Mathlib.Lean.Json
+            - Mathlib.Lean.Linter
+            - Mathlib.Lean.LocalContext
+            - Mathlib.Lean.MessageData.ForExprs
+            - Mathlib.Lean.MessageData.Trace
+            - Mathlib.Lean.Meta
+            - Mathlib.Lean.Meta.Basic
+            - Mathlib.Lean.Meta.CongrTheorems
+            - Mathlib.Lean.Meta.DiscrTree
+            - Mathlib.Lean.Meta.KAbstractPositions
+            - Mathlib.Lean.Meta.RefinedDiscrTree
+            - Mathlib.Lean.Meta.RefinedDiscrTree.Basic
+            - Mathlib.Lean.Meta.RefinedDiscrTree.Encode
+            - Mathlib.Lean.Meta.RefinedDiscrTree.Initialize
+            - Mathlib.Lean.Meta.RefinedDiscrTree.Lookup
+            - Mathlib.Lean.Meta.Simp
+            - Mathlib.Lean.Meta.Tactic.Rewrite
+            - Mathlib.Lean.Name
+            - Mathlib.Lean.PrettyPrinter.Delaborator
+            - Mathlib.Lean.Quote
+            - Mathlib.Lean.Thunk
+          E3: [code, Lean.Expr.isExplicitNumber]
+          families: [F-aux, F-ctor, F-instance, F-simp, F-simp-mk]
+          counts: {E0: 88, E1: 293, E3: 2}
+          pages: 11.4
+          status: planned
+    - id: C05
+      title: Deprecated, Hierarchy design, PEmpty instances and other topics
+      prefixes: [Mathlib/Deprecated, Mathlib/Algebra/HierarchyDesign, Mathlib/Algebra/PEmptyInstances, Mathlib/Data/FunLike, Mathlib/Data/Prod, Mathlib/Data/Sum, Mathlib/Data/Sigma, Mathlib/Data/PSigma, Mathlib/Data/Subtype, Mathlib/Data/SubtypeNeLift, Mathlib/Data/Option, Mathlib/Data/Opposite, Mathlib/Data/Bool, Mathlib/Data/Quot, Mathlib/Data/Setoid, Mathlib/Data/ULift, Mathlib/Data/Pi, Mathlib/Data/Rel, Mathlib/Data/Erased, Mathlib/Data/Part, Mathlib/Data/PFun, Mathlib/Data/PEquiv, Mathlib/Data/Sign, Mathlib/Data/SProd, Mathlib/Data/TwoPointing, Mathlib/Data/Ordering, Mathlib/Data/Bracket]
+      sections:
+        - id: V01.C05.S01
+          title: Aliases
+          kind: theory
+          modules:
+            - Mathlib.Deprecated.Aliases
+            - Mathlib.Algebra.HierarchyDesign
+            - Mathlib.Algebra.PEmptyInstances
+            - Mathlib.Data.FunLike.Basic
+            - Mathlib.Data.FunLike.Embedding
+            - Mathlib.Data.FunLike.Equiv
+            - Mathlib.Data.FunLike.Fintype
+            - Mathlib.Data.FunLike.Graded
+            - Mathlib.Data.FunLike.Group
+            - Mathlib.Data.FunLike.IsApply
+            - Mathlib.Data.FunLike.Module
+            - Mathlib.Data.FunLike.Ring
+            - Mathlib.Data.Prod.Basic
+            - Mathlib.Data.Prod.Lex
+            - Mathlib.Data.Prod.PProd
+            - Mathlib.Data.Prod.TProd
+            - Mathlib.Data.Sum.Basic
+            - Mathlib.Data.Sum.Interval
+            - Mathlib.Data.Sum.Lattice
+            - Mathlib.Data.Sum.Order
+          E2: [Sum.inr_injective, Sum.inl_injective]
+          families: [F-instance, F-simp, F-simp-mk, F-def, F-ext, F-ext-iff, F-to-dual]
+          counts: {E0: 94, E1: 140, E2: 2}
+          pages: 5
+          status: planned
+        - id: V01.C05.S02
+          title: Basic
+          kind: theory
+          modules:
+            - Mathlib.Data.Sigma.Basic
+            - Mathlib.Data.Sigma.Interval
+            - Mathlib.Data.Sigma.Lex
+            - Mathlib.Data.Sigma.Order
+            - Mathlib.Data.PSigma.Order
+            - Mathlib.Data.Subtype
+            - Mathlib.Data.SubtypeNeLift
+            - Mathlib.Data.Option.Basic
+            - Mathlib.Data.Option.Defs
+            - Mathlib.Data.Option.NAry
+            - Mathlib.Data.Opposite
+            - Mathlib.Data.Bool.AllAny
+            - Mathlib.Data.Bool.Basic
+            - Mathlib.Data.Bool.Count
+            - Mathlib.Data.Bool.Set
+          E3: [Option.map₂]
+          E2: [sigma_mk_injective, Subtype.prop]
+          families: [F-simp, F-instance, F-simp-mk, F-simp-iff, F-simp-apply, F-simp-coe, F-def, F-simp-eq, F-simp-mem]
+          counts: {E0: 143, E1: 134, E2: 2, E3: 1}
+          pages: 5.6
+          status: planned
+        - id: V01.C05.S03
+          title: Quot
+          kind: theory
+          modules:
+            - Mathlib.Data.Quot
+            - Mathlib.Data.Setoid.Basic
+            - Mathlib.Data.Setoid.Partition
+            - Mathlib.Data.Setoid.Partition.Card
+            - Mathlib.Data.ULift
+            - Mathlib.Data.Pi.Interval
+            - Mathlib.Data.Rel
+            - Mathlib.Data.Rel.Cover
+            - Mathlib.Data.Rel.Separated
+            - Mathlib.Data.Erased
+            - Mathlib.Data.Part
+            - Mathlib.Data.PFun
+            - Mathlib.Data.PEquiv
+            - Mathlib.Data.Sign.Basic
+            - Mathlib.Data.Sign.Defs
+            - Mathlib.Data.SProd
+            - Mathlib.Data.TwoPointing
+            - Mathlib.Data.Ordering.Basic
+            - Mathlib.Data.Ordering.Lemmas
+            - Mathlib.Data.Bracket
+          E3: [Trunc, Part.bind, Part.equivOption, Part.restrict, Part.none, Part.assert, Part.unwrap, Part.toOption, Part.map, Part.ofOption]
+          families: [F-ctor, F-def, F-ext, F-ext-iff, F-instance, F-simp, F-simp-apply, F-simp-coe, F-simp-eq, F-simp-iff, F-simp-mem, F-simp-mk, F-to-additive]
+          counts: {E0: 276, E1: 244, E3: 10}
+          pages: 16.1
+          status: planned

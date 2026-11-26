@@ -1,0 +1,555 @@
+# The section plan of V02 (spec 09.1, 07.7). mlib plan made the draft from the index at e54979a532. A person accepts it and then edits it by hand.
+volume: V02
+title: Numbers
+mathlib: e54979a532247ae4eb9d5578a8fd40a1bc332101
+date: "2026-11-26"
+by: mlib plan dev
+status: proposed
+pages: 250.8
+chapters:
+    - id: C01
+      title: Cast, Choose, Digits and Factorial
+      prefixes: [Mathlib/Data/Nat/Cast, Mathlib/Data/Nat/Choose, Mathlib/Data/Nat/Digits, Mathlib/Data/Nat/Factorial]
+      requires: [V01, V02.C04, V03, V05, V06]
+      sections:
+        - id: V02.C01.S01
+          title: 'Nat: Basic'
+          kind: theory
+          modules:
+            - Mathlib.Data.Nat.Cast.Basic
+            - Mathlib.Data.Nat.Cast.Commute
+            - Mathlib.Data.Nat.Cast.Defs
+            - Mathlib.Data.Nat.Cast.Field
+            - Mathlib.Data.Nat.Cast.NeZero
+            - Mathlib.Data.Nat.Cast.Order.Basic
+            - Mathlib.Data.Nat.Cast.Order.Field
+            - Mathlib.Data.Nat.Cast.Order.Ring
+            - Mathlib.Data.Nat.Cast.Pi
+            - Mathlib.Data.Nat.Cast.Prod
+            - Mathlib.Data.Nat.Cast.SetInterval
+            - Mathlib.Data.Nat.Cast.Synonym
+            - Mathlib.Data.Nat.Cast.WithTop
+            - Mathlib.Data.Nat.Choose.Basic
+            - Mathlib.Data.Nat.Choose.Bounds
+            - Mathlib.Data.Nat.Choose.Cast
+            - Mathlib.Data.Nat.Choose.Central
+            - Mathlib.Data.Nat.Choose.Consecutive
+            - Mathlib.Data.Nat.Choose.Dvd
+            - Mathlib.Data.Nat.Choose.Factorization
+            - Mathlib.Data.Nat.Choose.Lucas
+          E3: [Nat.castAddMonoidHom, AddMonoidWithOne, Nat.choose, Choose.lucas_theorem]
+          E2: [AddMonoidWithOne.natCast_zero, AddMonoidWithOne.natCast_succ]
+          families: [F-simp-cast, F-def, F-map-op, F-simp-apply, F-simp, F-instance, F-simp-coe, F-ctor, F-simp-eq, F-to-dual, F-aux-snake]
+          requires: [V05]
+          counts: {E0: 102, E1: 197, E2: 2, E3: 4}
+          pages: 10.1
+          status: planned
+        - id: V02.C01.S02
+          title: 'Nat: Multinomial'
+          kind: theory
+          modules:
+            - Mathlib.Data.Nat.Choose.Multinomial
+            - Mathlib.Data.Nat.Choose.Sum
+            - Mathlib.Data.Nat.Choose.Vandermonde
+            - Mathlib.Data.Nat.Digits.Defs
+            - Mathlib.Data.Nat.Digits.Div
+            - Mathlib.Data.Nat.Digits.Lemmas
+          E3: [Finset.sum_pow_eq_sum_piAntidiag_of_commute, add_pow, Nat.three_dvd_iff]
+          E2: [Nat.sum_Icc_choose, Nat.sum_range_add_choose]
+          families: [F-simp, F-aux-snake, F-aux, F-def, F-simp-iff, F-simp-eq]
+          requires: [V03, V05, V06]
+          counts: {E0: 43, E1: 173, E2: 2, E3: 3}
+          pages: 8.5
+          status: planned
+        - id: V02.C01.S03
+          title: Factorial
+          kind: theory
+          modules:
+            - Mathlib.Data.Nat.Factorial.Basic
+            - Mathlib.Data.Nat.Factorial.BigOperators
+            - Mathlib.Data.Nat.Factorial.Cast
+            - Mathlib.Data.Nat.Factorial.DoubleFactorial
+            - Mathlib.Data.Nat.Factorial.NatCast
+            - Mathlib.Data.Nat.Factorial.SuperFactorial
+          E3: [Nat.ascFactorial, Nat.factorial, Nat.descFactorial, Nat.doubleFactorial]
+          E2: [Nat.cast_descFactorial_two]
+          families: [F-simp, F-simp-eq, F-to-additive]
+          requires: [V06]
+          counts: {E0: 20, E1: 103, E2: 1, E3: 4}
+          pages: 6.8
+          status: planned
+    - id: C02
+      title: Factorization, Fib, GCD and Prime
+      prefixes: [Mathlib/Data/Nat/Factorization, Mathlib/Data/Nat/Fib, Mathlib/Data/Nat/GCD, Mathlib/Data/Nat/Prime]
+      requires: [V01, V03, V05]
+      sections:
+        - id: V02.C02.S01
+          title: 'Nat: Basic'
+          kind: theory
+          modules:
+            - Mathlib.Data.Nat.Factorization.Basic
+            - Mathlib.Data.Nat.Factorization.Defs
+            - Mathlib.Data.Nat.Factorization.Divisors
+            - Mathlib.Data.Nat.Factorization.Induction
+            - Mathlib.Data.Nat.Factorization.LCM
+            - Mathlib.Data.Nat.Factorization.PrimePow
+            - Mathlib.Data.Nat.Factorization.Root
+            - Mathlib.Data.Nat.Fib.Basic
+          E3: [Nat.fib_succ_eq_succ_sum, Nat.fib_add_two, Nat.fib_gcd, Nat.fib_two_mul, Nat.fib_two_mul_add_one, Nat.fib, Nat.fib_succ_eq_sum_choose, Nat.fastFib]
+          families: [F-simp, F-to-additive, F-simp-eq, F-simp-apply, F-def, F-aux]
+          requires: [V03, V05]
+          counts: {E0: 58, E1: 159, E3: 8}
+          pages: 11.7
+          status: planned
+        - id: V02.C02.S02
+          title: 'Nat: Zeckendorf'
+          kind: theory
+          modules:
+            - Mathlib.Data.Nat.Fib.Zeckendorf
+            - Mathlib.Data.Nat.GCD.Basic
+            - Mathlib.Data.Nat.GCD.BigOperators
+            - Mathlib.Data.Nat.GCD.Prime
+          E3: [Nat.zeckendorf, Nat.zeckendorfEquiv, List.IsZeckendorfRep, Nat.greatestFib, Nat.Prime.dvd_lcm, Nat.Prime.not_dvd_lcm, Nat.Prime.dvd_or_dvd_of_dvd_lcm]
+          families: [F-simp, F-simp-eq, F-simp-iff, F-instance]
+          counts: {E0: 42, E1: 44, E3: 7}
+          pages: 7.1
+          status: planned
+        - id: V02.C02.S03
+          title: Prime
+          kind: theory
+          modules:
+            - Mathlib.Data.Nat.Prime.Basic
+            - Mathlib.Data.Nat.Prime.Defs
+            - Mathlib.Data.Nat.Prime.Factorial
+            - Mathlib.Data.Nat.Prime.Infinite
+            - Mathlib.Data.Nat.Prime.Int
+            - Mathlib.Data.Nat.Prime.Nth
+            - Mathlib.Data.Nat.Prime.Pow
+          E3: [Nat.not_bddAbove_setOfPred_prime, Nat.exists_infinite_primes]
+          families: [F-simp, F-instance, F-simp-iff, F-simp-eq, F-def, F-to-additive, F-aux]
+          counts: {E0: 43, E1: 99, E3: 2}
+          pages: 4.9
+          status: planned
+    - id: C03
+      title: Nat
+      prefixes: [Mathlib/Data/Nat]
+      requires: [V01, V03, V04, V05]
+      sections:
+        - id: V02.C03.S01
+          title: 'Nat: Basic'
+          kind: theory
+          modules:
+            - Mathlib.Data.Nat.Basic
+            - Mathlib.Data.Nat.BinaryRec
+            - Mathlib.Data.Nat.BitIndices
+            - Mathlib.Data.Nat.Bits
+            - Mathlib.Data.Nat.Bitwise
+            - Mathlib.Data.Nat.ChineseRemainder
+            - Mathlib.Data.Nat.Count
+            - Mathlib.Data.Nat.Dist
+            - Mathlib.Data.Nat.DvdSequence
+            - Mathlib.Data.Nat.EvenOddRec
+            - Mathlib.Data.Nat.Factors
+            - Mathlib.Data.Nat.Find
+          E3: [Nat.exists_most_significant_bit, Nat.lt_of_testBit, Nat.chineseRemainderOfList, Nat.primeFactorsList_unique]
+          E2: [Nat.succ_injective]
+          families: [F-simp, F-instance, F-simp-iff, F-simp-apply, F-simp-eq, F-simp-mem, F-to-additive]
+          counts: {E0: 113, E1: 202, E2: 1, E3: 4}
+          pages: 10.1
+          status: planned
+        - id: V02.C03.S02
+          title: 'Nat: Hyperoperation'
+          kind: theory
+          modules:
+            - Mathlib.Data.Nat.Hyperoperation
+            - Mathlib.Data.Nat.Init
+            - Mathlib.Data.Nat.Lattice
+            - Mathlib.Data.Nat.Log
+            - Mathlib.Data.Nat.MaxPowDiv
+            - Mathlib.Data.Nat.MaxPrimeFac
+            - Mathlib.Data.Nat.ModEq
+            - Mathlib.Data.Nat.Multiplicity
+            - Mathlib.Data.Nat.Notation
+            - Mathlib.Data.Nat.Nth
+          E3: [Nat.gc_count_nth, Nat.nth_eq_orderEmbOfFin, Nat.nth, Nat.nth_eq_orderIsoOfNat]
+          E2: [Nat.le_induction, Nat.clog_pow_left]
+          families: [F-simp, F-instance, F-def, F-ctor, F-to-additive, F-simp-iff, F-simp-eq]
+          requires: [V01, V03, V04]
+          counts: {E0: 102, E1: 305, E2: 2, E3: 4}
+          pages: 13.7
+          status: planned
+        - id: V02.C03.S03
+          title: 'Nat: Defs'
+          kind: theory
+          modules:
+            - Mathlib.Data.Nat.NthRoot.Defs
+            - Mathlib.Data.Nat.Order.Lemmas
+            - Mathlib.Data.Nat.PSub
+            - Mathlib.Data.Nat.PadicValNat
+            - Mathlib.Data.Nat.Pairing
+            - Mathlib.Data.Nat.Periodic
+            - Mathlib.Data.Nat.PrimeFin
+            - Mathlib.Data.Nat.Set
+            - Mathlib.Data.Nat.Size
+            - Mathlib.Data.Nat.Sqrt
+            - Mathlib.Data.Nat.Squarefree
+            - Mathlib.Data.Nat.SuccPred
+            - Mathlib.Data.Nat.Totient
+            - Mathlib.Data.Nat.Upto
+            - Mathlib.Data.Nat.WithBot
+          E3: [Nat.psub, Nat.ppred, Nat.infinite_setOfPred_prime, Nat.squarefree_iff_nodup_primeFactorsList, Nat.totient]
+          families: [F-instance, F-simp, F-simp-eq, F-def, F-to-dual, F-simp-apply, F-to-additive, F-simp-mem, F-aux, F-ext-iff, F-simp-iff]
+          requires: [V03]
+          counts: {E0: 90, E1: 177, E3: 5}
+          pages: 9.9
+          status: planned
+    - id: C04
+      title: Int
+      prefixes: [Mathlib/Data/Int]
+      requires: [V02.C01, V02.C03, V04, V05, V06]
+      sections:
+        - id: V02.C04.S01
+          title: 'Int: Absolute value'
+          kind: theory
+          modules:
+            - Mathlib.Data.Int.AbsoluteValue
+            - Mathlib.Data.Int.Associated
+            - Mathlib.Data.Int.Basic
+            - Mathlib.Data.Int.Bitwise
+            - Mathlib.Data.Int.CardIntervalMod
+            - Mathlib.Data.Int.Cast.Basic
+            - Mathlib.Data.Int.Cast.Defs
+            - Mathlib.Data.Int.Cast.Field
+            - Mathlib.Data.Int.Cast.Lemmas
+            - Mathlib.Data.Int.Cast.Pi
+            - Mathlib.Data.Int.Cast.Prod
+            - Mathlib.Data.Int.CharZero
+            - Mathlib.Data.Int.ConditionallyCompleteOrder
+            - Mathlib.Data.Int.DivMod
+            - Mathlib.Data.Int.Fib.Basic
+            - Mathlib.Data.Int.Fib.Lemmas
+            - Mathlib.Data.Int.GCD
+          E3: [AddGroupWithOne, Int.castAddHom, Int.castRingHom, Nat.xgcd, Nat.gcd_eq_gcd_ab, Int.gcd_eq_gcd_ab]
+          E2: [AddGroupWithOne.sub_eq_add_neg, AddGroupWithOne.zsmul_succ', AddGroupWithOne.zsmul_neg', AddGroupWithOne.intCast_negSucc, AddGroupWithOne.neg_add_cancel, AddGroupWithOne.intCast_ofNat, AddGroupWithOne.zsmul_zero', Int.cast_neg_natCast, Int.fib_succ_mul_fib_pred_sub_fib_sq, Int.fib_add_sq_sub_fib_mul_fib_add_two_mul, Int.dvd_of_dvd_mul_left_of_gcd_one, Int.dvd_of_dvd_mul_right_of_gcd_one]
+          families: [F-instance, F-simp, F-simp-cast, F-ctor, F-simp-apply, F-simp-eq, F-simp-coe, F-map-op, F-to-additive, F-def, F-aux]
+          requires: [V02.C01, V05, V06]
+          counts: {E0: 128, E1: 146, E2: 12, E3: 6}
+          pages: 11.5
+          status: planned
+        - id: V02.C04.S02
+          title: 'Int: Init'
+          kind: theory
+          modules:
+            - Mathlib.Data.Int.Init
+            - Mathlib.Data.Int.Interval
+            - Mathlib.Data.Int.LeastGreatest
+            - Mathlib.Data.Int.Lemmas
+            - Mathlib.Data.Int.Log
+          E3: [Int.self_le_zpow_clog, Int.zpow_pred_clog_lt_self, Int.zpow_log_le_self, Int.lt_zpow_succ_log_self, Int.clog, Int.neg_log_inv_eq_clog, Int.neg_clog_inv_eq_log, Int.log]
+          families: [F-simp, F-simp-eq, F-instance, F-to-dual, F-to-additive]
+          requires: [V02.C01, V02.C03, V04, V05, V06]
+          counts: {E0: 29, E1: 120, E3: 8}
+          pages: 10.4
+          status: planned
+        - id: V02.C04.S03
+          title: 'Int: Mod eq'
+          kind: theory
+          modules:
+            - Mathlib.Data.Int.ModEq
+            - Mathlib.Data.Int.NatAbs
+            - Mathlib.Data.Int.NatPrime
+            - Mathlib.Data.Int.Notation
+            - Mathlib.Data.Int.Order.Basic
+            - Mathlib.Data.Int.Order.Lemmas
+            - Mathlib.Data.Int.Order.Units
+            - Mathlib.Data.Int.Range
+            - Mathlib.Data.Int.Sqrt
+            - Mathlib.Data.Int.Star
+            - Mathlib.Data.Int.SuccPred
+            - Mathlib.Data.Int.WithZero
+          E3: [Int.ModEq]
+          families: [F-simp-iff, F-to-additive, F-simp, F-instance, F-simp-apply, F-simp-eq]
+          counts: {E0: 63, E1: 93, E3: 1}
+          pages: 3.9
+          status: planned
+    - id: C05
+      title: Rat, NNRat and PNat
+      prefixes: [Mathlib/Data/Rat, Mathlib/Data/NNRat, Mathlib/Data/PNat]
+      sections:
+        - id: V02.C05.S01
+          title: Rat
+          kind: theory
+          modules:
+            - Mathlib.Data.Rat.BigOperators
+            - Mathlib.Data.Rat.Cardinal
+            - Mathlib.Data.Rat.Cast.CharZero
+            - Mathlib.Data.Rat.Cast.Defs
+            - Mathlib.Data.Rat.Cast.Lemmas
+            - Mathlib.Data.Rat.Cast.OfScientific
+            - Mathlib.Data.Rat.Cast.Order
+            - Mathlib.Data.Rat.Defs
+            - Mathlib.Data.Rat.Denumerable
+            - Mathlib.Data.Rat.Encodable
+            - Mathlib.Data.Rat.Floor
+            - Mathlib.Data.Rat.Init
+            - Mathlib.Data.Rat.Lemmas
+            - Mathlib.Data.Rat.NatSqrt.Defs
+            - Mathlib.Data.Rat.NatSqrt.Real
+            - Mathlib.Data.Rat.Sqrt
+            - Mathlib.Data.Rat.Squarefree
+            - Mathlib.Data.Rat.Star
+          E3: [Rat.instDenumerable]
+          families: [F-simp-cast, F-simp-coe, F-simp, F-instance, F-to-additive, F-simp-mk, F-to-dual, F-simp-apply, F-simp-iff, F-simp-eq, F-def, F-ctor]
+          counts: {E0: 183, E1: 166, E3: 1}
+          pages: 6.3
+          status: planned
+        - id: V02.C05.S02
+          title: Big operators
+          kind: theory
+          modules:
+            - Mathlib.Data.NNRat.BigOperators
+            - Mathlib.Data.NNRat.Defs
+            - Mathlib.Data.NNRat.Encodable
+            - Mathlib.Data.NNRat.Floor
+            - Mathlib.Data.NNRat.Lemmas
+            - Mathlib.Data.PNat.Basic
+            - Mathlib.Data.PNat.Defs
+            - Mathlib.Data.PNat.Equiv
+            - Mathlib.Data.PNat.Factors
+            - Mathlib.Data.PNat.Find
+            - Mathlib.Data.PNat.Interval
+            - Mathlib.Data.PNat.Notation
+            - Mathlib.Data.PNat.Order
+            - Mathlib.Data.PNat.Prime
+            - Mathlib.Data.PNat.Xgcd
+          E3: [PNat.XgcdType.zp, PNat.XgcdType.wp, PNat.XgcdType.IsReduced, PNat.XgcdType, PNat.XgcdType.bp, PNat.XgcdType.IsSpecial, PNat.XgcdType.ap]
+          families: [F-to-additive, F-simp, F-def, F-simp-coe, F-instance, F-to-dual, F-simp-eq, F-coe-mk, F-ext-iff, F-simp-iff, F-ext, F-simp-apply, F-aux, F-simp-mem, F-ctor]
+          counts: {E0: 269, E1: 245, E3: 7}
+          pages: 13.8
+          status: planned
+    - id: C06
+      title: Fin
+      prefixes: [Mathlib/Data/Fin]
+      requires: [V01, V03, V04]
+      sections:
+        - id: V02.C06.S01
+          title: 'Fin: Basic'
+          kind: theory
+          modules:
+            - Mathlib.Data.Fin.Basic
+            - Mathlib.Data.Fin.Embedding
+            - Mathlib.Data.Fin.EquivOfInjective
+            - Mathlib.Data.Fin.Fin2
+          E3: [Fin.equivSubtype, finZeroElim, Fin.valEmbedding, Fin.succEmb, Fin.equiv_iff_eq, Fin.castSuccEmb, Fin2.IsLT, Fin2.left, Fin2.fz, Fin2.ofNat', Fin2.optOfNat, Fin2.toNat]
+          E2: [Fin.ne_zero_of_lt, Fin.neZero, Fin.ne_last_of_lt]
+          families: [F-simp, F-simp-iff, F-simp-coe, F-instance, F-simp-eq, F-simp-cast, F-simp-mk, F-simp-apply, F-ctor]
+          requires: [V01]
+          counts: {E0: 81, E1: 68, E2: 3, E3: 12}
+          pages: 12.3
+          status: planned
+        - id: V02.C06.S02
+          title: 'Fin: Flag range'
+          kind: theory
+          modules:
+            - Mathlib.Data.Fin.FlagRange
+            - Mathlib.Data.Fin.Init
+            - Mathlib.Data.Fin.Parity
+            - Mathlib.Data.Fin.Pigeonhole
+            - Mathlib.Data.Fin.Rev
+            - Mathlib.Data.Fin.SuccPred
+            - Mathlib.Data.Fin.SuccPredOrder
+            - Mathlib.Data.Fin.Tuple.Basic
+          E3: [Fin.succAbove, finCongr, Fin.predAbove, Fin.cons, Fin.consEquiv]
+          E2: [Fin.castSucc_le_succ, Fin.succAbove_succAbove_succAbove_predAbove]
+          families: [F-simp-mem, F-simp, F-simp-apply, F-simp-eq, F-simp-iff, F-simp-mk, F-simp-cast, F-simp-coe, F-to-additive, F-def]
+          counts: {E0: 206, E1: 244, E2: 2, E3: 5}
+          pages: 12.4
+          status: planned
+        - id: V02.C06.S03
+          title: Tuple
+          kind: theory
+          modules:
+            - Mathlib.Data.Fin.Tuple.BubbleSortInduction
+            - Mathlib.Data.Fin.Tuple.Curry
+            - Mathlib.Data.Fin.Tuple.Embedding
+            - Mathlib.Data.Fin.Tuple.Finset
+            - Mathlib.Data.Fin.Tuple.NatAntidiagonal
+            - Mathlib.Data.Fin.Tuple.Reflection
+          E3: [Function.FromTypes.uncurry, Function.OfArity.curry, Function.OfArity.uncurry, Function.FromTypes.curry, List.Nat.antidiagonalTuple_two, Multiset.Nat.antidiagonalTuple_two, Finset.Nat.antidiagonalTuple_two, Finset.Nat.antidiagonalTuple, List.Nat.antidiagonalTuple, Multiset.Nat.antidiagonalTuple, FinVec.etaExpand, FinVec.map, FinVec.sum, FinVec.seq]
+          families: [F-simp, F-simp-apply, F-simp-coe, F-simp-eq, F-to-additive, F-simp-iff]
+          requires: [V01, V03]
+          counts: {E0: 44, E1: 54, E3: 14}
+          pages: 13
+          status: planned
+        - id: V02.C06.S04
+          title: 'Fin: Sort'
+          kind: theory
+          modules:
+            - Mathlib.Data.Fin.Tuple.Sort
+            - Mathlib.Data.Fin.Tuple.Take
+            - Mathlib.Data.Fin.VecNotation
+          E3: [Tuple.comp_sort_comp_rev_eq_comp_sortDesc, Tuple.sortDesc, Tuple.antitone_sortDesc, Tuple.sort, Tuple.monotone_sort, Matrix.vecEmpty, Matrix.vecCons]
+          families: [F-simp, F-to-dual, F-simp-eq, F-simp-apply, F-instance]
+          requires: [V01, V03, V04]
+          counts: {E0: 50, E1: 64, E3: 7}
+          pages: 7.7
+          status: planned
+    - id: C07
+      title: ZMod, Real, Complex and other topics
+      prefixes: [Mathlib/Data/ZMod, Mathlib/Data/Real, Mathlib/Data/Complex, Mathlib/Data/Num, Mathlib/Data/ENNReal, Mathlib/Data/NNReal, Mathlib/Data/EReal]
+      requires: [V01, V02.C01, V02.C04, V03, V04, V05, V06, V09]
+      sections:
+        - id: V02.C07.S01
+          title: ZMod
+          kind: theory
+          modules:
+            - Mathlib.Data.ZMod.Aut
+            - Mathlib.Data.ZMod.Basic
+            - Mathlib.Data.ZMod.Coprime
+            - Mathlib.Data.ZMod.Defs
+            - Mathlib.Data.ZMod.Factorial
+            - Mathlib.Data.ZMod.IntUnitsPower
+            - Mathlib.Data.ZMod.QuotientGroup
+            - Mathlib.Data.ZMod.QuotientRing
+            - Mathlib.Data.ZMod.Units
+            - Mathlib.Data.ZMod.ValMinAbs
+          E3: [ZMod.unitOfCoprime, ZMod.chineseRemainder, ZMod, ZMod.cast_descFactorial, ZMod.prodEquivPi]
+          families: [F-simp-apply, F-simp, F-simp-coe, F-simp-cast, F-instance, F-simp-eq, F-to-additive, F-def, F-simp-mk]
+          requires: [V02.C01, V03, V05, V06, V09]
+          counts: {E0: 177, E1: 158, E3: 5}
+          pages: 9.3
+          status: planned
+        - id: V02.C07.S02
+          title: Archimedean
+          kind: reference
+          modules:
+            - Mathlib.Data.Real.Archimedean
+            - Mathlib.Data.Real.Basic
+            - Mathlib.Data.Real.ConjExponents
+            - Mathlib.Data.Real.ENatENNReal
+            - Mathlib.Data.Real.Embedding
+            - Mathlib.Data.Real.Hom
+            - Mathlib.Data.Real.Pointwise
+            - Mathlib.Data.Real.Sign
+            - Mathlib.Data.Real.Sqrt
+            - Mathlib.Data.Real.Star
+            - Mathlib.Data.Real.StarOrdered
+            - Mathlib.Data.Complex.Basic
+            - Mathlib.Data.Complex.BigOperators
+            - Mathlib.Data.Num.Basic
+            - Mathlib.Data.Num.Bitwise
+            - Mathlib.Data.Num.Lemmas
+            - Mathlib.Data.Num.Prime
+            - Mathlib.Data.Num.ZNum
+          families: [F-instance, F-simp, F-aux, F-to-additive, F-ctor, F-simp-eq, F-simp-cast, F-aux-snake]
+          counts: {E0: 226, E1: 292}
+          pages: 9.7
+          status: planned
+        - id: V02.C07.S03
+          title: Action
+          kind: theory
+          modules:
+            - Mathlib.Data.ENNReal.Action
+            - Mathlib.Data.ENNReal.Basic
+            - Mathlib.Data.ENNReal.BigOperators
+            - Mathlib.Data.ENNReal.Holder
+            - Mathlib.Data.ENNReal.Inv
+            - Mathlib.Data.ENNReal.Lemmas
+            - Mathlib.Data.ENNReal.Operations
+            - Mathlib.Data.ENNReal.Real
+            - Mathlib.Data.NNReal.Basic
+            - Mathlib.Data.NNReal.Defs
+            - Mathlib.Data.NNReal.Star
+            - Mathlib.Data.EReal.Basic
+            - Mathlib.Data.EReal.BigOperators
+            - Mathlib.Data.EReal.DedekindCut
+            - Mathlib.Data.EReal.Inv
+            - Mathlib.Data.EReal.Operations
+          E3: [EReal]
+          families: [F-simp, F-instance, F-simp-coe, F-simp-iff, F-to-additive, F-to-dual, F-simp-apply, F-def, F-simp-eq]
+          counts: {E0: 262, E1: 204, E3: 1}
+          pages: 7.6
+          status: planned
+    - id: C08
+      title: ENat, Dyadic and Real
+      prefixes: [Mathlib/Data/ENat, Mathlib/Data/Dyadic, Mathlib/Basic/Real]
+      requires: [V02.C09, V04, V05, V06]
+      sections:
+        - id: V02.C08.S01
+          title: Basic
+          kind: theory
+          modules:
+            - Mathlib.Data.ENat.Basic
+            - Mathlib.Data.ENat.BigOperators
+            - Mathlib.Data.ENat.Defs
+            - Mathlib.Data.ENat.Lattice
+            - Mathlib.Data.ENat.Monoid
+            - Mathlib.Data.ENat.Pow
+            - Mathlib.Data.ENat.SuccOrder
+            - Mathlib.Data.Dyadic
+            - Mathlib.Data.Dyadic.Basic
+            - Mathlib.Basic.Real.Basic
+            - Mathlib.Basic.Real.ConjExponents
+            - Mathlib.Basic.Real.ENatENNReal
+            - Mathlib.Basic.Real.Embedding
+            - Mathlib.Basic.Real.Pointwise
+            - Mathlib.Basic.Real.Sign
+            - Mathlib.Basic.Real.Star
+          E3: [Real, Real.instField, Real.linearOrder, NNReal.conjExponent, Real.HolderTriple, ENNReal.conjExponent, Real.conjExponent, Real.HolderConjugate, NNReal.HolderTriple, NNReal.HolderConjugate]
+          E2: [Real.sign_apply_eq_of_ne_zero]
+          families: [F-ctor, F-def, F-instance, F-map-op, F-simp, F-simp-apply, F-simp-coe, F-simp-eq, F-simp-iff, F-to-additive, F-to-dual]
+          requires: [V02.C09, V04, V05, V06]
+          counts: {E0: 285, E1: 363, E2: 1, E3: 10}
+          pages: 20.3
+          status: planned
+    - id: C09
+      title: NNReal, ENNReal, Complex and Cau seq
+      prefixes: [Mathlib/Basic/NNReal, Mathlib/Basic/ENNReal, Mathlib/Basic/Complex, Mathlib/Algebra/Order/CauSeq]
+      requires: [V02.C08, V03, V04, V05, V06]
+      sections:
+        - id: V02.C09.S01
+          title: 'Basic: basics'
+          kind: theory
+          modules:
+            - Mathlib.Basic.NNReal.Basic
+            - Mathlib.Basic.NNReal.Defs
+            - Mathlib.Basic.NNReal.Star
+            - Mathlib.Basic.ENNReal.Action
+            - Mathlib.Basic.ENNReal.Basic
+            - Mathlib.Basic.ENNReal.BigOperators
+            - Mathlib.Basic.ENNReal.Holder
+            - Mathlib.Basic.ENNReal.Inv
+          E3: [ENNReal.toNNReal, ENNReal.neTopEquivNNReal, ENNReal, ENNReal.orderIsoIicOneBirational]
+          families: [F-simp-coe, F-to-dual, F-simp, F-simp-iff, F-to-additive, F-instance, F-simp-mk, F-simp-eq, F-coe-mk, F-def, F-ctor, F-simp-apply]
+          requires: [V03, V04]
+          counts: {E0: 471, E1: 332, E3: 4}
+          pages: 14.3
+          status: planned
+        - id: V02.C09.S02
+          title: ENNReal
+          kind: theory
+          modules:
+            - Mathlib.Basic.ENNReal.Lemmas
+            - Mathlib.Basic.ENNReal.Operations
+            - Mathlib.Basic.ENNReal.Real
+          E2: [ENNReal.toReal_le_add_of_top_imp_top, ENNReal.cancel_of_ne, ENNReal.toReal_le_add, ENNReal.cancel_of_lt, ENNReal.cancel_of_lt']
+          families: [F-simp-coe, F-simp, F-simp-eq, F-simp-iff, F-instance, F-to-dual, F-to-additive]
+          requires: [V02.C08, V04]
+          counts: {E0: 86, E1: 160, E2: 5}
+          pages: 6.1
+          status: planned
+        - id: V02.C09.S03
+          title: 'Basic: basics'
+          kind: theory
+          modules:
+            - Mathlib.Basic.Complex.Basic
+            - Mathlib.Basic.Complex.BigOperators
+            - Mathlib.Algebra.Order.CauSeq.Basic
+            - Mathlib.Algebra.Order.CauSeq.BigOperators
+            - Mathlib.Algebra.Order.CauSeq.Completion
+          E3: [Complex, Complex.instField]
+          families: [F-simp, F-simp-eq, F-def, F-simp-apply, F-instance, F-simp-mk, F-to-additive, F-aux, F-ext-iff, F-simp-coe, F-ext, F-ctor, F-aux-snake, F-to-dual]
+          requires: [V02.C08, V05, V06]
+          counts: {E0: 249, E1: 233, E3: 2}
+          pages: 9.4
+          status: planned

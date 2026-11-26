@@ -1,0 +1,1238 @@
+# The section plan of V13 (spec 09.1, 07.7). mlib plan made the draft from the index at e54979a532. A person accepts it and then edits it by hand.
+volume: V13
+title: General topology
+mathlib: e54979a532247ae4eb9d5578a8fd40a1bc332101
+date: "2026-11-26"
+by: mlib plan dev
+status: proposed
+pages: 822
+chapters:
+    - id: C01
+      title: Baire, Bornology, Compactification and Compactness
+      prefixes: [Mathlib/Topology/Baire, Mathlib/Topology/Bornology, Mathlib/Topology/Compactification, Mathlib/Topology/Compactness]
+      requires: [V01, V03, V04, V13.C02, V13.C04, V13.C11, V13.C15, V18]
+      sections:
+        - id: V13.C01.S01
+          title: Absorbent
+          kind: theory
+          modules:
+            - Mathlib.Topology.Baire.Absorbent
+            - Mathlib.Topology.Baire.BaireMeasurable
+            - Mathlib.Topology.Baire.CompleteMetrizable
+            - Mathlib.Topology.Baire.Lemmas
+            - Mathlib.Topology.Baire.LocallyCompactRegular
+            - Mathlib.Topology.Bornology.Absorbs
+            - Mathlib.Topology.Bornology.Basic
+          E3: [BaireMeasurableSet, BaireSpace.of_completelyPseudoMetrizable, BaireSpace.of_t2Space_locallyCompactSpace, Absorbent, Absorbs, Bornology.IsBounded, Bornology.cofinite, Bornology.IsCobounded, Bornology]
+          families: [F-instance, F-simp-iff, F-simp-mem, F-simp, F-ext, F-ext-iff, F-ctor, F-def, F-simp-eq]
+          requires: [V03, V13.C04, V13.C15, V18]
+          counts: {E0: 45, E1: 133, E3: 9}
+          pages: 11.6
+          status: planned
+        - id: V13.C01.S02
+          title: Bounded operation
+          kind: theory
+          modules:
+            - Mathlib.Topology.Bornology.BoundedOperation
+            - Mathlib.Topology.Bornology.Constructions
+            - Mathlib.Topology.Bornology.Hom
+            - Mathlib.Topology.Bornology.Real
+            - Mathlib.Topology.Compactification.OnePoint.Basic
+            - Mathlib.Topology.Compactification.OnePoint.ProjectiveLine
+            - Mathlib.Topology.Compactification.OnePoint.Sphere
+            - Mathlib.Topology.Compactification.StoneCech
+          E3: [OnePoint.infty, OnePoint, StoneCech]
+          families: [F-simp, F-ctor, F-instance, F-to-additive, F-simp-coe, F-ext-iff, F-simp-apply, F-ext, F-def, F-simp-iff, F-simp-mk]
+          counts: {E0: 148, E1: 125, E3: 3}
+          pages: 6.6
+          status: planned
+        - id: V13.C01.S03
+          title: 'Compactness: Bases'
+          kind: theory
+          modules:
+            - Mathlib.Topology.Compactness.Bases
+            - Mathlib.Topology.Compactness.Compact
+            - Mathlib.Topology.Compactness.CompactSystem
+            - Mathlib.Topology.Compactness.CompactlyCoherentSpace
+          E3: [isCompact_generateFrom, isCompact_iff_finite_subcover, isCompact_pi_infinite, isCompact_univ_pi, IsCompact.nonempty_sInter_of_directed_nonempty_isCompact_isClosed, CompactlyCoherentSpace, CompactCoherentification.isCompact_iff, CompactlyCoherentSpace.of_sequentialSpace, CompactlyCoherentSpace.of_weaklyLocallyCompactSpace, CompactCoherentification.instCompactlyCoherentSpace, CompactCoherentification, CompactCoherentification.homeo, CompactCoherentification.continuous_map_of_continuousOn]
+          E2: [Filter.coprodᵢ_cocompact]
+          families: [F-instance, F-simp, F-simp-eq, F-to-dual, F-ctor]
+          requires: [V01, V03, V04, V13.C02, V13.C04]
+          counts: {E0: 55, E1: 167, E2: 1, E3: 13}
+          pages: 16.1
+          status: planned
+        - id: V13.C01.S04
+          title: 'Compactness: Compactly generated space'
+          kind: theory
+          modules:
+            - Mathlib.Topology.Compactness.CompactlyGeneratedSpace
+            - Mathlib.Topology.Compactness.CountablyCompact
+            - Mathlib.Topology.Compactness.DeltaGeneratedSpace
+            - Mathlib.Topology.Compactness.Lindelof
+          E3: [IsCountablyCompact.isSeqCompact, IsCountablyCompact.image, IsCountablyCompact.elim_directed_cover, IsCountablyCompact.exists_accPt_of_infinite, IsCompact.isCountablyCompact, isCountablyCompact_iff_countable_open_cover, IsCountablyCompact.elim_finite_subcover, IsLindelof.isCompact, IsSeqCompact.isCountablyCompact, isCountablyCompact_iff_infinite_subset_has_accPt, HereditarilyLindelofSpace]
+          families: [F-instance, F-ctor, F-simp, F-simp-eq]
+          requires: [V03, V04, V13.C04]
+          counts: {E0: 54, E1: 136, E3: 11}
+          pages: 13.3
+          status: planned
+        - id: V13.C01.S05
+          title: 'Compactness: Locally compact'
+          kind: theory
+          modules:
+            - Mathlib.Topology.Compactness.LocallyCompact
+            - Mathlib.Topology.Compactness.LocallyFinite
+            - Mathlib.Topology.Compactness.NhdsKer
+            - Mathlib.Topology.Compactness.Paracompact
+            - Mathlib.Topology.Compactness.SigmaCompact
+          E3: [IsSigmaCompact]
+          families: [F-instance, F-ctor, F-simp, F-simp-eq]
+          counts: {E0: 42, E1: 83, E3: 1}
+          pages: 3.6
+          status: planned
+    - id: C02
+      title: Connected and Constructions
+      prefixes: [Mathlib/Topology/Connected, Mathlib/Topology/Constructions]
+      requires: [V02, V03, V04, V13.C04, V13.C05, V13.C15, V18]
+      sections:
+        - id: V13.C02.S01
+          title: 'Connected: Basic'
+          kind: theory
+          modules:
+            - Mathlib.Topology.Connected.Basic
+            - Mathlib.Topology.Connected.CardComponents
+            - Mathlib.Topology.Connected.Clopen
+          E3: [IsConnected, connectedComponent, ConnectedSpace, IsOpenMap.enatCard_connectedComponents_le_encard_preimage_singleton, IsOpenMap.finite_connectedComponents_of_finite_preimage_singleton, IsClopen.biUnion_connectedComponent_eq, PreconnectedSpace.induction₂, ConnectedComponents]
+          families: [F-instance, F-ctor, F-simp, F-simp-eq, F-simp-coe, F-simp-mk]
+          requires: [V03, V13.C04]
+          counts: {E0: 50, E1: 123, E3: 8}
+          pages: 10.5
+          status: planned
+        - id: V13.C02.S02
+          title: 'Connected: Hausdorff measure'
+          kind: theory
+          modules:
+            - Mathlib.Topology.Connected.HausdorffMeasure
+            - Mathlib.Topology.Connected.LocPathConnected
+            - Mathlib.Topology.Connected.LocallyConnected
+            - Mathlib.Topology.Connected.LocallyPathConnected
+            - Mathlib.Topology.Connected.PathComponentOne
+            - Mathlib.Topology.Connected.PathConnected
+            - Mathlib.Topology.Connected.Separation
+            - Mathlib.Topology.Connected.TotallyDisconnected
+          E3: [IsPathConnected, Joined]
+          E2: [IsPreconnected.le_hausdorffMeasure_of_le_edist]
+          families: [F-instance, F-ctor, F-simp-apply, F-simp-coe, F-simp, F-to-additive, F-simp-mk, F-simp-mem, F-simp-eq]
+          requires: [V02, V03, V13.C05, V18]
+          counts: {E0: 96, E1: 191, E2: 1, E3: 2}
+          pages: 8.1
+          status: planned
+        - id: V13.C02.S03
+          title: Constructions
+          kind: theory
+          modules:
+            - Mathlib.Topology.Constructions
+            - Mathlib.Topology.Constructions.SumProd
+          E3: [tendsto_pi_nhds, IsDiscrete]
+          E2: [inducing_iInf_to_pi, continuous_snd]
+          families: [F-instance, F-simp-apply, F-simp, F-simp-iff, F-ctor, F-simp-coe, F-aux-snake, F-simp-eq, F-to-additive]
+          requires: [V04, V13.C04]
+          counts: {E0: 145, E1: 331, E2: 2, E3: 2}
+          pages: 12.9
+          status: planned
+    - id: C03
+      title: Continuous map
+      prefixes: [Mathlib/Topology/ContinuousMap]
+      requires: [V01, V02, V03, V04, V05, V06, V09, V13.C01, V13.C04, V13.C07, V13.C12, V13.C13, V14, V16]
+      sections:
+        - id: V13.C03.S01
+          title: 'Continuous map: Algebra'
+          kind: theory
+          modules:
+            - Mathlib.Topology.ContinuousMap.Algebra
+            - Mathlib.Topology.ContinuousMap.Basic
+            - Mathlib.Topology.ContinuousMap.Bounded.ArzelaAscoli
+            - Mathlib.Topology.ContinuousMap.Bounded.Basic
+            - Mathlib.Topology.ContinuousMap.Bounded.Normed
+            - Mathlib.Topology.ContinuousMap.Bounded.Star
+            - Mathlib.Topology.ContinuousMap.BoundedCompactlySupported
+            - Mathlib.Topology.ContinuousMap.CocompactMap
+            - Mathlib.Topology.ContinuousMap.Compact
+          E3: [BoundedContinuousFunction.arzela_ascoli, BoundedContinuousFunction.instCompleteSpace, BoundedContinuousFunction.instNormedSpace]
+          families: [F-instance, F-simp-apply, F-simp-coe, F-simp, F-to-additive, F-simp-mk, F-ext, F-coe-mk, F-ctor, F-ext-iff, F-simp-eq, F-def]
+          requires: [V03, V06, V13.C04, V16]
+          counts: {E0: 460, E1: 251, E3: 3}
+          pages: 10.8
+          status: planned
+        - id: V13.C03.S02
+          title: 'Continuous map: Compactly supported'
+          kind: theory
+          modules:
+            - Mathlib.Topology.ContinuousMap.CompactlySupported
+            - Mathlib.Topology.ContinuousMap.ContinuousMapZero
+            - Mathlib.Topology.ContinuousMap.ContinuousMapZero.Unitization
+            - Mathlib.Topology.ContinuousMap.ContinuousSqrt
+            - Mathlib.Topology.ContinuousMap.Defs
+            - Mathlib.Topology.ContinuousMap.Ideals
+            - Mathlib.Topology.ContinuousMap.Interval
+            - Mathlib.Topology.ContinuousMap.Lattice
+            - Mathlib.Topology.ContinuousMap.LocallyConstant
+            - Mathlib.Topology.ContinuousMap.LocallyConvex
+            - Mathlib.Topology.ContinuousMap.Ordered
+            - Mathlib.Topology.ContinuousMap.Periodic
+            - Mathlib.Topology.ContinuousMap.Polynomial
+            - Mathlib.Topology.ContinuousMap.SecondCountableSpace
+            - Mathlib.Topology.ContinuousMap.Sigma
+            - Mathlib.Topology.ContinuousMap.Star
+            - Mathlib.Topology.ContinuousMap.StarOrdered
+            - Mathlib.Topology.ContinuousMap.StoneWeierstrass
+          E3: [ContinuousMapZero.unitizationStarAlgEquiv, ContinuousMap, Polynomial.toContinuousMapOnAlgHom, ContinuousMap.subalgebra_topologicalClosure_eq_top_of_separatesPoints]
+          E2: [ContinuousMap.continuous, ContinuousMap.continuousMap_mem_subalgebra_closure_of_separatesPoints, ContinuousMap.exists_mem_subalgebra_near_continuousMap_of_separatesPoints, ContinuousMap.exists_mem_subalgebra_near_continuous_of_isCompact_of_separatesPoints, polynomialFunctions.topologicalClosure, ContinuousMap.polynomial_comp_attachBound_mem, ContinuousMap.exists_mem_subalgebra_near_continuous_of_separatesPoints]
+          families: [F-instance, F-coe-mk, F-simp-coe, F-simp-apply, F-simp, F-simp-eq, F-ext, F-ctor, F-def, F-ext-iff, F-to-dual, F-to-additive, F-simp-mem]
+          requires: [V01, V02, V03, V04, V05, V06, V09, V13.C04, V13.C07, V13.C12, V13.C13, V14, V16]
+          counts: {E0: 290, E1: 193, E2: 7, E3: 4}
+          pages: 10.7
+          status: planned
+        - id: V13.C03.S03
+          title: 'Continuous map: T0 sierpinski'
+          kind: theory
+          modules:
+            - Mathlib.Topology.ContinuousMap.T0Sierpinski
+            - Mathlib.Topology.ContinuousMap.Units
+            - Mathlib.Topology.ContinuousMap.Weierstrass
+            - Mathlib.Topology.ContinuousMap.ZeroAtInfty
+            - Mathlib.Topology.ContinuousMap.ZeroAtInftyUnitization
+          E3: [polynomialFunctions_closure_eq_top, ZeroAtInftyContinuousMap.toOnePoint]
+          E2: [exists_polynomial_near_of_continuousOn]
+          families: [F-simp-apply, F-instance, F-simp, F-coe-mk, F-simp-coe, F-simp-eq, F-ext, F-ctor, F-ext-iff]
+          requires: [V02, V03, V04, V06, V13.C01, V13.C07, V14]
+          counts: {E0: 142, E1: 63, E2: 1, E3: 2}
+          pages: 3.9
+          status: planned
+    - id: C04
+      title: Convenient and Defs
+      prefixes: [Mathlib/Topology/Convenient, Mathlib/Topology/Defs]
+      requires: [V03, V04, V13.C15]
+      sections:
+        - id: V13.C04.S01
+          title: Category
+          kind: theory
+          modules:
+            - Mathlib.Topology.Convenient.Category
+            - Mathlib.Topology.Convenient.ContinuousMapGeneratedBy
+            - Mathlib.Topology.Convenient.GeneratedBy
+            - Mathlib.Topology.Convenient.HomSpace
+            - Mathlib.Topology.Convenient.Localization
+            - Mathlib.Topology.Convenient.OpenClosed
+            - Mathlib.Topology.Defs.Basic
+          E3: [Continuous, TopologicalSpace.IsOpen, IsOpenMap, BaireSpace, IsClosedMap, isOpen_univ, TopologicalSpace, closure, IsOpen.inter, TopologicalSpace.isOpen_univ, isOpen_sUnion, TopologicalSpace.isOpen_sUnion]
+          families: [F-simp-apply, F-instance, F-ctor, F-simp, F-def, F-ext-iff, F-ext]
+          requires: [V03, V04]
+          counts: {E0: 102, E1: 112, E3: 12}
+          pages: 13.3
+          status: planned
+        - id: V13.C04.S02
+          title: Defs
+          kind: theory
+          modules:
+            - Mathlib.Topology.Defs.Filter
+            - Mathlib.Topology.Defs.Induced
+            - Mathlib.Topology.Defs.Sequences
+            - Mathlib.Topology.Defs.Ultrafilter
+          E3: [ContinuousWithinAt, Specializes, nhdsWithin, nhds, ClusterPt, SeparationQuotient, MapClusterPt, ContinuousOn, IsCompact, Topology.IsCoinducing, Topology.IsInducing, TopologicalSpace.coinduced, TopologicalSpace.induced, Topology.IsOpenEmbedding, Topology.IsEmbedding, Topology.IsQuotientMap, Topology.IsClosedEmbedding, SequentialSpace]
+          families: [F-ctor, F-def, F-instance, F-simp, F-simp-apply]
+          requires: [V03, V04, V13.C15]
+          counts: {E0: 28, E1: 57, E3: 18}
+          pages: 16.3
+          status: planned
+    - id: C05
+      title: EMetric space and GDelta
+      prefixes: [Mathlib/Topology/EMetricSpace, Mathlib/Topology/GDelta]
+      requires: [V02, V03, V04, V06, V13.C04, V13.C12, V13.C15]
+      sections:
+        - id: V13.C05.S01
+          title: EMetric space
+          kind: theory
+          modules:
+            - Mathlib.Topology.EMetricSpace.Basic
+            - Mathlib.Topology.EMetricSpace.BoundedVariation
+            - Mathlib.Topology.EMetricSpace.Defs
+            - Mathlib.Topology.EMetricSpace.Diam
+            - Mathlib.Topology.EMetricSpace.Lipschitz
+          E3: [EMetric.tendstoUniformlyOn_iff, LipschitzWith]
+          E2: [edist_triangle_left, LipschitzWith.id, LocallyLipschitz.id]
+          families: [F-simp-mk, F-instance, F-simp, F-aux-snake, F-to-dual, F-ext-iff, F-simp-mem, F-ctor, F-ext, F-simp-eq, F-to-additive, F-simp-iff]
+          requires: [V02, V06]
+          counts: {E0: 128, E1: 282, E2: 3, E3: 2}
+          pages: 11.5
+          status: planned
+        - id: V13.C05.S02
+          title: Mul opposite
+          kind: theory
+          modules:
+            - Mathlib.Topology.EMetricSpace.MulOpposite
+            - Mathlib.Topology.EMetricSpace.PairReduction
+            - Mathlib.Topology.EMetricSpace.Paracompact
+            - Mathlib.Topology.EMetricSpace.Pi
+            - Mathlib.Topology.EMetricSpace.VariationOnFromTo
+            - Mathlib.Topology.EMetricSpace.Weak
+            - Mathlib.Topology.GDelta.Basic
+            - Mathlib.Topology.GDelta.MetrizableSpace
+          E3: [IsMeagre, residual, isClosed_isNowhereDense_iff_compl, isMeagre_iff_countable_union_isNowhereDense, IsNowhereDense, IsGδ]
+          families: [F-instance, F-to-additive, F-simp, F-ctor, F-def, F-to-dual, F-simp-iff]
+          requires: [V03, V04, V13.C04, V13.C15]
+          counts: {E0: 56, E1: 138, E3: 6}
+          pages: 9.4
+          status: planned
+    - id: C06
+      title: Hom, Homeomorph, Inductive dimension and other topics
+      prefixes: [Mathlib/Topology/Hom, Mathlib/Topology/Homeomorph, Mathlib/Topology/InductiveDimension, Mathlib/Topology/LocallyConstant, Mathlib/Topology/LocallyFinsupp, Mathlib/Topology/Maps]
+      requires: [V01, V03, V06, V13.C04, V13.C15]
+      sections:
+        - id: V13.C06.S01
+          title: Continuous eval
+          kind: theory
+          modules:
+            - Mathlib.Topology.Hom.ContinuousEval
+            - Mathlib.Topology.Hom.ContinuousEvalConst
+            - Mathlib.Topology.Hom.Open
+            - Mathlib.Topology.Homeomorph.Defs
+            - Mathlib.Topology.Homeomorph.Lemmas
+            - Mathlib.Topology.Homeomorph.Quotient
+            - Mathlib.Topology.Homeomorph.TransferInstance
+          E3: [Homeomorph]
+          E2: [Homeomorph.continuous, Homeomorph.continuous_invFun]
+          families: [F-instance, F-ctor, F-simp-apply, F-simp, F-ext-iff, F-simp-coe, F-ext, F-simp-iff, F-simp-eq, F-def, F-simp-mk]
+          requires: [V01, V13.C04]
+          counts: {E0: 194, E1: 174, E2: 2, E3: 1}
+          pages: 6.9
+          status: planned
+        - id: V13.C06.S02
+          title: Classes
+          kind: theory
+          modules:
+            - Mathlib.Topology.InductiveDimension.Classes
+            - Mathlib.Topology.InductiveDimension.Functions
+            - Mathlib.Topology.LocallyConstant.Algebra
+            - Mathlib.Topology.LocallyConstant.Basic
+            - Mathlib.Topology.LocallyFinsupp
+            - Mathlib.Topology.LocallyFinsupp.Pushforward
+          E3: [Function.locallyFinsupp.map]
+          families: [F-ctor, F-instance, F-def, F-simp-iff, F-simp, F-simp-eq, F-simp-apply, F-simp-coe, F-to-additive, F-ext-iff, F-coe-mk, F-ext, F-simp-mem]
+          requires: [V03, V06]
+          counts: {E0: 224, E1: 204, E3: 1}
+          pages: 7.6
+          status: planned
+        - id: V13.C06.S03
+          title: Maps
+          kind: theory
+          modules:
+            - Mathlib.Topology.Maps.Basic
+            - Mathlib.Topology.Maps.OpenQuotient
+            - Mathlib.Topology.Maps.Proper.Basic
+            - Mathlib.Topology.Maps.Proper.CompactlyGenerated
+            - Mathlib.Topology.Maps.Proper.UniversallyClosed
+            - Mathlib.Topology.Maps.Strict.Basic
+            - Mathlib.Topology.Maps.Strict.Group
+            - Mathlib.Topology.Maps.Strict.Module
+          E3: [IsProperMap.pi_map, isProperMap_iff_ultrafilter, isProperMap_iff_isClosedMap_and_compact_fibers, IsProperMap]
+          E2: [Topology.IsOpenEmbedding.isOpenMap, Topology.IsInducing.continuous, Topology.IsStrictMap.id]
+          families: [F-ctor, F-simp]
+          requires: [V03, V13.C04, V13.C15]
+          counts: {E0: 51, E1: 206, E2: 3, E3: 4}
+          pages: 10.5
+          status: planned
+    - id: C07
+      title: Metric space
+      prefixes: [Mathlib/Topology/MetricSpace]
+      requires: [V01, V02, V03, V04, V05, V06, V13.C01, V13.C02, V13.C04, V13.C05, V13.C09, V13.C12, V13.C14, V13.C15, V16, V18, V31]
+      sections:
+        - id: V13.C07.S01
+          title: 'Metric space: Algebra'
+          kind: theory
+          modules:
+            - Mathlib.Topology.MetricSpace.Algebra
+            - Mathlib.Topology.MetricSpace.Antilipschitz
+            - Mathlib.Topology.MetricSpace.Basic
+            - Mathlib.Topology.MetricSpace.Bilipschitz
+            - Mathlib.Topology.MetricSpace.Bounded
+            - Mathlib.Topology.MetricSpace.BundledFun
+            - Mathlib.Topology.MetricSpace.CantorScheme
+          E3: [Real.metricSpace, metricSpacePi, Metric.isCompact_iff_isClosed_bounded]
+          E2: [Metric.isCompact_of_isClosed_isBounded, Metric.diam_eq_zero_of_unbounded, Bornology.IsBounded.isCompact_closure, Metric.diam_union]
+          families: [F-instance, F-ctor, F-simp, F-simp-iff, F-to-additive, F-ext, F-simp-coe, F-coe-mk, F-simp-apply, F-ext-iff]
+          requires: [V02, V03, V13.C01, V13.C04, V13.C12]
+          counts: {E0: 90, E1: 209, E2: 4, E3: 3}
+          pages: 10
+          status: planned
+        - id: V13.C07.S02
+          title: 'Metric space: Cau seq filter'
+          kind: theory
+          modules:
+            - Mathlib.Topology.MetricSpace.CauSeqFilter
+            - Mathlib.Topology.MetricSpace.Cauchy
+            - Mathlib.Topology.MetricSpace.Closeds
+            - Mathlib.Topology.MetricSpace.Completion
+            - Mathlib.Topology.MetricSpace.Congruence
+            - Mathlib.Topology.MetricSpace.Contracting
+            - Mathlib.Topology.MetricSpace.Cover
+            - Mathlib.Topology.MetricSpace.CoveringExponent
+            - Mathlib.Topology.MetricSpace.CoveringNumbers
+          E3: [Metric.complete_of_cauchySeq_tendsto, ContractingWith.efixedPoint, ContractingWith.exists_fixedPoint, ContractingWith.fixedPoint, Metric.minimalCover, Metric.coveringNumber_two_mul_le_externalCoveringNumber, Metric.maximalSeparatedSet, Metric.packingNumber_two_mul_le_externalCoveringNumber, Metric.externalCoveringNumber, Metric.packingNumber, Metric.coveringNumber, Metric.coveringNumber_subset_le, Metric.coveringNumber_le_packingNumber, Metric.externalCoveringNumber_le_coveringNumber]
+          E2: [ContractingWith.efixedPoint_eq_of_edist_lt_top']
+          families: [F-instance, F-simp-eq, F-simp, F-simp-iff, F-ctor]
+          requires: [V01, V02, V03, V04, V05, V06, V13.C05, V13.C12]
+          counts: {E0: 63, E1: 145, E2: 1, E3: 14}
+          pages: 16.2
+          status: planned
+        - id: V13.C07.S03
+          title: 'Metric space: Defs'
+          kind: theory
+          modules:
+            - Mathlib.Topology.MetricSpace.Defs
+            - Mathlib.Topology.MetricSpace.Dilation
+            - Mathlib.Topology.MetricSpace.DilationEquiv
+            - Mathlib.Topology.MetricSpace.Equicontinuity
+          E3: [MetricSpace.replaceUniformity, MetricSpace.replaceBornology, MetricSpace, dist_pos, dist_eq_zero, MetricSpace.replaceTopology, MetricSpace.ofDistTopology, Metric.equicontinuousAt_iff, Metric.equicontinuousAt_of_continuity_modulus, Metric.uniformEquicontinuous_of_continuity_modulus]
+          families: [F-simp-eq, F-simp, F-instance, F-ext-iff, F-ext, F-ctor, F-coe-mk, F-simp-coe, F-simp-apply, F-def]
+          requires: [V02, V03, V13.C04, V13.C12, V13.C15]
+          counts: {E0: 113, E1: 81, E3: 10}
+          pages: 10.7
+          status: planned
+        - id: V13.C07.S04
+          title: 'Metric space: Gluing'
+          kind: theory
+          modules:
+            - Mathlib.Topology.MetricSpace.Gluing
+            - Mathlib.Topology.MetricSpace.GromovHausdorff
+            - Mathlib.Topology.MetricSpace.GromovHausdorffRealized
+            - Mathlib.Topology.MetricSpace.GromovProduct
+            - Mathlib.Topology.MetricSpace.HausdorffAlexandroff
+            - Mathlib.Topology.MetricSpace.HausdorffDimension
+            - Mathlib.Topology.MetricSpace.HausdorffDistance
+          E3: [GromovHausdorff.GHSpace, dimH, Metric.hausdorffDist, Metric.hausdorffEDist_closure, IsOpen.exists_iUnion_isClosed, Metric.infDist, Metric.hausdorffEDist_ne_top_of_nonempty_of_bounded, Metric.mem_closure_iff_infEDist_zero, Metric.hausdorffEDist_zero_iff_closure_eq_closure, Metric.hausdorffEDist, Metric.infEDist_closure, IsCompact.exists_infEDist_eq_edist]
+          E2: [GromovHausdorff.totallyBounded, exists_nat_bool_continuous_surjective_of_compact]
+          families: [F-instance, F-simp, F-ctor, F-def, F-simp-coe, F-simp-iff]
+          requires: [V02, V03, V04, V05, V13.C04, V13.C05, V13.C12, V16, V18, V31]
+          counts: {E0: 71, E1: 232, E2: 2, E3: 12}
+          pages: 17.6
+          status: planned
+        - id: V13.C07.S05
+          title: 'Metric space: Holder'
+          kind: theory
+          modules:
+            - Mathlib.Topology.MetricSpace.Holder
+            - Mathlib.Topology.MetricSpace.HolderNorm
+            - Mathlib.Topology.MetricSpace.Infsep
+            - Mathlib.Topology.MetricSpace.IsometricSMul
+            - Mathlib.Topology.MetricSpace.Isometry
+          E3: [HolderWith, HolderOnWith, Set.infsep, Set.einfsep, IsometryEquiv]
+          E2: [isometry_id]
+          families: [F-simp-iff, F-simp, F-simp-eq, F-instance, F-simp-apply, F-ctor, F-simp-coe, F-ext-iff, F-ext, F-coe-mk]
+          requires: [V02, V03, V04, V06, V13.C05]
+          counts: {E0: 263, E1: 264, E2: 1, E3: 5}
+          pages: 13
+          status: planned
+        - id: V13.C07.S06
+          title: 'Metric space: Kuratowski'
+          kind: theory
+          modules:
+            - Mathlib.Topology.MetricSpace.Kuratowski
+            - Mathlib.Topology.MetricSpace.Lipschitz
+            - Mathlib.Topology.MetricSpace.MetricSeparated
+            - Mathlib.Topology.MetricSpace.PartitionOfUnity
+            - Mathlib.Topology.MetricSpace.Perfect
+            - Mathlib.Topology.MetricSpace.PiNat
+            - Mathlib.Topology.MetricSpace.Polish
+            - Mathlib.Topology.MetricSpace.ProperSpace
+            - Mathlib.Topology.MetricSpace.ProperSpace.Lemmas
+            - Mathlib.Topology.MetricSpace.ProperSpace.Real
+            - Mathlib.Topology.MetricSpace.Pseudo.Basic
+            - Mathlib.Topology.MetricSpace.Pseudo.Constructions
+            - Mathlib.Topology.MetricSpace.Pseudo.Defs
+          E3: [Perfect.exists_nat_bool_injection, dist_triangle, Metric.tendsto_atTop, PseudoMetricSpace.ext, Metric.tendsto_nhds_nhds, Metric.continuous_iff, dist_nonneg, PseudoMetricSpace.dist_triangle, Metric.ball, PseudoMetricSpace.ofDistTopology, Metric.mem_closure_iff, Metric.dense_iff, Metric.mk_uniformity_basis_le, PseudoMetricSpace.replaceBornology, PseudoMetricSpace, Metric.isOpen_iff, nnDist_triangle, Real.pseudoMetricSpace, Metric.nhds_basis_ball, Metric.nhds_basis_closedBall, PseudoMetricSpace.replaceUniformity, Metric.uniformContinuous_iff, PseudoMetricSpace.replaceTopology, Metric.mk_uniformity_basis]
+          E2: [Metric.exists_forall_closedEBall_subset_aux₂, Metric.exists_forall_closedEBall_subset_aux₁]
+          families: [F-to-dual, F-simp-coe, F-simp-iff, F-simp, F-def, F-instance, F-ctor, F-ext-iff, F-ext, F-simp-mem, F-simp-apply, F-simp-eq, F-to-additive, F-aux-snake]
+          requires: [V02, V03, V04, V13.C04, V13.C05, V13.C12, V13.C14, V13.C15]
+          counts: {E0: 188, E1: 404, E2: 2, E3: 24}
+          pages: 33
+          status: planned
+        - id: V13.C07.S07
+          title: 'Metric space: Lemmas'
+          kind: theory
+          modules:
+            - Mathlib.Topology.MetricSpace.Pseudo.Lemmas
+            - Mathlib.Topology.MetricSpace.Pseudo.Pi
+            - Mathlib.Topology.MetricSpace.Pseudo.Real
+            - Mathlib.Topology.MetricSpace.Sequences
+            - Mathlib.Topology.MetricSpace.ShrinkingLemma
+            - Mathlib.Topology.MetricSpace.Similarity
+            - Mathlib.Topology.MetricSpace.Snowflaking
+            - Mathlib.Topology.MetricSpace.ThickenedIndicator
+            - Mathlib.Topology.MetricSpace.Thickening
+            - Mathlib.Topology.MetricSpace.TransferInstance
+            - Mathlib.Topology.MetricSpace.Ultra.Basic
+            - Mathlib.Topology.MetricSpace.Ultra.ContinuousMaps
+            - Mathlib.Topology.MetricSpace.Ultra.Pi
+            - Mathlib.Topology.MetricSpace.Ultra.TotallySeparated
+            - Mathlib.Topology.MetricSpace.UniformConvergence
+          E3: [tendsto_subseq_of_bounded, tendsto_subseq_of_frequently_bounded, thickenedIndicatorAux_tendsto_indicator_closure, thickenedIndicator_tendsto_indicator_closure, Disjoint.exists_cthickenings, IsCompact.cthickening_eq_biUnion_closedBall, Metric.hasBasis_nhdsSet_cthickening, IsCompact.cthickening, IsCompact.exists_cthickening_subset_open, Metric.closure_eq_iInter_cthickening', Bornology.IsBounded.cthickening, Disjoint.exists_thickenings, Metric.cthickening, Pi.instIsUltrametricDist]
+          E2: [exists_iUnion_ball_eq_radius_pos_lt, exists_subset_iUnion_ball_radius_pos_lt, exists_subset_iUnion_ball_radius_lt, exists_iUnion_ball_eq_radius_lt]
+          families: [F-aux, F-ctor, F-def, F-ext, F-ext-iff, F-instance, F-simp, F-simp-apply, F-simp-eq, F-simp-iff, F-simp-mem, F-to-additive]
+          requires: [V02, V03, V04, V13.C04, V13.C05, V13.C12, V13.C15]
+          counts: {E0: 161, E1: 208, E2: 4, E3: 14}
+          pages: 18.7
+          status: planned
+    - id: C08
+      title: Metrizable and Open partial homeomorph
+      prefixes: [Mathlib/Topology/Metrizable, Mathlib/Topology/OpenPartialHomeomorph]
+      requires: [V01, V02, V03, V04, V13.C04, V13.C06, V13.C07, V13.C10, V13.C11, V13.C12, V13.C15]
+      sections:
+        - id: V13.C08.S01
+          title: Metrizable
+          kind: theory
+          modules:
+            - Mathlib.Topology.Metrizable.Basic
+            - Mathlib.Topology.Metrizable.CompletelyMetrizable
+            - Mathlib.Topology.Metrizable.ContinuousMap
+            - Mathlib.Topology.Metrizable.Real
+            - Mathlib.Topology.Metrizable.Uniformity
+            - Mathlib.Topology.Metrizable.Urysohn
+          E3: [UniformSpace.pseudoMetrizableSpace, UniformSpace.metrizable_uniformity, PseudoMetricSpace.ofPreNNDist, UniformSpace.pseudoMetricSpace, UniformSpace.metrizableSpace, UniformSpace.metricSpace, TopologicalSpace.metrizableSpace_of_t3_secondCountable]
+          families: [F-ctor, F-instance]
+          requires: [V02, V04, V13.C07, V13.C12, V13.C15]
+          counts: {E0: 47, E1: 38, E3: 7}
+          pages: 6.9
+          status: planned
+        - id: V13.C08.S02
+          title: 'Open partial homeomorph: Basic'
+          kind: theory
+          modules:
+            - Mathlib.Topology.OpenPartialHomeomorph.Basic
+            - Mathlib.Topology.OpenPartialHomeomorph.Composition
+            - Mathlib.Topology.OpenPartialHomeomorph.Constructions
+            - Mathlib.Topology.OpenPartialHomeomorph.Continuity
+          E3: [Topology.IsOpenEmbedding.toOpenPartialHomeomorph, OpenPartialHomeomorph.refl, OpenPartialHomeomorph.trans, OpenPartialHomeomorph.subtypeRestr, OpenPartialHomeomorph.pi, OpenPartialHomeomorph.disjointUnion, OpenPartialHomeomorph.const, OpenPartialHomeomorph.prod, OpenPartialHomeomorph.lift_openEmbedding]
+          E2: [OpenPartialHomeomorph.subtypeRestr_symm_trans_subtypeRestr, OpenPartialHomeomorph.preimage_eventuallyEqSet_target_inter_preimage_inter]
+          families: [F-simp, F-simp-coe, F-simp-apply, F-def]
+          requires: [V01, V03, V04, V13.C04, V13.C10, V13.C12, V13.C15]
+          counts: {E0: 82, E1: 96, E2: 2, E3: 9}
+          pages: 10.7
+          status: planned
+        - id: V13.C08.S03
+          title: 'Open partial homeomorph: Defs'
+          kind: theory
+          modules:
+            - Mathlib.Topology.OpenPartialHomeomorph.Defs
+            - Mathlib.Topology.OpenPartialHomeomorph.IsImage
+          E3: [OpenPartialHomeomorph, OpenPartialHomeomorph.symm, Homeomorph.toOpenPartialHomeomorph, OpenPartialHomeomorph.ofSet, OpenPartialHomeomorph.IsImage, OpenPartialHomeomorph.EqOnSource]
+          E2: [OpenPartialHomeomorph.open_source, OpenPartialHomeomorph.open_target]
+          families: [F-simp, F-ext-iff, F-simp-apply, F-simp-eq, F-ctor, F-simp-coe, F-ext, F-instance, F-coe-mk, F-simp-iff]
+          requires: [V01, V03, V13.C04, V13.C10]
+          counts: {E0: 62, E1: 77, E2: 2, E3: 6}
+          pages: 7.7
+          status: planned
+    - id: C09
+      title: Order
+      prefixes: [Mathlib/Topology/Order]
+      requires: [V01, V03, V04, V13.C02, V13.C04, V13.C13, V13.C15, V24, V27]
+      sections:
+        - id: V13.C09.S01
+          title: 'Order: basics'
+          kind: theory
+          modules:
+            - Mathlib.Topology.Order
+            - Mathlib.Topology.Order.AtTopBotIxx
+            - Mathlib.Topology.Order.Basic
+          E3: [tendsto_of_tendsto_of_tendsto_of_le_of_le, OrderTopology, exists_Ioc_subset_of_mem_nhds, exists_Ico_subset_of_mem_nhds]
+          E2: [discreteTopology_iff_nhds, tendsto_of_tendsto_of_tendsto_of_le_of_le', Filter.Tendsto.squeeze, Filter.Tendsto.squeeze']
+          families: [F-simp, F-ctor, F-instance, F-def, F-simp-iff, F-to-dual]
+          requires: [V03, V04, V13.C04, V13.C15]
+          counts: {E0: 121, E1: 239, E2: 4, E3: 4}
+          pages: 11.8
+          status: planned
+        - id: V13.C09.S02
+          title: 'Order: Bornology'
+          kind: theory
+          modules:
+            - Mathlib.Topology.Order.Bornology
+            - Mathlib.Topology.Order.Cadlag
+            - Mathlib.Topology.Order.Category.AlexDisc
+            - Mathlib.Topology.Order.Category.FrameAdjunction
+            - Mathlib.Topology.Order.Compact
+          E3: [Locale.adjunctionTopToLocalePT, Locale.pt, ContinuousOn.image_Icc, IsCompact.exists_isMinOn]
+          families: [F-simp, F-instance, F-to-dual, F-ctor, F-simp-eq, F-to-additive, F-simp-coe, F-simp-iff]
+          requires: [V01, V03, V04, V13.C04, V24, V27]
+          counts: {E0: 64, E1: 257, E3: 4}
+          pages: 11.8
+          status: planned
+        - id: V13.C09.S03
+          title: 'Order: Completion'
+          kind: theory
+          modules:
+            - Mathlib.Topology.Order.Completion
+            - Mathlib.Topology.Order.CountableSeparating
+            - Mathlib.Topology.Order.DenselyOrdered
+            - Mathlib.Topology.Order.ExtendFrom
+            - Mathlib.Topology.Order.ExtrClosure
+            - Mathlib.Topology.Order.Filter
+            - Mathlib.Topology.Order.Hom.Basic
+            - Mathlib.Topology.Order.Hom.Esakia
+            - Mathlib.Topology.Order.HullKernel
+            - Mathlib.Topology.Order.IntermediateValue
+          E3: [PrimitiveSpectrum.isTopologicalBasis_relativeLower, PrimitiveSpectrum.hull, PrimitiveSpectrum.gi, PrimitiveSpectrum.isOpen_iff, PrimitiveSpectrum.kernel, PrimitiveSpectrum.gc, setOfPred_isPreconnected_eq_of_ordered, intermediate_value_Icc', intermediate_value_univ, intermediate_value_Icc, IsPreconnected.intermediate_value]
+          E2: [isTotallyDisconnected_iff_lt]
+          families: [F-instance, F-to-dual, F-simp, F-simp-iff, F-ext, F-simp-coe, F-simp-apply, F-ctor, F-ext-iff, F-simp-eq, F-aux-snake]
+          requires: [V01, V03, V04, V13.C02, V13.C04]
+          counts: {E0: 128, E1: 204, E2: 1, E3: 11}
+          pages: 15.8
+          status: planned
+        - id: V13.C09.S04
+          title: 'Order: Is lUB'
+          kind: theory
+          modules:
+            - Mathlib.Topology.Order.IsLUB
+            - Mathlib.Topology.Order.IsLocallyClosed
+            - Mathlib.Topology.Order.IsNormal
+            - Mathlib.Topology.Order.Lattice
+            - Mathlib.Topology.Order.LawsonTopology
+            - Mathlib.Topology.Order.LeftRight
+          E3: [Topology.IsLawson, Topology.lawsonOpen_iff_scottOpen_of_isUpperSet', Topology.lawsonClosed_iff_dirSupClosed_of_isLowerSet, Topology.lawson, Topology.IsLawson.isTopologicalBasis, Topology.IsLawson.lawsonBasis]
+          families: [F-to-dual, F-instance, F-ctor, F-simp, F-def, F-simp-eq]
+          requires: [V03, V04, V13.C04]
+          counts: {E0: 53, E1: 166, E3: 6}
+          pages: 10.3
+          status: planned
+        - id: V13.C09.S05
+          title: 'Order: Left right lim'
+          kind: theory
+          modules:
+            - Mathlib.Topology.Order.LeftRightLim
+            - Mathlib.Topology.Order.LeftRightNhds
+            - Mathlib.Topology.Order.LiminfLimsup
+            - Mathlib.Topology.Order.LocalExtr
+          E3: [IsLocalExtr.isLocalExtrOn, IsLocalExtrOn.mono, IsExtrOn.isLocalExtr, IsExtrOn.isLocalExtrOn, IsLocalExtrOn.inter, IsLocalExtrOn.isLocalExtr]
+          families: [F-to-dual, F-instance, F-simp-eq, F-ctor]
+          requires: [V03, V04, V13.C04, V13.C15]
+          counts: {E0: 61, E1: 248, E3: 6}
+          pages: 13.1
+          status: planned
+        - id: V13.C09.S06
+          title: 'Order: Lower upper topology'
+          kind: theory
+          modules:
+            - Mathlib.Topology.Order.LowerUpperTopology
+            - Mathlib.Topology.Order.Monotone
+            - Mathlib.Topology.Order.MonotoneContinuity
+            - Mathlib.Topology.Order.MonotoneConvergence
+            - Mathlib.Topology.Order.NhdsSet
+            - Mathlib.Topology.Order.OrderClosed
+          E3: [Topology.IsLower.isTopologicalBasis, Topology.IsLower.t0Space, OrderIso.continuous, OrderIso.toHomeomorph, ClosedIciTopology, ClosedIicTopology, OrderClosedTopology]
+          E2: [DiscreteTopology.of_predOrder_succOrder]
+          families: [F-to-dual, F-instance, F-simp, F-ctor, F-def, F-simp-coe, F-simp-iff, F-simp-eq]
+          requires: [V04, V13.C04]
+          counts: {E0: 146, E1: 334, E2: 1, E3: 7}
+          pages: 16.9
+          status: planned
+        - id: V13.C09.S07
+          title: 'Order: Order closed extr'
+          kind: theory
+          modules:
+            - Mathlib.Topology.Order.OrderClosedExtr
+            - Mathlib.Topology.Order.PartialSups
+            - Mathlib.Topology.Order.Priestley
+            - Mathlib.Topology.Order.ProjIcc
+            - Mathlib.Topology.Order.Real
+            - Mathlib.Topology.Order.Rolle
+            - Mathlib.Topology.Order.ScottTopology
+          E3: [isLocalMin_of_anti_mono, isLocalMax_of_mono_anti, PriestleySpace, Topology.IsScott.isUpperSet_of_isOpen, Topology.IsScott.instT0Space, Topology.scottHausdorff, Topology.IsScott.monotone_of_continuous, Topology.IsScott.isLowerSet_of_isClosed, Topology.scott, Topology.IsScott.scottContinuousOn_iff_continuous]
+          E2: [Topology.IsScottHausdorff.exists_isLUB_of_mem_closure, Topology.IsScottHausdorff.closure_subset_setOfPred_isLUB]
+          families: [F-ctor, F-instance, F-simp-iff, F-simp, F-simp-eq]
+          requires: [V03, V04, V13.C04]
+          counts: {E0: 38, E1: 67, E2: 2, E3: 10}
+          pages: 10.5
+          status: planned
+        - id: V13.C09.S08
+          title: 'Order: Separable'
+          kind: theory
+          modules:
+            - Mathlib.Topology.Order.Separable
+            - Mathlib.Topology.Order.SuccPred
+            - Mathlib.Topology.Order.T5
+            - Mathlib.Topology.Order.UpperLowerSetTopology
+            - Mathlib.Topology.Order.WithTop
+          E3: [Topology.IsUpperSet.monotone_iff_continuous, Topology.IsUpperSet.toAlexandrovDiscrete, Topology.IsUpperSet, Topology.IsUpperSet.closure_eq_lowerClosure, Topology.IsUpperSet.isClosed_iff_isLower, Topology.WithUpperSet, Topology.IsUpperSet.monotone_to_upperTopology_continuous, Topology.upperSet]
+          families: [F-instance, F-simp, F-to-dual, F-ctor]
+          requires: [V03, V04, V13.C04]
+          counts: {E0: 75, E1: 96, E3: 8}
+          pages: 9.6
+          status: planned
+    - id: C10
+      title: Partial homeomorph and Semicontinuity
+      prefixes: [Mathlib/Topology/PartialHomeomorph, Mathlib/Topology/Semicontinuity]
+      requires: [V01, V02, V03, V05, V07, V13.C04, V13.C07, V13.C12, V14]
+      sections:
+        - id: V13.C10.S01
+          title: Partial homeomorph
+          kind: theory
+          modules:
+            - Mathlib.Topology.PartialHomeomorph.Basic
+            - Mathlib.Topology.PartialHomeomorph.Defs
+          E3: [PartialHomeomorph.refl, Topology.IsEmbedding.toPartialHomeomorph, PartialHomeomorph.symm, Homeomorph.toPartialHomeomorph]
+          families: [F-simp, F-simp-coe, F-simp-apply, F-coe-mk, F-ctor, F-simp-eq, F-ext-iff, F-instance, F-ext]
+          requires: [V13.C04]
+          counts: {E0: 48, E1: 54, E3: 4}
+          pages: 5
+          status: planned
+        - id: V13.C10.S02
+          title: 'Semicontinuity: Basic'
+          kind: reference
+          modules:
+            - Mathlib.Topology.Semicontinuity.Basic
+            - Mathlib.Topology.Semicontinuity.Defs
+          families: [F-to-dual, F-simp-iff, F-simp]
+          counts: {E0: 49, E1: 353}
+          pages: 11.8
+          status: planned
+        - id: V13.C10.S03
+          title: 'Semicontinuity: Hemicontinuity'
+          kind: theory
+          modules:
+            - Mathlib.Topology.Semicontinuity.Hemicontinuity
+            - Mathlib.Topology.Semicontinuity.Lindelof
+            - Mathlib.Topology.Semicontinuity.Michael
+          E3: [HasOpenLowerSections.exists_continuous_selection, LowerHemicontinuous.exists_continuous_selection]
+          families: [F-to-dual, F-simp-iff]
+          requires: [V02, V03, V05, V07, V13.C04, V13.C07, V13.C12, V14]
+          counts: {E0: 9, E1: 60, E3: 2}
+          pages: 3.6
+          status: planned
+    - id: C11
+      title: Separation
+      prefixes: [Mathlib/Topology/Separation]
+      requires: [V03, V04, V13.C04]
+      sections:
+        - id: V13.C11.S01
+          title: 'Separation: Alexandrov discrete'
+          kind: theory
+          modules:
+            - Mathlib.Topology.Separation.AlexandrovDiscrete
+            - Mathlib.Topology.Separation.Basic
+            - Mathlib.Topology.Separation.CompletelyRegular
+          E3: [R1Space, t1Space_iff_exists_open, R0Space, T0Space, T1Space, CompletelyRegularSpace, T35Space]
+          families: [F-instance, F-simp-eq, F-simp-iff, F-ctor, F-simp, F-to-additive]
+          requires: [V13.C04]
+          counts: {E0: 80, E1: 164, E3: 7}
+          pages: 11.1
+          status: planned
+        - id: V13.C11.S02
+          title: 'Separation: Connected'
+          kind: theory
+          modules:
+            - Mathlib.Topology.Separation.Connected
+            - Mathlib.Topology.Separation.CountableSeparatingOn
+            - Mathlib.Topology.Separation.DisjointCover
+            - Mathlib.Topology.Separation.GDelta
+            - Mathlib.Topology.Separation.Hausdorff
+            - Mathlib.Topology.Separation.Lemmas
+            - Mathlib.Topology.Separation.LinearUpperLowerSetTopology
+            - Mathlib.Topology.Separation.NotNormal
+            - Mathlib.Topology.Separation.PerfectlyNormal
+            - Mathlib.Topology.Separation.Profinite
+            - Mathlib.Topology.Separation.Regular
+          E3: [PerfectlyNormalSpace, T6Space, T2Space, RegularSpace, CompletelyNormalSpace, NormalSpace, T5Space, T4Space, T3Space, T25Space]
+          E2: [ContinuousAt.eventuallyEq_nhds_iff_eventuallyEq_nhdsNE]
+          families: [F-instance, F-ctor, F-simp, F-simp-mk]
+          requires: [V03, V13.C04]
+          counts: {E0: 106, E1: 171, E2: 1, E3: 10}
+          pages: 13.9
+          status: planned
+        - id: V13.C11.S03
+          title: Separated nhds
+          kind: theory
+          modules:
+            - Mathlib.Topology.Separation.SeparatedNhds
+          E3: [HasSeparatingCover, hasSeparatingCovers_iff_separatedNhds, SeparatedNhds]
+          families: [F-simp]
+          requires: [V03, V04, V13.C04]
+          counts: {E0: 4, E1: 18, E3: 3}
+          pages: 3
+          status: planned
+    - id: C12
+      title: Sets, Spectral and Uniform space
+      prefixes: [Mathlib/Topology/Sets, Mathlib/Topology/Spectral, Mathlib/Topology/UniformSpace]
+      requires: [V01, V03, V04, V05, V13.C02, V13.C03, V13.C04, V13.C07, V13.C11, V13.C13, V13.C14, V13.C15, V16]
+      sections:
+        - id: V13.C12.S01
+          title: Sets
+          kind: theory
+          modules:
+            - Mathlib.Topology.Sets.BaseChangeNhds
+            - Mathlib.Topology.Sets.Closeds
+            - Mathlib.Topology.Sets.CompactOpenCovered
+            - Mathlib.Topology.Sets.Compacts
+            - Mathlib.Topology.Sets.OpenCover
+            - Mathlib.Topology.Sets.Opens
+            - Mathlib.Topology.Sets.Order
+            - Mathlib.Topology.Sets.VietorisTopology
+          E3: [IsCompactOpenCovered.of_isOpenMap, TopologicalSpace.Opens]
+          E2: [TopologicalSpace.Compacts.openRcNhdsToCompactNhds_mono, TopologicalSpace.Opens.isOpen, TopologicalSpace.Opens.is_open', TopologicalSpace.isClosed_range_singleton]
+          families: [F-simp, F-instance, F-simp-coe, F-def, F-coe-mk, F-simp-apply, F-simp-mem, F-ext-iff, F-ext, F-simp-eq, F-ctor, F-simp-mk, F-simp-iff]
+          requires: [V03, V04, V13.C04]
+          counts: {E0: 431, E1: 306, E2: 4, E3: 2}
+          pages: 12.4
+          status: planned
+        - id: V13.C12.S02
+          title: Spectral
+          kind: theory
+          modules:
+            - Mathlib.Topology.Spectral.Basic
+            - Mathlib.Topology.Spectral.ConstructibleTopology
+            - Mathlib.Topology.Spectral.Hom
+            - Mathlib.Topology.Spectral.Prespectral
+          E3: [Topology.IsOpenEmbedding.spectralSpace, SpectralSpace, IsSpectralMap, SpectralMap, SpectralMapClass]
+          families: [F-instance, F-ctor, F-simp, F-simp-iff, F-simp-coe, F-ext-iff, F-ext, F-simp-eq, F-simp-apply]
+          requires: [V13.C04]
+          counts: {E0: 42, E1: 46, E3: 5}
+          pages: 5.5
+          status: planned
+        - id: V13.C12.S03
+          title: 'Uniform space: Absolute value'
+          kind: theory
+          modules:
+            - Mathlib.Topology.UniformSpace.AbsoluteValue
+            - Mathlib.Topology.UniformSpace.AbstractCompletion
+            - Mathlib.Topology.UniformSpace.Ascoli
+            - Mathlib.Topology.UniformSpace.Basic
+          E3: [Equicontinuous.inducing_uniformFun_iff_pi, EquicontinuousOn.tendsto_uniformOnFun_iff_pi', EquicontinuousOn.inducing_uniformOnFun_iff_pi', Equicontinuous.tendsto_uniformFun_iff_pi, Equicontinuous.comap_uniformFun_eq, EquicontinuousOn.comap_uniformOnFun_eq, Equicontinuous.isUniformInducing_uniformFun_iff_pi, EquicontinuousOn.isUniformInducing_uniformOnFun_iff_pi', UniformSpace.comap]
+          E2: [ArzelaAscoli.isCompact_of_equicontinuous, ArzelaAscoli.compactSpace_of_closed_inducing', ArzelaAscoli.compactSpace_of_isClosedEmbedding, ArzelaAscoli.isCompact_closure_of_isClosedEmbedding, UniformContinuous.continuous]
+          families: [F-simp, F-def, F-ctor, F-to-additive, F-instance, F-to-dual]
+          requires: [V01, V03, V04, V13.C02, V13.C03, V13.C04, V13.C15]
+          counts: {E0: 66, E1: 197, E2: 5, E3: 9}
+          pages: 14.5
+          status: planned
+        - id: V13.C12.S04
+          title: 'Uniform space: Cauchy'
+          kind: theory
+          modules:
+            - Mathlib.Topology.UniformSpace.Cauchy
+            - Mathlib.Topology.UniformSpace.Closeds
+            - Mathlib.Topology.UniformSpace.Compact
+          E3: [IsComplete, CompleteSpace, Cauchy, CauchySeq, compactSpace_uniformity]
+          families: [F-simp, F-instance, F-ctor, F-aux-snake, F-aux, F-simp-iff, F-def]
+          requires: [V04, V13.C15]
+          counts: {E0: 67, E1: 212, E3: 5}
+          pages: 11.1
+          status: planned
+        - id: V13.C12.S05
+          title: 'Uniform space: Compact convergence'
+          kind: theory
+          modules:
+            - Mathlib.Topology.UniformSpace.CompactConvergence
+            - Mathlib.Topology.UniformSpace.CompareReals
+            - Mathlib.Topology.UniformSpace.CompleteSeparated
+            - Mathlib.Topology.UniformSpace.Completion
+            - Mathlib.Topology.UniformSpace.Defs
+          E3: [ContinuousMap.mem_compactConvergence_entourage_iff, ContinuousMap.toUniformOnFunIsCompact, ContinuousMap.tendsto_iff_tendstoUniformly, ContinuousMap.tendsto_iff_forall_isCompact_tendstoUniformlyOn, ContinuousMap.tendsto_iff_tendstoLocallyUniformly, Filter.HasBasis.compactConvergenceUniformity, ContinuousMap.compactConvergenceUniformSpace, UniformSpace.Completion, UniformSpace, nhds_basis_uniformity', IsUniformInducing, UniformContinuousOn]
+          E2: [ContinuousMap.isComplete_setOfPred_eqOn]
+          families: [F-instance, F-simp, F-simp-coe, F-ext, F-def, F-ctor, F-ext-iff]
+          requires: [V01, V03, V13.C03, V13.C04, V13.C13, V13.C15]
+          counts: {E0: 75, E1: 166, E2: 1, E3: 12}
+          pages: 15.3
+          status: planned
+        - id: V13.C12.S06
+          title: 'Uniform space: Dini'
+          kind: theory
+          modules:
+            - Mathlib.Topology.UniformSpace.Dini
+            - Mathlib.Topology.UniformSpace.DiscreteUniformity
+            - Mathlib.Topology.UniformSpace.Equicontinuity
+          E3: [Monotone.tendstoLocallyUniformly_of_forall_tendsto, Equicontinuous, Set.UniformEquicontinuousOn, EquicontinuousWithinAt, Set.Equicontinuous, Set.EquicontinuousWithinAt, UniformEquicontinuousOn, equicontinuous_iff_continuous, Set.EquicontinuousOn, Set.Equicontinuous.closure, EquicontinuousOn, Set.UniformEquicontinuous, UniformEquicontinuous, EquicontinuousAt, Set.EquicontinuousAt]
+          E2: [Antitone.tendstoUniformlyOn_of_forall_tendsto, Antitone.tendstoUniformly_of_forall_tendsto, ContinuousMap.tendsto_of_antitone_of_pointwise, Monotone.tendstoUniformlyOn_of_forall_tendsto, ContinuousMap.tendsto_of_monotone_of_pointwise, Antitone.tendstoLocallyUniformly_of_forall_tendsto, Monotone.tendstoLocallyUniformlyOn_of_forall_tendsto, Monotone.tendstoUniformly_of_forall_tendsto, Antitone.tendstoLocallyUniformlyOn_of_forall_tendsto]
+          families: [F-to-dual, F-instance, F-ctor, F-simp]
+          requires: [V01, V03, V04, V05, V13.C03, V13.C04, V13.C07, V13.C14, V13.C15, V16]
+          counts: {E0: 25, E1: 104, E2: 9, E3: 15}
+          pages: 16.8
+          status: planned
+        - id: V13.C12.S07
+          title: 'Uniform space: Equiv'
+          kind: theory
+          modules:
+            - Mathlib.Topology.UniformSpace.Equiv
+            - Mathlib.Topology.UniformSpace.HeineCantor
+            - Mathlib.Topology.UniformSpace.LocallyUniformConvergence
+            - Mathlib.Topology.UniformSpace.Matrix
+            - Mathlib.Topology.UniformSpace.OfCompactT2
+            - Mathlib.Topology.UniformSpace.OfFun
+            - Mathlib.Topology.UniformSpace.Path
+            - Mathlib.Topology.UniformSpace.Pi
+            - Mathlib.Topology.UniformSpace.ProdApproximation
+            - Mathlib.Topology.UniformSpace.Real
+            - Mathlib.Topology.UniformSpace.Separation
+          E3: [CompactSpace.uniformContinuous_of_continuous, uniformSpaceOfCompactR1, Real.instCompleteSpace, SeparationQuotient.uniformity_eq, SeparationQuotient.instUniformSpace, SeparationQuotient.map, SeparationQuotient.uniformContinuous_lift', SeparationQuotient.lift', SeparationQuotient.comap_mk_uniformity, SeparationQuotient.uniformContinuous_map]
+          families: [F-simp-apply, F-simp, F-instance, F-to-additive, F-simp-coe, F-ctor, F-simp-iff, F-ext-iff, F-ext, F-def]
+          requires: [V13.C04, V13.C13, V13.C15]
+          counts: {E0: 93, E1: 148, E3: 10}
+          pages: 12.9
+          status: planned
+        - id: V13.C12.S08
+          title: 'Uniform space: Basic'
+          kind: theory
+          modules:
+            - Mathlib.Topology.UniformSpace.Ultra.Basic
+            - Mathlib.Topology.UniformSpace.Ultra.Completion
+            - Mathlib.Topology.UniformSpace.Ultra.Constructions
+            - Mathlib.Topology.UniformSpace.UniformApproximation
+            - Mathlib.Topology.UniformSpace.UniformConvergence
+            - Mathlib.Topology.UniformSpace.UniformConvergenceTopology
+          E3: [TopologicalSpace.isTopologicalBasis_clopens, IsUltraUniformity, TendstoUniformly.tendsto_comp, TendstoUniformlyOn.tendsto_comp, continuous_of_uniform_approx_of_continuous, TendstoUniformly.continuous, TendstoUniformlyOn.continuousOn, TendstoUniformly, UniformOnFun.uniformSpace, UniformFun.uniformSpace, UniformFun.gen]
+          families: [F-ctor, F-instance, F-simp-iff, F-simp, F-simp-mem]
+          requires: [V01, V03, V13.C04, V13.C15]
+          counts: {E0: 50, E1: 183, E3: 11}
+          pages: 14.9
+          status: planned
+        - id: V13.C12.S09
+          title: 'Uniform space: Uniform embedding'
+          kind: theory
+          modules:
+            - Mathlib.Topology.UniformSpace.UniformEmbedding
+            - Mathlib.Topology.UniformSpace.Uniformizable
+          E3: [UniformSpace.toCompletelyRegularSpace, CompletelyRegularSpace.exists_uniformSpace, CompletelyRegularSpace.of_exists_uniformSpace, completelyRegularSpace_iff_exists_uniformSpace]
+          families: [F-simp-iff, F-instance]
+          requires: [V13.C04, V13.C11]
+          counts: {E0: 24, E1: 60, E3: 4}
+          pages: 5.2
+          status: planned
+    - id: C13
+      title: Topology
+      prefixes: [Mathlib/Topology]
+      requires: [V01, V02, V03, V04, V05, V13.C02, V13.C03, V13.C04, V13.C06, V13.C07, V13.C08, V13.C09, V13.C11, V13.C12, V13.C14, V13.C15, V14, V16, V24, V27, V33]
+      sections:
+        - id: V13.C13.S01
+          title: Alexandrov discrete
+          kind: theory
+          modules:
+            - Mathlib.Topology.AlexandrovDiscrete
+            - Mathlib.Topology.ApproximateUnit
+            - Mathlib.Topology.Bases
+            - Mathlib.Topology.Basic
+            - Mathlib.Topology.CantorBendixson
+            - Mathlib.Topology.Clopen
+            - Mathlib.Topology.ClopenBox
+            - Mathlib.Topology.Closure
+          E3: [AlexandrovDiscrete, MapClusterPt.tendsto_subseq]
+          families: [F-instance, F-ctor, F-simp-eq, F-simp, F-ext-iff, F-ext, F-simp-iff, F-simp-apply]
+          requires: [V13.C04]
+          counts: {E0: 143, E1: 323, E3: 2}
+          pages: 12.4
+          status: planned
+        - id: V13.C13.S02
+          title: Cluster pt
+          kind: theory
+          modules:
+            - Mathlib.Topology.ClusterPt
+            - Mathlib.Topology.Coherent
+            - Mathlib.Topology.CompactOpen
+          E3: [Topology.IsCoherentWith.of_seq, ContinuousMap.uncurry, ContinuousMap.curry, ContinuousMap.prodHomeomorph', ContinuousMap.coev, ContinuousMap.compactOpen, ContinuousMap.prodHomeomorph, Homeomorph.curry]
+          families: [F-def, F-simp, F-simp-iff, F-instance, F-simp-apply, F-simp-coe]
+          requires: [V01, V03, V13.C02, V13.C03, V13.C04, V13.C06]
+          counts: {E0: 54, E1: 113, E3: 8}
+          pages: 10.2
+          status: planned
+        - id: V13.C13.S03
+          title: Constructible
+          kind: theory
+          modules:
+            - Mathlib.Topology.Constructible
+            - Mathlib.Topology.Continuous
+            - Mathlib.Topology.ContinuousOn
+          E3: [IsRetrocompact, Topology.IsLocallyConstructible, Topology.IsConstructible]
+          E2: [Continuous.comp, continuous_id, ContinuousOn.domRestrict]
+          families: [F-simp, F-def]
+          requires: [V03, V04, V13.C04]
+          counts: {E0: 50, E1: 259, E2: 3, E3: 3}
+          pages: 11.5
+          status: planned
+        - id: V13.C13.S04
+          title: Dense embedding
+          kind: theory
+          modules:
+            - Mathlib.Topology.DenseEmbedding
+            - Mathlib.Topology.DerivedSet
+            - Mathlib.Topology.DiscreteQuotient
+            - Mathlib.Topology.DiscreteSubset
+            - Mathlib.Topology.ExtendFrom
+            - Mathlib.Topology.ExtremallyDisconnected
+          E3: [IsDenseInducing.extend, DiscreteQuotient.ofLE, DiscreteQuotient.exists_of_compat, tendsto_cofinite_cocompact_iff, IsClosed.tendsto_coe_cofinite_iff, CompactT2.Projective, CompactT2.Projective.extremallyDisconnected, CompactT2.ExtremallyDisconnected.projective, ExtremallyDisconnected]
+          E2: [codiscreteWithin_iff_locallyEmptyComplementWithin]
+          families: [F-simp, F-ctor, F-simp-mem, F-simp-apply, F-instance, F-simp-iff, F-ext-iff, F-simp-eq, F-ext]
+          requires: [V03, V04, V13.C04, V13.C11, V13.C15]
+          counts: {E0: 71, E1: 179, E2: 1, E3: 9}
+          pages: 13.3
+          status: planned
+        - id: V13.C13.S05
+          title: Fiber partition
+          kind: theory
+          modules:
+            - Mathlib.Topology.FiberPartition
+            - Mathlib.Topology.Filter
+            - Mathlib.Topology.Germ
+            - Mathlib.Topology.Gluing
+          E3: [TopCat.GlueData.preimage_image_eq_image, TopCat.GlueData.isOpen_iff, TopCat.GlueData.rel_equiv, TopCat.GlueData.ofOpenSubsets, TopCat.GlueData.ι_isOpenEmbedding, TopCat.GlueData.preimage_range, TopCat.GlueData.openCoverGlueHomeo, TopCat.GlueData.mk, TopCat.GlueData.image_inter, TopCat.GlueData.Rel, TopCat.GlueData.ι_jointly_surjective, TopCat.GlueData.ι_eq_iff_rel, TopCat.GlueData]
+          families: [F-simp-apply, F-instance, F-simp, F-to-dual, F-simp-coe, F-ctor]
+          requires: [V01, V03, V13.C03, V13.C04, V13.C12, V24, V27]
+          counts: {E0: 43, E1: 67, E3: 13}
+          pages: 12.6
+          status: planned
+        - id: V13.C13.S06
+          title: Indicator const pointwise
+          kind: theory
+          modules:
+            - Mathlib.Topology.IndicatorConstPointwise
+            - Mathlib.Topology.Inseparable
+            - Mathlib.Topology.Irreducible
+            - Mathlib.Topology.IsClosedRestrict
+            - Mathlib.Topology.IsLocalHomeomorph
+          E3: [tendsto_indicator_const_iff_forall_eventually, tendsto_indicator_const_iff_tendsto_pi_pure, IsIrreducible, IrreducibleSpace, IsLocalHomeomorph]
+          families: [F-simp, F-simp-mk, F-instance, F-def, F-simp-iff, F-to-additive, F-ctor]
+          requires: [V03, V13.C04, V13.C08, V13.C15]
+          counts: {E0: 105, E1: 215, E3: 5}
+          pages: 11.2
+          status: planned
+        - id: V13.C13.S07
+          title: Jacobson space
+          kind: theory
+          modules:
+            - Mathlib.Topology.JacobsonSpace
+            - Mathlib.Topology.KrullDimension
+            - Mathlib.Topology.List
+            - Mathlib.Topology.LocalAtTarget
+            - Mathlib.Topology.LocallyClosed
+            - Mathlib.Topology.LocallyFinite
+            - Mathlib.Topology.NatEmbedding
+            - Mathlib.Topology.Neighborhoods
+          E3: [JacobsonSpace, JacobsonSpace.discreteTopology, jacobsonSpace_iff_locallyClosed, topologicalKrullDim_subspace_le, isLocallyClosed_tfae, isLocallyClosedAt_tfae]
+          families: [F-ctor, F-instance, F-simp-mem, F-to-additive, F-simp, F-simp-iff]
+          requires: [V03, V04, V13.C04, V13.C15]
+          counts: {E0: 50, E1: 193, E3: 6}
+          pages: 11.2
+          status: planned
+        - id: V13.C13.S08
+          title: Nhds ker
+          kind: theory
+          modules:
+            - Mathlib.Topology.NhdsKer
+            - Mathlib.Topology.NhdsSet
+            - Mathlib.Topology.NhdsWithin
+            - Mathlib.Topology.NoetherianSpace
+          E3: [TopologicalSpace.noetherianSpace_tfae, TopologicalSpace.NoetherianSpace.exists_finset_irreducible, TopologicalSpace.NoetherianSpace.iUnion, TopologicalSpace.NoetherianSpace.set, TopologicalSpace.NoetherianSpace.finite_irreducibleComponents, TopologicalSpace.NoetherianSpace.discrete, TopologicalSpace.NoetherianSpace.isCompact, TopologicalSpace.NoetherianSpace.range]
+          E2: [nhdsSet_inter_le]
+          families: [F-simp, F-def, F-simp-mem, F-simp-eq, F-simp-iff, F-instance]
+          requires: [V03, V04, V13.C04, V13.C12, V13.C15]
+          counts: {E0: 97, E1: 134, E2: 1, E3: 8}
+          pages: 11
+          status: planned
+        - id: V13.C13.S09
+          title: Omega complete partial order
+          kind: theory
+          modules:
+            - Mathlib.Topology.OmegaCompletePartialOrder
+            - Mathlib.Topology.Partial
+            - Mathlib.Topology.PartitionOfUnity
+            - Mathlib.Topology.Path
+            - Mathlib.Topology.Perfect
+          E3: [Path, exists_countable_union_perfect_of_isClosed, Perfect, preperfect_iff_perfect_closure, Perfect.splitting]
+          E2: [exists_continuous_sum_one_of_isOpen_isCompact, BumpCovering.exists_isSubordinate_of_prop, BumpCovering.exists_isSubordinate_of_locallyFinite_of_prop_t2space, BumpCovering.exists_isSubordinate_of_locallyFinite_of_prop]
+          families: [F-simp, F-simp-coe, F-instance, F-ctor, F-simp-eq, F-simp-mem, F-ext-iff, F-simp-cast, F-simp-apply, F-ext, F-to-additive, F-def]
+          requires: [V01, V02, V03, V04, V05, V13.C03, V13.C04, V13.C07, V13.C11, V13.C12, V14]
+          counts: {E0: 77, E1: 163, E2: 4, E3: 5}
+          pages: 10
+          status: planned
+        - id: V13.C13.S10
+          title: Piecewise
+          kind: theory
+          modules:
+            - Mathlib.Topology.Piecewise
+            - Mathlib.Topology.PreorderRestrict
+            - Mathlib.Topology.QuasiSeparated
+            - Mathlib.Topology.SeparatedMap
+            - Mathlib.Topology.Sequences
+          E3: [IsQuasiSeparated, QuasiSeparatedSpace, QuasiSeparatedSpace.of_isOpenEmbedding, FrechetUrysohnSpace.to_sequentialSpace, IsClosed.isSeqClosed, IsSeqClosed.seqClosure_eq, IsSeqCompact.isCompact, isCompact_iff_isSeqCompact, tendsto_nhds_iff_seq_tendsto, seqClosure_eq_closure, FirstCountableTopology.frechetUrysohnSpace, seqClosure_subset_closure, FrechetUrysohnSpace.of_seq_tendsto_imp_tendsto]
+          families: [F-simp, F-instance, F-ctor]
+          requires: [V03, V13.C04]
+          counts: {E0: 18, E1: 85, E3: 13}
+          pages: 13.2
+          status: planned
+        - id: V13.C13.S11
+          title: Shrinking lemma
+          kind: theory
+          modules:
+            - Mathlib.Topology.ShrinkingLemma
+            - Mathlib.Topology.Sion
+            - Mathlib.Topology.SmallInductiveDimension
+            - Mathlib.Topology.Sober
+            - Mathlib.Topology.Specialization
+            - Mathlib.Topology.Subpath
+            - Mathlib.Topology.TietzeExtension
+            - Mathlib.Topology.Ultrafilter
+            - Mathlib.Topology.UnitInterval
+          E3: [IsGenericPoint, genericPoints, QuasiSober, BoundedContinuousFunction.exists_extension_norm_eq_of_isClosedEmbedding]
+          E2: [exists_subset_iUnion_closure_subset, exists_subset_iUnion_closure_subset_t2space, exists_iUnion_eq_closure_subset, exists_subset_iUnion_closed_subset, exists_iUnion_eq_closed_subset, exists_subset_iUnion_compact_subset_t2space, ContinuousMap.exists_extension_forall_mem]
+          families: [F-instance, F-ext, F-ctor, F-simp, F-ext-iff, F-simp-eq, F-simp-apply, F-def, F-aux, F-to-additive, F-simp-mem, F-simp-coe, F-simp-mk]
+          requires: [V03, V04, V13.C03, V13.C04, V13.C11, V16]
+          counts: {E0: 98, E1: 174, E2: 7, E3: 4}
+          pages: 10.1
+          status: planned
+        - id: V13.C13.S12
+          title: Urysohns bounded
+          kind: theory
+          modules:
+            - Mathlib.Topology.UrysohnsBounded
+            - Mathlib.Topology.UrysohnsLemma
+            - Mathlib.Topology.WithTopology
+          E3: [exists_continuous_zero_one_of_isClosed]
+          E2: [exists_bounded_zero_one_of_closed, exists_bounded_mem_Icc_of_closed_of_le, exists_continuous_one_zero_of_isCompact, exists_continuous_zero_one_of_isCompact', exists_continuous_zero_one_of_isCompact, exists_continuousMap_one_of_isCompact_subset_isOpen, exists_continuous_one_zero_of_isCompact_of_isGδ, exists_tsupport_one_of_isOpen_isClosed, WithTopology.toTopology_inj]
+          families: [F-simp, F-ctor, F-instance]
+          requires: [V01, V02, V03, V04, V05, V13.C03, V13.C04, V13.C07, V13.C11, V13.C12, V14]
+          counts: {E0: 30, E1: 53, E2: 9, E3: 1}
+          pages: 3.9
+          status: planned
+    - id: C14
+      title: At top bot and Bases
+      prefixes: [Mathlib/Order/Filter/AtTopBot, Mathlib/Order/Filter/Bases]
+      requires: [V03, V04, V13.C15]
+      sections:
+        - id: V13.C14.S01
+          title: At top bot
+          kind: theory
+          modules:
+            - Mathlib.Order.Filter.AtTopBot.Archimedean
+            - Mathlib.Order.Filter.AtTopBot.Basic
+            - Mathlib.Order.Filter.AtTopBot.BigOperators
+            - Mathlib.Order.Filter.AtTopBot.CompleteLattice
+            - Mathlib.Order.Filter.AtTopBot.CountablyGenerated
+            - Mathlib.Order.Filter.AtTopBot.Defs
+            - Mathlib.Order.Filter.AtTopBot.Disjoint
+            - Mathlib.Order.Filter.AtTopBot.Field
+            - Mathlib.Order.Filter.AtTopBot.Finite
+            - Mathlib.Order.Filter.AtTopBot.Finset
+            - Mathlib.Order.Filter.AtTopBot.Floor
+            - Mathlib.Order.Filter.AtTopBot.Group
+            - Mathlib.Order.Filter.AtTopBot.Interval
+          E3: [Filter.atTop, Filter.atBot]
+          E2: [Filter.HasAntitoneBasis.subbasis_with_rel]
+          families: [F-to-dual, F-simp, F-instance, F-simp-mem, F-simp-iff]
+          requires: [V04, V13.C15]
+          counts: {E0: 93, E1: 252, E2: 1, E3: 2}
+          pages: 10.2
+          status: planned
+        - id: V13.C14.S02
+          title: Filter
+          kind: theory
+          modules:
+            - Mathlib.Order.Filter.AtTopBot.Map
+            - Mathlib.Order.Filter.AtTopBot.ModEq
+            - Mathlib.Order.Filter.AtTopBot.Monoid
+            - Mathlib.Order.Filter.AtTopBot.Prod
+            - Mathlib.Order.Filter.AtTopBot.Ring
+            - Mathlib.Order.Filter.AtTopBot.Tendsto
+            - Mathlib.Order.Filter.Bases.Basic
+            - Mathlib.Order.Filter.Bases.Finite
+          E3: [Filter.HasBasis.inf, Filter.HasBasis.mem_iff, Filter.HasBasis.tendsto_iff, Filter.HasBasis.prod_self, Filter.HasBasis.le_basis_iff, Filter.HasBasis.map, Filter.HasBasis.ge_iff, Filter.HasBasis.comap, Filter.basis_sets, Filter.HasBasis.mem_of_superset, Filter.HasBasis.le_iff, Filter.HasBasis.tendsto_left_iff, Filter.HasBasis.inf_principal, Filter.HasBasis.tendsto_right_iff, Filter.HasBasis.mem_of_mem, Filter.HasBasis.prod]
+          E2: [Monotone.upperBounds_range_comp_tendsto_atTop]
+          families: [F-ctor, F-ext, F-instance, F-simp, F-simp-iff, F-simp-mem, F-to-dual]
+          requires: [V03, V04, V13.C15]
+          counts: {E0: 51, E1: 226, E2: 1, E3: 16}
+          pages: 20.5
+          status: planned
+    - id: C15
+      title: Germ, Ultrafilter, Filter and Analysis
+      prefixes: [Mathlib/Order/Filter/Germ, Mathlib/Order/Filter/Ultrafilter, Mathlib/Order/Filter, Mathlib/Data/Analysis]
+      requires: [V03, V04, V05, V31]
+      sections:
+        - id: V13.C15.S01
+          title: 'Filter: Basic'
+          kind: theory
+          modules:
+            - Mathlib.Order.Filter.Germ.Basic
+            - Mathlib.Order.Filter.Germ.OrderedMonoid
+            - Mathlib.Order.Filter.Ultrafilter.Basic
+            - Mathlib.Order.Filter.Ultrafilter.Cardinality
+            - Mathlib.Order.Filter.Ultrafilter.Defs
+            - Mathlib.Order.Filter.Basic
+          E3: [Filter.Product]
+          families: [F-simp-coe, F-instance, F-simp, F-simp-eq, F-to-dual, F-simp-iff, F-def, F-to-additive, F-simp-mem, F-ext, F-ctor, F-ext-iff]
+          counts: {E0: 342, E1: 298, E3: 1}
+          pages: 10.7
+          status: planned
+        - id: V13.C15.S02
+          title: 'Filter: Cardinal inter'
+          kind: theory
+          modules:
+            - Mathlib.Order.Filter.CardinalInter
+            - Mathlib.Order.Filter.Cocardinal
+            - Mathlib.Order.Filter.Cofinite
+            - Mathlib.Order.Filter.CountableInter
+            - Mathlib.Order.Filter.CountableSeparatingOn
+            - Mathlib.Order.Filter.CountablyGenerated
+            - Mathlib.Order.Filter.Curry
+            - Mathlib.Order.Filter.Defs
+          E3: [CardinalInterFilter.toCountableInterFilter, Filter.cardinalInterFilter_aleph0, CardinalInterFilter.of_cardinalInterFilter_of_lt, CountableInterFilter.toCardinalInterFilter, CountableInterFilter, Filter.map, Filter.Eventually, Filter.EventuallyEq, Filter.Frequently, Filter.Tendsto, Filter.principal, Filter, Filter.comap]
+          E2: [Filter.inter_sets, Filter.sets_of_superset, Filter.univ_sets]
+          families: [F-instance, F-ctor, F-simp-mem, F-simp-eq, F-simp, F-simp-iff, F-to-dual, F-ext, F-ext-iff, F-def]
+          requires: [V03, V04, V31]
+          counts: {E0: 128, E1: 191, E2: 3, E3: 13}
+          pages: 17.2
+          status: planned
+        - id: V13.C15.S03
+          title: 'Filter: ENNReal'
+          kind: reference
+          modules:
+            - Mathlib.Order.Filter.ENNReal
+            - Mathlib.Order.Filter.EventuallyConst
+            - Mathlib.Order.Filter.Extr
+            - Mathlib.Order.Filter.FilterProduct
+            - Mathlib.Order.Filter.Finite
+            - Mathlib.Order.Filter.IndicatorFunction
+            - Mathlib.Order.Filter.Interval
+            - Mathlib.Order.Filter.IsBounded
+          families: [F-simp, F-to-additive, F-simp-iff, F-to-dual, F-instance, F-def, F-ctor]
+          counts: {E0: 125, E1: 350}
+          pages: 11.7
+          status: planned
+        - id: V13.C15.S04
+          title: 'Filter: Ker'
+          kind: theory
+          modules:
+            - Mathlib.Order.Filter.Ker
+            - Mathlib.Order.Filter.Lift
+            - Mathlib.Order.Filter.ListTraverse
+            - Mathlib.Order.Filter.Map
+            - Mathlib.Order.Filter.NAry
+            - Mathlib.Order.Filter.Partial
+            - Mathlib.Order.Filter.Pi
+            - Mathlib.Order.Filter.Pointwise
+          E3: [Filter.map₂, Filter.instAdd, Filter.instVSub, Filter.instDiv, Filter.instVAdd, Filter.instMul, Filter.instSMul, Filter.instVAddFilter, Filter.instNeg, Filter.instSMulFilter, Filter.instZero, Filter.instSub, Filter.instInv, Filter.instOne, Filter.instSDiv]
+          families: [F-def, F-simp, F-simp-mem, F-simp-eq, F-instance, F-simp-iff, F-to-dual, F-to-additive, F-map-op, F-simp-apply, F-simp-coe]
+          requires: [V03, V05]
+          counts: {E0: 418, E1: 380, E3: 15}
+          pages: 24.7
+          status: planned
+        - id: V13.C15.S05
+          title: Prod
+          kind: theory
+          modules:
+            - Mathlib.Order.Filter.Prod
+            - Mathlib.Order.Filter.Ring
+            - Mathlib.Order.Filter.SmallSets
+            - Mathlib.Order.Filter.Subsingleton
+            - Mathlib.Order.Filter.Tendsto
+            - Mathlib.Order.Filter.TendstoCofinite
+            - Mathlib.Order.Filter.ZeroAndBoundedAtFilter
+            - Mathlib.Data.Analysis.Filter
+            - Mathlib.Data.Analysis.Topology
+          E3: [Finsupp.mapDomain_tendstoCofinite, Filter.tendstoCofinite_iff_finite_preimage_singleton, Filter.TendstoCofinite.mapDomain, Filter.TendstoCofinite]
+          families: [F-ctor, F-def, F-ext, F-instance, F-simp, F-simp-eq, F-simp-iff, F-simp-mem, F-to-dual]
+          requires: [V03, V05]
+          counts: {E0: 130, E1: 249, E3: 4}
+          pages: 11.5
+          status: planned

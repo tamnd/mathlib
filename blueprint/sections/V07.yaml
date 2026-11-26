@@ -1,0 +1,932 @@
+# The section plan of V07 (spec 09.1, 07.7). mlib plan made the draft from the index at e54979a532. A person accepts it and then edits it by hand.
+volume: V07
+title: Linear algebra
+mathlib: e54979a532247ae4eb9d5578a8fd40a1bc332101
+date: "2026-11-26"
+by: mlib plan dev
+status: proposed
+pages: 557
+chapters:
+    - id: C01
+      title: Basis, Charpoly, Complex and Dimension
+      prefixes: [Mathlib/LinearAlgebra/Basis, Mathlib/LinearAlgebra/Charpoly, Mathlib/LinearAlgebra/Complex, Mathlib/LinearAlgebra/Dimension]
+      requires: [V01, V02, V03, V04, V05, V06, V07.C03, V07.C04, V07.C06, V07.C07, V07.C08, V07.C09, V08, V09, V10, V31]
+      sections:
+        - id: V07.C01.S01
+          title: 'Basis: Basic'
+          kind: theory
+          modules:
+            - Mathlib.LinearAlgebra.Basis.Basic
+            - Mathlib.LinearAlgebra.Basis.Bilinear
+            - Mathlib.LinearAlgebra.Basis.Cardinality
+            - Mathlib.LinearAlgebra.Basis.Defs
+          E3: [Module.Basis.ofEquivFun, Module.Basis.ofRepr, Module.Basis.coord, Module.Basis.map, Module.Basis.repr, Module.Basis, Module.Basis.reindex, Module.Basis.ext, Module.Basis.equivFun, Module.Basis.constr]
+          families: [F-simp, F-simp-eq, F-simp-apply, F-instance, F-simp-coe, F-coe-mk, F-ctor, F-def, F-ext]
+          requires: [V01, V03, V05, V06, V07.C03, V07.C07, V07.C09]
+          counts: {E0: 79, E1: 66, E3: 10}
+          pages: 10.2
+          status: planned
+        - id: V07.C01.S02
+          title: 'Basis: Exact'
+          kind: theory
+          modules:
+            - Mathlib.LinearAlgebra.Basis.Exact
+            - Mathlib.LinearAlgebra.Basis.Fin
+            - Mathlib.LinearAlgebra.Basis.Flag
+            - Mathlib.LinearAlgebra.Basis.MulOpposite
+            - Mathlib.LinearAlgebra.Basis.Prod
+            - Mathlib.LinearAlgebra.Basis.SMul
+            - Mathlib.LinearAlgebra.Basis.Submodule
+            - Mathlib.LinearAlgebra.Basis.VectorSpace
+          E3: [Module.Basis.ofVectorSpace, Submodule.exists_isCompl, Module.Free.of_divisionRing]
+          families: [F-simp-apply, F-simp-coe, F-to-additive, F-simp, F-simp-iff, F-simp-mem, F-instance, F-simp-eq, F-aux]
+          requires: [V03, V05, V06, V07.C08, V07.C09]
+          counts: {E0: 55, E1: 78, E3: 3}
+          pages: 5
+          status: planned
+        - id: V07.C01.S03
+          title: Base change
+          kind: theory
+          modules:
+            - Mathlib.LinearAlgebra.Charpoly.BaseChange
+            - Mathlib.LinearAlgebra.Charpoly.Basic
+            - Mathlib.LinearAlgebra.Charpoly.ToMatrix
+            - Mathlib.LinearAlgebra.Complex.Determinant
+            - Mathlib.LinearAlgebra.Complex.FiniteDimensional
+            - Mathlib.LinearAlgebra.Complex.Module
+            - Mathlib.LinearAlgebra.Complex.Orientation
+            - Mathlib.LinearAlgebra.Dimension.Basic
+            - Mathlib.LinearAlgebra.Dimension.Constructions
+          E3: [Complex.lift, LinearMap.rank_le_of_injective, LinearMap.rank_le_of_surjective, Module.rank, rank_finsupp, rank_directSum, Set.finrank, lift_rank_add_lift_rank_le_rank_prod, rank_tensorProduct, rank_quotient_add_rank_le, rank_prod]
+          E2: [Complex.finrank_real_complex_fact, Complex.real_algHom_eq_id_or_conj]
+          families: [F-simp, F-def, F-instance, F-simp-iff, F-aux, F-simp-apply, F-ext-iff, F-ext, F-simp-coe, F-to-additive, F-simp-eq]
+          requires: [V01, V02, V03, V04, V05, V06, V07.C04, V07.C06, V07.C07, V07.C08, V07.C09, V08, V31]
+          counts: {E0: 109, E1: 165, E2: 2, E3: 11}
+          pages: 14.6
+          status: planned
+        - id: V07.C01.S04
+          title: 'Dimension: Division ring'
+          kind: theory
+          modules:
+            - Mathlib.LinearAlgebra.Dimension.DivisionRing
+            - Mathlib.LinearAlgebra.Dimension.Domain
+            - Mathlib.LinearAlgebra.Dimension.ErdosKaplansky
+            - Mathlib.LinearAlgebra.Dimension.Finite
+            - Mathlib.LinearAlgebra.Dimension.Finrank
+          E3: [DivisionRing.hasRankNullity, rank_quotient_add_rank_of_divisionRing, Submodule.rank_span_le_rank, Module.IsTorsionFree.erank_mul_erank, Module.rank_mul_rank_of_field_isLocalization, Module.rank_mul_rank_of_isFractionRing_isLocalization, Algebra.IsAlgebraic.rank_mul_rank, Module.IsTorsionFree.finrank_mul_finrank, LinearEquiv.finrank_eq, Module.finrank]
+          E2: [max_aleph0_card_le_rank_fun_nat]
+          families: [F-instance, F-simp, F-simp-iff, F-simp-eq, F-aux-snake]
+          requires: [V02, V03, V04, V05, V06, V07.C06, V07.C08, V07.C09, V09, V31]
+          counts: {E0: 20, E1: 79, E2: 1, E3: 10}
+          pages: 10.8
+          status: planned
+        - id: V07.C01.S05
+          title: 'Dimension: Free'
+          kind: theory
+          modules:
+            - Mathlib.LinearAlgebra.Dimension.Free
+            - Mathlib.LinearAlgebra.Dimension.FreeAndStrongRankCondition
+            - Mathlib.LinearAlgebra.Dimension.LinearMap
+            - Mathlib.LinearAlgebra.Dimension.Localization
+            - Mathlib.LinearAlgebra.Dimension.OrzechProperty
+            - Mathlib.LinearAlgebra.Dimension.RankNullity
+          E3: [Module.finBasisOfFinrankEq, Module.finBasis, Module.nonempty_linearEquiv_iff_lift_rank_eq, Module.finrank_mul_finrank, LinearMap.rank, IsLocalizedModule.lift_rank_eq, rank_quotient_add_rank_of_isDomain, Submodule.finrank_quotient_add_finrank, LinearMap.rank_range_add_rank_ker]
+          families: [F-simp-iff, F-instance, F-simp-apply, F-simp-eq, F-simp, F-simp-coe, F-ctor]
+          requires: [V02, V05, V06, V07.C04, V07.C06, V07.C08, V07.C09, V31]
+          counts: {E0: 40, E1: 105, E3: 9}
+          pages: 10.7
+          status: planned
+        - id: V07.C01.S06
+          title: 'Dimension: Strong rank condition'
+          kind: theory
+          modules:
+            - Mathlib.LinearAlgebra.Dimension.StrongRankCondition
+            - Mathlib.LinearAlgebra.Dimension.Subsingleton
+            - Mathlib.LinearAlgebra.Dimension.Torsion.Basic
+            - Mathlib.LinearAlgebra.Dimension.Torsion.Finite
+          E3: [linearIndependent_le_span, mk_eq_mk_of_basis, Module.Basis.le_span, linearIndependent_le_basis, Submodule.inductionOnRank, finrank_quotient_eq_of_le_torsion, finrank_quotient_torsion_eq, rank_quotient_eq_of_le_torsion]
+          E2: [Module.finrank_eq_card_finset_basis]
+          families: [F-ctor, F-aux-snake, F-simp-eq, F-simp, F-instance]
+          requires: [V03, V04, V05, V06, V07.C04, V07.C06, V07.C08, V07.C09, V31]
+          counts: {E0: 11, E1: 58, E2: 1, E3: 8}
+          pages: 8.5
+          status: planned
+    - id: C02
+      title: Dual
+      prefixes: [Mathlib/LinearAlgebra/Dual]
+      requires: [V01, V03, V04, V05, V06, V07.C01, V07.C03, V07.C06, V07.C07, V07.C08, V07.C09, V08]
+      sections:
+        - id: V07.C02.S01
+          title: Dual
+          kind: theory
+          modules:
+            - Mathlib.LinearAlgebra.Dual.BaseChange
+            - Mathlib.LinearAlgebra.Dual.Basis
+            - Mathlib.LinearAlgebra.Dual.Defs
+          E3: [Module.DualBases.coe_dualBasis, Module.Basis.toDual, Module.Basis.dualBasis, Module.DualBases.coe_basis, Module.DualBases.basis, Module.Basis.toDualEquiv, Submodule.dualCoannihilator, Submodule.dualAnnihilator, Module.mapEvalEquiv, LinearEquiv.dualMap, Module.evalEquiv, LinearMap.dualMap, Module.Dual, Module.Dual.eval, Module.Dual.transpose]
+          families: [F-simp, F-simp-apply, F-simp-coe, F-ctor, F-def, F-simp-eq, F-simp-iff, F-simp-mem, F-instance, F-to-dual]
+          requires: [V01, V03, V04, V05, V06, V07.C01, V07.C07, V07.C08, V07.C09, V08]
+          counts: {E0: 66, E1: 70, E3: 15}
+          pages: 14.3
+          status: planned
+        - id: V07.C02.S02
+          title: Lemmas
+          kind: theory
+          modules:
+            - Mathlib.LinearAlgebra.Dual.Lemmas
+          E3: [Subspace.quotAnnihilatorEquiv, LinearMap.eval_nondegenerate, Submodule.quotDualCoannihilatorToDual, Subspace.dualPairing_nondegenerate, Subspace.orderIsoFiniteDimensional, Subspace.orderIsoFiniteCodimDim, Subspace.dualAnnihilator_dualCoannihilator_eq, Submodule.dualQuotEquivDualAnnihilator, LinearMap.id_nondegenerate]
+          E2: [Basis.linearEquiv_dual_iff_finiteDimensional, LinearMap.id_separatingRight, LinearMap.SeparatingRight.id, LinearMap.Nondegenerate.id]
+          families: [F-instance, F-simp, F-simp-apply, F-simp-iff, F-simp-eq, F-def, F-simp-mk]
+          requires: [V01, V03, V04, V05, V06, V07.C03, V07.C06, V07.C07, V07.C08, V07.C09, V08]
+          counts: {E0: 61, E1: 56, E2: 4, E3: 9}
+          pages: 9.7
+          status: planned
+    - id: C03
+      title: Eigenspace, Finite dimensional and Finsupp
+      prefixes: [Mathlib/LinearAlgebra/Eigenspace, Mathlib/LinearAlgebra/FiniteDimensional, Mathlib/LinearAlgebra/Finsupp]
+      requires: [V01, V02, V03, V04, V05, V06, V07.C01, V07.C07, V07.C08, V07.C09]
+      sections:
+        - id: V07.C03.S01
+          title: Eigenspace
+          kind: theory
+          modules:
+            - Mathlib.LinearAlgebra.Eigenspace.Basic
+            - Mathlib.LinearAlgebra.Eigenspace.Charpoly
+            - Mathlib.LinearAlgebra.Eigenspace.ContinuousLinearMap
+            - Mathlib.LinearAlgebra.Eigenspace.Matrix
+            - Mathlib.LinearAlgebra.Eigenspace.Minpoly
+            - Mathlib.LinearAlgebra.Eigenspace.Pi
+            - Mathlib.LinearAlgebra.Eigenspace.Semisimple
+            - Mathlib.LinearAlgebra.Eigenspace.Triangularizable
+            - Mathlib.LinearAlgebra.Eigenspace.Zero
+          E3: [Module.End.HasEigenvalue, Module.End.HasEigenvector, Module.End.genEigenspace, Module.End.exists_eigenvalue]
+          families: [F-simp, F-simp-mk, F-def, F-instance, F-simp-mem, F-simp-eq]
+          requires: [V02, V04, V05, V06, V07.C07, V07.C08, V07.C09]
+          counts: {E0: 62, E1: 118, E3: 4}
+          pages: 7.1
+          status: planned
+        - id: V07.C03.S02
+          title: Finite dimensional
+          kind: theory
+          modules:
+            - Mathlib.LinearAlgebra.FiniteDimensional.Basic
+            - Mathlib.LinearAlgebra.FiniteDimensional.Defs
+            - Mathlib.LinearAlgebra.FiniteDimensional.Lemmas
+          E3: [LinearMap.injective_iff_surjective, LinearMap.comp_eq_id_comm, LinearEquiv.finiteDimensional, FiniteDimensional.of_finrank_pos, FiniteDimensional.fintypeBasisIndex, FiniteDimensional.of_finite_basis, Module.Basis.finiteDimensional_of_finite, FiniteDimensional.finiteDimensional_submodule, FiniteDimensional]
+          E2: [FiniteDimensional.of_fact_finrank_eq_two]
+          families: [F-simp-apply, F-instance, F-simp-coe, F-to-additive, F-simp]
+          requires: [V03, V05, V06, V07.C01, V07.C07, V07.C08, V07.C09]
+          counts: {E0: 41, E1: 81, E2: 1, E3: 9}
+          pages: 10.1
+          status: planned
+        - id: V07.C03.S03
+          title: Finsupp
+          kind: theory
+          modules:
+            - Mathlib.LinearAlgebra.Finsupp.Defs
+            - Mathlib.LinearAlgebra.Finsupp.LSum
+            - Mathlib.LinearAlgebra.Finsupp.LinearCombination
+            - Mathlib.LinearAlgebra.Finsupp.Pi
+            - Mathlib.LinearAlgebra.Finsupp.Span
+            - Mathlib.LinearAlgebra.Finsupp.SumProd
+            - Mathlib.LinearAlgebra.Finsupp.Supported
+            - Mathlib.LinearAlgebra.Finsupp.VectorSpace
+          E3: [Finsupp.lsum, Finsupp.linearCombinationOn, Fintype.linearCombination, Finsupp.linearCombination]
+          families: [F-simp, F-simp-apply, F-simp-coe, F-instance, F-simp-eq, F-simp-mem]
+          requires: [V03, V05, V06, V07.C07, V07.C08, V07.C09]
+          counts: {E0: 138, E1: 149, E3: 4}
+          pages: 8.2
+          status: planned
+    - id: C04
+      title: Free module, General linear group and Linear independent
+      prefixes: [Mathlib/LinearAlgebra/FreeModule, Mathlib/LinearAlgebra/GeneralLinearGroup, Mathlib/LinearAlgebra/LinearIndependent]
+      requires: [V01, V02, V03, V04, V05, V06, V07.C01, V07.C06, V07.C07, V07.C08, V07.C09, V09]
+      sections:
+        - id: V07.C04.S01
+          title: Free module
+          kind: theory
+          modules:
+            - Mathlib.LinearAlgebra.FreeModule.Basic
+            - Mathlib.LinearAlgebra.FreeModule.Determinant
+            - Mathlib.LinearAlgebra.FreeModule.Finite.Basic
+            - Mathlib.LinearAlgebra.FreeModule.Finite.CardQuotient
+            - Mathlib.LinearAlgebra.FreeModule.Finite.Matrix
+            - Mathlib.LinearAlgebra.FreeModule.Finite.Quotient
+            - Mathlib.LinearAlgebra.FreeModule.IdealQuotient
+            - Mathlib.LinearAlgebra.FreeModule.Int
+            - Mathlib.LinearAlgebra.FreeModule.ModN
+            - Mathlib.LinearAlgebra.FreeModule.Norm
+            - Mathlib.LinearAlgebra.FreeModule.PID
+            - Mathlib.LinearAlgebra.FreeModule.StrongRankCondition
+          E3: [Submodule.natAbs_det_basis_change, Submodule.quotientEquivPiSpan, Ideal.quotientEquivPiSpan, Submodule.smithNormalForm, Module.Basis.SmithNormalForm.bM, commRing_strongRankCondition]
+          families: [F-instance, F-def, F-ctor, F-simp, F-simp-eq, F-aux-snake]
+          requires: [V01, V03, V05, V06, V07.C01, V07.C06, V07.C07, V07.C08, V07.C09, V09]
+          counts: {E0: 46, E1: 85, E3: 6}
+          pages: 7.6
+          status: planned
+        - id: V07.C04.S02
+          title: Alg equiv
+          kind: theory
+          modules:
+            - Mathlib.LinearAlgebra.GeneralLinearGroup.AlgEquiv
+            - Mathlib.LinearAlgebra.GeneralLinearGroup.Basic
+            - Mathlib.LinearAlgebra.LinearIndependent.Algebra
+            - Mathlib.LinearAlgebra.LinearIndependent.BaseChange
+            - Mathlib.LinearAlgebra.LinearIndependent.Basic
+            - Mathlib.LinearAlgebra.LinearIndependent.Defs
+            - Mathlib.LinearAlgebra.LinearIndependent.Lemmas
+          E3: [LinearMap.GeneralLinearGroup, linearIndependent_sum, linearIndependent_unique_iff, linearIndependent_empty_type, Fintype.linearIndependent_iff, LinearIndependent, LinearIndependent.Maximal, linearIndependent_option, linearIndependent_finSnoc, linearIndependent_finCons, linearIndependent_finSucc]
+          families: [F-simp, F-simp-apply, F-simp-coe, F-simp-iff]
+          requires: [V02, V03, V05, V06, V07.C06, V07.C08, V07.C09]
+          counts: {E0: 75, E1: 185, E3: 11}
+          pages: 15
+          status: planned
+    - id: C05
+      title: Matrix
+      prefixes: [Mathlib/LinearAlgebra/Matrix]
+      requires: [V01, V02, V03, V04, V05, V06, V07.C01, V07.C06, V07.C07, V07.C08, V07.C09, V07.C10, V08, V09, V16, V31]
+      sections:
+        - id: V07.C05.S01
+          title: 'Matrix: Absolute value'
+          kind: theory
+          modules:
+            - Mathlib.LinearAlgebra.Matrix.AbsoluteValue
+            - Mathlib.LinearAlgebra.Matrix.Action
+            - Mathlib.LinearAlgebra.Matrix.Adjugate
+            - Mathlib.LinearAlgebra.Matrix.Array
+            - Mathlib.LinearAlgebra.Matrix.BaseChange
+            - Mathlib.LinearAlgebra.Matrix.Basis
+            - Mathlib.LinearAlgebra.Matrix.Bilinear
+            - Mathlib.LinearAlgebra.Matrix.BilinearForm
+            - Mathlib.LinearAlgebra.Matrix.Block
+          E3: [Matrix.mulVec_cramer, basis_toMatrix_mul_linearMap_toMatrix_mul_basis_toMatrix, LinearMap.BilinForm.toMatrix, Matrix.toBilin', Matrix.toBilin, LinearMap.BilinForm.toMatrix', LinearMap.BilinForm.toMatrix_comp, Matrix.det_of_isLowerTriangular, Matrix.det_of_isUpperTriangular, Matrix.BlockTriangular, Matrix.IsUpperTriangular, Matrix.BlockTriangular.det, Matrix.IsLowerTriangular]
+          E2: [Matrix.adjugate_mul_distrib]
+          families: [F-instance, F-simp-eq, F-simp, F-aux-snake, F-def, F-simp-apply, F-to-additive, F-simp-iff, F-aux, F-simp-mem, F-simp-coe, F-to-dual]
+          requires: [V01, V03, V04, V05, V06, V07.C01, V07.C07, V07.C09, V08]
+          counts: {E0: 111, E1: 145, E2: 1, E3: 13}
+          pages: 15.4
+          status: planned
+        - id: V07.C05.S02
+          title: 'Matrix: Cartan'
+          kind: theory
+          modules:
+            - Mathlib.LinearAlgebra.Matrix.Cartan
+            - Mathlib.LinearAlgebra.Matrix.Cartan.Basic
+            - Mathlib.LinearAlgebra.Matrix.Cartan.Realisation
+            - Mathlib.LinearAlgebra.Matrix.CharP
+            - Mathlib.LinearAlgebra.Matrix.Charpoly.Basic
+            - Mathlib.LinearAlgebra.Matrix.Charpoly.Coeff
+          E3: [Matrix.aeval_self_charpoly, Matrix.charpoly, Matrix.trace_eq_neg_charpoly_coeff, Matrix.charpolyRev, Matrix.charpoly_coeff_eq_sum_minors, Matrix.charpoly_degree_eq_dim, Matrix.reverse_charpoly, Matrix.coeff_det_one_add_X_smul_eq_sum_minors, Matrix.det_eq_sign_charpoly_coeff]
+          E2: [Matrix.IsFiniteCartan.isUnit_map]
+          families: [F-simp, F-ctor, F-simp-iff, F-instance, F-def, F-simp-eq, F-simp-mem, F-simp-apply, F-aux-snake]
+          requires: [V01, V02, V03, V05, V06, V09]
+          counts: {E0: 79, E1: 175, E2: 1, E3: 9}
+          pages: 13.2
+          status: planned
+        - id: V07.C05.S03
+          title: 'Matrix: Disc'
+          kind: theory
+          modules:
+            - Mathlib.LinearAlgebra.Matrix.Charpoly.Disc
+            - Mathlib.LinearAlgebra.Matrix.Charpoly.Eigs
+            - Mathlib.LinearAlgebra.Matrix.Charpoly.FiniteField
+            - Mathlib.LinearAlgebra.Matrix.Charpoly.LinearMap
+            - Mathlib.LinearAlgebra.Matrix.Charpoly.Minpoly
+            - Mathlib.LinearAlgebra.Matrix.Charpoly.Univ
+            - Mathlib.LinearAlgebra.Matrix.Circulant
+            - Mathlib.LinearAlgebra.Matrix.ConjTranspose
+            - Mathlib.LinearAlgebra.Matrix.Defs
+          E3: [Matrix.charpoly.univ, Matrix.charpoly.univ_coeff_isHomogeneous, Matrix.charpoly.univ_map_eval₂Hom, Matrix.circulant_mul, Matrix.circulant_mul_comm, Matrix.circulant, Matrix.submatrix, Matrix.module, Matrix, Matrix.transpose, Matrix.reindex, Set.matrix]
+          families: [F-simp, F-to-additive, F-simp-apply, F-instance, F-simp-eq, F-def, F-simp-coe, F-simp-iff, F-ext-iff, F-ext]
+          requires: [V01, V03, V05, V06, V07.C09, V07.C10, V09]
+          counts: {E0: 201, E1: 130, E3: 12}
+          pages: 13.9
+          status: planned
+        - id: V07.C05.S04
+          title: 'Determinant: Basic'
+          kind: theory
+          modules:
+            - Mathlib.LinearAlgebra.Matrix.Determinant.Basic
+            - Mathlib.LinearAlgebra.Matrix.Determinant.Bird.Correctness
+            - Mathlib.LinearAlgebra.Matrix.Determinant.Bird.Defs
+          E3: [Matrix.det_zero_of_row_eq, Matrix.detRowAlternating, Matrix.det_mul, Matrix.det, BirdDet.det_eq_birdDet, BirdDet.sumFrom, BirdDet.birdDet, BirdDet.get, BirdDet.stepEntry, BirdDet.birdDet_zero, BirdDet.sumFrom_step, BirdDet.birdDet_eq, BirdDet.sumFrom_stop, BirdDet.Spec.birdDet]
+          families: [F-simp, F-aux-snake, F-simp-eq, F-simp-coe]
+          requires: [V01, V02, V03, V05, V06, V07.C09, V08]
+          counts: {E0: 34, E1: 65, E3: 14}
+          pages: 13.4
+          status: planned
+        - id: V07.C05.S05
+          title: 'Determinant: Misc'
+          kind: theory
+          modules:
+            - Mathlib.LinearAlgebra.Matrix.Determinant.Misc
+            - Mathlib.LinearAlgebra.Matrix.Determinant.TotallyNonneg
+            - Mathlib.LinearAlgebra.Matrix.Determinant.TotallyUnimodular
+          E3: [Matrix.IsTotallyNonneg.diagonal, Matrix.IsTotallyNonneg.transpose, Matrix.IsTotallyNonneg.one, Matrix.IsTotallyNonneg.zero, Matrix.IsTotallyNonneg.conjTranspose, Matrix.IsTotallyNonneg, Matrix.IsTotallyNonneg.smul, Matrix.IsTotallyNonneg.nonneg, Matrix.IsTotallyNonneg.submatrix, Matrix.isTotallyUnimodular_iff, Matrix.IsTotallyUnimodular.apply, Matrix.IsTotallyUnimodular]
+          families: [F-simp-iff, F-simp]
+          requires: [V01, V02, V03, V04, V05, V06]
+          counts: {E0: 13, E1: 15, E3: 12}
+          pages: 10.1
+          status: planned
+        - id: V07.C05.S06
+          title: 'Matrix: Diagonal'
+          kind: theory
+          modules:
+            - Mathlib.LinearAlgebra.Matrix.Diagonal
+            - Mathlib.LinearAlgebra.Matrix.DotProduct
+            - Mathlib.LinearAlgebra.Matrix.Dual
+            - Mathlib.LinearAlgebra.Matrix.DualNumber
+            - Mathlib.LinearAlgebra.Matrix.Echelon.Basic
+            - Mathlib.LinearAlgebra.Matrix.Echelon.Decomposition
+            - Mathlib.LinearAlgebra.Matrix.Echelon.Pivot
+            - Mathlib.LinearAlgebra.Matrix.ElementaryRowOperations
+            - Mathlib.LinearAlgebra.Matrix.FiniteDimensional
+            - Mathlib.LinearAlgebra.Matrix.FixedDetMatrices
+          E3: [Matrix.IsReducedRowEchelon, Matrix.IsRowEchelon, Matrix.IsLeadingEntry, Echelon.Decomposition.rank_eq, Echelon.Decomposition.prod_diag_mul_det, Echelon.Decomposition, Matrix.isPivotedBy_iff, Matrix.IsPivotedBy.unique, Matrix.IsPivotedBy, Matrix.IsPivotedBy.rank_eq]
+          E2: [FixedDetMatrices.ext']
+          families: [F-simp-eq, F-simp-iff, F-instance, F-simp, F-simp-apply, F-ctor, F-ext, F-def, F-ext-iff]
+          requires: [V01, V03, V04, V05, V06]
+          counts: {E0: 46, E1: 65, E2: 1, E3: 10}
+          pages: 10.3
+          status: planned
+        - id: V07.C05.S07
+          title: 'Matrix: Basic'
+          kind: theory
+          modules:
+            - Mathlib.LinearAlgebra.Matrix.GeneralLinearGroup.Basic
+            - Mathlib.LinearAlgebra.Matrix.GeneralLinearGroup.Card
+            - Mathlib.LinearAlgebra.Matrix.GeneralLinearGroup.Defs
+            - Mathlib.LinearAlgebra.Matrix.GeneralLinearGroup.FinTwo
+            - Mathlib.LinearAlgebra.Matrix.GeneralLinearGroup.MvPolynomial
+            - Mathlib.LinearAlgebra.Matrix.GeneralLinearGroup.Projective
+            - Mathlib.LinearAlgebra.Matrix.Gershgorin
+            - Mathlib.LinearAlgebra.Matrix.Hadamard
+          E3: [Matrix.GeneralLinearGroup, Matrix.GLPos, Matrix.SpecialLinearGroup.toGL, Matrix.ProjectiveSpecialLinearGroup.toPGL, Matrix.SpecialLinearGroup.toPGL, Matrix.ProjectiveSpecialLinearGroup.isoPSLOfAlgClosed, eigenvalue_mem_ball, Matrix.hadamard]
+          families: [F-simp, F-instance, F-simp-apply, F-simp-coe, F-def, F-ext-iff, F-simp-mem, F-ext, F-simp-iff, F-simp-mk, F-simp-eq, F-to-additive]
+          requires: [V01, V03, V04, V05, V06, V07.C07, V07.C09, V07.C10, V16]
+          counts: {E0: 121, E1: 108, E3: 8}
+          pages: 10
+          status: planned
+        - id: V07.C05.S08
+          title: 'Matrix: Hadamard matrix'
+          kind: theory
+          modules:
+            - Mathlib.LinearAlgebra.Matrix.HadamardMatrix
+            - Mathlib.LinearAlgebra.Matrix.Hermitian
+            - Mathlib.LinearAlgebra.Matrix.Hessenberg.Defs
+            - Mathlib.LinearAlgebra.Matrix.Hessenberg.Similarity
+            - Mathlib.LinearAlgebra.Matrix.Ideal
+          E3: [Matrix.IsHermitian, Matrix.IsUpperTriangular.isUpperHessenberg, Matrix.isUpperHessenberg_iff, Matrix.isUpperHessenberg_fin_iff, Matrix.IsUpperHessenberg, Matrix.Hessenberg.Similarity, Matrix.Hessenberg.Similarity.charpoly_eq, TwoSidedIdeal.jacobson_matrix, TwoSidedIdeal.equivMatrix, TwoSidedIdeal.orderIsoMatrix]
+          families: [F-simp-iff, F-ctor, F-simp, F-ext-iff, F-ext, F-simp-eq, F-instance, F-to-dual, F-simp-apply, F-simp-mem]
+          requires: [V01, V03, V04, V06, V07.C10, V09]
+          counts: {E0: 57, E1: 83, E3: 10}
+          pages: 10.8
+          status: planned
+        - id: V07.C05.S09
+          title: 'Matrix: Integer'
+          kind: theory
+          modules:
+            - Mathlib.LinearAlgebra.Matrix.Integer
+            - Mathlib.LinearAlgebra.Matrix.InvariantBasisNumber
+            - Mathlib.LinearAlgebra.Matrix.Invertible
+            - Mathlib.LinearAlgebra.Matrix.Irreducible.Defs
+            - Mathlib.LinearAlgebra.Matrix.IsDiag
+            - Mathlib.LinearAlgebra.Matrix.Kronecker
+          E3: [Matrix.invertibleConjTranspose, Matrix.invOf_add_mul_mul, Matrix.isUnit_conjTranspose, Matrix.invertibleTranspose, Matrix.isUnit_transpose, Matrix.IsIrreducible.transpose, Matrix.pow_apply_pos_iff_nonempty_path, Matrix.isIrreducible_iff_exists_pow_pos, Matrix.IsDiag, Matrix.kroneckerMap, Matrix.kroneckerMapBilinear]
+          E2: [Matrix.invOf_add_mul_mul']
+          families: [F-simp, F-instance, F-simp-apply, F-ctor, F-simp-iff]
+          requires: [V01, V02, V03, V04, V05, V06, V07.C07, V07.C10]
+          counts: {E0: 57, E1: 123, E2: 1, E3: 11}
+          pages: 13.1
+          status: planned
+        - id: V07.C05.S10
+          title: 'Matrix: Module'
+          kind: theory
+          modules:
+            - Mathlib.LinearAlgebra.Matrix.Module
+            - Mathlib.LinearAlgebra.Matrix.MvPolynomial
+            - Mathlib.LinearAlgebra.Matrix.Nondegenerate
+            - Mathlib.LinearAlgebra.Matrix.Nonsingular
+            - Mathlib.LinearAlgebra.Matrix.NonsingularInverse
+            - Mathlib.LinearAlgebra.Matrix.Notation
+          E3: [Matrix.Module.matrixModule, LinearMap.mapMatrixModule, Matrix.Nonsingular.linearIndependent_col, CommSemiring.strongRankCondition_of_nontrivial, Matrix.Nonsingular.of_linearIndependent_col, Matrix.inv]
+          E2: [Matrix.add_mul_mul_inv_eq_sub']
+          families: [F-def, F-simp-apply, F-simp, F-simp-iff, F-ctor, F-instance, F-simp-eq, F-simp-coe]
+          requires: [V03, V05, V06, V07.C07, V07.C09, V07.C10]
+          counts: {E0: 110, E1: 176, E2: 1, E3: 6}
+          pages: 10.8
+          status: planned
+        - id: V07.C05.S11
+          title: 'Matrix: Orthogonal'
+          kind: theory
+          modules:
+            - Mathlib.LinearAlgebra.Matrix.Orthogonal
+            - Mathlib.LinearAlgebra.Matrix.Permanent
+            - Mathlib.LinearAlgebra.Matrix.Permutation
+            - Mathlib.LinearAlgebra.Matrix.Polynomial
+            - Mathlib.LinearAlgebra.Matrix.PosDef
+            - Mathlib.LinearAlgebra.Matrix.ProjectiveSpecialLinearGroup
+            - Mathlib.LinearAlgebra.Matrix.Rank
+          E3: [Equiv.Perm.permMatrix, Matrix.det_permutation, Matrix.trace_permutation, Matrix.PosDef.isUnit, Matrix.PosSemidef, Matrix.PosSemidef.dotProduct_mulVec_zero_iff, Matrix.PosDef, Matrix.finrank_span_range_col, Matrix.rank_transpose, Matrix.eRank, Matrix.rank, Matrix.rank_mul_eq_right_of_isUnit_det, Matrix.rank_eq_finrank_range_toLin, Matrix.cRank, Matrix.finrank_span_range_row, Matrix.exists_rank_normal_form, Matrix.rank_mul_eq_left_of_isUnit_det, Matrix.rank_mul_le]
+          E2: [Matrix.PosDef.star_dotProduct_mulVec_mul_le]
+          families: [F-simp, F-simp-apply, F-simp-mem, F-simp-iff, F-simp-coe, F-simp-eq]
+          requires: [V01, V02, V03, V04, V05, V06, V07.C01, V07.C06, V07.C07, V07.C08, V07.C09, V07.C10, V31]
+          counts: {E0: 59, E1: 146, E2: 1, E3: 18}
+          pages: 19.4
+          status: planned
+        - id: V07.C05.S12
+          title: 'Matrix: Reindex'
+          kind: theory
+          modules:
+            - Mathlib.LinearAlgebra.Matrix.Reindex
+            - Mathlib.LinearAlgebra.Matrix.RowCol
+            - Mathlib.LinearAlgebra.Matrix.SchurComplement
+            - Mathlib.LinearAlgebra.Matrix.SemiringInverse
+            - Mathlib.LinearAlgebra.Matrix.SesquilinearForm
+          E3: [Matrix.isUnit_fromBlocks_zero₂₁, Matrix.det_fromBlocks₁₁, Matrix.invOf_fromBlocks_zero₁₂_eq, Matrix.isUnit_fromBlocks_zero₁₂, Matrix.det_fromBlocks₂₂, Matrix.invOf_fromBlocks_zero₂₁_eq, Matrix.det_one_add_mul_comm, LinearMap.toMatrix₂, LinearMap.toMatrix₂', Matrix.toLinearMap₂, Matrix.toLinearMap₂']
+          E2: [Matrix.det_mul_add_one_comm]
+          families: [F-simp-coe, F-simp, F-simp-eq, F-simp-apply, F-simp-iff, F-instance, F-simp-mem, F-aux]
+          requires: [V02, V03, V05, V06, V07.C01, V07.C07, V07.C09, V07.C10]
+          counts: {E0: 146, E1: 172, E2: 1, E3: 11}
+          pages: 14.7
+          status: planned
+        - id: V07.C05.S13
+          title: 'Matrix: Special linear group'
+          kind: theory
+          modules:
+            - Mathlib.LinearAlgebra.Matrix.SpecialLinearGroup
+            - Mathlib.LinearAlgebra.Matrix.StdBasis
+            - Mathlib.LinearAlgebra.Matrix.Stochastic
+            - Mathlib.LinearAlgebra.Matrix.Swap
+            - Mathlib.LinearAlgebra.Matrix.Symmetric
+            - Mathlib.LinearAlgebra.Matrix.Symmetrizable
+            - Mathlib.LinearAlgebra.Matrix.ToLin
+          E3: [Matrix.SpecialLinearGroup, Matrix.rowStochastic, Matrix.toLin, Matrix.toLin', LinearMap.toMatrix', algEquivMatrix, LinearMap.toMatrix]
+          families: [F-simp, F-simp-apply, F-def, F-ext, F-simp-eq, F-simp-coe, F-simp-mk, F-instance, F-ext-iff, F-coe-mk, F-simp-iff]
+          requires: [V01, V03, V04, V05, V06, V07.C01, V07.C07, V07.C09]
+          counts: {E0: 224, E1: 226, E3: 7}
+          pages: 13.1
+          status: planned
+        - id: V07.C05.S14
+          title: 'Matrix: To linear equiv'
+          kind: theory
+          modules:
+            - Mathlib.LinearAlgebra.Matrix.ToLinearEquiv
+            - Mathlib.LinearAlgebra.Matrix.Trace
+            - Mathlib.LinearAlgebra.Matrix.Transvection
+            - Mathlib.LinearAlgebra.Matrix.Unique
+            - Mathlib.LinearAlgebra.Matrix.Vec
+            - Mathlib.LinearAlgebra.Matrix.WithConv
+            - Mathlib.LinearAlgebra.Matrix.ZMatrix
+            - Mathlib.LinearAlgebra.Matrix.ZPow
+          E3: [Matrix.exists_mulVec_eq_zero_iff, Matrix.toLinearEquiv, Matrix.Pivot.exists_list_transvec_mul_mul_list_transvec_eq_diagonal, Matrix.uniqueAlgEquiv, Matrix.uniqueRingEquiv, Matrix.lt_two_mul_of_mul_diagonal_posDef_of_for_le_of_hasEigen]
+          E2: [Matrix.diagonal_transvection_induction_of_det_ne_zero, Matrix.diagonal_transvection_induction, Matrix.vec_vecMul_kronecker_of_commute, Matrix.kronecker_mulVec_vec_of_commute]
+          families: [F-simp-apply, F-simp-eq, F-simp, F-aux-snake, F-simp-mk, F-ctor, F-instance, F-simp-iff, F-def, F-simp-coe]
+          requires: [V02, V03, V04, V05, V06, V07.C07, V07.C09, V07.C10]
+          counts: {E0: 117, E1: 147, E2: 4, E3: 6}
+          pages: 10.3
+          status: planned
+    - id: C06
+      title: Quotient, SMod eq, Span and other topics
+      prefixes: [Mathlib/LinearAlgebra/Quotient, Mathlib/LinearAlgebra/SModEq, Mathlib/LinearAlgebra/Span, Mathlib/LinearAlgebra/Transvection, Mathlib/LinearAlgebra]
+      requires: [V01, V02, V03, V04, V05, V06, V07.C01, V07.C04, V07.C05, V07.C07, V07.C08, V07.C09, V07.C10, V08, V09]
+      sections:
+        - id: V07.C06.S01
+          title: Quotient
+          kind: theory
+          modules:
+            - Mathlib.LinearAlgebra.Quotient.Basic
+            - Mathlib.LinearAlgebra.Quotient.Bilinear
+            - Mathlib.LinearAlgebra.Quotient.Card
+            - Mathlib.LinearAlgebra.Quotient.Defs
+            - Mathlib.LinearAlgebra.Quotient.Pi
+          E3: [Submodule.mapQ, Submodule.Quotient.restrictScalarsEquiv, Submodule.liftQ, Submodule.Quotient.mk, Submodule.hasQuotient, Submodule.Quotient.module, Submodule.mkQ, Submodule.quotEquivOfEq]
+          families: [F-instance, F-simp-apply, F-simp-mk, F-simp, F-simp-eq, F-simp-coe, F-simp-iff, F-def]
+          requires: [V01, V04, V05, V06, V07.C07, V07.C08, V07.C09]
+          counts: {E0: 77, E1: 50, E3: 8}
+          pages: 8.1
+          status: planned
+        - id: V07.C06.S02
+          title: 'Basic: basics'
+          kind: theory
+          modules:
+            - Mathlib.LinearAlgebra.SModEq.Basic
+            - Mathlib.LinearAlgebra.SModEq.Pointwise
+            - Mathlib.LinearAlgebra.SModEq.Pow
+            - Mathlib.LinearAlgebra.Span.Basic
+            - Mathlib.LinearAlgebra.Span.Defs
+            - Mathlib.LinearAlgebra.Span.TensorProduct
+          E3: [Submodule.span, Submodule.IsPrincipal]
+          families: [F-simp, F-simp-iff, F-instance, F-to-dual, F-def, F-simp-eq, F-simp-mem, F-simp-apply, F-ctor, F-simp-coe]
+          requires: [V03, V07.C08]
+          counts: {E0: 114, E1: 181, E3: 2}
+          pages: 7.6
+          status: planned
+        - id: V07.C06.S03
+          title: 'Basic: basics'
+          kind: theory
+          modules:
+            - Mathlib.LinearAlgebra.Transvection.Basic
+            - Mathlib.LinearAlgebra.Transvection.Generation
+            - Mathlib.LinearAlgebra.AnnihilatingPolynomial
+            - Mathlib.LinearAlgebra.Center
+            - Mathlib.LinearAlgebra.Countable
+            - Mathlib.LinearAlgebra.DFinsupp
+            - Mathlib.LinearAlgebra.Determinant
+            - Mathlib.LinearAlgebra.FiniteSpan
+            - Mathlib.LinearAlgebra.FixedSubmodule
+            - Mathlib.LinearAlgebra.FreeAlgebra
+            - Mathlib.LinearAlgebra.FreeProduct.Basic
+          E3: [Polynomial.annIdeal, LinearEquiv.det, LinearMap.det, Module.Basis.det, LinearAlgebra.FreeProduct.lift, LinearAlgebra.FreeProduct]
+          E2: [LinearMap.detAux_def']
+          families: [F-simp-iff, F-simp-eq, F-simp, F-simp-coe, F-simp-apply, F-simp-mem, F-instance, F-def, F-aux, F-simp-mk, F-ctor]
+          requires: [V01, V03, V05, V06, V07.C01, V07.C05, V07.C07, V07.C09, V08, V09]
+          counts: {E0: 141, E1: 180, E2: 1, E3: 6}
+          pages: 11
+          status: planned
+        - id: V07.C06.S04
+          title: Goursat
+          kind: theory
+          modules:
+            - Mathlib.LinearAlgebra.Goursat
+            - Mathlib.LinearAlgebra.InvariantBasisNumber
+            - Mathlib.LinearAlgebra.Isomorphisms
+            - Mathlib.LinearAlgebra.JordanChevalley
+            - Mathlib.LinearAlgebra.Lagrange
+            - Mathlib.LinearAlgebra.LeftExact
+            - Mathlib.LinearAlgebra.LinearDisjoint
+            - Mathlib.LinearAlgebra.LinearPMap
+          E3: [StrongRankCondition, Module.End.exists_isNilpotent_isSemisimple, Lagrange.interpolate, Submodule.LinearDisjoint, LinearPMap]
+          E2: [Submodule.goursat, Submodule.goursat_surjective]
+          families: [F-instance, F-ctor, F-aux, F-simp-mk, F-simp-apply, F-simp, F-simp-coe, F-simp-iff, F-simp-eq, F-simp-mem, F-aux-snake, F-ext-iff, F-ext]
+          requires: [V03, V05, V06, V07.C07, V07.C08, V07.C09, V09]
+          counts: {E0: 138, E1: 206, E2: 2, E3: 5}
+          pages: 11.2
+          status: planned
+        - id: V07.C06.S05
+          title: PID
+          kind: theory
+          modules:
+            - Mathlib.LinearAlgebra.PID
+            - Mathlib.LinearAlgebra.Pi
+            - Mathlib.LinearAlgebra.Prod
+          E3: [LinearMap.pi_ext, LinearMap.single, LinearMap.piMap, LinearMap.diag, LinearMap.fst, LinearMap.coprod, LinearMap.inl, LinearMap.snd, LinearMap.prod, LinearEquiv.uniqueProd, LinearEquiv.skewProd, LinearMap.inr, LinearMap.prod_ext, LinearEquiv.prodUnique, LinearMap.prodMap]
+          E2: [Submodule.exists_equiv_eq_graph]
+          families: [F-simp-apply, F-simp, F-simp-mem, F-simp-coe, F-instance, F-to-dual]
+          requires: [V01, V05, V06, V07.C07, V07.C08, V07.C09]
+          counts: {E0: 135, E1: 117, E2: 1, E3: 15}
+          pages: 16.1
+          status: planned
+        - id: V07.C06.S06
+          title: Projection
+          kind: theory
+          modules:
+            - Mathlib.LinearAlgebra.Projection
+            - Mathlib.LinearAlgebra.Ray
+            - Mathlib.LinearAlgebra.Semisimple
+            - Mathlib.LinearAlgebra.SpecialLinearGroup
+            - Mathlib.LinearAlgebra.StdBasis
+            - Mathlib.LinearAlgebra.SymplecticGroup
+          E3: [Submodule.projectionOnto, Module.Ray, SameRay, Matrix.symplecticGroup, Matrix.J]
+          families: [F-simp, F-ext-iff, F-simp-coe, F-simp-apply, F-ctor, F-simp-mk, F-simp-iff, F-ext, F-instance, F-simp-eq, F-to-additive, F-def, F-aux-snake]
+          requires: [V03, V04, V05, V06, V07.C05, V07.C07, V07.C08, V07.C09, V07.C10]
+          counts: {E0: 178, E1: 193, E3: 5}
+          pages: 10.4
+          status: planned
+        - id: V07.C06.S07
+          title: Trace
+          kind: theory
+          modules:
+            - Mathlib.LinearAlgebra.Trace
+            - Mathlib.LinearAlgebra.Unimodular
+            - Mathlib.LinearAlgebra.UnitaryGroup
+            - Mathlib.LinearAlgebra.Vandermonde
+          E3: [Module.Basis.isUnimodular_iff_span_repr_eq_top, Module.Free.isUnimodular_one, Module.Basis.span_repr_eq_range_applyₗ, Module.IsUnimodular.exists_basis_zero_eq, Matrix.UnitaryGroup.embeddingGL, Matrix.unitaryGroup, Matrix.specialUnitaryGroup, Matrix.specialOrthogonalGroup, Matrix.orthogonalGroup]
+          E2: [LinearMap.trace_eq_matrix_trace_of_finset, Matrix.det_vandermonde, Matrix.det_projVandermonde]
+          families: [F-simp, F-simp-eq, F-aux, F-simp-apply, F-def, F-instance, F-ext-iff, F-simp-iff, F-ext, F-simp-coe]
+          requires: [V01, V03, V04, V05, V06, V07.C01, V07.C05, V07.C07, V07.C09, V07.C10, V09]
+          counts: {E0: 67, E1: 53, E2: 3, E3: 9}
+          pages: 9.4
+          status: planned
+    - id: C07
+      title: Equiv, Lattice and Linear map
+      prefixes: [Mathlib/Algebra/Module/Equiv, Mathlib/Algebra/Module/Lattice, Mathlib/Algebra/Module/LinearMap]
+      requires: [V01, V02, V03, V05, V06, V07.C01, V07.C04, V07.C08, V07.C09, V09, V10]
+      sections:
+        - id: V07.C07.S01
+          title: Module
+          kind: theory
+          modules:
+            - Mathlib.Algebra.Module.Equiv.Basic
+            - Mathlib.Algebra.Module.Equiv.Defs
+            - Mathlib.Algebra.Module.Equiv.Opposite
+            - Mathlib.Algebra.Module.Lattice
+            - Mathlib.Algebra.Module.Lattice.Basic
+            - Mathlib.Algebra.Module.Lattice.Full
+          E3: [LinearEquiv, Submodule.IsLattice.inf_right, Submodule.IsLattice, Submodule.IsLattice.free, Submodule.IsLattice.inf_left, Submodule.IsLattice.of_fg, Submodule.IsFullLattice.inf, Module.Basis.extendOfIsFullLattice, Submodule.IsFullLattice]
+          families: [F-simp-apply, F-instance, F-simp, F-to-additive, F-simp-coe, F-def, F-coe-mk, F-ctor, F-simp-iff, F-simp-eq, F-ext, F-simp-mk, F-ext-iff]
+          requires: [V05, V06, V07.C01, V07.C08, V07.C09, V09]
+          counts: {E0: 203, E1: 132, E3: 9}
+          pages: 11.6
+          status: planned
+        - id: V07.C07.S02
+          title: Linear map
+          kind: theory
+          modules:
+            - Mathlib.Algebra.Module.LinearMap.Basic
+            - Mathlib.Algebra.Module.LinearMap.Defs
+            - Mathlib.Algebra.Module.LinearMap.DivisionRing
+            - Mathlib.Algebra.Module.LinearMap.End
+            - Mathlib.Algebra.Module.LinearMap.FiniteRange
+            - Mathlib.Algebra.Module.LinearMap.Index
+            - Mathlib.Algebra.Module.LinearMap.Polynomial
+            - Mathlib.Algebra.Module.LinearMap.Prod
+            - Mathlib.Algebra.Module.LinearMap.Rat
+            - Mathlib.Algebra.Module.LinearMap.Star
+          E3: [LinearMap.id, LinearMap, Module.End.instRing, Module.End.instSemiring, LinearMap.polyCharpoly, LinearMap.polyCharpoly_coeff_isHomogeneous, LinearMap.IsNilRegular, LinearMap.nilRank, Matrix.toMvPolynomial, LinearMap.polyCharpoly_map_eq_charpoly]
+          families: [F-aux, F-coe-mk, F-ctor, F-def, F-ext, F-ext-iff, F-instance, F-map-op, F-simp, F-simp-apply, F-simp-coe, F-simp-eq, F-simp-iff]
+          requires: [V01, V02, V03, V05, V06, V07.C01, V07.C04, V07.C09, V09, V10]
+          counts: {E0: 223, E1: 212, E3: 10}
+          pages: 15.1
+          status: planned
+    - id: C08
+      title: Localized module, Presentation, Stably free and Submodule
+      prefixes: [Mathlib/Algebra/Module/LocalizedModule, Mathlib/Algebra/Module/Presentation, Mathlib/Algebra/Module/StablyFree, Mathlib/Algebra/Module/Submodule]
+      requires: [V01, V03, V04, V05, V06, V07.C06, V07.C07, V07.C09, V09]
+      sections:
+        - id: V07.C08.S01
+          title: Localized module
+          kind: theory
+          modules:
+            - Mathlib.Algebra.Module.LocalizedModule.AtPrime
+            - Mathlib.Algebra.Module.LocalizedModule.Away
+            - Mathlib.Algebra.Module.LocalizedModule.Basic
+            - Mathlib.Algebra.Module.LocalizedModule.Exact
+          E3: [LocalizedModule.liftOn₂, LocalizedModule.r, LocalizedModule.mk_add_mk, IsLocalizedModule, LocalizedModule.liftOn, LocalizedModule.mk, LocalizedModule.mk_smul_mk, LocalizedModule.map_exact, IsLocalizedModule.map_exact]
+          families: [F-instance, F-simp-apply, F-simp, F-ctor, F-ext, F-def, F-aux-snake, F-simp-mk, F-simp-eq]
+          requires: [V03, V05, V06, V07.C07, V07.C09]
+          counts: {E0: 75, E1: 105, E3: 9}
+          pages: 10.7
+          status: planned
+        - id: V07.C08.S02
+          title: 'Module: Int'
+          kind: theory
+          modules:
+            - Mathlib.Algebra.Module.LocalizedModule.Int
+            - Mathlib.Algebra.Module.LocalizedModule.IsLocalization
+            - Mathlib.Algebra.Module.LocalizedModule.Submodule
+            - Mathlib.Algebra.Module.Presentation.Basic
+            - Mathlib.Algebra.Module.Presentation.Cokernel
+            - Mathlib.Algebra.Module.Presentation.Differentials
+            - Mathlib.Algebra.Module.Presentation.DirectSum
+            - Mathlib.Algebra.Module.Presentation.Finite
+            - Mathlib.Algebra.Module.Presentation.Free
+            - Mathlib.Algebra.Module.Presentation.RestrictScalars
+            - Mathlib.Algebra.Module.Presentation.Tautological
+            - Mathlib.Algebra.Module.Presentation.Tensor
+          E3: [Submodule.toLocalizedQuotient, Submodule.toLocalized, Submodule.localized]
+          families: [F-simp, F-instance, F-to-dual, F-simp-apply, F-simp-mk, F-ctor, F-ext-iff, F-ext]
+          requires: [V05, V06, V07.C06, V07.C09, V09]
+          counts: {E0: 128, E1: 173, E3: 3}
+          pages: 8.2
+          status: planned
+        - id: V07.C08.S03
+          title: 'Module: Basic'
+          kind: theory
+          modules:
+            - Mathlib.Algebra.Module.StablyFree.Basic
+            - Mathlib.Algebra.Module.StablyFree.FreeOfInvertible
+            - Mathlib.Algebra.Module.Submodule.Basic
+            - Mathlib.Algebra.Module.Submodule.Bilinear
+            - Mathlib.Algebra.Module.Submodule.Defs
+            - Mathlib.Algebra.Module.Submodule.EqLocus
+            - Mathlib.Algebra.Module.Submodule.Equiv
+            - Mathlib.Algebra.Module.Submodule.Finsupp
+            - Mathlib.Algebra.Module.Submodule.Invariant
+            - Mathlib.Algebra.Module.Submodule.IterateMapComap
+            - Mathlib.Algebra.Module.Submodule.Ker
+            - Mathlib.Algebra.Module.Submodule.Lattice
+          E3: [Module.IsStablyFree, Subspace, Submodule, LinearMap.eqLocus, Module.End.invtSubmodule, LinearMap.ker, Submodule.completeLattice]
+          E2: [Submodule.zero_mem, Submodule.smul_mem, Submodule.add_mem]
+          families: [F-instance, F-def, F-simp, F-simp-coe, F-ext-iff, F-simp-mem, F-simp-mk, F-ctor, F-simp-eq, F-ext, F-simp-apply, F-simp-iff, F-to-dual, F-to-additive]
+          requires: [V03, V04, V05, V06, V07.C09]
+          counts: {E0: 200, E1: 142, E2: 3, E3: 7}
+          pages: 10.8
+          status: planned
+        - id: V07.C08.S04
+          title: 'Submodule: Linear map'
+          kind: theory
+          modules:
+            - Mathlib.Algebra.Module.Submodule.LinearMap
+            - Mathlib.Algebra.Module.Submodule.Map
+            - Mathlib.Algebra.Module.Submodule.Order
+            - Mathlib.Algebra.Module.Submodule.Pointwise
+          E3: [LinearMap.restrict, LinearMap.domRestrict, Submodule.inclusion, Submodule.subtype, LinearMap.codRestrict, Submodule.gciMapComap, Submodule.comap, Submodule.map, Submodule.giMapComap, Submodule.pointwiseDistribMulAction]
+          E2: [Submodule.set_smul_inductionOn]
+          families: [F-simp, F-simp-apply, F-simp-coe, F-instance, F-to-dual, F-simp-mem, F-simp-iff, F-def, F-simp-eq]
+          requires: [V01, V03, V04, V05, V06, V07.C07, V07.C09]
+          counts: {E0: 133, E1: 92, E2: 1, E3: 10}
+          pages: 11.2
+          status: planned
+        - id: V07.C08.S05
+          title: 'Submodule: Range'
+          kind: theory
+          modules:
+            - Mathlib.Algebra.Module.Submodule.Range
+            - Mathlib.Algebra.Module.Submodule.RestrictScalars
+            - Mathlib.Algebra.Module.Submodule.Union
+          E3: [LinearMap.range, LinearMap.rangeRestrict]
+          families: [F-simp, F-instance, F-simp-eq, F-simp-mem, F-simp-apply, F-simp-coe, F-simp-iff, F-to-dual]
+          requires: [V06, V07.C07]
+          counts: {E0: 63, E1: 53, E3: 2}
+          pages: 3.4
+          status: planned
+    - id: C09
+      title: Torsion, ZLattice and Module
+      prefixes: [Mathlib/Algebra/Module/Torsion, Mathlib/Algebra/Module/ZLattice, Mathlib/Algebra/Module]
+      requires: [V01, V02, V03, V04, V05, V06, V07.C01, V07.C03, V07.C06, V07.C07, V07.C08, V08, V09, V10, V13, V14, V15, V16, V26, V31]
+      sections:
+        - id: V07.C09.S01
+          title: 'Module: Basic'
+          kind: theory
+          modules:
+            - Mathlib.Algebra.Module.Torsion.Basic
+            - Mathlib.Algebra.Module.Torsion.Field
+            - Mathlib.Algebra.Module.Torsion.Free
+            - Mathlib.Algebra.Module.Torsion.Pi
+            - Mathlib.Algebra.Module.Torsion.PrimaryComponent
+            - Mathlib.Algebra.Module.Torsion.Prod
+            - Mathlib.Algebra.Module.ZLattice.Basic
+            - Mathlib.Algebra.Module.ZLattice.Covolume
+            - Mathlib.Algebra.Module.ZLattice.Summable
+          E3: [Ideal.primaryComponent, ZLattice.tsum_norm_rpow_le, ZLattice.summable_norm_rpow, ZLattice.summable_norm_sub_rpow]
+          E2: [Module.isTorsionBySet_quotient_ideal_smul]
+          families: [F-instance, F-simp, F-simp-coe, F-simp-eq, F-simp-mem, F-simp-iff, F-simp-mk, F-ctor, F-simp-apply]
+          requires: [V02, V03, V04, V05, V06, V07.C01, V07.C03, V07.C06, V07.C08, V13, V14, V15, V16]
+          counts: {E0: 116, E1: 188, E2: 1, E3: 4}
+          pages: 9.6
+          status: planned
+        - id: V07.C09.S02
+          title: 'Module: Basic'
+          kind: theory
+          modules:
+            - Mathlib.Algebra.Module.Basic
+            - Mathlib.Algebra.Module.BigOperators
+            - Mathlib.Algebra.Module.Bimodule
+            - Mathlib.Algebra.Module.Card
+            - Mathlib.Algebra.Module.CharacterModule
+            - Mathlib.Algebra.Module.Congruence.Defs
+            - Mathlib.Algebra.Module.DedekindDomain
+            - Mathlib.Algebra.Module.Defs
+          E3: [Subbimodule.smul_mem', Subbimodule.mk, Subbimodule.toSubmodule, Subbimodule.smul_mem, Subbimodule.toSubmodule', CharacterModule.homEquiv, CharacterModule.uncurry, CharacterModule.curry, Module]
+          families: [F-simp, F-coe-mk, F-simp-coe, F-simp-apply, F-instance, F-ext-iff, F-ext, F-ctor]
+          requires: [V03, V05, V06, V07.C07, V07.C08, V08]
+          counts: {E0: 70, E1: 88, E3: 9}
+          pages: 10.1
+          status: planned
+        - id: V07.C09.S03
+          title: 'Module: End'
+          kind: theory
+          modules:
+            - Mathlib.Algebra.Module.End
+            - Mathlib.Algebra.Module.FinitePresentation
+            - Mathlib.Algebra.Module.FunLike
+            - Mathlib.Algebra.Module.GradedModule
+            - Mathlib.Algebra.Module.Hom
+            - Mathlib.Algebra.Module.Injective
+          E3: [Module.FinitePresentation.fg_ker, Module.finitePresentation_of_ker, Module.finitePresentation_of_surjective, Module.FinitePresentation, Module.finitePresentation_iff_finite, Module.FinitePresentation.isLocalizedModule_map, Module.Injective, Module.Baer.injective, Module.Baer]
+          families: [F-def, F-simp-apply, F-instance, F-ctor, F-simp, F-simp-coe, F-ext]
+          requires: [V01, V05, V06, V07.C07, V07.C08, V10]
+          counts: {E0: 59, E1: 86, E3: 9}
+          pages: 10.1
+          status: planned
+        - id: V07.C09.S04
+          title: 'Module: Minimal axioms'
+          kind: theory
+          modules:
+            - Mathlib.Algebra.Module.MinimalAxioms
+            - Mathlib.Algebra.Module.MinimalGenerators
+            - Mathlib.Algebra.Module.NatInt
+            - Mathlib.Algebra.Module.Opposite
+            - Mathlib.Algebra.Module.PID
+            - Mathlib.Algebra.Module.PUnit
+            - Mathlib.Algebra.Module.Pi
+            - Mathlib.Algebra.Module.PointwisePi
+            - Mathlib.Algebra.Module.Prod
+            - Mathlib.Algebra.Module.Projective
+            - Mathlib.Algebra.Module.Rat
+          E3: [AddCommMonoid.uniqueNatModule, AddCommGroup.toIntModule, AddCommMonoid.toNatModule, Module.equiv_free_prod_directSum, LinearMap.proj, LinearMap.pi, Prod.instModule, Module.Projective.of_free, Module.Projective.of_lifting_property, Module.projective_lifting_property]
+          families: [F-instance, F-simp-eq, F-simp, F-simp-coe, F-simp-apply, F-ctor, F-def]
+          requires: [V01, V03, V05, V06, V07.C06, V07.C07, V08]
+          counts: {E0: 79, E1: 59, E3: 10}
+          pages: 10
+          status: planned
+        - id: V07.C09.S05
+          title: 'Module: Ring hom'
+          kind: theory
+          modules:
+            - Mathlib.Algebra.Module.RingHom
+            - Mathlib.Algebra.Module.Shrink
+            - Mathlib.Algebra.Module.SnakeLemma
+            - Mathlib.Algebra.Module.SpanRank
+            - Mathlib.Algebra.Module.SpanRankOperations
+            - Mathlib.Algebra.Module.TransferInstance
+            - Mathlib.Algebra.Module.ULift
+            - Mathlib.Algebra.Module.ZMod
+          E3: [ringHomEquivModuleIsScalarTower, Module.compHom, RingHom.toModule, SnakeLemma.δ, SnakeLemma.exact_δ_right, SnakeLemma.exact_δ_left, Submodule.rank_le_spanRank, Submodule.rank_eq_spanRank_of_free, Submodule.spanFinrank, Submodule.spanRank, Submodule.spanRank_baseChange_le, TensorProduct.spanFinrank_top_eq_of_residueField, IsLocalRing.spanFinrank_maximalIdeal_eq_finrank_cotangentSpace]
+          families: [F-aux-snake, F-def, F-instance, F-map-op, F-simp, F-simp-apply, F-simp-coe, F-simp-eq, F-simp-mem]
+          requires: [V01, V04, V05, V06, V07.C06, V07.C07, V07.C08, V08, V09, V10, V26, V31]
+          counts: {E0: 56, E1: 72, E3: 13}
+          pages: 12.8
+          status: planned
+    - id: C10
+      title: No zero sMul divisors, Linear recurrence, Colimit and other topics
+      prefixes: [Mathlib/Algebra/NoZeroSMulDivisors, Mathlib/Algebra/LinearRecurrence, Mathlib/Algebra/Colimit, Mathlib/Algebra/Order/Module, Mathlib/Data/Matrix]
+      requires: [V01, V02, V03, V04, V05, V06, V07.C05, V07.C07, V07.C08, V07.C09, V09]
+      sections:
+        - id: V07.C10.S01
+          title: Basic
+          kind: theory
+          modules:
+            - Mathlib.Algebra.NoZeroSMulDivisors.Basic
+            - Mathlib.Algebra.NoZeroSMulDivisors.Defs
+            - Mathlib.Algebra.NoZeroSMulDivisors.Pi
+            - Mathlib.Algebra.LinearRecurrence
+            - Mathlib.Algebra.Colimit.DirectLimit
+            - Mathlib.Algebra.Colimit.Finiteness
+            - Mathlib.Algebra.Colimit.Module
+            - Mathlib.Algebra.Colimit.Ring
+            - Mathlib.Algebra.Colimit.TensorProduct
+          E3: [Module.fgSystem.equiv, Module.fgSystem]
+          families: [F-instance, F-ctor, F-simp, F-simp-eq, F-simp-apply, F-def, F-to-additive, F-simp-mk]
+          requires: [V04, V06, V07.C08]
+          counts: {E0: 211, E1: 127, E3: 2}
+          pages: 5.8
+          status: planned
+        - id: V07.C10.S02
+          title: Module
+          kind: theory
+          modules:
+            - Mathlib.Algebra.Order.Module.Archimedean
+            - Mathlib.Algebra.Order.Module.Basic
+            - Mathlib.Algebra.Order.Module.Defs
+            - Mathlib.Algebra.Order.Module.Equiv
+            - Mathlib.Algebra.Order.Module.Field
+            - Mathlib.Algebra.Order.Module.HahnEmbedding
+            - Mathlib.Algebra.Order.Module.Pointwise
+            - Mathlib.Algebra.Order.Module.PositiveLinearMap
+            - Mathlib.Algebra.Order.Module.Rat
+            - Mathlib.Algebra.Order.Module.Synonym
+          E3: [hahnEmbedding_isOrderedModule]
+          families: [F-simp, F-simp-mem, F-instance, F-simp-apply, F-ctor, F-to-dual, F-simp-coe, F-ext-iff, F-ext]
+          requires: [V01, V04, V05, V06, V09]
+          counts: {E0: 165, E1: 272, E3: 1}
+          pages: 9.9
+          status: planned
+        - id: V07.C10.S03
+          title: 'Matrix: Action'
+          kind: theory
+          modules:
+            - Mathlib.Data.Matrix.Action
+            - Mathlib.Data.Matrix.Auto
+            - Mathlib.Data.Matrix.Basic
+            - Mathlib.Data.Matrix.Basis
+            - Mathlib.Data.Matrix.Bilinear
+            - Mathlib.Data.Matrix.Block
+          E3: [Matrix.fromBlocks, Matrix.blockDiagonal, Matrix.blockDiag, Matrix.toBlocks₁₂, Matrix.toBlocks₂₁, Matrix.blockDiag', Matrix.toBlocks₁₁, Matrix.toBlocks₂₂, Matrix.blockDiagonal', Matrix.blockDiagonal'RingHom, Matrix.blockDiagonalRingHom]
+          families: [F-simp, F-instance, F-simp-apply, F-simp-coe, F-simp-eq, F-def]
+          requires: [V01, V02, V03, V05, V06, V07.C05]
+          counts: {E0: 254, E1: 143, E3: 11}
+          pages: 13.6
+          status: planned
+        - id: V07.C10.S04
+          title: 'Matrix: Cartan'
+          kind: theory
+          modules:
+            - Mathlib.Data.Matrix.Cartan
+            - Mathlib.Data.Matrix.ColumnRowPartitioned
+            - Mathlib.Data.Matrix.Composition
+            - Mathlib.Data.Matrix.DMatrix
+            - Mathlib.Data.Matrix.Diagonal
+            - Mathlib.Data.Matrix.DualNumber
+            - Mathlib.Data.Matrix.Invertible
+            - Mathlib.Data.Matrix.Mul
+          E3: [Matrix.comp, Matrix.compAddEquiv, Matrix.compLinearEquiv, Matrix.compRingEquiv, Matrix.compAlgEquiv, Matrix.instAddCommMonoidWithOne, dotProduct, Matrix.vecMul, Matrix.instRing, Matrix.mulVec, Matrix.vecMulVec]
+          E2: [Matrix.equiv_compl_fromCols_mul_fromRows_eq_one_comm]
+          families: [F-simp-apply, F-simp, F-simp-eq, F-instance, F-simp-iff, F-ext, F-ext-iff, F-ctor, F-map-op]
+          requires: [V01, V02, V03, V05, V06, V07.C05, V07.C07]
+          counts: {E0: 240, E1: 168, E2: 1, E3: 11}
+          pages: 14.6
+          status: planned
+        - id: V07.C10.S05
+          title: 'Matrix: PEquiv'
+          kind: theory
+          modules:
+            - Mathlib.Data.Matrix.PEquiv
+            - Mathlib.Data.Matrix.Reflection
+          E3: [Matrix.etaExpand, Matrix.mulᵣ, Matrix.vecMulᵣ, Matrix.mulVecᵣ, Matrix.dotProductᵣ, Matrix.transposeᵣ]
+          families: [F-simp, F-simp-apply, F-simp-eq]
+          requires: [V01, V02, V07.C05]
+          counts: {E0: 19, E1: 17, E3: 6}
+          pages: 5.4
+          status: planned
