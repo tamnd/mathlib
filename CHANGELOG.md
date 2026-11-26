@@ -11,6 +11,10 @@ Each release has a section. The newest release is first.
 - The drafts of the post on the Lean Zulip and the letters to the Mathlib maintainers and to the area reviewers, in `outreach/`. Nobody sent them. The owner sends them.
 - The first records of the tools: `records/coverage.json` and `records/modules.json` from `mlib coverage` at Mathlib `e54979a532`, and `records/drift/2026-11-26.json` from the first `mlib sync`, from `4472534b60` to `e54979a532`, with 19 drift items.
 
+### Changed
+
+- The release script writes the new pins of `EDITION` to the CHANGELOG of mathlib-handbook, so that its release notes are not empty.
+
 ## v0.0.1 - 2026-11-26
 
 ### Added
