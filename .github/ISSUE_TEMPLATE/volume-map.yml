@@ -1,0 +1,23 @@
+name: Volume map
+description: Report a Mathlib module with the wrong home volume, or a module with no home.
+labels: ["area/map"]
+body:
+  - type: input
+    id: module
+    attributes:
+      label: Module
+      description: The Mathlib module, for example "Mathlib.Topology.Order.IntermediateValue".
+    validations:
+      required: true
+  - type: input
+    id: volume
+    attributes:
+      label: Home volume
+      description: The volume and chapter that should explain the module, for example "V15, C03".
+    validations:
+      required: true
+  - type: textarea
+    id: why
+    attributes:
+      label: Reason
+      description: Why the module belongs there.

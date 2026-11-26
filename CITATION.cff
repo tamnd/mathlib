@@ -1,0 +1,16 @@
+cff-version: 1.2.0
+message: "To cite this project, use this file."
+title: "The Mathlib Handbook: a textbook of the mathematics of Mathlib"
+type: software
+authors:
+  - family-names: Nguyen Duc
+    given-names: Tam
+repository-code: "https://github.com/tamnd/mathlib"
+url: "https://mathlib.tamnd.com"
+license: CC-BY-4.0
+keywords:
+  - Mathlib
+  - Lean 4
+  - textbook
+  - formalization
+  - mathematics
