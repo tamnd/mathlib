@@ -1,41 +1,50 @@
-# The milestones of spec 15. Each milestone has a tracking issue with the label milestone and a GitHub milestone with the same title.
+# The milestones of spec 15. Each milestone has a tracking issue with the label milestone and a GitHub milestone with the same title. A closed milestone has the date when it closed. The volumes of a milestone are the volumes that its exit criteria name. They set the weight of a volume in the work queue of mlib (spec 11.5): 1 for the current milestone, 0.5 for the next one and 0.2 for the rest.
 milestones:
   - id: M0
     title: "M0. Repositories, index, sync and site skeleton"
     target: 2026-12-20
     release: v0.1.0
+    closed: 2026-11-26
   - id: M1
     title: "M1. Voice, guide volumes and first measurements"
     target: 2027-02-28
     release: v0.2.0
+    volumes: [V00, V01, V34, V02, V03, V04, V05, V06, V07, V13]
   - id: M2
     title: "M2. First undergraduate volumes"
     target: 2027-05-31
     release: v0.3.0
+    volumes: [V01, V34, V02, V03, V04, V05, V13]
   - id: M3
     title: "M3. Undergraduate core and every declaration at E1"
     target: 2027-09-30
     release: v0.4.0
+    volumes: [V02, V03, V04, V05, V06, V07, V13, V15]
   - id: M4
     title: "M4. First graduate year, first half"
     target: 2028-01-31
     release: v0.5.0
+    volumes: [V09, V10, V11, V12, V14, V16, V17, V18, V20]
   - id: M5
     title: "M5. The core textbook"
     target: 2028-05-31
     release: v1.0.0
+    volumes: [V00, V01, V02, V03, V04, V05, V06, V07, V08, V09, V10, V11, V12, V14, V15, V16, V17, V18, V20]
   - id: M6
     title: "M6. Geometry and categories"
     target: 2028-10-31
     release: v1.1.0
+    volumes: [V19, V21, V22, V23, V24, V25, V26, V29, V30, V31, V32, V33]
   - id: M7
     title: "M7. Higher structures"
     target: 2029-03-31
     release: v1.2.0
+    volumes: [V25, V26, V27, V28, V29, V32, V33]
   - id: M8
     title: "M8. The whole textbook"
     target: 2029-07-31
     release: v2.0.0
+    volumes: [V28]
   - id: M9
     title: "M9. True to the latest and used"
     target: open
