@@ -1,0 +1,248 @@
+{
+ "mathlib": "e54979a532247ae4eb9d5578a8fd40a1bc332101",
+ "date": "2026-11-26",
+ "declarations": 342368,
+ "members": 129514,
+ "families": [
+  {
+   "id": "F-deprecated",
+   "text": "A deprecated alias keeps an old name for a time after a rename. It has the statement of its target, and the reader uses the target.",
+   "members": 6560,
+   "sample": [
+    "AEMeasurable.add'",
+    "AEMeasurable.div'",
+    "AEMeasurable.enorm",
+    "AEMeasurable.inf'",
+    "AEMeasurable.mono'"
+   ]
+  },
+  {
+   "id": "F-map-op",
+   "text": "A bundled map of a class that preserves {op} sends {op} to {op}.",
+   "members": 70,
+   "sample": [
+    "AddConstMapClass.map_ofNat",
+    "AddConstMapClass.map_one",
+    "AddGroupSeminormClass.map_zero",
+    "AddHomClass.map_add",
+    "AddSubmonoid.IsLocalizationMap.map_nsmul"
+   ]
+  },
+  {
+   "id": "F-coe-mk",
+   "text": "The coercion to a function of a structure built with its constructor is the function given to the constructor.",
+   "members": 147,
+   "sample": [
+    "AbsoluteValue.coe_mk",
+    "AddChar.coe_mk",
+    "AddConstMap.coe_mk",
+    "AddEquiv.coe_mk",
+    "AddGroupExtension.Section.coe_mk"
+   ]
+  },
+  {
+   "id": "F-ext",
+   "text": "Two objects of a structure are equal when their fields or their values are equal.",
+   "members": 1040,
+   "sample": [
+    "AList.ext",
+    "AbsoluteValue.Completion.ext",
+    "AbsoluteValue.ext",
+    "AbstractMeasure.ext",
+    "AbstractSimplicialComplex.ext"
+   ]
+  },
+  {
+   "id": "F-ext-iff",
+   "text": "Two objects of a structure are equal if and only if their fields or their values are equal. The attribute ext makes this lemma from the ext lemma.",
+   "members": 938,
+   "sample": [
+    "AList.ext_iff",
+    "AbsoluteValue.ext_iff",
+    "AbstractMeasure.ext_iff",
+    "AbstractSimplicialComplex.ext_iff",
+    "Action.Hom.ext_iff"
+   ]
+  },
+  {
+   "id": "F-aux",
+   "text": "An auxiliary definition is a step in the construction of another declaration. The reader uses the main declaration.",
+   "members": 331,
+   "sample": [
+    "AbsoluteValue.Completion.equivAux",
+    "Action.abelianAux",
+    "AddCommGrpCat.forget₂AddCommMon_preservesLimitsAux",
+    "AddCommGrpCat.leftExactFunctorForgetEquivalence.instPreservesFiniteLimitsObjLeftExactFunctorTypeFunctorInverseAux",
+    "AddCommGrpCat.leftExactFunctorForgetEquivalence.inverseAux"
+   ]
+  },
+  {
+   "id": "F-aux-snake",
+   "text": "An auxiliary lemma is a step in the proof of another declaration. The reader uses the main declaration.",
+   "members": 270,
+   "sample": [
+    "ADEInequality.admissible_of_one_lt_sumInv_aux",
+    "AbsoluteValue.IsAdmissible.exists_approx_aux",
+    "AddSubgroup.exists_finiteIndex_of_leftCoset_cover_aux",
+    "AddSubgroup.leftCoset_cover_filter_FiniteIndex_aux",
+    "AddSubmonoid.pi_mem_of_single_mem_aux"
+   ]
+  },
+  {
+   "id": "F-instance",
+   "text": "An instance tells Lean that a type has a structure. Lean finds it by type class search, and the reader does not use it by name.",
+   "members": 32444,
+   "sample": [
+    "AList.instDecidableEq",
+    "AList.instDecidableMem",
+    "AList.instEmptyCollection",
+    "AList.instInhabited",
+    "AList.instMembership"
+   ]
+  },
+  {
+   "id": "F-ctor",
+   "text": "A constructor builds an object of an inductive type or a structure from its fields.",
+   "members": 5070,
+   "sample": [
+    "AList.mk",
+    "AbsoluteValue.IsAdmissible.mk",
+    "AbsoluteValue.IsEuclidean.mk",
+    "AbsoluteValue.LiesOver.mk",
+    "AbsoluteValue.mk"
+   ]
+  },
+  {
+   "id": "F-simp-apply",
+   "text": "A simp lemma that gives the value of a bundled map or a construction at a point. The attribute simps makes many of them.",
+   "members": 7535,
+   "sample": [
+    "AList.lookupFinsupp_apply",
+    "AbsoluteValue.Completion.equiv_apply",
+    "AbsoluteValue.Completion.equiv_symm_apply",
+    "AbsoluteValue.Completion.isometryEquiv_apply",
+    "AbsoluteValue.Completion.isometryEquiv_symm_apply"
+   ]
+  },
+  {
+   "id": "F-simp-coe",
+   "text": "A simp lemma that moves a coercion through an operation or a construction.",
+   "members": 3851,
+   "sample": [
+    "AbsoluteValue.Completion.coe_add",
+    "AbsoluteValue.Completion.coe_inv",
+    "AbsoluteValue.Completion.coe_mul",
+    "AbsoluteValue.Completion.coe_neg",
+    "AbsoluteValue.Completion.coe_one"
+   ]
+  },
+  {
+   "id": "F-simp-mem",
+   "text": "A simp lemma that says when an element is a member of a set or a structure that a construction makes.",
+   "members": 1303,
+   "sample": [
+    "AList.mem_erase",
+    "AList.mem_insert",
+    "AList.mem_mk",
+    "AList.mem_replace",
+    "AList.mem_union"
+   ]
+  },
+  {
+   "id": "F-simp-mk",
+   "text": "A simp lemma that computes a projection or a function on an object built with a constructor.",
+   "members": 773,
+   "sample": [
+    "AList.keys_mk",
+    "Action.FintypeCat.quotientToEndHom_mk",
+    "Action.FintypeCat.quotientToQuotientOfLE_hom_mk",
+    "AddAction.Quotient.vadd_mk",
+    "AddAction.ofQuotientStabilizer_mk"
+   ]
+  },
+  {
+   "id": "F-simp-cast",
+   "text": "A simp lemma that moves a cast between number types through an operation.",
+   "members": 259,
+   "sample": [
+    "CharP.cast_eq_zero",
+    "Composition.cast_blocks",
+    "Composition.cast_rfl",
+    "Equiv.cast_refl",
+    "Fin.cast_eq_self"
+   ]
+  },
+  {
+   "id": "F-simp-iff",
+   "text": "A simp lemma that changes a statement to an equivalent statement in the simp normal form.",
+   "members": 3001,
+   "sample": [
+    "AbsoluteValue.IsEuclidean.map_lt_map_iff",
+    "AbsoluteValue.map_sub_eq_zero_iff",
+    "AbsoluteValue.nonpos_iff",
+    "AbsoluteValue.pos_iff",
+    "AbsoluteValue.under_liesOver_iff"
+   ]
+  },
+  {
+   "id": "F-simp-eq",
+   "text": "A simp lemma that rewrites a term to its simp normal form.",
+   "members": 3321,
+   "sample": [
+    "AList.extract_eq_lookup_erase",
+    "AList.insert_singleton_eq",
+    "AList.lookup_insert_eq_none",
+    "AList.lookup_union_eq_some",
+    "AbsoluteValue.isEquiv_trivial_iff_eq_trivial"
+   ]
+  },
+  {
+   "id": "F-def",
+   "text": "A lemma that unfolds a definition to its body. A proof uses it when the definition does not unfold by itself.",
+   "members": 1642,
+   "sample": [
+    "AbsoluteValue.Completion.algebraMap_def",
+    "AbsoluteValue.over_def",
+    "AbsoluteValue.under_def",
+    "AbstractCompletion.extend_def",
+    "AbstractMeasure.mul_def"
+   ]
+  },
+  {
+   "id": "F-to-additive",
+   "text": "The additive twin of a multiplicative declaration. The attribute to_additive makes it, and it has the same meaning with + for *, 0 for 1 and - for the inverse.",
+   "members": 2009,
+   "sample": [
+    "AEMeasurable.add",
+    "AEMeasurable.add_const",
+    "AEMeasurable.const_add",
+    "AEMeasurable.const_sub",
+    "AEMeasurable.fun_add"
+   ]
+  },
+  {
+   "id": "F-to-dual",
+   "text": "The order dual of another declaration. It has the same meaning with the order reversed: sup for inf, bot for top and the lower bound for the upper bound.",
+   "members": 2867,
+   "sample": [
+    "AEMeasurable.biInf",
+    "AEMeasurable.const_inf",
+    "AEMeasurable.fun_inf",
+    "AEMeasurable.iInf",
+    "AEMeasurable.inf"
+   ]
+  },
+  {
+   "id": "F-simp",
+   "text": "A simp lemma rewrites a term to its simp normal form. The tactic simp uses it, and the reader seldom uses it by name.",
+   "members": 56083,
+   "sample": [
+    "AList.empty_entries",
+    "AList.empty_lookupFinsupp",
+    "AList.empty_union",
+    "AList.entries_insert",
+    "AList.entries_toAList"
+   ]
+  }
+ ]
+}
