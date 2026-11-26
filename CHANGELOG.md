@@ -4,6 +4,8 @@ Each release has a section. The newest release is first.
 
 ## Unreleased
 
+## v0.0.1 - 2026-11-26
+
 ### Added
 
 - The spec of the project in `docs/spec/`, with the research reports A and B.
