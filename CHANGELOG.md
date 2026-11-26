@@ -4,6 +4,11 @@ Each release has a section. The newest release is first.
 
 ## Unreleased
 
+### Added
+
+- `blueprint/families.yaml` with 20 family records of depth E0: deprecated aliases, the `map_{op}` lemmas of bundled maps, `coe_mk`, `ext` and `ext_iff`, auxiliary declarations, instances, constructors, six groups of simp lemmas, `_def` lemmas, the additive and the order dual twins, and the other simp lemmas.
+- `records/families.json`, the result of `mlib family match` on Mathlib e54979a532: 129,514 of 342,368 declarations (37.8%) are in a family.
+
 ## v0.1.0 - 2026-11-26
 
 ## v0.0.2 - 2026-11-26

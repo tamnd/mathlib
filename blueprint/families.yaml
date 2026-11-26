@@ -1,0 +1,82 @@
+# The family records of spec 09.4. mlib family match gives each declaration the first family whose pattern it matches, so a narrow family comes before a wide one.
+- id: F-deprecated
+  pattern: { deprecated: true }
+  text: "A deprecated alias keeps an old name for a time after a rename. It has the statement of its target, and the reader uses the target."
+  depth: E0
+- id: F-map-op
+  pattern: { name: "map_{op}", typeHead: "FunLike" }
+  ops: [add, zero, mul, one, sub, neg, sum, prod, pow, nsmul, zsmul, inv, div, smul, finsupp_sum, finsupp_prod, natCast, intCast, ofNat, sup, inf, bot, top, le, lt, min, max]
+  text: "A bundled map of a class that preserves {op} sends {op} to {op}."
+  depth: E0
+- id: F-coe-mk
+  pattern: { name: "*.coe_mk", attr: simp }
+  text: "The coercion to a function of a structure built with its constructor is the function given to the constructor."
+  depth: E0
+- id: F-ext
+  pattern: { name: "*.ext" }
+  text: "Two objects of a structure are equal when their fields or their values are equal."
+  depth: E0
+- id: F-ext-iff
+  pattern: { name: "*.ext_iff" }
+  text: "Two objects of a structure are equal if and only if their fields or their values are equal. The attribute ext makes this lemma from the ext lemma."
+  depth: E0
+- id: F-aux
+  pattern: { name: "*Aux" }
+  text: "An auxiliary definition is a step in the construction of another declaration. The reader uses the main declaration."
+  depth: E0
+- id: F-aux-snake
+  pattern: { name: "*_aux" }
+  text: "An auxiliary lemma is a step in the proof of another declaration. The reader uses the main declaration."
+  depth: E0
+- id: F-instance
+  pattern: { kind: instance }
+  text: "An instance tells Lean that a type has a structure. Lean finds it by type class search, and the reader does not use it by name."
+  depth: E0
+- id: F-ctor
+  pattern: { kind: ctor }
+  text: "A constructor builds an object of an inductive type or a structure from its fields."
+  depth: E0
+- id: F-simp-apply
+  pattern: { name: "*_apply", attr: simp }
+  text: "A simp lemma that gives the value of a bundled map or a construction at a point. The attribute simps makes many of them."
+  depth: E0
+- id: F-simp-coe
+  pattern: { name: "coe_*", attr: simp }
+  text: "A simp lemma that moves a coercion through an operation or a construction."
+  depth: E0
+- id: F-simp-mem
+  pattern: { name: "mem_*", attr: simp }
+  text: "A simp lemma that says when an element is a member of a set or a structure that a construction makes."
+  depth: E0
+- id: F-simp-mk
+  pattern: { name: "*_mk", attr: simp }
+  text: "A simp lemma that computes a projection or a function on an object built with a constructor."
+  depth: E0
+- id: F-simp-cast
+  pattern: { name: "cast_*", attr: simp }
+  text: "A simp lemma that moves a cast between number types through an operation."
+  depth: E0
+- id: F-simp-iff
+  pattern: { name: "*_iff", attr: simp }
+  text: "A simp lemma that changes a statement to an equivalent statement in the simp normal form."
+  depth: E0
+- id: F-simp-eq
+  pattern: { name: "*_eq*", attr: simp }
+  text: "A simp lemma that rewrites a term to its simp normal form."
+  depth: E0
+- id: F-def
+  pattern: { name: "*_def" }
+  text: "A lemma that unfolds a definition to its body. A proof uses it when the definition does not unfold by itself."
+  depth: E0
+- id: F-to-additive
+  pattern: { twin: to_additive }
+  text: "The additive twin of a multiplicative declaration. The attribute to_additive makes it, and it has the same meaning with + for *, 0 for 1 and - for the inverse."
+  depth: E0
+- id: F-to-dual
+  pattern: { twin: to_dual }
+  text: "The order dual of another declaration. It has the same meaning with the order reversed: sup for inf, bot for top and the lower bound for the upper bound."
+  depth: E0
+- id: F-simp
+  pattern: { attr: simp }
+  text: "A simp lemma rewrites a term to its simp normal form. The tactic simp uses it, and the reader seldom uses it by name."
+  depth: E0
