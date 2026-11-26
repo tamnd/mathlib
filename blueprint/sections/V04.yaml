@@ -1,0 +1,1040 @@
+# The section plan of V04 (spec 09.1, 07.7). mlib plan made the draft from the index at e54979a532. A person accepts it and then edits it by hand.
+volume: V04
+title: Order and lattices
+mathlib: e54979a532247ae4eb9d5578a8fd40a1bc332101
+date: "2026-11-26"
+by: mlib plan dev
+status: proposed
+pages: 657
+chapters:
+    - id: C01
+      title: Atoms and Boolean algebra
+      prefixes: [Mathlib/Order/Atoms, Mathlib/Order/BooleanAlgebra]
+      requires: [V01, V03, V04.C02, V04.C04, V04.C11]
+      sections:
+        - id: V04.C01.S01
+          title: Atoms
+          kind: theory
+          modules:
+            - Mathlib.Order.Atoms
+          E3: [isSimpleOrder_iff_isAtom_top, isAtom_dual_iff_isCoatom, IsCoatom, isSimpleOrder_iff_isCoatom_bot, isAtomic_iff_isCoatomic, IsAtom, IsCompl.isAtom_iff_isCoatom, isCoatom_dual_iff_isAtom]
+          families: [F-simp-iff, F-simp, F-instance, F-ctor, F-simp-eq, F-simp-apply]
+          requires: [V01, V04.C02, V04.C04, V04.C11]
+          counts: {E0: 98, E1: 107, E3: 8}
+          pages: 10
+          status: planned
+        - id: V04.C01.S02
+          title: Finite
+          kind: theory
+          modules:
+            - Mathlib.Order.Atoms.Finite
+            - Mathlib.Order.BooleanAlgebra.Basic
+            - Mathlib.Order.BooleanAlgebra.Defs
+            - Mathlib.Order.BooleanAlgebra.Set
+          E3: [Finite.to_isAtomic, Finite.to_isCoatomic, BooleanAlgebra, GeneralizedBooleanAlgebra, Set.instBooleanAlgebra]
+          E2: [BooleanAlgebra.inf_compl_le_bot, BooleanAlgebra.top_le_sup_compl]
+          families: [F-instance, F-simp, F-simp-eq, F-simp-iff, F-ctor, F-def, F-simp-mem]
+          requires: [V03, V04.C02, V04.C04, V04.C11]
+          counts: {E0: 112, E1: 195, E2: 2, E3: 5}
+          pages: 10.8
+          status: planned
+    - id: C02
+      title: Bounded order, Bounds, Circular and Compactly generated
+      prefixes: [Mathlib/Order/BoundedOrder, Mathlib/Order/Bounds, Mathlib/Order/Circular, Mathlib/Order/CompactlyGenerated]
+      requires: [V03, V04.C04]
+      sections:
+        - id: V04.C02.S01
+          title: Basic
+          kind: theory
+          modules:
+            - Mathlib.Order.BoundedOrder.Basic
+            - Mathlib.Order.BoundedOrder.Lattice
+            - Mathlib.Order.BoundedOrder.Monotone
+            - Mathlib.Order.Bounds.Basic
+          E3: [OrderBot, OrderTop]
+          families: [F-simp-iff, F-instance, F-simp-eq, F-simp, F-to-dual, F-simp-apply, F-def, F-ctor, F-simp-coe, F-simp-mem]
+          counts: {E0: 206, E1: 307, E3: 2}
+          pages: 11.8
+          status: planned
+        - id: V04.C02.S02
+          title: Defs
+          kind: theory
+          modules:
+            - Mathlib.Order.Bounds.Defs
+            - Mathlib.Order.Bounds.Image
+            - Mathlib.Order.Bounds.Lattice
+            - Mathlib.Order.Bounds.OrderIso
+            - Mathlib.Order.Circular
+            - Mathlib.Order.Circular.ZMod
+          E3: [Set.cIoo, Set.cIcc]
+          families: [F-ctor, F-to-dual, F-instance, F-simp, F-simp-mem]
+          requires: [V03]
+          counts: {E0: 81, E1: 153, E3: 2}
+          pages: 6.7
+          status: planned
+        - id: V04.C02.S03
+          title: Compactly generated
+          kind: theory
+          modules:
+            - Mathlib.Order.CompactlyGenerated.Basic
+            - Mathlib.Order.CompactlyGenerated.Intervals
+          E3: [IsCompactlyGenerated, IsCompactElement]
+          families: [F-ctor, F-simp-eq, F-instance, F-simp]
+          requires: [V03, V04.C04]
+          counts: {E0: 15, E1: 64, E3: 2}
+          pages: 3.7
+          status: planned
+    - id: C03
+      title: Complete lattice and Conditionally complete lattice
+      prefixes: [Mathlib/Order/CompleteLattice, Mathlib/Order/ConditionallyCompleteLattice]
+      sections:
+        - id: V04.C03.S01
+          title: Complete lattice
+          kind: theory
+          modules:
+            - Mathlib.Order.CompleteLattice.Basic
+            - Mathlib.Order.CompleteLattice.Chain
+            - Mathlib.Order.CompleteLattice.Defs
+          E3: [maxChain_spec, CompleteLinearOrder, CompleteLattice]
+          E2: [le_iSup]
+          families: [F-to-dual, F-simp-eq, F-simp, F-simp-apply, F-instance, F-simp-iff, F-ctor, F-def]
+          counts: {E0: 130, E1: 292, E2: 1, E3: 3}
+          pages: 12.3
+          status: planned
+        - id: V04.C03.S02
+          title: Finset
+          kind: reference
+          modules:
+            - Mathlib.Order.CompleteLattice.Finset
+            - Mathlib.Order.CompleteLattice.Group
+            - Mathlib.Order.CompleteLattice.Lemmas
+            - Mathlib.Order.CompleteLattice.MulticoequalizerDiagram
+            - Mathlib.Order.CompleteLattice.PiLex
+            - Mathlib.Order.CompleteLattice.SetLike
+            - Mathlib.Order.ConditionallyCompleteLattice.Basic
+            - Mathlib.Order.ConditionallyCompleteLattice.Defs
+            - Mathlib.Order.ConditionallyCompleteLattice.Finset
+            - Mathlib.Order.ConditionallyCompleteLattice.Group
+            - Mathlib.Order.ConditionallyCompleteLattice.Indexed
+            - Mathlib.Order.ConditionallyCompleteLattice.WithTop
+          families: [F-ctor, F-ext, F-ext-iff, F-instance, F-simp, F-simp-eq, F-simp-mem, F-to-additive, F-to-dual]
+          counts: {E0: 207, E1: 393}
+          pages: 13.1
+          status: planned
+    - id: C04
+      title: Conditionally complete partial order and Defs
+      prefixes: [Mathlib/Order/ConditionallyCompletePartialOrder, Mathlib/Order/Defs]
+      sections:
+        - id: V04.C04.S01
+          title: Basic
+          kind: theory
+          modules:
+            - Mathlib.Order.ConditionallyCompletePartialOrder.Basic
+            - Mathlib.Order.ConditionallyCompletePartialOrder.Defs
+            - Mathlib.Order.ConditionallyCompletePartialOrder.Indexed
+            - Mathlib.Order.Defs.Lattice
+            - Mathlib.Order.Defs.LinearOrder
+          E3: [Lattice, DistribLattice, SemilatticeInf, SemilatticeSup, LinearOrder]
+          E2: [SemilatticeInf.inf_le_right, SemilatticeInf.inf_le_left, SemilatticeInf.le_inf, Lattice.inf_le_left, Lattice.le_inf, Lattice.inf_le_right, LinearOrder.compare_eq_compareOfLessAndEq, LinearOrder.le_total]
+          families: [F-to-dual, F-simp, F-instance, F-ctor, F-simp-eq, F-simp-iff, F-def]
+          counts: {E0: 117, E1: 205, E2: 8, E3: 5}
+          pages: 12
+          status: planned
+        - id: V04.C04.S02
+          title: Defs
+          kind: theory
+          modules:
+            - Mathlib.Order.Defs.PartialOrder
+            - Mathlib.Order.Defs.Prop
+            - Mathlib.Order.Defs.Unbundled
+          E3: [PartialOrder, Preorder, Maximal, symm]
+          E2: [lt_of_le_of_lt, le_refl, le_rfl, le_antisymm, lt_of_lt_of_le, le_trans, antisymm_of, antisymm_of', comm_of, refl]
+          families: [F-instance, F-ctor, F-simp-eq, F-def, F-to-dual, F-simp, F-simp-apply]
+          counts: {E0: 89, E1: 125, E2: 10, E3: 4}
+          pages: 8.9
+          status: planned
+    - id: C05
+      title: Extension, Fin, Galois connection and Heyting
+      prefixes: [Mathlib/Order/Extension, Mathlib/Order/Fin, Mathlib/Order/GaloisConnection, Mathlib/Order/Heyting]
+      requires: [V01, V02, V04.C04, V04.C06, V04.C09, V04.C11]
+      sections:
+        - id: V04.C05.S01
+          title: Linear
+          kind: theory
+          modules:
+            - Mathlib.Order.Extension.Linear
+            - Mathlib.Order.Extension.Well
+            - Mathlib.Order.Fin.Basic
+            - Mathlib.Order.Fin.Clamp
+            - Mathlib.Order.Fin.Finset
+            - Mathlib.Order.Fin.InsertNth
+            - Mathlib.Order.Fin.Prod
+            - Mathlib.Order.Fin.SuccAboveOrderIso
+            - Mathlib.Order.Fin.Tuple
+          E3: [extend_partialOrder, Fin.castOrderIso, Fin.valOrderEmb, Fin.castSuccOrderEmb, Fin.revOrderIso, Fin.succOrderEmb, Fin.orderIsoSubtype]
+          families: [F-instance, F-simp-apply, F-simp, F-simp-iff, F-simp-coe, F-to-dual, F-simp-eq, F-def, F-simp-cast]
+          requires: [V01, V02, V04.C04, V04.C06, V04.C09, V04.C11]
+          counts: {E0: 103, E1: 78, E3: 7}
+          pages: 8.2
+          status: planned
+        - id: V04.C05.S02
+          title: Galois connection
+          kind: theory
+          modules:
+            - Mathlib.Order.GaloisConnection.Basic
+            - Mathlib.Order.GaloisConnection.Defs
+          E3: [GaloisInsertion, GaloisCoinsertion, GaloisConnection]
+          families: [F-simp, F-to-dual, F-ctor]
+          requires: [V04.C04]
+          counts: {E0: 16, E1: 154, E3: 3}
+          pages: 7.5
+          status: planned
+        - id: V04.C05.S03
+          title: Heyting
+          kind: theory
+          modules:
+            - Mathlib.Order.Heyting.Basic
+            - Mathlib.Order.Heyting.Boundary
+            - Mathlib.Order.Heyting.Hom
+            - Mathlib.Order.Heyting.Regular
+          E3: [BiheytingAlgebra, GeneralizedCoheytingAlgebra, CoheytingAlgebra, HeytingAlgebra, GeneralizedHeytingAlgebra, Heyting.IsRegular, Heyting.Regular]
+          E2: [BiheytingAlgebra.top_sdiff]
+          families: [F-aux-snake, F-ctor, F-ext, F-ext-iff, F-instance, F-map-op, F-simp, F-simp-apply, F-simp-coe, F-simp-eq, F-simp-iff, F-to-dual]
+          requires: [V04.C04]
+          counts: {E0: 262, E1: 197, E2: 1, E3: 7}
+          pages: 12.3
+          status: planned
+    - id: C06
+      title: Hom
+      prefixes: [Mathlib/Order/Hom]
+      requires: [V01, V03, V04.C04, V04.C07, V04.C08, V04.C09, V04.C11]
+      sections:
+        - id: V04.C06.S01
+          title: Basic
+          kind: theory
+          modules:
+            - Mathlib.Order.Hom.Basic
+          E3: [OrderHom.onDiag, OrderHom.id, OrderHom.fst, OrderHom.compₘ, OrderHom.piIso, OrderHom.prodMap, OrderHom.curry, OrderHom.comp, OrderIso, OrderHom.diag, RelHom.toOrderHom, OrderIsoClass, OrderHom.pi, OrderHom.snd, OrderHom.prodIso, OrderHom.prod, OrderHom.coeFnHom, OrderHom.dualIso, OrderHom.apply, OrderEmbedding, OrderEmbedding.toOrderHom, OrderHom.const, OrderHom.prodₘ, OrderHom.dual, OrderHom, OrderHomClass, Pi.evalOrderHom]
+          E2: [OrderIso.monotone, OrderHom.monotone, OrderHom.monotone']
+          families: [F-simp-iff, F-simp, F-simp-coe, F-simp-apply, F-simp-eq, F-simp-mk, F-to-dual, F-ext, F-instance, F-def, F-coe-mk, F-ext-iff, F-ctor]
+          requires: [V01, V04.C04, V04.C08, V04.C09, V04.C11]
+          counts: {E0: 223, E1: 105, E2: 3, E3: 27}
+          pages: 25.6
+          status: planned
+        - id: V04.C06.S02
+          title: Hom
+          kind: theory
+          modules:
+            - Mathlib.Order.Hom.Bounded
+            - Mathlib.Order.Hom.BoundedLattice
+            - Mathlib.Order.Hom.CompleteLattice
+            - Mathlib.Order.Hom.Lattice
+            - Mathlib.Order.Hom.Lex
+            - Mathlib.Order.Hom.Order
+            - Mathlib.Order.Hom.PowersetCard
+            - Mathlib.Order.Hom.Set
+            - Mathlib.Order.Hom.WithTopBot
+          E3: [Prod.Lex.prodUnique, Prod.Lex.uniqueProd, OrderIso.sumLexIicIoi, OrderIso.sumLexIioIci]
+          families: [F-instance, F-map-op, F-simp, F-simp-apply, F-to-dual, F-simp-coe, F-ctor, F-simp-iff, F-ext-iff, F-ext, F-simp-eq, F-coe-mk, F-simp-mk, F-def, F-simp-mem]
+          requires: [V01, V03, V04.C04, V04.C07, V04.C09, V04.C11]
+          counts: {E0: 702, E1: 230, E3: 4}
+          pages: 10.9
+          status: planned
+    - id: C07
+      title: Int and Interval
+      prefixes: [Mathlib/Order/Int, Mathlib/Order/Interval]
+      requires: [V03, V04.C04]
+      sections:
+        - id: V04.C07.S01
+          title: Conditionally complete order
+          kind: theory
+          modules:
+            - Mathlib.Order.Int.ConditionallyCompleteOrder
+            - Mathlib.Order.Int.LeastGreatest
+            - Mathlib.Order.Interval.Basic
+            - Mathlib.Order.Interval.Finset.Basic
+          E3: [Int.coe_leastOfBdd_eq, Int.leastOfBdd, Int.exists_greatest_of_bdd, Int.greatestOfBdd, Int.exists_least_of_bdd, Interval, NonemptyInterval]
+          E2: [Finset.Ioc_subset_Iic_self]
+          families: [F-instance, F-simp, F-to-dual, F-simp-mem, F-simp-coe, F-simp-apply, F-ext, F-ext-iff, F-ctor, F-def, F-simp-eq, F-to-additive, F-simp-iff]
+          requires: [V04.C04]
+          counts: {E0: 185, E1: 225, E2: 1, E3: 7}
+          pages: 13.3
+          status: planned
+        - id: V04.C07.S02
+          title: Finset
+          kind: theory
+          modules:
+            - Mathlib.Order.Interval.Finset.Box
+            - Mathlib.Order.Interval.Finset.Defs
+          E3: [LocallyFiniteOrderTop, Finset.Ioi, Finset.Iio, LocallyFiniteOrderBot, Finset.Ico, Finset.Ici, Finset.Icc, Finset.Iic, LocallyFiniteOrder, Finset.Ioo, Finset.Ioc, Finset.uIcc]
+          families: [F-simp-mem, F-simp, F-instance, F-simp-coe, F-to-dual, F-def, F-ctor, F-simp-eq]
+          requires: [V03, V04.C04]
+          counts: {E0: 122, E1: 108, E3: 12}
+          pages: 13.2
+          status: planned
+        - id: V04.C07.S03
+          title: Interval
+          kind: theory
+          modules:
+            - Mathlib.Order.Interval.Finset.DenselyOrdered
+            - Mathlib.Order.Interval.Finset.Fin
+            - Mathlib.Order.Interval.Finset.Floor
+            - Mathlib.Order.Interval.Finset.Gaps
+            - Mathlib.Order.Interval.Finset.Nat
+            - Mathlib.Order.Interval.Finset.SuccPred
+            - Mathlib.Order.Interval.Lex
+            - Mathlib.Order.Interval.Multiset
+          E3: [Multiset.Iic, Multiset.Icc, Multiset.Iio, Multiset.Ici, Multiset.Ioo, Multiset.Ico, Multiset.Ioc, Multiset.Ioi]
+          families: [F-to-dual, F-simp, F-simp-eq, F-instance, F-simp-iff, F-simp-mem]
+          requires: [V03, V04.C04]
+          counts: {E0: 235, E1: 144, E3: 8}
+          pages: 11.2
+          status: planned
+        - id: V04.C07.S04
+          title: 'Set: Basic'
+          kind: theory
+          modules:
+            - Mathlib.Order.Interval.Set.Basic
+            - Mathlib.Order.Interval.Set.Card
+            - Mathlib.Order.Interval.Set.Defs
+            - Mathlib.Order.Interval.Set.Disjoint
+            - Mathlib.Order.Interval.Set.Fin
+            - Mathlib.Order.Interval.Set.Final
+            - Mathlib.Order.Interval.Set.Image
+          E3: [Set.Ioc, Set.Ico, Set.Icc, Set.Ioo]
+          E2: [Set.right_mem_Icc, Set.left_mem_Icc]
+          families: [F-instance, F-simp, F-to-dual, F-simp-iff, F-simp-eq, F-def, F-simp-mem, F-ctor]
+          requires: [V03, V04.C04]
+          counts: {E0: 435, E1: 241, E2: 2, E3: 4}
+          pages: 11.5
+          status: planned
+        - id: V04.C07.S05
+          title: 'Set: Infinite'
+          kind: reference
+          modules:
+            - Mathlib.Order.Interval.Set.Infinite
+            - Mathlib.Order.Interval.Set.InitialSeg
+            - Mathlib.Order.Interval.Set.IsoIoo
+            - Mathlib.Order.Interval.Set.Limit
+            - Mathlib.Order.Interval.Set.LinearOrder
+            - Mathlib.Order.Interval.Set.Monotone
+            - Mathlib.Order.Interval.Set.Nat
+            - Mathlib.Order.Interval.Set.OrdConnected
+            - Mathlib.Order.Interval.Set.OrdConnectedComponent
+            - Mathlib.Order.Interval.Set.OrdConnectedLinear
+            - Mathlib.Order.Interval.Set.OrderEmbedding
+            - Mathlib.Order.Interval.Set.OrderIso
+            - Mathlib.Order.Interval.Set.Pi
+            - Mathlib.Order.Interval.Set.ProjIcc
+            - Mathlib.Order.Interval.Set.SuccOrder
+            - Mathlib.Order.Interval.Set.SuccPred
+          families: [F-instance, F-to-dual, F-simp, F-simp-apply, F-simp-eq, F-simp-iff, F-def]
+          counts: {E0: 194, E1: 341}
+          pages: 11.4
+          status: planned
+        - id: V04.C07.S06
+          title: 'Set: Surj on'
+          kind: reference
+          modules:
+            - Mathlib.Order.Interval.Set.SurjOn
+            - Mathlib.Order.Interval.Set.Union
+            - Mathlib.Order.Interval.Set.UnorderedInterval
+            - Mathlib.Order.Interval.Set.WithBotTop
+          families: [F-to-dual, F-simp]
+          counts: {E0: 70, E1: 86}
+          pages: 2.9
+          status: planned
+    - id: C08
+      title: Lattice and Monotone
+      prefixes: [Mathlib/Order/Lattice, Mathlib/Order/Monotone]
+      requires: [V02, V04.C04]
+      sections:
+        - id: V04.C08.S01
+          title: Lattice
+          kind: theory
+          modules:
+            - Mathlib.Order.Lattice
+            - Mathlib.Order.Lattice.Congruence
+            - Mathlib.Order.Lattice.Nat
+          E3: [Lattice.mk', SemilatticeSup.mk', LatticeCon.inf, LatticeCon.sup, LatticeCon.ker, LatticeCon.mk', LatticeCon]
+          families: [F-ext, F-to-dual, F-def, F-simp, F-simp-coe, F-instance, F-simp-eq, F-simp-mk, F-simp-apply, F-simp-iff, F-ctor]
+          requires: [V04.C04]
+          counts: {E0: 88, E1: 126, E3: 7}
+          pages: 9.8
+          status: planned
+        - id: V04.C08.S02
+          title: 'Monotone: Basic'
+          kind: theory
+          modules:
+            - Mathlib.Order.Monotone.Basic
+            - Mathlib.Order.Monotone.Defs
+          E3: [strictMono_nat_of_lt_succ, strictMono_int_of_lt_succ, monotone_int_of_le_succ, antitone_int_of_succ_le, antitone_nat_of_succ_le, strictAnti_int_of_succ_lt, strictAnti_nat_of_succ_lt, monotone_nat_of_le_succ, Monotone, IsStable, Antitone, MonotoneOn]
+          E2: [StrictMono.monotone]
+          families: [F-simp-iff, F-to-dual, F-instance, F-simp]
+          requires: [V02, V04.C04]
+          counts: {E0: 56, E1: 187, E2: 1, E3: 12}
+          pages: 16
+          status: planned
+        - id: V04.C08.S03
+          title: 'Monotone: Extension'
+          kind: reference
+          modules:
+            - Mathlib.Order.Monotone.Extension
+            - Mathlib.Order.Monotone.Monovary
+            - Mathlib.Order.Monotone.MonovaryOrder
+            - Mathlib.Order.Monotone.Odd
+            - Mathlib.Order.Monotone.Union
+          families: [F-to-dual, F-simp, F-simp-iff, F-instance]
+          counts: {E0: 17, E1: 107}
+          pages: 3.6
+          status: planned
+    - id: C09
+      title: Partition, Preorder, Prod and Rel iso
+      prefixes: [Mathlib/Order/Partition, Mathlib/Order/Preorder, Mathlib/Order/Prod, Mathlib/Order/RelIso]
+      requires: [V01, V03, V04.C02, V04.C03, V04.C04, V04.C11]
+      sections:
+        - id: V04.C09.S01
+          title: Partition
+          kind: theory
+          modules:
+            - Mathlib.Order.Partition.Basic
+            - Mathlib.Order.Partition.Equipartition
+            - Mathlib.Order.Partition.Finpartition
+          E3: [Partition.instOrderTop, Partition, Partition.removeBot, Partition.instSemilatticeInf, Partition.IsRepFun, Partition.Rel, Finpartition.IsEquipartition.exists_partPreservingEquiv, Finpartition.IsEquipartition, Finpartition]
+          families: [F-simp, F-simp-iff, F-instance, F-simp-coe, F-simp-mem, F-simp-eq, F-ctor, F-def, F-ext, F-ext-iff]
+          requires: [V01, V03, V04.C02, V04.C03, V04.C04, V04.C11]
+          counts: {E0: 102, E1: 145, E3: 9}
+          pages: 12
+          status: planned
+        - id: V04.C09.S02
+          title: Chain
+          kind: theory
+          modules:
+            - Mathlib.Order.Preorder.Chain
+            - Mathlib.Order.Preorder.Finite
+            - Mathlib.Order.Preorder.Finsupp
+            - Mathlib.Order.Preorder.PairwiseChain
+            - Mathlib.Order.Prod.Lex.Basic
+            - Mathlib.Order.Prod.Lex.Hom
+          E3: [Flag, Finsupp.orderEmbeddingToFun]
+          families: [F-simp-coe, F-simp, F-instance, F-to-dual, F-ctor, F-coe-mk, F-ext-iff, F-ext, F-def, F-simp-apply]
+          counts: {E0: 76, E1: 103, E3: 2}
+          pages: 5
+          status: planned
+        - id: V04.C09.S03
+          title: Rel iso
+          kind: theory
+          modules:
+            - Mathlib.Order.RelIso.Basic
+            - Mathlib.Order.RelIso.Set
+          E3: [RelHom, RelIso.prodLexCongr, RelIso, RelEmbedding, RelIso.sumLexCongr]
+          families: [F-simp, F-simp-iff, F-instance, F-simp-coe, F-ctor, F-simp-apply, F-simp-mk, F-ext-iff, F-ext, F-simp-cast, F-def, F-coe-mk, F-map-op]
+          counts: {E0: 180, E1: 133, E3: 5}
+          pages: 8.4
+          status: planned
+    - id: C10
+      title: Scott continuity, Setoid, Sigma and Succ pred
+      prefixes: [Mathlib/Order/ScottContinuity, Mathlib/Order/Setoid, Mathlib/Order/Sigma, Mathlib/Order/SuccPred]
+      requires: [V01, V03, V04.C02, V04.C03, V04.C04, V04.C06, V04.C07, V04.C08, V04.C09, V04.C11]
+      sections:
+        - id: V04.C10.S01
+          title: Scott continuity
+          kind: theory
+          modules:
+            - Mathlib.Order.ScottContinuity
+            - Mathlib.Order.ScottContinuity.Complete
+            - Mathlib.Order.ScottContinuity.Prod
+            - Mathlib.Order.Setoid.Basic
+            - Mathlib.Order.Setoid.Partition
+            - Mathlib.Order.Setoid.Partition.Card
+          E3: [scottContinuous_iff_map_sSup]
+          families: [F-simp, F-simp-coe, F-instance, F-simp-mk, F-simp-iff, F-simp-apply, F-def, F-simp-eq, F-ext-iff, F-ctor]
+          requires: [V03, V04.C03]
+          counts: {E0: 90, E1: 133, E3: 1}
+          pages: 5.2
+          status: planned
+        - id: V04.C10.S02
+          title: Sigma
+          kind: theory
+          modules:
+            - Mathlib.Order.Sigma
+            - Mathlib.Order.Sigma.Lex
+            - Mathlib.Order.SuccPred.Archimedean
+            - Mathlib.Order.SuccPred.Basic
+            - Mathlib.Order.SuccPred.CompleteLinearOrder
+            - Mathlib.Order.SuccPred.ENat
+            - Mathlib.Order.SuccPred.Fin
+            - Mathlib.Order.SuccPred.InitialSeg
+            - Mathlib.Order.SuccPred.Int
+            - Mathlib.Order.SuccPred.IntervalSucc
+          E2: [Pred.rec, Succ.rec, Order.succ_le_of_lt, Order.lt_succ_of_not_isMax, Order.le_succ, biUnion_Ici_Ico_map_succ, biUnion_Ici_Ioc_map_succ]
+          families: [F-def, F-instance, F-simp-iff, F-ctor, F-simp, F-ext, F-ext-iff, F-simp-eq, F-simp-coe, F-to-dual]
+          requires: [V03, V04.C04, V04.C07]
+          counts: {E0: 205, E1: 280, E2: 7}
+          pages: 10.4
+          status: planned
+        - id: V04.C10.S03
+          title: Succ pred
+          kind: theory
+          modules:
+            - Mathlib.Order.SuccPred.Limit
+            - Mathlib.Order.SuccPred.LinearLocallyFinite
+            - Mathlib.Order.SuccPred.Nat
+            - Mathlib.Order.SuccPred.PNat
+            - Mathlib.Order.SuccPred.Relation
+            - Mathlib.Order.SuccPred.Tree
+            - Mathlib.Order.SuccPred.WithBot
+          E3: [toZ, countable_of_linear_succ_pred_arch, orderIsoIntOfLinearSuccPredArch, orderIsoRangeToZOfLinearSuccPredArch, orderIsoRangeOfLinearSuccPredArch, orderIsoNatOfLinearSuccPredArch]
+          families: [F-ctor, F-ext, F-ext-iff, F-instance, F-simp, F-simp-eq, F-simp-iff, F-simp-mem, F-to-dual]
+          requires: [V01, V03, V04.C02, V04.C04, V04.C06, V04.C08, V04.C09, V04.C11]
+          counts: {E0: 139, E1: 201, E3: 6}
+          pages: 11.5
+          status: planned
+    - id: C11
+      title: Sum, Types, Upper lower and Order
+      prefixes: [Mathlib/Order/Sum, Mathlib/Order/Types, Mathlib/Order/UpperLower, Mathlib/Order]
+      requires: [V01, V02, V03, V04.C01, V04.C02, V04.C03, V04.C04, V04.C05, V04.C06, V04.C07, V04.C08, V04.C09]
+      sections:
+        - id: V04.C11.S01
+          title: Lattice
+          kind: theory
+          modules:
+            - Mathlib.Order.Sum.Lattice
+            - Mathlib.Order.Sum.Order
+            - Mathlib.Order.Types.Arithmetic
+            - Mathlib.Order.Types.Defs
+            - Mathlib.Order.UpperLower.Basic
+            - Mathlib.Order.UpperLower.Closure
+          E3: [Sum.Lex.LE, Sum.Lex.LT, OrderType, BddBelow.upperClosure, IsUpperSet.upperClosure, upperClosure, UpperSet.upperClosure, IsLowerSet.lowerClosure, BddAbove.lowerClosure, lowerClosure, LowerSet.lowerClosure]
+          families: [F-instance, F-to-dual, F-simp, F-def, F-simp-apply, F-simp-iff, F-to-additive, F-simp-eq, F-simp-coe, F-simp-mem]
+          requires: [V03, V04.C04]
+          counts: {E0: 221, E1: 165, E3: 11}
+          pages: 14.3
+          status: planned
+        - id: V04.C11.S02
+          title: Complete lattice
+          kind: theory
+          modules:
+            - Mathlib.Order.UpperLower.CompleteLattice
+            - Mathlib.Order.UpperLower.Fibration
+            - Mathlib.Order.UpperLower.Hom
+            - Mathlib.Order.UpperLower.LocallyFinite
+            - Mathlib.Order.UpperLower.Principal
+            - Mathlib.Order.UpperLower.Prod
+            - Mathlib.Order.UpperLower.Relative
+            - Mathlib.Order.Antichain
+            - Mathlib.Order.Antisymmetrization
+            - Mathlib.Order.Basic
+          E2: [Eq.ge, LT.lt.le, Eq.le, LT.lt.ne', LT.lt.trans_le, LT.lt.trans, LE.le.trans, LE.le.trans_lt, LT.lt.ne]
+          families: [F-simp-mk, F-simp-mem, F-simp-coe, F-simp, F-to-dual, F-coe-mk, F-simp-apply, F-instance, F-simp-eq, F-ext-iff, F-ext, F-simp-iff, F-def, F-ctor]
+          requires: [V04.C04]
+          counts: {E0: 368, E1: 392, E2: 9}
+          pages: 14.4
+          status: planned
+        - id: V04.C11.S03
+          title: Birkhoff
+          kind: theory
+          modules:
+            - Mathlib.Order.Birkhoff
+            - Mathlib.Order.BooleanGenerators
+            - Mathlib.Order.BooleanSubalgebra
+          E3: [OrderEmbedding.birkhoffSet, exists_birkhoff_representation, OrderEmbedding.birkhoffFinset, LatticeHom.birkhoffSet, OrderEmbedding.supIrredLowerSet, OrderIso.lowerSetSupIrred, LatticeHom.birkhoffFinset, IsCompactlyGenerated.BooleanGenerators.complementedLattice_of_sSup_eq_top, IsCompactlyGenerated.BooleanGenerators.distribLatticeOfSSupEqTop, IsCompactlyGenerated.BooleanGenerators, IsCompactlyGenerated.BooleanGenerators.booleanAlgebraOfSSupEqTop]
+          families: [F-simp-apply, F-simp, F-to-dual, F-simp-coe, F-ctor, F-simp-mem, F-simp-mk, F-coe-mk, F-instance, F-simp-iff, F-ext]
+          requires: [V01, V03, V04.C02, V04.C03, V04.C04, V04.C06, V04.C09]
+          counts: {E0: 112, E1: 56, E3: 11}
+          pages: 10.7
+          status: planned
+        - id: V04.C11.S04
+          title: Booleanisation
+          kind: theory
+          modules:
+            - Mathlib.Order.Booleanisation
+            - Mathlib.Order.BourbakiWitt
+            - Mathlib.Order.Closure
+            - Mathlib.Order.Cofinal
+            - Mathlib.Order.Comparable
+          E3: [Booleanisation, Booleanisation.liftLatticeHom, ChainCompletePartialOrder, ChainCompletePartialOrder.nonempty_fixedPoints_of_inflationary, ClosureOperator, LowerAdjoint, IncompRel]
+          families: [F-simp, F-instance, F-ctor, F-to-dual, F-ext-iff, F-ext, F-simp-apply, F-simp-iff]
+          requires: [V04.C01, V04.C05, V04.C06]
+          counts: {E0: 138, E1: 148, E3: 7}
+          pages: 10.5
+          status: planned
+        - id: V04.C11.S05
+          title: Compare
+          kind: theory
+          modules:
+            - Mathlib.Order.Compare
+            - Mathlib.Order.CompleteBooleanAlgebra
+            - Mathlib.Order.CompleteLatticeIntervals
+            - Mathlib.Order.CompletePartialOrder
+            - Mathlib.Order.CompleteSublattice
+          E3: [CompleteAtomicBooleanAlgebra, CompleteLattice.toCompletePartialOrder, CompletePartialOrder.toOmegaCompletePartialOrder, CompletePartialOrder, CompleteSublattice.mk', CompleteSublattice.comap, CompleteSublattice.instCompleteLattice, CompleteSublattice.map, CompleteSublattice]
+          families: [F-simp, F-simp-eq, F-simp-iff, F-instance, F-to-dual, F-ctor, F-simp-coe, F-simp-mem, F-simp-apply]
+          requires: [V03, V04.C03, V04.C04, V04.C06]
+          counts: {E0: 162, E1: 155, E3: 9}
+          pages: 12.4
+          status: planned
+        - id: V04.C11.S06
+          title: Completion
+          kind: theory
+          modules:
+            - Mathlib.Order.Completion
+            - Mathlib.Order.Concept
+            - Mathlib.Order.Copy
+            - Mathlib.Order.CountableDenseLinearOrder
+            - Mathlib.Order.CountableSupClosed
+          E3: [Order.iso_of_countable_dense, countableSupClosure, SupClosed.countableInfClosure, CountableSupClosed, countableInfClosure, CountableInfClosed, InfClosed.countableSupClosure]
+          families: [F-simp-apply, F-simp-mk, F-instance, F-simp-coe, F-simp, F-simp-eq, F-ext, F-ext-iff, F-simp-mem, F-simp-iff, F-to-dual, F-ctor]
+          requires: [V03, V04.C03, V04.C04]
+          counts: {E0: 167, E1: 161, E3: 7}
+          pages: 11
+          status: planned
+        - id: V04.C11.S07
+          title: Cover
+          kind: theory
+          modules:
+            - Mathlib.Order.Cover
+            - Mathlib.Order.DirSupClosed
+            - Mathlib.Order.Directed
+            - Mathlib.Order.DirectedInverseSystem
+          E3: [DirSupClosed, DirSupInacc]
+          families: [F-instance, F-simp, F-simp-iff, F-simp-coe, F-to-dual, F-ctor, F-ext, F-def, F-simp-eq, F-simp-apply, F-ext-iff]
+          requires: [V03, V04.C04]
+          counts: {E0: 135, E1: 296, E3: 2}
+          pages: 11.5
+          status: planned
+        - id: V04.C11.S08
+          title: Disjoint
+          kind: theory
+          modules:
+            - Mathlib.Order.Disjoint
+            - Mathlib.Order.Disjointed
+          E3: [Disjoint, IsCompl, Fintype.sup_disjointed, disjointed, partialSups_disjointed, iSup_disjointed, Fintype.exists_disjointed_le, disjoint_disjointed, disjointed_unique]
+          E2: [IsCompl.symm]
+          families: [F-simp-iff, F-ctor, F-simp, F-instance, F-simp-coe, F-simp-mk, F-to-dual]
+          requires: [V01, V03, V04.C01, V04.C02, V04.C04, V04.C05, V04.C07]
+          counts: {E0: 70, E1: 108, E2: 1, E3: 9}
+          pages: 11
+          status: planned
+        - id: V04.C11.S09
+          title: Fixed points
+          kind: theory
+          modules:
+            - Mathlib.Order.FixedPoints
+            - Mathlib.Order.GameAdd
+            - Mathlib.Order.Grade
+          E3: [fixedPoints.lfp_eq_sSup_iterate, fixedPoints.completeLattice, GradeMinOrder, GradeMaxOrder, GradeBoundedOrder, IsMin.grade, IsMax.grade, GradeOrder.grade, CovBy.grade, grade, GradeOrder]
+          families: [F-instance, F-simp, F-simp-iff, F-ctor, F-to-dual, F-simp-coe]
+          requires: [V01, V03, V04.C02, V04.C03, V04.C04, V04.C06]
+          counts: {E0: 64, E1: 70, E3: 11}
+          pages: 11.1
+          status: planned
+        - id: V04.C11.S10
+          title: Height
+          kind: theory
+          modules:
+            - Mathlib.Order.Height
+            - Mathlib.Order.Ideal
+            - Mathlib.Order.InitialSeg
+          E3: [Set.chainHeight_eq_of_relEmbedding, Set.chainHeight, Set.chainHeight_mono, Set.exists_isChain_of_le_chainHeight, Order.Ideal, PrincipalSeg, InitialSeg]
+          E2: [PrincipalSeg.monotone]
+          families: [F-simp, F-simp-iff, F-instance, F-ctor, F-ext, F-ext-iff, F-simp-coe, F-simp-mem, F-simp-eq, F-to-dual, F-simp-apply]
+          requires: [V02, V03, V04.C03, V04.C04, V04.C09]
+          counts: {E0: 144, E1: 135, E2: 1, E3: 7}
+          pages: 10.3
+          status: planned
+        - id: V04.C11.S11
+          title: Irreducible
+          kind: theory
+          modules:
+            - Mathlib.Order.Irreducible
+            - Mathlib.Order.IsNormal
+            - Mathlib.Order.Iterate
+            - Mathlib.Order.JordanHolder
+          E3: [exists_supIrred_decomposition, exists_infIrred_decomposition, CompositionSeries.jordan_holder, CompositionSeries, JordanHolderLattice.Iso, JordanHolderLattice, CompositionSeries.Equivalent, JordanHolderLattice.IsMaximal]
+          families: [F-to-dual, F-simp, F-ctor, F-ext-iff, F-ext, F-instance]
+          requires: [V01, V03, V04.C04]
+          counts: {E0: 39, E1: 117, E3: 8}
+          pages: 10.3
+          status: planned
+        - id: V04.C11.S12
+          title: Konig lemma
+          kind: theory
+          modules:
+            - Mathlib.Order.KonigLemma
+            - Mathlib.Order.KrullDimension
+          E3: [exists_seq_covby_of_forall_covby_finite, exists_orderEmbedding_covby_of_forall_covby_finite, exists_orderEmbedding_covby_of_forall_covby_finite_of_bot, Order.height_eq_zero, Order.height_strictMono, Order.height_eq_iSup_lt_height, Order.krullDim_eq_iSup_coheight, Order.krullDim_eq_iSup_height, Order.krullDim_orderDual, Order.krullDim_eq_iSup_height_add_coheight_of_nonempty, Order.IsMin.height_eq_zero, Order.coheight_anti, Order.height_mono, Order.height_eq_coe_iff_minimal_le_height, Order.coheight_strictAnti]
+          families: [F-simp-iff, F-to-dual, F-simp, F-ctor, F-simp-eq, F-instance]
+          requires: [V02, V03, V04.C01, V04.C03, V04.C04, V04.C06]
+          counts: {E0: 61, E1: 87, E3: 15}
+          pages: 14.9
+          status: planned
+        - id: V04.C11.S13
+          title: Lattice intervals
+          kind: reference
+          modules:
+            - Mathlib.Order.LatticeIntervals
+            - Mathlib.Order.Lex
+            - Mathlib.Order.LiminfLimsup
+            - Mathlib.Order.Max
+            - Mathlib.Order.MinMax
+            - Mathlib.Order.Minimal
+          families: [F-simp-coe, F-instance, F-simp-eq, F-simp, F-to-dual, F-simp-iff, F-ctor]
+          counts: {E0: 252, E1: 354}
+          pages: 11.8
+          status: planned
+        - id: V04.C11.S14
+          title: Modular lattice
+          kind: theory
+          modules:
+            - Mathlib.Order.ModularLattice
+            - Mathlib.Order.Nat
+            - Mathlib.Order.NonemptyFiniteChains
+            - Mathlib.Order.Northcott
+            - Mathlib.Order.Notation
+            - Mathlib.Order.Nucleus
+            - Mathlib.Order.OmegaCompletePartialOrder
+          E3: [IsModularLattice.inf_sup_inf_assoc, infIccOrderIsoIccSup, isModularLattice_iff_inf_sup_inf_assoc, Bot, Compl, Top, OmegaCompletePartialOrder, OmegaCompletePartialOrder.ContinuousHom.bind, OmegaCompletePartialOrder.ContinuousHom.ωScottContinuous.bind]
+          families: [F-instance, F-ctor, F-to-dual, F-simp, F-simp-eq, F-ext, F-simp-mem, F-ext-iff, F-simp-iff, F-simp-coe, F-simp-apply, F-coe-mk, F-simp-mk, F-def]
+          requires: [V01, V03, V04.C04]
+          counts: {E0: 179, E1: 199, E3: 9}
+          pages: 13.8
+          status: planned
+        - id: V04.C11.S15
+          title: Ord continuous
+          kind: theory
+          modules:
+            - Mathlib.Order.OrdContinuous
+            - Mathlib.Order.OrderDual
+            - Mathlib.Order.OrderIsoNat
+            - Mathlib.Order.PFilter
+            - Mathlib.Order.PSigma
+            - Mathlib.Order.Part
+            - Mathlib.Order.PartialSups
+            - Mathlib.Order.PiLex
+            - Mathlib.Order.PrimeIdeal
+          E3: [RelEmbedding.natLT, RelEmbedding.natGT, monotonicSequenceLimitIndex, Infinite.exists_strictMono_or_strictAnti, monotonicSequenceLimit, Order.PFilter, Order.PFilter.IsPrime, Order.Ideal.IsPrime, Order.Ideal.PrimePair]
+          E2: [exists_increasing_or_nonincreasing_subseq]
+          families: [F-simp-coe, F-def, F-simp, F-instance, F-simp-eq, F-ext, F-ext-iff, F-to-dual, F-simp-apply, F-simp-iff, F-simp-mem, F-ctor]
+          requires: [V01, V02, V04.C04, V04.C06, V04.C08, V04.C09]
+          counts: {E0: 161, E1: 154, E2: 1, E3: 9}
+          pages: 12.5
+          status: planned
+        - id: V04.C11.S16
+          title: Prime separator
+          kind: theory
+          modules:
+            - Mathlib.Order.PrimeSeparator
+            - Mathlib.Order.PropInstances
+            - Mathlib.Order.Quotient
+            - Mathlib.Order.Radical
+            - Mathlib.Order.Rel.GaloisConnection
+            - Mathlib.Order.RelClasses
+            - Mathlib.Order.RelSeries
+            - Mathlib.Order.Restriction
+            - Mathlib.Order.SaddlePoint
+            - Mathlib.Order.SemiconjSup
+            - Mathlib.Order.Set
+            - Mathlib.Order.SetAccumulate
+            - Mathlib.Order.SetDissipate
+            - Mathlib.Order.SetIsMax
+            - Mathlib.Order.SetNotation
+          E3: [DistribLattice.prime_ideal_of_disjoint_filter_ideal]
+          families: [F-instance, F-simp-iff, F-simp-eq, F-def, F-ctor, F-simp, F-simp-mem, F-simp-apply, F-ext, F-to-dual]
+          requires: [V03, V04.C04]
+          counts: {E0: 239, E1: 290, E3: 1}
+          pages: 10.5
+          status: planned
+        - id: V04.C11.S17
+          title: Shrink
+          kind: theory
+          modules:
+            - Mathlib.Order.Shrink
+            - Mathlib.Order.Std
+            - Mathlib.Order.Sublattice
+            - Mathlib.Order.Sublocale
+            - Mathlib.Order.SupClosed
+          E3: [IsSublattice, Set.Finite.infClosure, SemilatticeSup.toCompleteSemilatticeSup, SupClosed.infClosure, infClosure, supClosure, SupClosed, Set.Finite.supClosure, Set.Finite.latticeClosure, InfClosed.supClosure, InfClosed, latticeClosure, SemilatticeInf.toCompleteSemilatticeInf]
+          families: [F-instance, F-to-dual, F-simp, F-simp-eq, F-simp-apply, F-ctor, F-simp-coe, F-simp-iff, F-simp-mem, F-simp-mk, F-coe-mk, F-ext, F-ext-iff]
+          requires: [V01, V03, V04.C02, V04.C03, V04.C04]
+          counts: {E0: 195, E1: 171, E3: 13}
+          pages: 16.1
+          status: planned
+        - id: V04.C11.S18
+          title: Sup indep
+          kind: theory
+          modules:
+            - Mathlib.Order.SupIndep
+            - Mathlib.Order.Sym2
+            - Mathlib.Order.SymmDiff
+          E3: [iSupIndep.pairwiseDisjoint, sSupIndep.pairwiseDisjoint, Finset.supIndep_iff_pairwiseDisjoint, Finset.SupIndep.pairwiseDisjoint, symmDiff_assoc, symmDiff_comm, bihimp, symmDiff]
+          families: [F-simp, F-instance, F-def, F-simp-iff, F-to-dual, F-simp-apply, F-simp-mk, F-simp-eq]
+          requires: [V03, V04.C01, V04.C02, V04.C03, V04.C04, V04.C05]
+          counts: {E0: 124, E1: 123, E3: 8}
+          pages: 10.5
+          status: planned
+        - id: V04.C11.S19
+          title: Teichmuller tukey
+          kind: theory
+          modules:
+            - Mathlib.Order.TeichmullerTukey
+            - Mathlib.Order.TransfiniteIteration
+            - Mathlib.Order.TypeTags
+            - Mathlib.Order.ULift
+            - Mathlib.Order.WellFounded
+            - Mathlib.Order.WellFoundedSet
+          E3: [Order.IsOfFiniteCharacter.exists_maximal, Order.IsOfFiniteCharacter, WithBot, WithTop, Set.wellFoundedOn_iff, Set.IsWF.union, Set.IsWF.mono, Set.PartiallyWellOrderedOn.partiallyWellOrderedOn_sublistForall₂, Finset.isWF]
+          E2: [Set.IsPWO.pi, Set.IsWF.isPWO, Set.PartiallyWellOrderedOn.pi]
+          families: [F-to-dual, F-simp, F-instance, F-def]
+          requires: [V03, V04.C04]
+          counts: {E0: 94, E1: 184, E2: 3, E3: 9}
+          pages: 13.8
+          status: planned
+        - id: V04.C11.S20
+          title: Well quasi order
+          kind: theory
+          modules:
+            - Mathlib.Order.WellQuasiOrder
+            - Mathlib.Order.WithBot
+            - Mathlib.Order.WithBotTop
+            - Mathlib.Order.Zorn
+            - Mathlib.Order.ZornAtoms
+          E3: [WellQuasiOrdered, WellQuasiOrderedLE]
+          E2: [WellQuasiOrdered.pi, exists_maximal_of_chains_bounded, exists_maximal_of_nonempty_chains_bounded, IsAtomic.of_isChain_bounded, IsCoatomic.of_isChain_bounded]
+          families: [F-instance, F-def, F-ctor, F-simp-coe, F-to-dual, F-simp-iff, F-simp-apply, F-simp, F-simp-eq]
+          requires: [V03, V04.C02, V04.C04]
+          counts: {E0: 304, E1: 144, E2: 5, E3: 2}
+          pages: 7.2
+          status: planned
+    - id: C12
+      title: Monoid
+      prefixes: [Mathlib/Algebra/Order/Monoid]
+      requires: [V01, V02, V04.C04, V04.C07, V04.C08, V04.C14, V05, V06]
+      sections:
+        - id: V04.C12.S01
+          title: 'Monoid: Associated'
+          kind: theory
+          modules:
+            - Mathlib.Algebra.Order.Monoid.Associated
+            - Mathlib.Algebra.Order.Monoid.Basic
+            - Mathlib.Algebra.Order.Monoid.Canonical.Basic
+            - Mathlib.Algebra.Order.Monoid.Canonical.Defs
+            - Mathlib.Algebra.Order.Monoid.Defs
+            - Mathlib.Algebra.Order.Monoid.Lex
+            - Mathlib.Algebra.Order.Monoid.LocallyFiniteOrder
+            - Mathlib.Algebra.Order.Monoid.Multiset
+            - Mathlib.Algebra.Order.Monoid.NatCast
+            - Mathlib.Algebra.Order.Monoid.OrderDual
+            - Mathlib.Algebra.Order.Monoid.PNat
+            - Mathlib.Algebra.Order.Monoid.Prod
+            - Mathlib.Algebra.Order.Monoid.Submonoid
+            - Mathlib.Algebra.Order.Monoid.ToMulBot
+            - Mathlib.Algebra.Order.Monoid.TypeTags
+            - Mathlib.Algebra.Order.Monoid.Unbundled.Basic
+          E3: [LocallyFiniteOrder.orderAddMonoidEquiv, LocallyFiniteOrder.orderMonoidWithZeroEquiv, LocallyFiniteOrder.orderMonoidEquiv]
+          E2: [Right.mul_le_one, Left.mul_lt_one, Left.add_neg', add_neg, one_lt_mul_of_le_of_lt', Right.add_nonpos, Left.one_lt_mul, Left.add_pos_of_nonneg_of_pos, mul_lt_one_of_lt_of_le, Left.one_lt_mul_of_lt_of_le, Left.add_neg_of_neg_of_nonpos, Left.add_pos', one_lt_mul', Right.one_le_mul, add_pos, Left.mul_lt_one_of_le_of_lt, mul_lt_one, Left.add_neg_of_nonpos_of_neg, Left.add_neg, Left.add_pos_of_pos_of_nonneg, Right.mul_lt_one_of_le_of_lt, add_nonneg, mul_lt_one_of_le_of_lt, Right.add_neg_of_neg_of_nonpos, Right.add_pos, Right.add_pos_of_pos_of_nonneg, add_pos', Left.one_lt_mul', add_nonpos, add_neg_of_nonpos_of_neg, Right.add_pos', Right.one_lt_mul, Right.add_neg', Right.mul_lt_one_of_lt_of_le, Right.mul_lt_one, Left.mul_lt_one_of_lt_of_le, Right.add_pos_of_nonneg_of_pos, add_pos_of_nonneg_of_pos, Right.one_lt_mul_of_lt_of_le, Right.mul_lt_one', Left.mul_le_one, Left.mul_lt_one', Left.one_le_mul, Left.add_pos, one_lt_mul_of_lt_of_le', Right.add_neg, one_le_mul, mul_lt_one', Right.one_lt_mul', Right.add_neg_of_nonpos_of_neg, Right.add_nonneg, Left.one_lt_mul_of_le_of_lt, one_lt_mul'', Right.one_lt_mul_of_le_of_lt, Left.add_nonpos, mul_le_one', Left.add_nonneg, add_neg', add_pos_of_pos_of_nonneg, add_neg_of_neg_of_nonpos]
+          families: [F-instance, F-simp-apply, F-to-additive, F-simp, F-ctor, F-simp-eq, F-simp-iff, F-simp-mem, F-simp-coe, F-to-dual]
+          requires: [V01, V02, V04.C04, V04.C07, V04.C08, V04.C14, V05, V06]
+          counts: {E0: 170, E1: 452, E2: 60, E3: 3}
+          pages: 26.5
+          status: planned
+        - id: V04.C12.S02
+          title: 'Monoid: Defs'
+          kind: theory
+          modules:
+            - Mathlib.Algebra.Order.Monoid.Unbundled.Defs
+            - Mathlib.Algebra.Order.Monoid.Unbundled.ExistsOfLE
+            - Mathlib.Algebra.Order.Monoid.Unbundled.MinMax
+            - Mathlib.Algebra.Order.Monoid.Unbundled.OrderDual
+            - Mathlib.Algebra.Order.Monoid.Unbundled.Pow
+            - Mathlib.Algebra.Order.Monoid.Unbundled.TypeTags
+            - Mathlib.Algebra.Order.Monoid.Unbundled.Units
+            - Mathlib.Algebra.Order.Monoid.Unbundled.WithTop
+            - Mathlib.Algebra.Order.Monoid.Units
+            - Mathlib.Algebra.Order.Monoid.WithTop
+          E3: [MulLeftMono, MulRightMono, le_or_lt_of_add_le_add]
+          E2: [pow_le_pow_mul_of_sq_le_mul, nsmul_le_nsmul_add_of_sq_le_add]
+          families: [F-ctor, F-instance, F-map-op, F-simp, F-simp-apply, F-simp-coe, F-simp-eq, F-to-additive, F-to-dual]
+          requires: [V04.C04, V05]
+          counts: {E0: 333, E1: 289, E2: 2, E3: 3}
+          pages: 12.3
+          status: planned
+    - id: C13
+      title: Group
+      prefixes: [Mathlib/Algebra/Order/Group]
+      requires: [V04.C04, V04.C12, V05]
+      sections:
+        - id: V04.C13.S01
+          title: 'Group: Abs'
+          kind: reference
+          modules:
+            - Mathlib.Algebra.Order.Group.Abs
+            - Mathlib.Algebra.Order.Group.Action
+            - Mathlib.Algebra.Order.Group.Action.End
+            - Mathlib.Algebra.Order.Group.Action.Flag
+            - Mathlib.Algebra.Order.Group.Action.Synonym
+            - Mathlib.Algebra.Order.Group.Basic
+            - Mathlib.Algebra.Order.Group.Bounds
+            - Mathlib.Algebra.Order.Group.CompleteLattice
+            - Mathlib.Algebra.Order.Group.Cone
+            - Mathlib.Algebra.Order.Group.Cyclic
+            - Mathlib.Algebra.Order.Group.Defs
+            - Mathlib.Algebra.Order.Group.DenselyOrdered
+            - Mathlib.Algebra.Order.Group.End
+            - Mathlib.Algebra.Order.Group.Equiv
+            - Mathlib.Algebra.Order.Group.Finset
+            - Mathlib.Algebra.Order.Group.Ideal
+            - Mathlib.Algebra.Order.Group.Indicator
+            - Mathlib.Algebra.Order.Group.Int
+            - Mathlib.Algebra.Order.Group.Int.Sum
+            - Mathlib.Algebra.Order.Group.Lattice
+            - Mathlib.Algebra.Order.Group.MinMax
+            - Mathlib.Algebra.Order.Group.Multiset
+          families: [F-simp-eq, F-to-dual, F-simp, F-def, F-instance, F-simp-coe, F-ctor, F-simp-iff, F-to-additive, F-simp-apply, F-simp-mem]
+          counts: {E0: 166, E1: 312}
+          pages: 10.4
+          status: planned
+        - id: V04.C13.S02
+          title: 'Group: Nat'
+          kind: theory
+          modules:
+            - Mathlib.Algebra.Order.Group.Nat
+            - Mathlib.Algebra.Order.Group.Opposite
+            - Mathlib.Algebra.Order.Group.OrderIso
+            - Mathlib.Algebra.Order.Group.PartialSups
+            - Mathlib.Algebra.Order.Group.PiLex
+            - Mathlib.Algebra.Order.Group.Pointwise.Bounds
+            - Mathlib.Algebra.Order.Group.Pointwise.CompleteLattice
+            - Mathlib.Algebra.Order.Group.Pointwise.Interval
+            - Mathlib.Algebra.Order.Group.PosPart
+            - Mathlib.Algebra.Order.Group.Subgroup
+            - Mathlib.Algebra.Order.Group.Synonym
+            - Mathlib.Algebra.Order.Group.Unbundled.Abs
+          E3: [posPart_sub_negPart, posPart_inf_negPart_eq_zero]
+          families: [F-instance, F-to-additive, F-simp, F-simp-apply, F-to-dual, F-simp-eq, F-simp-iff, F-def]
+          requires: [V04.C04, V04.C12, V05]
+          counts: {E0: 613, E1: 331, E3: 2}
+          pages: 12.6
+          status: planned
+        - id: V04.C13.S03
+          title: 'Group: Basic'
+          kind: reference
+          modules:
+            - Mathlib.Algebra.Order.Group.Unbundled.Basic
+            - Mathlib.Algebra.Order.Group.Unbundled.Int
+            - Mathlib.Algebra.Order.Group.Units
+          families: [F-simp, F-simp-iff, F-to-dual, F-instance, F-simp-eq]
+          counts: {E0: 87, E1: 218}
+          pages: 7.3
+          status: planned
+    - id: C14
+      title: Hom and Interval
+      prefixes: [Mathlib/Algebra/Order/Hom, Mathlib/Algebra/Order/Interval]
+      requires: [V02, V03, V04.C04, V04.C07, V05, V06]
+      sections:
+        - id: V04.C14.S01
+          title: Hom
+          kind: theory
+          modules:
+            - Mathlib.Algebra.Order.Hom.Basic
+            - Mathlib.Algebra.Order.Hom.GroupNorm
+            - Mathlib.Algebra.Order.Hom.Lattice
+            - Mathlib.Algebra.Order.Hom.Monoid
+            - Mathlib.Algebra.Order.Hom.MonoidWithZero
+            - Mathlib.Algebra.Order.Hom.Ring
+            - Mathlib.Algebra.Order.Hom.RingNorm
+            - Mathlib.Algebra.Order.Hom.Submonoid
+            - Mathlib.Algebra.Order.Hom.TypeTags
+            - Mathlib.Algebra.Order.Hom.Units
+          E3: [OrderRingIso, OrderRingHom]
+          E2: [OrderRingIso.trans_toRingEquiv]
+          families: [F-ctor, F-simp, F-instance, F-simp-eq, F-map-op, F-simp-apply, F-simp-coe, F-ext, F-ext-iff, F-coe-mk]
+          requires: [V06]
+          counts: {E0: 326, E1: 174, E2: 1, E3: 2}
+          pages: 7.6
+          status: planned
+        - id: V04.C14.S02
+          title: Interval
+          kind: theory
+          modules:
+            - Mathlib.Algebra.Order.Interval.Basic
+            - Mathlib.Algebra.Order.Interval.Finset.Basic
+            - Mathlib.Algebra.Order.Interval.Finset.SuccPred
+            - Mathlib.Algebra.Order.Interval.Multiset
+            - Mathlib.Algebra.Order.Interval.Set.Group
+            - Mathlib.Algebra.Order.Interval.Set.Instances
+            - Mathlib.Algebra.Order.Interval.Set.Monoid
+            - Mathlib.Algebra.Order.Interval.Set.SuccPred
+          E3: [Set.Ioo.instCommSemigroup, Set.Ico.instCommSemigroup, Set.Icc.instIsCancelMulZero, Set.Ico.instIsCancelMulZero, Set.Ioo.instIsCancelMul, Set.Icc.instCommMonoidWithZero, Set.Ico.instSemigroupWithZero, Set.Ioc.instCancelCommMonoid]
+          families: [F-instance, F-simp, F-simp-apply, F-simp-coe, F-to-additive]
+          requires: [V02, V03, V04.C04, V04.C07, V05, V06]
+          counts: {E0: 225, E1: 180, E3: 8}
+          pages: 12.4
+          status: planned
+    - id: C15
+      title: Sub, Monovary, Rearrangement and other topics
+      prefixes: [Mathlib/Algebra/Order/Sub, Mathlib/Algebra/Order/Monovary, Mathlib/Algebra/Order/Rearrangement, Mathlib/Algebra/Order/Kleene, Mathlib/Algebra/Order/Quantale, Mathlib/Algebra/Order/SuccPred, Mathlib/Algebra/Order/UpperLower, Mathlib/Algebra/Order/Disjointed, Mathlib/Algebra/Order/PUnit, Mathlib/Algebra/Order/Pi, Mathlib/Algebra/Order/Sum, Mathlib/Algebra/Order/WithTop, Mathlib/Algebra/Order/AddGroupWithTop, Mathlib/Algebra/Order/IsBotOne, Mathlib/Algebra/Order/ZeroLEOne, Mathlib/Logic/Hydra]
+      requires: [V03, V04.C02, V04.C03, V04.C04, V04.C12, V05]
+      sections:
+        - id: V04.C15.S01
+          title: Sub
+          kind: theory
+          modules:
+            - Mathlib.Algebra.Order.Sub.Basic
+            - Mathlib.Algebra.Order.Sub.Defs
+            - Mathlib.Algebra.Order.Sub.Prod
+            - Mathlib.Algebra.Order.Sub.Unbundled.Basic
+            - Mathlib.Algebra.Order.Sub.Unbundled.Hom
+            - Mathlib.Algebra.Order.Sub.WithTop
+          E2: [tsub_lt_tsub_iff_right, lt_tsub_of_add_lt_left]
+          families: [F-simp-iff, F-simp, F-ctor, F-instance, F-simp-coe]
+          requires: [V04.C04, V05]
+          counts: {E0: 29, E1: 143, E2: 2}
+          pages: 5.1
+          status: planned
+        - id: V04.C15.S02
+          title: Monovary
+          kind: reference
+          modules:
+            - Mathlib.Algebra.Order.Monovary
+          families: [F-simp]
+          counts: {E0: 24, E1: 188}
+          pages: 6.3
+          status: planned
+        - id: V04.C15.S03
+          title: Order
+          kind: theory
+          modules:
+            - Mathlib.Algebra.Order.Rearrangement
+            - Mathlib.Algebra.Order.Kleene
+            - Mathlib.Algebra.Order.Quantale
+          E3: [KleeneAlgebra, IdemCommSemiring, IdemSemiring, IsQuantale, AddQuantale, IsAddQuantale, Quantale.leftMulResiduation, Quantale.rightMulResiduation, AddQuantale.rightAddResiduation, Quantale, AddQuantale.leftAddResiduation]
+          families: [F-simp, F-instance, F-simp-apply, F-ctor, F-def, F-simp-eq, F-to-additive]
+          requires: [V03, V04.C02, V04.C03, V04.C04, V05]
+          counts: {E0: 80, E1: 83, E3: 11}
+          pages: 11.6
+          status: planned
+        - id: V04.C15.S04
+          title: Succ pred
+          kind: theory
+          modules:
+            - Mathlib.Algebra.Order.SuccPred
+            - Mathlib.Algebra.Order.SuccPred.PartialSups
+            - Mathlib.Algebra.Order.SuccPred.TypeTags
+            - Mathlib.Algebra.Order.SuccPred.WithBot
+            - Mathlib.Algebra.Order.UpperLower
+            - Mathlib.Algebra.Order.Disjointed
+            - Mathlib.Algebra.Order.PUnit
+            - Mathlib.Algebra.Order.Pi
+            - Mathlib.Algebra.Order.Sum
+            - Mathlib.Algebra.Order.WithTop.Untop0
+            - Mathlib.Algebra.Order.AddGroupWithTop
+            - Mathlib.Algebra.Order.IsBotOne
+            - Mathlib.Algebra.Order.ZeroLEOne
+            - Mathlib.Logic.Hydra
+          E2: [LT.lt.ne_zero]
+          families: [F-ctor, F-instance, F-simp, F-simp-coe, F-simp-eq, F-simp-iff, F-to-additive, F-to-dual]
+          requires: [V04.C04]
+          counts: {E0: 238, E1: 207, E2: 1}
+          pages: 7.1
+          status: planned

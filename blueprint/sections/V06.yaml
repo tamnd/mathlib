@@ -1,0 +1,795 @@
+# The section plan of V06 (spec 09.1, 07.7). mlib plan made the draft from the index at e54979a532. A person accepts it and then edits it by hand.
+volume: V06
+title: Rings, fields and ordered algebra
+mathlib: e54979a532247ae4eb9d5578a8fd40a1bc332101
+date: "2026-11-26"
+by: mlib plan dev
+status: proposed
+pages: 370.6
+chapters:
+    - id: C01
+      title: Algebra, Action, Divisibility and other topics
+      prefixes: [Mathlib/Algebra, Mathlib/Algebra/Ring/Action, Mathlib/Algebra/Ring/Divisibility, Mathlib/Algebra/Ring/Hom, Mathlib/Algebra/Ring/Int, Mathlib/Algebra/Ring/Pointwise, Mathlib/Algebra/Ring/Submonoid, Mathlib/Algebra/Ring/Subring, Mathlib/Algebra/Ring/Subsemiring]
+      requires: [V01, V03, V04, V05, V06.C02, V09]
+      sections:
+        - id: V06.C01.S01
+          title: With conv
+          kind: theory
+          modules:
+            - Mathlib.Algebra.WithConv
+            - Mathlib.Algebra.Ring.Action.Basic
+            - Mathlib.Algebra.Ring.Action.ConjAct
+            - Mathlib.Algebra.Ring.Action.End
+            - Mathlib.Algebra.Ring.Action.Field
+            - Mathlib.Algebra.Ring.Action.Group
+            - Mathlib.Algebra.Ring.Action.Invariant
+            - Mathlib.Algebra.Ring.Action.Pointwise.Finset
+            - Mathlib.Algebra.Ring.Action.Pointwise.Set
+            - Mathlib.Algebra.Ring.Action.Rat
+            - Mathlib.Algebra.Ring.Action.Submonoid
+            - Mathlib.Algebra.Ring.Action.Subobjects
+            - Mathlib.Algebra.Ring.Divisibility.Basic
+            - Mathlib.Algebra.Ring.Divisibility.Lemmas
+            - Mathlib.Algebra.Ring.Hom.Defs
+            - Mathlib.Algebra.Ring.Hom.InjSurj
+          E3: [MulSemiringAction, RingHom, NonUnitalRingHom]
+          E2: [Function.Injective.isDomain]
+          families: [F-simp-eq, F-simp, F-ctor, F-ext, F-simp-apply, F-instance, F-ext-iff, F-def, F-simp-coe, F-simp-mem, F-simp-iff, F-simp-mk, F-to-additive, F-coe-mk]
+          requires: [V06.C02]
+          counts: {E0: 194, E1: 106, E2: 1, E3: 3}
+          pages: 6.1
+          status: planned
+        - id: V06.C01.S02
+          title: 'Ring: Defs'
+          kind: theory
+          modules:
+            - Mathlib.Algebra.Ring.Int.Defs
+            - Mathlib.Algebra.Ring.Int.Field
+            - Mathlib.Algebra.Ring.Int.Parity
+            - Mathlib.Algebra.Ring.Int.Units
+            - Mathlib.Algebra.Ring.Pointwise.Finset
+            - Mathlib.Algebra.Ring.Pointwise.Set
+            - Mathlib.Algebra.Ring.Submonoid.Basic
+            - Mathlib.Algebra.Ring.Submonoid.Pointwise
+            - Mathlib.Algebra.Ring.Subring.Basic
+          E3: [Int.instCommRing, Int.units_eq_one_or, Subring.center, RingHom.range, Subring.gi, Subring.closure]
+          families: [F-instance, F-simp-cast, F-simp-iff, F-simp, F-simp-mem, F-simp-coe, F-simp-eq, F-simp-apply, F-to-additive, F-def]
+          requires: [V03, V04, V05, V06.C02]
+          counts: {E0: 144, E1: 157, E3: 6}
+          pages: 10
+          status: planned
+        - id: V06.C01.S03
+          title: 'Ring: Defs'
+          kind: theory
+          modules:
+            - Mathlib.Algebra.Ring.Subring.Defs
+            - Mathlib.Algebra.Ring.Subring.IntPolynomial
+            - Mathlib.Algebra.Ring.Subring.MulOpposite
+            - Mathlib.Algebra.Ring.Subring.Order
+            - Mathlib.Algebra.Ring.Subring.Pointwise
+            - Mathlib.Algebra.Ring.Subring.Units
+            - Mathlib.Algebra.Ring.Subsemiring.Basic
+            - Mathlib.Algebra.Ring.Subsemiring.Defs
+            - Mathlib.Algebra.Ring.Subsemiring.MulOpposite
+            - Mathlib.Algebra.Ring.Subsemiring.Order
+            - Mathlib.Algebra.Ring.Subsemiring.Pointwise
+            - Mathlib.Algebra.Ring.Subsemiring.Support
+          E3: [Subring, Subsemiring.center, RingHom.rangeS, Subsemiring]
+          families: [F-instance, F-simp, F-simp-coe, F-to-additive, F-simp-eq, F-ext-iff, F-simp-mem, F-simp-mk, F-ctor, F-simp-apply, F-ext, F-simp-iff, F-to-dual, F-def]
+          requires: [V05, V06.C02, V09]
+          counts: {E0: 379, E1: 199, E3: 4}
+          pages: 9.8
+          status: planned
+    - id: C02
+      title: Ring
+      prefixes: [Mathlib/Algebra/Ring]
+      requires: [V02, V04, V05]
+      sections:
+        - id: V06.C02.S01
+          title: 'Ring: Add aut'
+          kind: theory
+          modules:
+            - Mathlib.Algebra.Ring.AddAut
+            - Mathlib.Algebra.Ring.Associated
+            - Mathlib.Algebra.Ring.Associator
+            - Mathlib.Algebra.Ring.Aut
+            - Mathlib.Algebra.Ring.Basic
+            - Mathlib.Algebra.Ring.BooleanRing
+            - Mathlib.Algebra.Ring.Center
+            - Mathlib.Algebra.Ring.Centralizer
+            - Mathlib.Algebra.Ring.CentroidHom
+            - Mathlib.Algebra.Ring.CharZero
+            - Mathlib.Algebra.Ring.Commute
+            - Mathlib.Algebra.Ring.CompTypeclasses
+          E3: [associator, BooleanRing.toBooleanAlgebra, AsBoolAlg, BooleanAlgebra.toBooleanRing, AsBoolRing, BooleanRing]
+          E2: [vieta_formula_quadratic, RingHomInvPair.of_ringEquiv]
+          families: [F-simp-apply, F-simp-iff, F-simp, F-simp-eq, F-instance, F-simp-coe, F-ctor, F-def, F-to-dual, F-aux-snake, F-ext, F-to-additive, F-ext-iff, F-simp-cast]
+          requires: [V02, V04, V05]
+          counts: {E0: 250, E1: 155, E2: 2, E3: 6}
+          pages: 10.3
+          status: planned
+        - id: V06.C02.S02
+          title: Defs
+          kind: theory
+          modules:
+            - Mathlib.Algebra.Ring.Defs
+          E3: [NonUnitalNonAssocRing, IsDomain, CommRing, CommSemiring, Distrib, HasDistribNeg, Semiring, Ring]
+          E2: [NonAssocSemiring.one_mul, Semiring.zero_mul, Semiring.left_distrib, NonUnitalNonAssocRing.zero_mul, NonUnitalNonAssocRing.mul_zero, Semiring.right_distrib, NonUnitalNonAssocRing.left_distrib, NonAssocSemiring.mul_one, CommRing.mul_comm, Semiring.mul_zero, NonAssocSemiring.natCast_zero, NonUnitalNonAssocRing.right_distrib, NonAssocSemiring.natCast_succ]
+          families: [F-ctor, F-instance, F-simp-eq, F-simp]
+          requires: [V05]
+          counts: {E0: 88, E1: 128, E2: 13, E3: 8}
+          pages: 12.6
+          status: planned
+        - id: V06.C02.S03
+          title: 'Ring: Equiv'
+          kind: theory
+          modules:
+            - Mathlib.Algebra.Ring.Equiv
+            - Mathlib.Algebra.Ring.Ext
+            - Mathlib.Algebra.Ring.Fin
+            - Mathlib.Algebra.Ring.FunLike
+            - Mathlib.Algebra.Ring.GeomSum
+            - Mathlib.Algebra.Ring.GrindInstances
+            - Mathlib.Algebra.Ring.Idempotent
+            - Mathlib.Algebra.Ring.Identities
+            - Mathlib.Algebra.Ring.InjSurj
+            - Mathlib.Algebra.Ring.Invertible
+            - Mathlib.Algebra.Ring.IsFormallyReal
+          E3: [RingEquiv, IsFormallyReal]
+          E2: [pow_four_add_four_mul_pow_four', sq_add_mul_sq_mul_sq_add_mul_sq, pow_four_add_four_mul_pow_four, sq_add_sq_mul_sq_add_sq]
+          families: [F-simp-coe, F-simp-apply, F-simp-mk, F-simp, F-to-additive, F-ext-iff, F-instance, F-ctor, F-coe-mk, F-simp-eq, F-ext, F-simp-iff, F-simp-mem]
+          requires: [V02, V05]
+          counts: {E0: 200, E1: 250, E2: 4, E3: 2}
+          pages: 10.5
+          status: planned
+        - id: V06.C02.S04
+          title: 'Ring: Minimal axioms'
+          kind: theory
+          modules:
+            - Mathlib.Algebra.Ring.MinimalAxioms
+            - Mathlib.Algebra.Ring.Nat
+            - Mathlib.Algebra.Ring.NegOnePow
+            - Mathlib.Algebra.Ring.NonZeroDivisors
+            - Mathlib.Algebra.Ring.Opposite
+            - Mathlib.Algebra.Ring.PUnit
+            - Mathlib.Algebra.Ring.Parity
+            - Mathlib.Algebra.Ring.Periodic
+          E3: [CommRing.ofMinimalAxioms, Ring.ofMinimalAxioms, Odd, Function.Periodic, Function.Antiperiodic]
+          families: [F-instance, F-simp, F-def, F-simp-coe, F-to-additive, F-simp-apply, F-simp-iff]
+          requires: [V02, V05]
+          counts: {E0: 164, E1: 182, E3: 5}
+          pages: 10.1
+          status: planned
+        - id: V06.C02.S05
+          title: 'Ring: Pi'
+          kind: theory
+          modules:
+            - Mathlib.Algebra.Ring.Pi
+            - Mathlib.Algebra.Ring.Prod
+            - Mathlib.Algebra.Ring.Rat
+            - Mathlib.Algebra.Ring.Regular
+            - Mathlib.Algebra.Ring.Semiconj
+            - Mathlib.Algebra.Ring.Semireal.Defs
+            - Mathlib.Algebra.Ring.Shrink
+            - Mathlib.Algebra.Ring.Subgroup
+            - Mathlib.Algebra.Ring.SumsOfSquares
+            - Mathlib.Algebra.Ring.Torsion
+            - Mathlib.Algebra.Ring.TransferInstance
+            - Mathlib.Algebra.Ring.ULift
+            - Mathlib.Algebra.Ring.Units
+            - Mathlib.Algebra.Ring.WithZero
+          E3: [Pi.ring, IsSemireal]
+          families: [F-simp-apply, F-instance, F-simp-coe, F-simp, F-def, F-to-additive, F-simp-eq, F-simp-iff, F-ctor, F-simp-mem, F-map-op]
+          requires: [V05]
+          counts: {E0: 174, E1: 93, E3: 2}
+          pages: 4.7
+          status: planned
+    - id: C03
+      title: Field and Char p
+      prefixes: [Mathlib/Algebra/Field, Mathlib/Algebra/CharP]
+      requires: [V02, V03, V04, V05, V06.C01, V06.C02, V06.C06, V07]
+      sections:
+        - id: V06.C03.S01
+          title: 'Field: Conj act'
+          kind: theory
+          modules:
+            - Mathlib.Algebra.Field.Action.ConjAct
+            - Mathlib.Algebra.Field.Basic
+            - Mathlib.Algebra.Field.Defs
+            - Mathlib.Algebra.Field.Equiv
+            - Mathlib.Algebra.Field.GeomSum
+            - Mathlib.Algebra.Field.IsField
+          E3: [Semifield, DivisionSemiring, DivisionRing, Field, Commute.geom_sum₂_Ico, geom_sum_Ico, geom_sum₂_Ico, IsField]
+          E2: [DivisionRing.mul_inv_cancel, DivisionRing.zpow_neg', DivisionRing.inv_zero, DivisionRing.div_eq_mul_inv, DivisionRing.zpow_zero', DivisionRing.zpow_succ']
+          families: [F-instance, F-simp, F-def, F-ctor, F-simp-eq]
+          requires: [V02, V03, V04, V05, V06.C02]
+          counts: {E0: 68, E1: 106, E2: 6, E3: 8}
+          pages: 10.8
+          status: planned
+        - id: V06.C03.S02
+          title: 'Field: Minimal axioms'
+          kind: theory
+          modules:
+            - Mathlib.Algebra.Field.MinimalAxioms
+            - Mathlib.Algebra.Field.ModEq
+            - Mathlib.Algebra.Field.NegOnePow
+            - Mathlib.Algebra.Field.Opposite
+            - Mathlib.Algebra.Field.Periodic
+            - Mathlib.Algebra.Field.Rat
+            - Mathlib.Algebra.Field.Shrink
+            - Mathlib.Algebra.Field.Subfield.Basic
+            - Mathlib.Algebra.Field.Subfield.Defs
+            - Mathlib.Algebra.Field.TransferInstance
+            - Mathlib.Algebra.Field.ULift
+            - Mathlib.Algebra.Field.ZMod
+          E3: [Field.ofMinimalAxioms, Rat.instField, Subfield.closure, Subfield.gi, Subfield]
+          families: [F-simp, F-instance, F-to-additive, F-simp-coe, F-def, F-to-dual, F-simp-mem, F-ctor, F-simp-apply, F-simp-eq, F-ext-iff, F-simp-mk, F-ext]
+          requires: [V02, V03, V04, V05, V06.C02]
+          counts: {E0: 183, E1: 107, E3: 5}
+          pages: 7.6
+          status: planned
+        - id: V06.C03.S03
+          title: 'Char p: Algebra'
+          kind: theory
+          modules:
+            - Mathlib.Algebra.CharP.Algebra
+            - Mathlib.Algebra.CharP.Basic
+            - Mathlib.Algebra.CharP.CharAndCard
+            - Mathlib.Algebra.CharP.Defs
+            - Mathlib.Algebra.CharP.Frobenius
+            - Mathlib.Algebra.CharP.IntermediateField
+            - Mathlib.Algebra.CharP.Invertible
+            - Mathlib.Algebra.CharP.Lemmas
+            - Mathlib.Algebra.CharP.LinearMaps
+          E3: [charP_of_injective_algebraMap, ExpChar, ringChar, CharP, frobenius, iterateFrobenius, Module.charP_end]
+          families: [F-instance, F-simp-cast, F-simp-eq, F-ctor, F-simp-iff, F-def, F-simp]
+          requires: [V02, V05, V06.C01, V06.C02, V07]
+          counts: {E0: 81, E1: 139, E3: 7}
+          pages: 10.2
+          status: planned
+        - id: V06.C03.S04
+          title: 'Char p: Local ring'
+          kind: theory
+          modules:
+            - Mathlib.Algebra.CharP.LocalRing
+            - Mathlib.Algebra.CharP.MixedCharZero
+            - Mathlib.Algebra.CharP.Pi
+            - Mathlib.Algebra.CharP.Quotient
+            - Mathlib.Algebra.CharP.Reduced
+            - Mathlib.Algebra.CharP.Subring
+            - Mathlib.Algebra.CharP.Synonym
+            - Mathlib.Algebra.CharP.Two
+          E3: [charP_zero_or_prime_power, MixedCharZero, split_by_characteristic_domain, split_by_characteristic_localRing, split_equalCharZero_mixedCharZero, split_by_characteristic]
+          families: [F-ctor, F-instance, F-simp-iff, F-simp-eq, F-simp]
+          requires: [V02, V06.C02, V06.C06]
+          counts: {E0: 25, E1: 47, E3: 6}
+          pages: 6.4
+          status: planned
+    - id: C04
+      title: Char zero and Star
+      prefixes: [Mathlib/Algebra/CharZero, Mathlib/Algebra/Star]
+      requires: [V03, V05, V06.C02]
+      sections:
+        - id: V06.C04.S01
+          title: Add monoid hom
+          kind: theory
+          modules:
+            - Mathlib.Algebra.CharZero.AddMonoidHom
+            - Mathlib.Algebra.CharZero.Defs
+            - Mathlib.Algebra.CharZero.Infinite
+            - Mathlib.Algebra.CharZero.Quotient
+            - Mathlib.Algebra.Star.Basic
+            - Mathlib.Algebra.Star.BigOperators
+            - Mathlib.Algebra.Star.CHSH
+            - Mathlib.Algebra.Star.Center
+            - Mathlib.Algebra.Star.CentroidHom
+            - Mathlib.Algebra.Star.Conjneg
+            - Mathlib.Algebra.Star.Free
+            - Mathlib.Algebra.Star.LinearMap
+            - Mathlib.Algebra.Star.Module
+            - Mathlib.Algebra.Star.MonoidHom
+            - Mathlib.Algebra.Star.NonUnitalSubalgebra
+          E3: [CharZero, StarMulEquiv, StarMonoidHom]
+          E2: [StarMemClass.star_mem]
+          families: [F-to-additive, F-simp, F-instance, F-simp-cast, F-ctor, F-simp-eq, F-simp-iff, F-simp-apply, F-simp-coe, F-def, F-ext, F-ext-iff, F-coe-mk, F-simp-mem, F-simp-mk]
+          requires: [V05]
+          counts: {E0: 389, E1: 242, E2: 1, E3: 3}
+          pages: 10.6
+          status: planned
+        - id: V06.C04.S02
+          title: 'Star: Non unital subsemiring'
+          kind: theory
+          modules:
+            - Mathlib.Algebra.Star.NonUnitalSubsemiring
+            - Mathlib.Algebra.Star.Orthogonal
+            - Mathlib.Algebra.Star.Pi
+            - Mathlib.Algebra.Star.Pointwise
+            - Mathlib.Algebra.Star.Prod
+            - Mathlib.Algebra.Star.Rat
+            - Mathlib.Algebra.Star.RingQuot
+            - Mathlib.Algebra.Star.SelfAdjoint
+            - Mathlib.Algebra.Star.StarAlgHom
+          E3: [IsStarOrtho.star_add_mul_add, IsSelfAdjoint.isStarOrtho_iff_mul_eq_zero, IsStarProjection.add_iff_isStarOrtho, IsStarProjection.sum, IsSelfAdjoint, IsStarNormal, StarAlgEquiv, StarAlgHom, NonUnitalStarAlgHom]
+          families: [F-instance, F-simp-coe, F-ctor, F-simp, F-simp-iff, F-simp-eq, F-to-additive, F-simp-apply, F-simp-mem, F-coe-mk, F-ext-iff, F-simp-mk, F-ext]
+          requires: [V03, V05, V06.C02]
+          counts: {E0: 297, E1: 205, E3: 9}
+          pages: 14
+          status: planned
+        - id: V06.C04.S03
+          title: 'Star: Star projection'
+          kind: theory
+          modules:
+            - Mathlib.Algebra.Star.StarProjection
+            - Mathlib.Algebra.Star.StarRingHom
+            - Mathlib.Algebra.Star.Subalgebra
+            - Mathlib.Algebra.Star.Subsemiring
+            - Mathlib.Algebra.Star.TensorProduct
+            - Mathlib.Algebra.Star.TransferInstance
+            - Mathlib.Algebra.Star.Unitary
+            - Mathlib.Algebra.Star.UnitaryStarAlgAut
+          E3: [NonUnitalStarRingHom, unitary]
+          families: [F-ctor, F-simp, F-simp-apply, F-simp-coe, F-instance, F-coe-mk, F-simp-mk, F-ext, F-simp-eq, F-ext-iff, F-simp-mem, F-simp-iff, F-to-dual]
+          requires: [V05]
+          counts: {E0: 264, E1: 176, E3: 2}
+          pages: 7.5
+          status: planned
+    - id: C05
+      title: Hom, Spectrum and Subalgebra
+      prefixes: [Mathlib/Algebra/Algebra/Hom, Mathlib/Algebra/Algebra/Spectrum, Mathlib/Algebra/Algebra/Subalgebra]
+      requires: [V01, V02, V03, V04, V05, V06.C01, V06.C02, V06.C03, V06.C06, V07, V08, V09]
+      sections:
+        - id: V06.C05.S01
+          title: Algebra
+          kind: theory
+          modules:
+            - Mathlib.Algebra.Algebra.Hom
+            - Mathlib.Algebra.Algebra.Hom.Rat
+            - Mathlib.Algebra.Algebra.Spectrum.Basic
+            - Mathlib.Algebra.Algebra.Spectrum.Pi
+          E3: [AlgHom, spectrum, spectrum.scalar_eq, spectrum.unit_mem_mul_comm, spectrum.preimage_units_mul_comm, spectrum.resolvent_sub_resolvent, spectrum.unit_smul_eq_smul, spectrum.smul_eq_smul, Pi.quasispectrum_eq, Pi.spectrum_eq, Prod.spectrum_eq, Prod.quasispectrum_eq]
+          families: [F-simp-coe, F-simp, F-simp-apply, F-coe-mk, F-instance, F-ext-iff, F-simp-mk, F-ext, F-def, F-simp-eq, F-ctor, F-simp-iff]
+          requires: [V01, V03, V05, V06.C02, V06.C03, V06.C06, V07]
+          counts: {E0: 134, E1: 80, E3: 12}
+          pages: 12.3
+          status: planned
+        - id: V06.C05.S02
+          title: Quasispectrum
+          kind: theory
+          modules:
+            - Mathlib.Algebra.Algebra.Spectrum.Quasispectrum
+          E3: [Unitization.isQuasiregular_inr_iff, PreQuasiregular, isQuasiregular_iff_isUnit, Unitization.unitsFstOne_mulEquiv_quasiregular, Unitization.unitsFstOne, quasispectrum_eq_spectrum_union_zero, Unitization.quasispectrum_eq_spectrum_inr]
+          families: [F-simp-apply, F-ctor, F-simp-coe, F-simp-eq, F-instance, F-simp, F-simp-iff, F-simp-mem]
+          requires: [V01, V02, V03, V05, V06.C02, V06.C06, V07]
+          counts: {E0: 43, E1: 57, E3: 7}
+          pages: 7.5
+          status: planned
+        - id: V06.C05.S03
+          title: Subalgebra
+          kind: theory
+          modules:
+            - Mathlib.Algebra.Algebra.Subalgebra.Basic
+            - Mathlib.Algebra.Algebra.Subalgebra.Centralizer
+            - Mathlib.Algebra.Algebra.Subalgebra.Directed
+            - Mathlib.Algebra.Algebra.Subalgebra.IsSimpleOrder
+            - Mathlib.Algebra.Algebra.Subalgebra.Lattice
+            - Mathlib.Algebra.Algebra.Subalgebra.Matrix
+            - Mathlib.Algebra.Algebra.Subalgebra.MulOpposite
+            - Mathlib.Algebra.Algebra.Subalgebra.Operations
+            - Mathlib.Algebra.Algebra.Subalgebra.Order
+            - Mathlib.Algebra.Algebra.Subalgebra.Pi
+            - Mathlib.Algebra.Algebra.Subalgebra.Pointwise
+            - Mathlib.Algebra.Algebra.Subalgebra.Prod
+            - Mathlib.Algebra.Algebra.Subalgebra.Rank
+            - Mathlib.Algebra.Algebra.Subalgebra.Tower
+            - Mathlib.Algebra.Algebra.Subalgebra.Unitization
+          E3: [AlgHom.range, Subalgebra.centralizer_range_includeRight_eq_center_tensorProduct, Subalgebra.restrictScalars, NonUnitalSubalgebra.unitizationAlgEquiv, NonUnitalSubalgebra.unitization]
+          E2: [Algebra.adjoin_induction₂, Algebra.instCoeAdjoinAuxSingletonSet]
+          families: [F-instance, F-simp, F-simp-mem, F-simp-apply, F-simp-coe, F-to-additive, F-simp-mk, F-def, F-simp-eq, F-ext, F-coe-mk, F-ctor, F-ext-iff, F-aux, F-to-dual, F-simp-iff]
+          requires: [V01, V02, V03, V05, V06.C01, V06.C02, V06.C03, V06.C06, V07, V08, V09]
+          counts: {E0: 318, E1: 228, E2: 2, E3: 5}
+          pages: 11.9
+          status: planned
+    - id: C06
+      title: Algebra
+      prefixes: [Mathlib/Algebra/Algebra]
+      requires: [V01, V05, V06.C01, V06.C02, V06.C05, V07]
+      sections:
+        - id: V06.C06.S01
+          title: 'Algebra: Basic'
+          kind: theory
+          modules:
+            - Mathlib.Algebra.Algebra.Basic
+            - Mathlib.Algebra.Algebra.Bilinear
+            - Mathlib.Algebra.Algebra.Defs
+            - Mathlib.Algebra.Algebra.Epi
+            - Mathlib.Algebra.Algebra.Equiv
+            - Mathlib.Algebra.Algebra.Field
+            - Mathlib.Algebra.Algebra.IsSimpleRing
+            - Mathlib.Algebra.Algebra.NonUnitalHom
+          E3: [Module.End.instAlgebra, Algebra, AlgEquiv, AlgHom.toNonUnitalAlgHom, NonUnitalAlgHom]
+          E2: [FaithfulSMul.algebraMap_injective]
+          families: [F-instance, F-to-additive, F-simp, F-simp-coe, F-simp-apply, F-simp-iff, F-simp-eq, F-def, F-ctor, F-ext-iff, F-simp-mk, F-coe-mk, F-ext]
+          requires: [V05, V06.C01, V06.C02, V07]
+          counts: {E0: 306, E1: 198, E2: 1, E3: 5}
+          pages: 10.8
+          status: planned
+        - id: V06.C06.S02
+          title: 'Algebra: Non unital subalgebra'
+          kind: theory
+          modules:
+            - Mathlib.Algebra.Algebra.NonUnitalSubalgebra
+            - Mathlib.Algebra.Algebra.Operations
+            - Mathlib.Algebra.Algebra.Opposite
+            - Mathlib.Algebra.Algebra.Pi
+            - Mathlib.Algebra.Algebra.Prod
+            - Mathlib.Algebra.Algebra.Rat
+            - Mathlib.Algebra.Algebra.RestrictScalars
+          E3: [Submodule.pointwiseMulSemiringAction, Pi.constAlgHom, Pi.algebra, Pi.evalAlgHom, RestrictScalars.moduleOrig]
+          families: [F-simp-eq, F-instance, F-simp-coe, F-simp-mk, F-simp, F-ext-iff, F-simp-mem, F-simp-iff, F-ext, F-ctor, F-simp-apply, F-to-additive, F-def]
+          requires: [V05, V06.C01, V06.C02, V06.C05, V07]
+          counts: {E0: 305, E1: 206, E3: 5}
+          pages: 10.9
+          status: planned
+        - id: V06.C06.S03
+          title: 'Algebra: Shrink'
+          kind: theory
+          modules:
+            - Mathlib.Algebra.Algebra.Shrink
+            - Mathlib.Algebra.Algebra.StrictPositivity
+            - Mathlib.Algebra.Algebra.Tower
+            - Mathlib.Algebra.Algebra.TransferInstance
+            - Mathlib.Algebra.Algebra.Unitization
+            - Mathlib.Algebra.Algebra.ZMod
+          E3: [AlgEquiv.restrictScalars, Unitization.inr, NonUnitalAlgHom.toAlgHom, Unitization, Unitization.lift]
+          families: [F-simp-apply, F-instance, F-simp, F-simp-coe, F-ext-iff, F-ext, F-def, F-simp-iff, F-ctor]
+          requires: [V01, V05, V06.C01, V06.C02, V06.C05, V07]
+          counts: {E0: 179, E1: 111, E3: 5}
+          pages: 7.7
+          status: planned
+    - id: C07
+      title: Absolute value and Archimedean
+      prefixes: [Mathlib/Algebra/Order/AbsoluteValue, Mathlib/Algebra/Order/Archimedean]
+      requires: [V04, V05, V06.C02]
+      sections:
+        - id: V06.C07.S01
+          title: Order
+          kind: theory
+          modules:
+            - Mathlib.Algebra.Order.AbsoluteValue.Basic
+            - Mathlib.Algebra.Order.AbsoluteValue.Euclidean
+            - Mathlib.Algebra.Order.AbsoluteValue.Int
+            - Mathlib.Algebra.Order.Archimedean.Basic
+            - Mathlib.Algebra.Order.Archimedean.Class
+            - Mathlib.Algebra.Order.Archimedean.Defs
+            - Mathlib.Algebra.Order.Archimedean.Hom
+            - Mathlib.Algebra.Order.Archimedean.IndicatorCard
+            - Mathlib.Algebra.Order.Archimedean.Real.Basic
+            - Mathlib.Algebra.Order.Archimedean.Real.Hom
+            - Mathlib.Algebra.Order.Archimedean.Submonoid
+          E3: [AbsoluteValue.toMonoidWithZeroHom, AbsoluteValue.abs, IsAbsoluteValue, ArchimedeanClass.mk_eq_mk_of_archimedean, ArchimedeanClass.orderHom, ArchimedeanClass.archimedean_of_mk_eq_mk, MulArchimedeanClass.ballSubgroup, MulArchimedeanClass.closedBallSubgroup, ArchimedeanClass.ballAddSubgroup, MulArchimedeanClass, ArchimedeanClass.closedBallAddSubgroup, MulArchimedeanClass.mk_eq_mk_of_mulArchimedean, MulArchimedeanClass.mulArchimedean_of_mk_eq_mk, MulArchimedeanClass.orderHom, ArchimedeanClass]
+          families: [F-coe-mk, F-ctor, F-def, F-ext, F-ext-iff, F-instance, F-simp, F-simp-apply, F-simp-coe, F-simp-eq, F-simp-iff, F-simp-mem, F-simp-mk, F-to-dual]
+          requires: [V04, V05, V06.C02]
+          counts: {E0: 223, E1: 279, E3: 15}
+          pages: 21.3
+          status: planned
+    - id: C08
+      title: Field, Floor and Group with zero
+      prefixes: [Mathlib/Algebra/Order/Field, Mathlib/Algebra/Order/Floor, Mathlib/Algebra/Order/GroupWithZero]
+      requires: [V02, V03, V04, V05, V06.C02, V06.C03, V06.C09]
+      sections:
+        - id: V06.C08.S01
+          title: Field
+          kind: theory
+          modules:
+            - Mathlib.Algebra.Order.Field.Basic
+            - Mathlib.Algebra.Order.Field.Canonical
+            - Mathlib.Algebra.Order.Field.GeomSum
+            - Mathlib.Algebra.Order.Field.Pi
+            - Mathlib.Algebra.Order.Field.Pointwise
+            - Mathlib.Algebra.Order.Field.Power
+            - Mathlib.Algebra.Order.Field.Rat
+            - Mathlib.Algebra.Order.Field.Subfield
+          E2: [sub_one_div_inv_le_two, Nat.cast_le_pow_sub_div_sub]
+          families: [F-to-dual, F-simp, F-simp-iff, F-instance, F-simp-cast]
+          requires: [V02, V04, V05, V06.C02, V06.C03]
+          counts: {E0: 25, E1: 167, E2: 2}
+          pages: 5.9
+          status: planned
+        - id: V06.C08.S02
+          title: Floor
+          kind: theory
+          modules:
+            - Mathlib.Algebra.Order.Floor.BigOperators
+            - Mathlib.Algebra.Order.Floor.Defs
+            - Mathlib.Algebra.Order.Floor.Div
+            - Mathlib.Algebra.Order.Floor.Extended
+            - Mathlib.Algebra.Order.Floor.Ring
+          E3: [Int.sum_floor_add_div, FloorSemiring, FloorRing, FloorDiv, CeilDiv]
+          E2: [Int.sum_range_add_ediv]
+          families: [F-simp, F-instance, F-ctor, F-simp-eq, F-def, F-simp-apply, F-to-additive, F-to-dual, F-simp-iff]
+          requires: [V03, V04, V05, V06.C02, V06.C03]
+          counts: {E0: 213, E1: 175, E2: 1, E3: 5}
+          pages: 10
+          status: planned
+        - id: V06.C08.S03
+          title: Order
+          kind: theory
+          modules:
+            - Mathlib.Algebra.Order.Floor.Semifield
+            - Mathlib.Algebra.Order.Floor.Semiring
+            - Mathlib.Algebra.Order.GroupWithZero.Action.Synonym
+            - Mathlib.Algebra.Order.GroupWithZero.Associated
+            - Mathlib.Algebra.Order.GroupWithZero.Basic
+          E2: [MulPosReflectLE.of_posMulReflectLT_of_mulPosMono]
+          families: [F-simp, F-simp-eq, F-simp-iff, F-to-additive, F-instance, F-to-dual]
+          requires: [V05]
+          counts: {E0: 94, E1: 352, E2: 1}
+          pages: 11.9
+          status: planned
+        - id: V06.C08.S04
+          title: Group with zero
+          kind: reference
+          modules:
+            - Mathlib.Algebra.Order.GroupWithZero.Bounds
+            - Mathlib.Algebra.Order.GroupWithZero.Canonical
+            - Mathlib.Algebra.Order.GroupWithZero.Defs
+            - Mathlib.Algebra.Order.GroupWithZero.Finset
+            - Mathlib.Algebra.Order.GroupWithZero.Lex
+            - Mathlib.Algebra.Order.GroupWithZero.OrderIso
+            - Mathlib.Algebra.Order.GroupWithZero.Range
+            - Mathlib.Algebra.Order.GroupWithZero.Submonoid
+            - Mathlib.Algebra.Order.GroupWithZero.Synonym
+            - Mathlib.Algebra.Order.GroupWithZero.Unbundled.Basic
+            - Mathlib.Algebra.Order.GroupWithZero.Unbundled.Defs
+            - Mathlib.Algebra.Order.GroupWithZero.Unbundled.OrderIso
+            - Mathlib.Algebra.Order.GroupWithZero.WithZero
+          families: [F-instance, F-simp, F-simp-iff, F-simp-eq, F-simp-coe, F-def, F-ctor, F-to-dual, F-simp-apply, F-simp-mem]
+          counts: {E0: 179, E1: 166}
+          pages: 5.5
+          status: planned
+    - id: C09
+      title: Nonneg, Positive, Ring and Star
+      prefixes: [Mathlib/Algebra/Order/Nonneg, Mathlib/Algebra/Order/Positive, Mathlib/Algebra/Order/Ring, Mathlib/Algebra/Order/Star]
+      requires: [V01, V02, V03, V04, V05, V06.C02, V06.C04, V07]
+      sections:
+        - id: V06.C09.S01
+          title: 'Order: Basic'
+          kind: theory
+          modules:
+            - Mathlib.Algebra.Order.Nonneg.Basic
+            - Mathlib.Algebra.Order.Nonneg.Field
+            - Mathlib.Algebra.Order.Nonneg.Floor
+            - Mathlib.Algebra.Order.Nonneg.Lattice
+            - Mathlib.Algebra.Order.Nonneg.Module
+            - Mathlib.Algebra.Order.Nonneg.Ring
+            - Mathlib.Algebra.Order.Positive.Field
+            - Mathlib.Algebra.Order.Positive.Ring
+            - Mathlib.Algebra.Order.Ring.Abs
+            - Mathlib.Algebra.Order.Ring.Archimedean
+            - Mathlib.Algebra.Order.Ring.Basic
+            - Mathlib.Algebra.Order.Ring.Canonical
+            - Mathlib.Algebra.Order.Ring.Cast
+            - Mathlib.Algebra.Order.Ring.Cone
+            - Mathlib.Algebra.Order.Ring.Defs
+            - Mathlib.Algebra.Order.Ring.Finset
+            - Mathlib.Algebra.Order.Ring.GeomSum
+            - Mathlib.Algebra.Order.Ring.Idempotent
+            - Mathlib.Algebra.Order.Ring.InjSurj
+            - Mathlib.Algebra.Order.Ring.Int
+            - Mathlib.Algebra.Order.Ring.Interval
+            - Mathlib.Algebra.Order.Ring.IsNonarchimedean
+            - Mathlib.Algebra.Order.Ring.NNRat
+            - Mathlib.Algebra.Order.Ring.Nat
+            - Mathlib.Algebra.Order.Ring.Opposite
+            - Mathlib.Algebra.Order.Ring.Ordering.Basic
+            - Mathlib.Algebra.Order.Ring.Ordering.Defs
+            - Mathlib.Algebra.Order.Ring.Pow
+            - Mathlib.Algebra.Order.Ring.Prod
+            - Mathlib.Algebra.Order.Ring.Rat
+            - Mathlib.Algebra.Order.Ring.StandardPart
+          E3: [IsOrderedRing, IsStrictOrderedRing]
+          E2: [IsNonarchimedean.apply_sum_le_sup, Commute.pow_add_mul_le_add_pow_of_sq_nonneg, one_add_mul_sub_le_pow, one_add_le_pow_of_two_add_nonneg, pow_add_mul_le_add_pow, Commute.pow_add_mul_le_add_pow, one_add_mul_le_pow_of_sq_nonneg, pow_add_mul_le_add_pow_of_sq_nonneg, one_add_mul_le_pow]
+          families: [F-instance, F-simp, F-simp-mk, F-simp-coe, F-simp-eq, F-simp-apply, F-simp-cast, F-ctor, F-ext, F-to-additive, F-ext-iff]
+          requires: [V02, V03, V04, V05, V06.C02]
+          counts: {E0: 300, E1: 243, E2: 9, E3: 2}
+          pages: 11.1
+          status: planned
+        - id: V06.C09.S02
+          title: 'Order: Star'
+          kind: theory
+          modules:
+            - Mathlib.Algebra.Order.Ring.Star
+            - Mathlib.Algebra.Order.Ring.Synonym
+            - Mathlib.Algebra.Order.Ring.Unbundled.Basic
+            - Mathlib.Algebra.Order.Ring.Unbundled.Rat
+            - Mathlib.Algebra.Order.Ring.Units
+            - Mathlib.Algebra.Order.Ring.WithTop
+            - Mathlib.Algebra.Order.Star.Basic
+            - Mathlib.Algebra.Order.Star.Conjneg
+            - Mathlib.Algebra.Order.Star.Conjugate
+          E3: [StarOrderedRing, StarOrderedRing.conjUnitsOrderIso, StarOrderedRing.conjOrderHomMonoidHom, StarOrderedRing.conjOrderHom, StarOrderedRing.conjPositiveLinearMap, StarOrderedRing.conjOrderHomMulHom]
+          E2: [sq_nonneg]
+          families: [F-instance, F-simp, F-to-dual, F-simp-iff, F-def, F-simp-eq, F-simp-cast, F-simp-coe, F-simp-apply, F-ctor]
+          requires: [V04, V05, V06.C02, V06.C04, V07]
+          counts: {E0: 224, E1: 191, E2: 1, E3: 6}
+          pages: 11.3
+          status: planned
+        - id: V06.C09.S03
+          title: Star
+          kind: theory
+          modules:
+            - Mathlib.Algebra.Order.Star.Int
+            - Mathlib.Algebra.Order.Star.Orthogonal
+            - Mathlib.Algebra.Order.Star.Pi
+            - Mathlib.Algebra.Order.Star.Prod
+            - Mathlib.Algebra.Order.Star.Projection
+            - Mathlib.Algebra.Order.Star.Rat
+            - Mathlib.Algebra.Order.Star.Real
+            - Mathlib.Algebra.Order.Star.Unitization
+          E3: [IsStarOrtho.sum_left_iff, isStarProjection_sum_iff, IsStarProjection.isStarOrtho_of_add, IsStarOrtho.anti_left, isStarOrtho_iff_of_nonneg, isStarProjection_add_iff_of_nonneg, IsStarProjection.le_tfae, IsStarProjection.sub_tfae]
+          families: [F-instance, F-simp, F-simp-iff]
+          requires: [V03, V04, V05, V06.C02, V06.C04]
+          counts: {E0: 28, E1: 31, E3: 8}
+          pages: 7.4
+          status: planned
+    - id: C10
+      title: Order and Continued fractions
+      prefixes: [Mathlib/Algebra/Order, Mathlib/Algebra/ContinuedFractions]
+      requires: [V01, V02, V03, V04, V05, V06.C02, V06.C03, V06.C07, V06.C08, V06.C09, V13, V33]
+      sections:
+        - id: V06.C10.S01
+          title: Order
+          kind: theory
+          modules:
+            - Mathlib.Algebra.Order.Algebra
+            - Mathlib.Algebra.Order.Chebyshev
+            - Mathlib.Algebra.Order.CompleteField
+          E3: [Finset.abs_sum_mul_le_mul_of_abs_sum_range_le, Finset.sum_mul_le_sum_mul_of_sum_range_le, Finset.mul_le_sum_mul_of_le_sum_range, MonovaryOn.sum_mul_sum_le_card_mul_sum, sq_sum_le_card_mul_sum_sq, Multiset.sq_sum_le_card_mul_sum_sq, AntivaryOn.card_mul_sum_le_sum_mul_sum, Finset.sum_mul_le_mul_of_sum_range_le, ConditionallyCompleteLinearOrderedField.inducedMap, ConditionallyCompleteLinearOrderedField.uniqueOrderRingIso, ConditionallyCompleteLinearOrderedField.uniqueOrderRingHom]
+          E2: [pow_sum_le_card_mul_sum_pow, pow_sum_div_card_le_sum_pow, ConditionallyCompleteLinearOrderedField.le_inducedMap_mul_self_of_mem_cutMap, ConditionallyCompleteLinearOrderedField.exists_mem_cutMap_mul_self_of_lt_inducedMap_mul_self]
+          families: [F-simp, F-simp-coe, F-to-additive, F-simp-mem]
+          requires: [V01, V02, V03, V04, V05, V06.C02, V06.C03, V06.C07, V06.C09]
+          counts: {E0: 15, E1: 30, E2: 4, E3: 11}
+          pages: 10.4
+          status: planned
+        - id: V06.C10.S02
+          title: Invertible
+          kind: theory
+          modules:
+            - Mathlib.Algebra.Order.Invertible
+            - Mathlib.Algebra.Order.Round
+            - Mathlib.Algebra.Order.ToIntervalMod
+            - Mathlib.Algebra.ContinuedFractions.Basic
+            - Mathlib.Algebra.ContinuedFractions.Computation.ApproximationCorollaries
+            - Mathlib.Algebra.ContinuedFractions.Computation.Approximations
+          E3: [ContFract, GenContFract.convs, GenContFract.convs', GenContFract.of_convergence, GenContFract.of_convs_eq_convs', ContFract.of, GenContFract.of_partNum_eq_one, GenContFract.exists_int_eq_of_partDen, 'GenContFract.of_one_le_get?_partDen', 'GenContFract.le_of_succ_get?_den', GenContFract.abs_sub_convs_le]
+          families: [F-simp, F-simp-iff, F-to-additive, F-instance, F-simp-apply, F-aux, F-ext, F-ext-iff, F-simp-coe, F-ctor]
+          requires: [V02, V04, V05, V06.C02, V06.C03, V06.C08, V06.C09, V13, V33]
+          counts: {E0: 228, E1: 154, E3: 11}
+          pages: 13.9
+          status: planned
+        - id: V06.C10.S03
+          title: Computation
+          kind: theory
+          modules:
+            - Mathlib.Algebra.ContinuedFractions.Computation.Basic
+            - Mathlib.Algebra.ContinuedFractions.Computation.CorrectnessTerminating
+            - Mathlib.Algebra.ContinuedFractions.Computation.TerminatesIffRat
+            - Mathlib.Algebra.ContinuedFractions.Computation.Translations
+          E3: [GenContFract.IntFractPair.stream, GenContFract.of, GenContFract.compExactValue_correctness_of_stream_eq_some, GenContFract.compExactValue, GenContFract.of_correctness_of_terminatedAt, GenContFract.coe_of_rat_eq, GenContFract.terminates_iff_rat, GenContFract.IntFractPair.succ_nth_stream_eq_none_iff, 'GenContFract.get?_of_eq_some_of_get?_intFractPair_stream_fr_ne_zero', 'GenContFract.get?_of_eq_some_of_succ_get?_intFractPair_stream', GenContFract.IntFractPair.succ_nth_stream_eq_some_iff]
+          families: [F-ctor, F-simp, F-instance, F-simp-coe, F-aux, F-simp-eq, F-aux-snake]
+          requires: [V02, V04, V05, V06.C02, V06.C03, V06.C08, V06.C09, V33]
+          counts: {E0: 16, E1: 46, E3: 11}
+          pages: 10.3
+          status: planned
+        - id: V06.C10.S04
+          title: Continued fractions
+          kind: theory
+          modules:
+            - Mathlib.Algebra.ContinuedFractions.ContinuantsRecurrence
+            - Mathlib.Algebra.ContinuedFractions.ConvergentsEquiv
+            - Mathlib.Algebra.ContinuedFractions.Determinant
+            - Mathlib.Algebra.ContinuedFractions.Euler
+            - Mathlib.Algebra.ContinuedFractions.TerminatedStable
+            - Mathlib.Algebra.ContinuedFractions.Translations
+          E3: [ContFract.convs_eq_convs', GenContFract.convs_eq_convs', GenContFract.euler, GenContFract.convs_euler, GenContFract.IsEuler, GenContFract.toEuler, GenContFract.convs_toEuler]
+          families: [F-aux, F-simp, F-simp-eq]
+          requires: [V02, V03, V04, V05, V06.C02, V06.C03, V33]
+          counts: {E0: 26, E1: 70, E3: 7}
+          pages: 7.9
+          status: planned
+    - id: C11
+      title: Quadratic algebra, Quaternion, Quaternion basis and other topics
+      prefixes: [Mathlib/Algebra/QuadraticAlgebra, Mathlib/Algebra/Quaternion, Mathlib/Algebra/QuaternionBasis, Mathlib/Algebra/DualNumber, Mathlib/Algebra/DualQuaternion, Mathlib/Algebra/TrivSqZeroExt]
+      requires: [V01, V02, V03, V05, V06.C01, V06.C02, V06.C03, V06.C05, V06.C06, V07, V08, V10, V12]
+      sections:
+        - id: V06.C11.S01
+          title: Quadratic algebra
+          kind: theory
+          modules:
+            - Mathlib.Algebra.QuadraticAlgebra.AlgHom
+            - Mathlib.Algebra.QuadraticAlgebra.BaseChange
+            - Mathlib.Algebra.QuadraticAlgebra.Basic
+            - Mathlib.Algebra.QuadraticAlgebra.Defs
+            - Mathlib.Algebra.QuadraticAlgebra.Discr
+            - Mathlib.Algebra.QuadraticAlgebra.Discriminant
+            - Mathlib.Algebra.QuadraticAlgebra.Int
+            - Mathlib.Algebra.QuadraticAlgebra.Integral
+            - Mathlib.Algebra.QuadraticAlgebra.IsQuadraticExtension
+            - Mathlib.Algebra.QuadraticAlgebra.NormDeterminant
+            - Mathlib.Algebra.QuadraticAlgebra.Rat
+          E3: [QuadraticAlgebra.isPushout, QuadraticAlgebra.baseChangeEquiv, QuadraticAlgebra.Int.isIntegrallyClosed_iff, QuadraticAlgebra.Int.isIntegralClosure_iff, QuadraticAlgebra.Int.exists_im_den_sq_mul, QuadraticAlgebra.Int.algEquivIntegralClosure, QuadraticAlgebra.Int.isDomain_iff, QuadraticAlgebra.Int.exists_isIntegral_notMem_of_sq_mul]
+          families: [F-simp, F-instance, F-simp-eq, F-simp-apply, F-to-additive, F-def, F-simp-mk, F-simp-coe, F-simp-iff, F-ext, F-ctor, F-ext-iff]
+          requires: [V03, V05, V06.C01, V06.C02, V06.C03, V06.C05, V06.C06, V08, V10, V12]
+          counts: {E0: 201, E1: 101, E3: 8}
+          pages: 9.8
+          status: planned
+        - id: V06.C11.S02
+          title: Quaternion
+          kind: theory
+          modules:
+            - Mathlib.Algebra.Quaternion
+            - Mathlib.Algebra.QuaternionBasis
+          E3: [Quaternion.normSq, QuaternionAlgebra.lift, QuaternionAlgebra.Basis]
+          families: [F-simp-coe, F-simp-eq, F-simp-mk, F-instance, F-simp, F-simp-apply, F-to-additive, F-def, F-ext, F-ctor, F-ext-iff]
+          requires: [V05, V06.C02, V06.C06]
+          counts: {E0: 304, E1: 110, E3: 3}
+          pages: 6.1
+          status: planned
+        - id: V06.C11.S03
+          title: Dual number
+          kind: theory
+          modules:
+            - Mathlib.Algebra.DualNumber
+            - Mathlib.Algebra.DualQuaternion
+            - Mathlib.Algebra.TrivSqZeroExt.Basic
+            - Mathlib.Algebra.TrivSqZeroExt.Ideal
+          E3: [DualNumber, DualNumber.lift, DualNumber.eps, Quaternion.dualNumberEquiv, TrivSqZeroExt.snd, TrivSqZeroExt.inr, TrivSqZeroExt, TrivSqZeroExt.lift, TrivSqZeroExt.inl, TrivSqZeroExt.fst]
+          families: [F-simp, F-instance, F-simp-apply, F-simp-eq, F-ext, F-simp-mk, F-ext-iff, F-simp-iff, F-def, F-aux]
+          requires: [V01, V02, V05, V06.C02, V06.C05, V06.C06, V07]
+          counts: {E0: 165, E1: 58, E3: 10}
+          pages: 9.9
+          status: planned
+    - id: C12
+      title: Ring quot, Non assoc, Jordan and other topics
+      prefixes: [Mathlib/Algebra/RingQuot, Mathlib/Algebra/NonAssoc, Mathlib/Algebra/Jordan, Mathlib/Algebra/Central, Mathlib/Algebra/QuadraticDiscriminant]
+      requires: [V01, V02, V04, V05, V06.C02, V06.C03, V06.C05, V06.C06, V06.C09, V08, V29]
+      sections:
+        - id: V06.C12.S01
+          title: Ring quot
+          kind: theory
+          modules:
+            - Mathlib.Algebra.RingQuot
+            - Mathlib.Algebra.NonAssoc.LieAdmissible.Defs
+            - Mathlib.Algebra.NonAssoc.PreLie.Basic
+          E3: [RightPreLieAlgebra, LeftPreLieRing, LeftPreLieAlgebra, RightPreLieRing]
+          families: [F-instance, F-to-additive, F-ctor, F-simp, F-simp-apply, F-ext, F-ext-iff, F-def]
+          counts: {E0: 72, E1: 61, E3: 4}
+          pages: 5.2
+          status: planned
+        - id: V06.C12.S02
+          title: Basic
+          kind: theory
+          modules:
+            - Mathlib.Algebra.Jordan.Basic
+            - Mathlib.Algebra.Central.Basic
+            - Mathlib.Algebra.Central.Defs
+            - Mathlib.Algebra.Central.End
+            - Mathlib.Algebra.Central.Matrix
+            - Mathlib.Algebra.Central.TensorProduct
+          E3: [two_nsmul_lie_lmul_lmul_add_add_eq_zero, Algebra.IsCentral.baseField_essentially_unique, Algebra.IsCentral.self, Algebra.IsCentral.center_eq_bot, Algebra.IsCentral.right_of_tensor_of_field, Algebra.IsCentral.left_of_tensor_of_field]
+          families: [F-ctor, F-simp, F-instance, F-simp-eq]
+          requires: [V01, V04, V05, V06.C02, V06.C03, V06.C05, V06.C06, V08, V29]
+          counts: {E0: 18, E1: 19, E3: 6}
+          pages: 5.4
+          status: planned
+        - id: V06.C12.S03
+          title: Quadratic discriminant
+          kind: theory
+          modules:
+            - Mathlib.Algebra.QuadraticDiscriminant
+          E3: [discrim_le_zero_of_nonpos, discrim_le_zero, quadratic_eq_zero_iff, quadratic_ne_zero_of_discrim_ne_sq, discrim_lt_zero, discrim_lt_zero_of_neg]
+          families: [F-simp]
+          requires: [V02, V04, V05, V06.C02, V06.C03, V06.C09]
+          counts: {E0: 2, E1: 6, E3: 6}
+          pages: 5
+          status: planned

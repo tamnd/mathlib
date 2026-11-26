@@ -1,0 +1,1247 @@
+# The section plan of V05 (spec 09.1, 07.7). mlib plan made the draft from the index at e54979a532. A person accepts it and then edits it by hand.
+volume: V05
+title: Groups
+mathlib: e54979a532247ae4eb9d5578a8fd40a1bc332101
+date: "2026-11-26"
+by: mlib plan dev
+status: proposed
+pages: 725.2
+chapters:
+    - id: C01
+      title: Abelianization, Commutator, Congruence and Coset
+      prefixes: [Mathlib/GroupTheory/Abelianization, Mathlib/GroupTheory/Commutator, Mathlib/GroupTheory/Congruence, Mathlib/GroupTheory/Coset]
+      requires: [V01, V03, V04, V05.C10, V05.C11, V05.C14, V05.C17, V05.C18]
+      sections:
+        - id: V05.C01.S01
+          title: Defs
+          kind: theory
+          modules:
+            - Mathlib.GroupTheory.Abelianization.Defs
+            - Mathlib.GroupTheory.Abelianization.Finite
+            - Mathlib.GroupTheory.Commutator.Basic
+            - Mathlib.GroupTheory.Commutator.Finite
+          E3: [Group.Abelianization, commutator, Subgroup.commutator]
+          E2: [conj_commutatorElement_left_commutatorElement_mul, addConj_addCommutatorElement_left_addCommutatorElement_add, Subgroup.commutator_commutator_eq_bot_of_rotate, addCommutatorElement_addConj_addCommutatorElement_add, addConj_addCommutatorElement_right_addCommutatorElement_add, commutatorElement_conj_commutatorElement_mul, conj_commutatorElement_right_commutatorElement_mul, addCommutatorElement_addCommutatorElement_addConj_add, AddSubgroup.addCommutator_addCommutator_eq_bot_of_rotate, commutatorElement_commutatorElement_conj_mul]
+          families: [F-simp-apply, F-instance, F-simp, F-simp-mk, F-simp-eq, F-def]
+          requires: [V04, V05.C11, V05.C14, V05.C17]
+          counts: {E0: 128, E1: 136, E2: 10, E3: 3}
+          pages: 8.4
+          status: planned
+        - id: V05.C01.S02
+          title: Congruence
+          kind: reference
+          modules:
+            - Mathlib.GroupTheory.Congruence.Basic
+            - Mathlib.GroupTheory.Congruence.BigOperators
+            - Mathlib.GroupTheory.Congruence.Defs
+            - Mathlib.GroupTheory.Congruence.Hom
+            - Mathlib.GroupTheory.Congruence.Opposite
+            - Mathlib.GroupTheory.Congruence.Star
+          families: [F-instance, F-simp, F-simp-mk, F-simp-apply, F-simp-eq, F-simp-coe, F-ctor, F-ext, F-def, F-to-dual, F-ext-iff]
+          counts: {E0: 203, E1: 175}
+          pages: 5.8
+          status: planned
+        - id: V05.C01.S03
+          title: Coset
+          kind: theory
+          modules:
+            - Mathlib.GroupTheory.Coset.Basic
+            - Mathlib.GroupTheory.Coset.Card
+            - Mathlib.GroupTheory.Coset.Defs
+          E3: [AddSubgroup.leftCosetEquivAddSubgroup, Subgroup.leftCosetEquivSubgroup, Subgroup.card_subgroup_dvd_card, QuotientGroup.mk, QuotientAddGroup.mk]
+          E2: [one_leftCoset]
+          families: [F-simp-apply, F-simp-mk, F-instance, F-simp-iff, F-simp]
+          requires: [V01, V03, V05.C10, V05.C11, V05.C14]
+          counts: {E0: 99, E1: 123, E2: 1, E3: 5}
+          pages: 8.3
+          status: planned
+    - id: C02
+      title: Finite abelian and Free group
+      prefixes: [Mathlib/GroupTheory/FiniteAbelian, Mathlib/GroupTheory/FreeGroup]
+      requires: [V01, V02, V03, V05.C09, V05.C10, V05.C11, V05.C14, V05.C17, V06, V08]
+      sections:
+        - id: V05.C02.S01
+          title: Basic
+          kind: theory
+          modules:
+            - Mathlib.GroupTheory.FiniteAbelian.Basic
+            - Mathlib.GroupTheory.FiniteAbelian.Duality
+            - Mathlib.GroupTheory.FreeGroup.Basic
+          E3: [AddCommGroup.equiv_free_prod_directSum_zmod, FreeGroup.Red.church_rosser, FreeGroup.of, FreeGroup.freeGroupUnitEquivInt, FreeAddGroup.of, FreeGroup.lift, FreeAddGroup.mk, FreeAddGroup.Red.church_rosser, FreeGroup.mk, FreeAddGroup, FreeGroup]
+          E2: [AddCommGroup.equiv_directSum_zmod_of_finite', AddCommGroup.equiv_directSum_zmod_of_finite, CommGroup.equiv_free_prod_prod_multiplicative_zmod]
+          families: [F-simp, F-simp-iff, F-simp-mem, F-simp-apply, F-instance, F-simp-mk, F-aux-snake, F-ctor]
+          requires: [V01, V02, V03, V05.C09, V05.C10, V05.C14, V05.C17, V06, V08]
+          counts: {E0: 125, E1: 156, E2: 3, E3: 11}
+          pages: 14.5
+          status: planned
+        - id: V05.C02.S02
+          title: Free group
+          kind: theory
+          modules:
+            - Mathlib.GroupTheory.FreeGroup.Center
+            - Mathlib.GroupTheory.FreeGroup.CyclicallyReduced
+            - Mathlib.GroupTheory.FreeGroup.GeneratorEquiv
+            - Mathlib.GroupTheory.FreeGroup.IsFreeGroup
+            - Mathlib.GroupTheory.FreeGroup.NielsenSchreier
+            - Mathlib.GroupTheory.FreeGroup.Orbit
+            - Mathlib.GroupTheory.FreeGroup.Reduce
+          E3: [FreeGroupBasis.ofUniqueLift, FreeGroupBasis.isFreeGroup, IsFreeGroup.lift, IsFreeGroup.of, IsFreeGroup.toFreeGroup, IsFreeGroup.unique_lift, Subgroup.isFreeGroupOfIsFreeGroup]
+          families: [F-instance, F-simp, F-simp-apply, F-simp-iff, F-ctor, F-def, F-simp-eq, F-simp-mk]
+          requires: [V01, V05.C09, V05.C11, V05.C14]
+          counts: {E0: 144, E1: 175, E3: 7}
+          pages: 11.4
+          status: planned
+    - id: C03
+      title: Group action
+      prefixes: [Mathlib/GroupTheory/GroupAction]
+      requires: [V01, V03, V04, V05.C01, V05.C08, V05.C10, V05.C11, V05.C12, V05.C14]
+      sections:
+        - id: V05.C03.S01
+          title: 'Group action: Basic'
+          kind: theory
+          modules:
+            - Mathlib.GroupTheory.GroupAction.Basic
+            - Mathlib.GroupTheory.GroupAction.Blocks
+            - Mathlib.GroupTheory.GroupAction.CardCommute
+            - Mathlib.GroupTheory.GroupAction.ConjAct
+            - Mathlib.GroupTheory.GroupAction.Defs
+          E3: [MulAction.fixedBy, MulAction.orbit, MulAction.fixedPoints, MulAction.stabilizer]
+          E2: [MulAction.card_eq_sum_card_group_div_card_stabilizer, MulAction.card_eq_sum_card_group_div_card_stabilizer', AddAction.card_eq_sum_card_addGroup_sub_card_stabilizer, AddAction.card_eq_sum_card_addGroup_sub_card_stabilizer']
+          families: [F-instance, F-simp, F-simp-eq, F-to-dual, F-simp-coe, F-to-additive, F-def, F-simp-apply, F-simp-mem, F-simp-mk]
+          requires: [V01, V03, V05.C08, V05.C10, V05.C11, V05.C14]
+          counts: {E0: 168, E1: 253, E2: 4, E3: 4}
+          pages: 12.2
+          status: planned
+        - id: V05.C03.S02
+          title: 'Group action: Action hom'
+          kind: theory
+          modules:
+            - Mathlib.GroupTheory.GroupAction.DomAct.ActionHom
+            - Mathlib.GroupTheory.GroupAction.DomAct.Basic
+            - Mathlib.GroupTheory.GroupAction.Embedding
+            - Mathlib.GroupTheory.GroupAction.FixedPoints
+            - Mathlib.GroupTheory.GroupAction.FixingSubgroup
+            - Mathlib.GroupTheory.GroupAction.Hom
+          E3: [MulAction.set_mem_fixedBy_iff, MulAction.fixedBy_mul, MulAction.smul_fixedBy, MulAction.set_mem_fixedBy_of_movedBy_subset, fixingSubgroup, fixingSubmonoid]
+          families: [F-instance, F-simp-apply, F-simp, F-to-additive, F-def, F-simp-eq, F-ctor, F-simp-coe, F-ext, F-ext-iff, F-map-op]
+          requires: [V03, V05.C08, V05.C12, V05.C14]
+          counts: {E0: 319, E1: 182, E3: 6}
+          pages: 10.9
+          status: planned
+        - id: V05.C03.S03
+          title: 'Group action: Iterate act'
+          kind: theory
+          modules:
+            - Mathlib.GroupTheory.GroupAction.IterateAct
+            - Mathlib.GroupTheory.GroupAction.Iwasawa
+            - Mathlib.GroupTheory.GroupAction.Jordan
+            - Mathlib.GroupTheory.GroupAction.MultiplePrimitivity
+            - Mathlib.GroupTheory.GroupAction.MultipleTransitivity
+            - Mathlib.GroupTheory.GroupAction.OfQuotient
+            - Mathlib.GroupTheory.GroupAction.Period
+            - Mathlib.GroupTheory.GroupAction.Pointwise
+            - Mathlib.GroupTheory.GroupAction.Primitive
+            - Mathlib.GroupTheory.GroupAction.Quotient
+          E3: [MulAction.sum_card_fixedBy_eq_card_orbits_mul_card_group, MulAction.orbitEquivQuotientStabilizer, MulAction.selfEquivSigmaOrbitsQuotientStabilizer]
+          E2: [MulAction.IwasawaStructure.commutator_le, MulAction.IwasawaStructure.isSimpleGroup, AddAction.sum_card_fixedBy_eq_card_orbits_mul_card_addGroup]
+          families: [F-instance, F-to-additive, F-simp, F-ctor, F-ext-iff, F-ext, F-simp-apply, F-simp-coe, F-simp-mk]
+          requires: [V01, V03, V04, V05.C08, V05.C11, V05.C14]
+          counts: {E0: 107, E1: 219, E2: 3, E3: 3}
+          pages: 10.2
+          status: planned
+        - id: V05.C03.S04
+          title: 'Group action: Ring'
+          kind: theory
+          modules:
+            - Mathlib.GroupTheory.GroupAction.Ring
+            - Mathlib.GroupTheory.GroupAction.SubMulAction
+            - Mathlib.GroupTheory.GroupAction.SubMulAction.Closure
+            - Mathlib.GroupTheory.GroupAction.SubMulAction.Combination
+            - Mathlib.GroupTheory.GroupAction.SubMulAction.OfFixingSubgroup
+            - Mathlib.GroupTheory.GroupAction.SubMulAction.OfStabilizer
+            - Mathlib.GroupTheory.GroupAction.SubMulAction.Pointwise
+            - Mathlib.GroupTheory.GroupAction.Support
+            - Mathlib.GroupTheory.GroupAction.Transitive
+          E3: [SubMulAction.mulAction, SubMulAction.inclusion, SubMulAction.mulAction', SubMulAction.isScalarTower, SubMulAction]
+          families: [F-ctor, F-def, F-ext, F-ext-iff, F-instance, F-simp, F-simp-apply, F-simp-coe, F-simp-iff, F-simp-mem, F-simp-mk]
+          requires: [V03, V05.C08, V05.C14]
+          counts: {E0: 203, E1: 189, E3: 5}
+          pages: 10.3
+          status: planned
+    - id: C04
+      title: Group extension, Monoid localization and Nilpotent
+      prefixes: [Mathlib/GroupTheory/GroupExtension, Mathlib/GroupTheory/MonoidLocalization, Mathlib/GroupTheory/Nilpotent]
+      requires: [V02, V04, V05.C07, V05.C11, V05.C12, V05.C14, V06]
+      sections:
+        - id: V05.C04.S01
+          title: Basic
+          kind: theory
+          modules:
+            - Mathlib.GroupTheory.GroupExtension.Basic
+            - Mathlib.GroupTheory.GroupExtension.Defs
+            - Mathlib.GroupTheory.MonoidLocalization.Away
+            - Mathlib.GroupTheory.MonoidLocalization.Basic
+          E3: [Localization.Away, Localization]
+          families: [F-simp-apply, F-instance, F-simp, F-ctor, F-simp-eq, F-coe-mk, F-simp-coe, F-simp-mk, F-map-op, F-ext, F-ext-iff]
+          requires: [V05.C14]
+          counts: {E0: 162, E1: 277, E3: 2}
+          pages: 10.8
+          status: planned
+        - id: V05.C04.S02
+          title: Cardinality
+          kind: theory
+          modules:
+            - Mathlib.GroupTheory.MonoidLocalization.Cardinality
+            - Mathlib.GroupTheory.MonoidLocalization.DivPairs
+            - Mathlib.GroupTheory.MonoidLocalization.Divisibility
+            - Mathlib.GroupTheory.MonoidLocalization.Finite
+            - Mathlib.GroupTheory.MonoidLocalization.GrothendieckGroup
+            - Mathlib.GroupTheory.MonoidLocalization.Lemmas
+            - Mathlib.GroupTheory.MonoidLocalization.Maps
+            - Mathlib.GroupTheory.MonoidLocalization.MonoidWithZero
+            - Mathlib.GroupTheory.MonoidLocalization.Order
+            - Mathlib.GroupTheory.MonoidLocalization.UniqueFactorization
+            - Mathlib.GroupTheory.Nilpotent
+            - Mathlib.GroupTheory.Nilpotent.LowerCentralSeries
+          E3: [UniqueFactorizationMonoid.of_isLocalization, Subgroup.nilpotent_iff_finite_ascending_central_series, AddSubgroup.least_ascending_central_series_length_eq_nilpotencyClass, Subgroup.least_descending_central_series_length_eq_nilpotencyClass, AddGroup.IsNilpotent, AddGroup.IsNilpotent.to_isSolvable, Group.IsNilpotent.commute_of_orderOf_coprime, Subgroup.lowerCentralSeries_length_eq_nilpotencyClass, Group.nilpotencyClass, AddSubgroup.lowerCentralSeries_length_eq_nilpotencyClass, Group.IsNilpotent.to_isSolvable, Subgroup.least_ascending_central_series_length_eq_nilpotencyClass, AddSubgroup.nilpotent_iff_finite_descending_central_series, AddSubgroup.least_descending_central_series_length_eq_nilpotencyClass, Group.IsNilpotent, Subgroup.nilpotent_iff_finite_descending_central_series, AddSubgroup.nilpotent_iff_finite_ascending_central_series]
+          families: [F-aux, F-ctor, F-def, F-instance, F-map-op, F-simp, F-simp-apply, F-simp-eq, F-simp-mem, F-simp-mk]
+          requires: [V02, V04, V05.C07, V05.C11, V05.C14, V06]
+          counts: {E0: 209, E1: 237, E3: 17}
+          pages: 21.5
+          status: planned
+    - id: C05
+      title: Ore localization and Perm
+      prefixes: [Mathlib/GroupTheory/OreLocalization, Mathlib/GroupTheory/Perm]
+      requires: [V01, V02, V03, V05.C03, V05.C07, V05.C08, V05.C09, V05.C11, V05.C12, V05.C13, V05.C14, V09, V33]
+      sections:
+        - id: V05.C05.S01
+          title: Basic
+          kind: theory
+          modules:
+            - Mathlib.GroupTheory.OreLocalization.Basic
+            - Mathlib.GroupTheory.OreLocalization.Cardinality
+            - Mathlib.GroupTheory.OreLocalization.OreSet
+            - Mathlib.GroupTheory.Perm.Basic
+            - Mathlib.GroupTheory.Perm.Centralizer
+            - Mathlib.GroupTheory.Perm.Closure
+            - Mathlib.GroupTheory.Perm.ClosureSwap
+            - Mathlib.GroupTheory.Perm.ConjAct
+            - Mathlib.GroupTheory.Perm.Cycle.Basic
+          E3: [mem_closure_isSwap, swap_mem_closure_isSwap, Equiv.Perm.SameCycle, Equiv.Perm.IsCycle, Equiv.Perm.IsCycleOn]
+          E2: [Equiv.Perm.isCycle_iff_exists_isCycleOn]
+          families: [F-instance, F-simp-eq, F-simp, F-def, F-ctor, F-aux-snake, F-simp-apply]
+          requires: [V01, V03, V05.C03, V05.C08, V05.C11, V05.C12, V05.C14]
+          counts: {E0: 157, E1: 252, E2: 1, E3: 5}
+          pages: 12.6
+          status: planned
+        - id: V05.C05.S02
+          title: Cycle
+          kind: theory
+          modules:
+            - Mathlib.GroupTheory.Perm.Cycle.Concrete
+            - Mathlib.GroupTheory.Perm.Cycle.Factors
+            - Mathlib.GroupTheory.Perm.Cycle.PossibleTypes
+            - Mathlib.GroupTheory.Perm.Cycle.Type
+          E3: [Equiv.Perm.toList, Equiv.Perm.toCycle, Equiv.Perm.isoCycle', Cycle.formPerm, Equiv.Perm.isoCycle, Equiv.Perm.IsCycle.existsUnique_cycle, List.isCycle_formPerm, Equiv.Perm.truncCycleFactors, Equiv.Perm.lcm_cycleType, exists_prime_orderOf_dvd_card, Equiv.Perm.isConj_iff_cycleType_eq, Equiv.Perm.sum_cycleType]
+          E2: [exists_prime_addOrderOf_dvd_card, exists_prime_addOrderOf_dvd_card', exists_prime_orderOf_dvd_card']
+          families: [F-simp, F-simp-iff, F-simp-mem, F-instance, F-simp-apply, F-aux, F-simp-eq, F-def]
+          requires: [V01, V02, V03, V05.C07, V05.C14, V09, V33]
+          counts: {E0: 74, E1: 141, E2: 3, E3: 12}
+          pages: 14.8
+          status: planned
+        - id: V05.C05.S03
+          title: Perm
+          kind: theory
+          modules:
+            - Mathlib.GroupTheory.Perm.DomMulAct
+            - Mathlib.GroupTheory.Perm.Fin
+            - Mathlib.GroupTheory.Perm.Finite
+            - Mathlib.GroupTheory.Perm.List
+            - Mathlib.GroupTheory.Perm.MaximalSubgroups
+            - Mathlib.GroupTheory.Perm.Option
+            - Mathlib.GroupTheory.Perm.Sign
+            - Mathlib.GroupTheory.Perm.Subgroup
+            - Mathlib.GroupTheory.Perm.Support
+            - Mathlib.GroupTheory.Perm.ViaEmbedding
+          E3: [Equiv.Perm.sign, Equiv.Perm.truncSwapFactors, Equiv.Perm.subgroupOfMulAction, Equiv.Perm.support, Equiv.Perm.Disjoint]
+          families: [F-aux, F-aux-snake, F-instance, F-simp, F-simp-apply, F-simp-eq, F-simp-iff, F-simp-mem]
+          requires: [V01, V03, V05.C08, V05.C09, V05.C11, V05.C13, V05.C14]
+          counts: {E0: 139, E1: 197, E3: 5}
+          pages: 10.6
+          status: planned
+    - id: C06
+      title: Quotient group and Specific groups
+      prefixes: [Mathlib/GroupTheory/QuotientGroup, Mathlib/GroupTheory/SpecificGroups]
+      requires: [V01, V02, V03, V04, V05.C01, V05.C03, V05.C07, V05.C08, V05.C09, V05.C11, V05.C14, V05.C18, V31]
+      sections:
+        - id: V05.C06.S01
+          title: Quotient group
+          kind: theory
+          modules:
+            - Mathlib.GroupTheory.QuotientGroup.Basic
+            - Mathlib.GroupTheory.QuotientGroup.Defs
+            - Mathlib.GroupTheory.QuotientGroup.Finite
+            - Mathlib.GroupTheory.QuotientGroup.ModEq
+          E3: [QuotientGroup.comapMk'OrderIso, QuotientGroup.quotientKerEquivRange, QuotientGroup.quotientInfEquivProdNormalizerQuotient, QuotientGroup.quotientQuotientEquivQuotient, QuotientGroup.quotientInfEquivProdNormalQuotient, QuotientAddGroup.mk', QuotientGroup.mk', QuotientGroup.Quotient.group]
+          families: [F-simp-mk, F-simp, F-simp-apply, F-aux, F-instance, F-simp-coe, F-simp-eq, F-simp-iff, F-simp-mem]
+          requires: [V01, V03, V04, V05.C01, V05.C09, V05.C11, V05.C14, V05.C18]
+          counts: {E0: 149, E1: 107, E3: 8}
+          pages: 10
+          status: planned
+        - id: V05.C06.S02
+          title: Simple
+          kind: theory
+          modules:
+            - Mathlib.GroupTheory.QuotientGroup.Simple
+            - Mathlib.GroupTheory.QuotientGroup.UnitsModPow
+            - Mathlib.GroupTheory.SpecificGroups.Alternating
+            - Mathlib.GroupTheory.SpecificGroups.Alternating.Centralizer
+            - Mathlib.GroupTheory.SpecificGroups.Alternating.KleinFour
+            - Mathlib.GroupTheory.SpecificGroups.Alternating.MaximalSubgroups
+            - Mathlib.GroupTheory.SpecificGroups.Alternating.Simple
+          E3: [Equiv.Perm.alternatingGroup_le_of_index_le_two, two_mul_card_alternatingGroup, alternatingGroup, alternatingGroup.index_eq_two, Equiv.Perm.closure_three_cycles_eq_alternating, alternatingGroup.characteristic_kleinFour, alternatingGroup.kleinFour_isKleinFour, alternatingGroup.kleinFour_eq_commutator, alternatingGroup.two_sylow_eq_kleinFour_of_card_eq_four, alternatingGroup.isSimpleGroup, Equiv.Perm.iwasawaStructure_two, alternatingGroup.iwasawaStructure_four, Equiv.Perm.alternatingGroup_le_of_normal, alternatingGroup.iwasawaStructure_three, alternatingGroup.normal_subgroup_eq_bot_or_eq_top]
+          families: [F-simp, F-simp-eq, F-simp-mk, F-simp-apply, F-instance, F-simp-mem]
+          requires: [V01, V03, V04, V05.C03, V05.C08, V05.C11, V05.C14, V31]
+          counts: {E0: 47, E1: 86, E3: 15}
+          pages: 14.9
+          status: planned
+        - id: V05.C06.S03
+          title: Cyclic
+          kind: theory
+          modules:
+            - Mathlib.GroupTheory.SpecificGroups.Cyclic
+          E3: [IsCyclic.card_mulAut, IsCyclic.card_orderOf_eq_totient, IsCyclic.iff_exponent_eq_card, IsCyclic.exponent_eq_card, IsSimpleGroup.prime_card, commGroupOfCyclicCenterQuotient, IsCyclic.exponent_eq_zero_of_infinite, CommGroup.is_simple_iff_prime_card, isSimpleGroup_of_prime_card, Group.isCyclic_prod_iff, IsSimpleGroup.isCyclic]
+          E2: [isCyclic_of_card_pow_eq_one_le]
+          families: [F-simp, F-simp-apply, F-instance]
+          requires: [V02, V03, V05.C07, V05.C11, V05.C14, V31]
+          counts: {E0: 38, E1: 101, E2: 1, E3: 11}
+          pages: 12.3
+          status: planned
+        - id: V05.C06.S04
+          title: Specific groups
+          kind: theory
+          modules:
+            - Mathlib.GroupTheory.SpecificGroups.Cyclic.Basic
+            - Mathlib.GroupTheory.SpecificGroups.Cyclic.Subgroup
+            - Mathlib.GroupTheory.SpecificGroups.Dihedral
+            - Mathlib.GroupTheory.SpecificGroups.KleinFour
+            - Mathlib.GroupTheory.SpecificGroups.Quaternion
+            - Mathlib.GroupTheory.SpecificGroups.VirtuallyCyclic
+            - Mathlib.GroupTheory.SpecificGroups.ZGroup
+          E3: [IsKleinFour.mulEquiv, IsKleinFour.mulEquiv', IsKleinFour]
+          families: [F-instance, F-simp-iff, F-ext, F-simp, F-simp-apply, F-ctor, F-def]
+          requires: [V01, V05.C09, V05.C14]
+          counts: {E0: 107, E1: 145, E3: 3}
+          pages: 7.2
+          status: planned
+    - id: C07
+      title: Subgroup, Submonoid, Subsemigroup and Group theory
+      prefixes: [Mathlib/GroupTheory/Subgroup, Mathlib/GroupTheory/Submonoid, Mathlib/GroupTheory/Subsemigroup, Mathlib/GroupTheory]
+      requires: [V01, V02, V03, V04, V05.C01, V05.C02, V05.C06, V05.C08, V05.C09, V05.C10, V05.C11, V05.C12, V05.C13, V05.C14, V05.C15, V05.C16, V05.C17, V05.C18, V06, V07, V09, V31]
+      sections:
+        - id: V05.C07.S01
+          title: Subgroup
+          kind: theory
+          modules:
+            - Mathlib.GroupTheory.Subgroup.Center
+            - Mathlib.GroupTheory.Subgroup.Centralizer
+            - Mathlib.GroupTheory.Subgroup.Saturated
+            - Mathlib.GroupTheory.Subgroup.Simple
+          E3: [Subgroup.center, AddSubgroup.center, Submonoid.PowSaturated, IsSimpleGroup]
+          families: [F-simp, F-instance, F-simp-eq, F-ctor]
+          requires: [V05.C11, V05.C14]
+          counts: {E0: 64, E1: 68, E3: 4}
+          pages: 5.5
+          status: planned
+        - id: V05.C07.S02
+          title: Center
+          kind: theory
+          modules:
+            - Mathlib.GroupTheory.Submonoid.Center
+            - Mathlib.GroupTheory.Submonoid.Centralizer
+            - Mathlib.GroupTheory.Submonoid.Inverses
+            - Mathlib.GroupTheory.Subsemigroup.Center
+            - Mathlib.GroupTheory.Subsemigroup.Centralizer
+            - Mathlib.GroupTheory.Subsemigroup.Lemmas
+          E3: [AddSubmonoid.center, Submonoid.center, AddSubsemigroup.center, Subsemigroup.center]
+          families: [F-simp, F-instance, F-simp-eq, F-simp-coe, F-simp-apply]
+          requires: [V05.C12, V05.C13, V05.C14]
+          counts: {E0: 107, E1: 67, E3: 4}
+          pages: 5.4
+          status: planned
+        - id: V05.C07.S03
+          title: Archimedean
+          kind: theory
+          modules:
+            - Mathlib.GroupTheory.Archimedean
+            - Mathlib.GroupTheory.ArchimedeanDensely
+            - Mathlib.GroupTheory.ClassEquation
+            - Mathlib.GroupTheory.Commensurable
+            - Mathlib.GroupTheory.CommutingProbability
+            - Mathlib.GroupTheory.Complement
+            - Mathlib.GroupTheory.Coprod.Basic
+          E3: [Group.nat_card_center_add_sum_card_noncenter_eq_card, Group.card_center_add_sum_card_noncenter_eq_card, Subgroup.isComplement'_of_coprime, Monoid.Coprod.lift, Monoid.Coprod.fst_comp_inl, Monoid.Coprod.hom_ext, Monoid.Coprod.lift_unique]
+          E2: [AddMonoid.Coprod.hom_ext]
+          families: [F-instance, F-simp, F-simp-iff, F-simp-eq, F-def, F-to-dual, F-simp-apply, F-simp-mk]
+          requires: [V01, V03, V05.C09, V05.C11, V05.C14, V05.C16]
+          counts: {E0: 249, E1: 291, E2: 1, E3: 7}
+          pages: 15.5
+          status: planned
+        - id: V05.C07.S04
+          title: Coprod i
+          kind: theory
+          modules:
+            - Mathlib.GroupTheory.CoprodI
+            - Mathlib.GroupTheory.CosetCover
+            - Mathlib.GroupTheory.DedekindFinite
+            - Mathlib.GroupTheory.Descent
+            - Mathlib.GroupTheory.Divisible
+          E3: [Monoid.CoprodI.NeWord.inv, Monoid.CoprodI.NeWord.singleton, Monoid.CoprodI.NeWord.append, Monoid.CoprodI.Word.Pair.tail, Monoid.CoprodI.NeWord.head, Monoid.CoprodI.Word.Pair.head, Monoid.CoprodI.lift_injective_of_ping_pong, divisibleByOfSMulRightSurj, rootableByOfPowLeftSurj, AddGroup.divisibleByIntOfDivisibleByNat, Function.Surjective.divisibleBy, QuotientAddGroup.divisibleBy, Pi.divisibleBy, Prod.rootableBy, Group.rootableByIntOfRootableByNat, AddCommGroup.divisibleByIntOfSMulTopEqTop, Group.rootableByNatOfRootableByInt, AddGroup.divisibleByNatOfDivisibleByInt, AddCommGroup.smul_top_eq_top_of_divisibleBy_int, QuotientGroup.rootableBy, Function.Surjective.rootableBy, divisibleByIntOfCharZero, Prod.divisibleBy, Pi.rootableBy]
+          families: [F-simp, F-ext-iff, F-def, F-ctor, F-instance, F-ext, F-simp-apply, F-simp-eq, F-aux-snake]
+          requires: [V01, V02, V03, V04, V05.C01, V05.C08, V05.C09, V05.C11, V05.C14, V05.C15, V05.C17, V06, V07, V31]
+          counts: {E0: 77, E1: 136, E3: 24}
+          pages: 23.7
+          status: planned
+        - id: V05.C07.S05
+          title: Divisible hull
+          kind: theory
+          modules:
+            - Mathlib.GroupTheory.DivisibleHull
+            - Mathlib.GroupTheory.DoubleCoset
+            - Mathlib.GroupTheory.EckmannHilton
+            - Mathlib.GroupTheory.Exponent
+          E3: [EckmannHilton.commMonoid, EckmannHilton.commGroup, Monoid.ExponentExists, Monoid.exponent_pi, MonoidHom.exponent_dvd, Monoid.exponent_prod, Monoid.exponent, AddMonoid.exponent, AddMonoid.ExponentExists]
+          families: [F-simp-coe, F-instance, F-simp-mk, F-simp-apply, F-def, F-simp, F-ctor, F-simp-eq]
+          requires: [V05.C14, V09]
+          counts: {E0: 60, E1: 159, E3: 9}
+          pages: 12.5
+          status: planned
+        - id: V05.C07.S06
+          title: Finite index normal subgroup
+          kind: theory
+          modules:
+            - Mathlib.GroupTheory.FiniteIndexNormalSubgroup
+            - Mathlib.GroupTheory.FinitelyPresentedGroup
+            - Mathlib.GroupTheory.Finiteness
+          E3: [Group.IsFinitelyPresented, AddGroup.IsFinitelyPresented.equiv, Group.IsFinitelyPresented.equiv, AddGroup.IsFinitelyPresented, Subgroup.IsFinitelyNormallyGenerated.map, IsAddFG, IsMulFG]
+          E2: [AddSubmonoid.fg_eqLocusM]
+          families: [F-instance, F-simp, F-ext-iff, F-ctor, F-ext, F-simp-iff, F-def]
+          requires: [V04, V05.C09, V05.C14]
+          counts: {E0: 145, E1: 176, E2: 1, E3: 7}
+          pages: 11.6
+          status: planned
+        - id: V05.C07.S07
+          title: Fixed point free
+          kind: theory
+          modules:
+            - Mathlib.GroupTheory.FixedPointFree
+            - Mathlib.GroupTheory.Focal
+            - Mathlib.GroupTheory.Frattini
+            - Mathlib.GroupTheory.FreeAbelianGroup
+            - Mathlib.GroupTheory.Generators
+            - Mathlib.GroupTheory.Goursat
+            - Mathlib.GroupTheory.HNNExtension
+          E3: [Subgroup.commutator_inf_eq_focalSubgroup, Subgroup.transferFocal_eq_pow, FreeCommGroup, Group.Generators.hom_ext, Group.fg_iff_nonempty_finite_generators, HNNExtension.of, HNNExtension.t, HNNExtension.lift, HNNExtension.of_injective, HNNExtension.ReducedWord.toList_eq_nil_of_mem_of_range]
+          E2: [AddSubgroup.goursat_surjective, Subgroup.goursat_surjective, AddSubgroup.goursat, Subgroup.goursat]
+          families: [F-simp-apply, F-simp, F-instance, F-def, F-ctor, F-simp-eq, F-simp-mem, F-ext, F-ext-iff]
+          requires: [V01, V03, V05.C01, V05.C06, V05.C09, V05.C11, V05.C12, V05.C13, V05.C14, V05.C18]
+          counts: {E0: 129, E1: 155, E2: 4, E3: 10}
+          pages: 13.8
+          status: planned
+        - id: V05.C07.S08
+          title: Index
+          kind: theory
+          modules:
+            - Mathlib.GroupTheory.Index
+          E3: [Subgroup.relIndex_mul_index, AddSubgroup.relIndex_mul_relIndex, MulAction.index_stabilizer, Subgroup.index_mul_card, AddSubgroup.index_dvd_card, AddSubgroup.card_mul_index, Subgroup.relIndex_mul_relIndex, AddSubgroup.relIndex_mul_index, AddSubgroup.index_mul_card, Subgroup.relIndex, AddSubgroup.relIndex, Subgroup.index, AddSubgroup.index_dvd_of_le, Subgroup.index_dvd_of_le, Subgroup.card_mul_index, Subgroup.index_dvd_card]
+          families: [F-instance, F-simp-eq, F-ctor, F-simp, F-simp-iff]
+          requires: [V03, V04, V05.C08, V05.C11, V05.C14, V31]
+          counts: {E0: 85, E1: 206, E3: 16}
+          pages: 19.7
+          status: planned
+        - id: V05.C07.S09
+          title: Index nSmul
+          kind: theory
+          modules:
+            - Mathlib.GroupTheory.IndexNSmul
+            - Mathlib.GroupTheory.IndexNormal
+            - Mathlib.GroupTheory.IsPerfect
+            - Mathlib.GroupTheory.IsSubnormal
+          E3: [Group.IsPerfect.ofSurjective, Group.IsPerfect.map, AddGroup.IsPerfect.map, AddGroup.IsPerfect.ofSurjective, Group.subsingleton_abelianization_iff_isPerfect, Group.IsPerfect, Group.IsPerfect.instQuotientSubgroup, AddGroup.subsingleton_abelianization_iff_isPerfect, AddSubgroup.IsSubnormal, Subgroup.IsSubnormal.trans, Subgroup.IsSubnormal, AddSubgroup.IsSubnormal.trans, Subgroup.IsSubnormal.isSubnormal_iff, AddSubgroup.IsSubnormal.isSubnormal_iff]
+          families: [F-simp-eq, F-instance, F-def, F-ctor, F-simp]
+          requires: [V03, V04, V05.C01, V05.C09, V05.C11, V05.C14]
+          counts: {E0: 36, E1: 58, E3: 14}
+          pages: 13.1
+          status: planned
+        - id: V05.C07.S10
+          title: Noncomm coprod
+          kind: theory
+          modules:
+            - Mathlib.GroupTheory.NoncommCoprod
+            - Mathlib.GroupTheory.NoncommPiCoprod
+            - Mathlib.GroupTheory.Order.Min
+          E3: [Subgroup.independent_of_coprime_order, MonoidHom.noncommPiCoprod_mrange, MonoidHom.noncommPiCoprod_range, MonoidHom.noncommPiCoprod, Subgroup.noncommPiCoprod, MonoidHom.injective_noncommPiCoprod_of_iSupIndep, MonoidHom.independent_range_of_coprime_order, Subgroup.noncommPiCoprod_range, Monoid.minOrder, ZMod.minOrder, Monoid.minOrder_eq_top]
+          families: [F-simp, F-simp-apply, F-simp-iff, F-simp-eq]
+          requires: [V01, V02, V03, V04, V05.C09, V05.C10, V05.C11, V05.C12, V05.C14]
+          counts: {E0: 26, E1: 41, E3: 11}
+          pages: 10.2
+          status: planned
+        - id: V05.C07.S11
+          title: Order of element
+          kind: theory
+          modules:
+            - Mathlib.GroupTheory.OrderOfElement
+            - Mathlib.GroupTheory.PGroup
+          E3: [orderOf]
+          families: [F-simp, F-simp-eq, F-simp-iff, F-simp-apply, F-simp-mk, F-simp-cast, F-simp-coe]
+          requires: [V05.C14]
+          counts: {E0: 150, E1: 394, E3: 1}
+          pages: 13.9
+          status: planned
+        - id: V05.C07.S12
+          title: Presentation
+          kind: theory
+          modules:
+            - Mathlib.GroupTheory.Presentation
+            - Mathlib.GroupTheory.PresentedGroup
+            - Mathlib.GroupTheory.PushoutI
+            - Mathlib.GroupTheory.Rank
+          E3: [Group.Presentation.lift_rel_eq_one, PresentedGroup, Monoid.PushoutI.base, Monoid.PushoutI.lift, Monoid.PushoutI, Monoid.PushoutI.of_injective, Monoid.PushoutI.of, Monoid.PushoutI.NormalWord]
+          families: [F-simp-eq, F-simp, F-ctor, F-ext-iff, F-ext, F-instance, F-simp-mk, F-def, F-simp-apply]
+          requires: [V01, V05.C01, V05.C09, V05.C14]
+          counts: {E0: 60, E1: 126, E3: 8}
+          pages: 10.6
+          status: planned
+        - id: V05.C07.S13
+          title: Regular wreath product
+          kind: theory
+          modules:
+            - Mathlib.GroupTheory.RegularWreathProduct
+            - Mathlib.GroupTheory.ResiduallyFinite
+            - Mathlib.GroupTheory.Schreier
+            - Mathlib.GroupTheory.SchurZassenhaus
+            - Mathlib.GroupTheory.SemidirectProduct
+          E3: [Sylow.mulEquivIteratedWreathProduct, RegularWreathProduct.inl, RegularWreathProduct.toPerm, RegularWreathProduct.rightHom, AddSubgroup.fg_of_index_ne_zero, Subgroup.card_commutator_le_of_finite_commutatorSet, Subgroup.fg_of_index_ne_zero, Subgroup.closure_mul_image_eq, Subgroup.exists_right_complement'_of_coprime, Subgroup.exists_left_complement'_of_coprime]
+          families: [F-instance, F-ext, F-ext-iff, F-def, F-simp, F-ctor, F-simp-eq, F-simp-apply]
+          requires: [V01, V03, V05.C09, V05.C11, V05.C14]
+          counts: {E0: 101, E1: 83, E3: 10}
+          pages: 10.8
+          status: planned
+        - id: V05.C07.S14
+          title: Solvable
+          kind: theory
+          modules:
+            - Mathlib.GroupTheory.Solvable
+            - Mathlib.GroupTheory.Sylow
+            - Mathlib.GroupTheory.Torsion
+          E3: [Sylow, Sylow.card_dvd_index, IsPGroup.exists_le_sylow, Sylow.exists_subgroup_card_pow_prime, Sylow.card_eq_multiplicity, card_sylow_modEq_one, Sylow.isPretransitive_of_finite]
+          families: [F-simp, F-instance, F-ctor, F-def, F-simp-coe, F-simp-apply, F-ext-iff, F-simp-eq, F-ext, F-simp-mem, F-simp-iff]
+          requires: [V01, V02, V03, V05.C08, V05.C11, V05.C14, V31]
+          counts: {E0: 98, E1: 179, E3: 7}
+          pages: 11.6
+          status: planned
+        - id: V05.C07.S15
+          title: Transfer
+          kind: theory
+          modules:
+            - Mathlib.GroupTheory.Transfer
+          E3: [MonoidHom.ker_transferSylow_isComplement', MonoidHom.transferCenterPow, MonoidHom.transferCenterPow_apply]
+          families: [F-aux-snake, F-def, F-simp-apply]
+          requires: [V03, V05.C09, V05.C11, V05.C12, V05.C14]
+          counts: {E0: 8, E1: 28, E3: 3}
+          pages: 3.3
+          status: planned
+    - id: C08
+      title: Action and Commute
+      prefixes: [Mathlib/Algebra/Group/Action, Mathlib/Algebra/Group/Commute]
+      requires: [V05.C09, V05.C14, V05.C17]
+      sections:
+        - id: V05.C08.S01
+          title: 'Action: Basic'
+          kind: theory
+          modules:
+            - Mathlib.Algebra.Group.Action.Basic
+            - Mathlib.Algebra.Group.Action.Defs
+            - Mathlib.Algebra.Group.Action.End
+            - Mathlib.Algebra.Group.Action.Equidecomp
+          E3: [IsScalarTower, AddAction, MulAction, MulDistribMulAction, SMulCommClass]
+          E2: [SMulCommClass.of_commMonoid, SMulCommClass.symm, MulAction.one_smul, VAddCommClass.symm]
+          families: [F-simp, F-simp-apply, F-simp-iff, F-instance, F-ext, F-ext-iff, F-ctor, F-simp-eq, F-def]
+          requires: [V05.C14]
+          counts: {E0: 152, E1: 183, E2: 4, E3: 5}
+          pages: 10.7
+          status: planned
+        - id: V05.C08.S02
+          title: 'Action: Faithful'
+          kind: theory
+          modules:
+            - Mathlib.Algebra.Group.Action.Faithful
+            - Mathlib.Algebra.Group.Action.FunLike
+            - Mathlib.Algebra.Group.Action.Hom
+            - Mathlib.Algebra.Group.Action.Opposite
+            - Mathlib.Algebra.Group.Action.Option
+            - Mathlib.Algebra.Group.Action.Pi
+            - Mathlib.Algebra.Group.Action.Pointwise.Finset
+            - Mathlib.Algebra.Group.Action.Pointwise.Set.Basic
+            - Mathlib.Algebra.Group.Action.Pointwise.Set.Finite
+            - Mathlib.Algebra.Group.Action.Pretransitive
+            - Mathlib.Algebra.Group.Action.Prod
+            - Mathlib.Algebra.Group.Action.Sigma
+            - Mathlib.Algebra.Group.Action.Sum
+            - Mathlib.Algebra.Group.Action.TransferInstance
+            - Mathlib.Algebra.Group.Action.TypeTags
+            - Mathlib.Algebra.Group.Action.Units
+          E3: [smulMonoidHom, smulMulHom]
+          families: [F-instance, F-ctor, F-def, F-simp-apply, F-simp, F-simp-iff, F-simp-eq, F-simp-mem, F-simp-mk, F-simp-coe]
+          requires: [V05.C09, V05.C14]
+          counts: {E0: 309, E1: 204, E3: 2}
+          pages: 8.4
+          status: planned
+        - id: V05.C08.S03
+          title: Commute
+          kind: theory
+          modules:
+            - Mathlib.Algebra.Group.Commute.Basic
+            - Mathlib.Algebra.Group.Commute.Defs
+            - Mathlib.Algebra.Group.Commute.Hom
+            - Mathlib.Algebra.Group.Commute.Units
+          E2: [Commute.all]
+          families: [F-simp, F-simp-iff, F-instance]
+          requires: [V05.C14]
+          counts: {E0: 76, E1: 107, E2: 1}
+          pages: 3.7
+          status: planned
+    - id: C09
+      title: Equiv, Fin, Hom and other topics
+      prefixes: [Mathlib/Algebra/Group/Equiv, Mathlib/Algebra/Group/Fin, Mathlib/Algebra/Group/Hom, Mathlib/Algebra/Group/Int, Mathlib/Algebra/Group/Invertible, Mathlib/Algebra/Group/Irreducible]
+      requires: [V01, V05.C14]
+      sections:
+        - id: V05.C09.S01
+          title: Equiv
+          kind: theory
+          modules:
+            - Mathlib.Algebra.Group.Equiv.Basic
+            - Mathlib.Algebra.Group.Equiv.Defs
+            - Mathlib.Algebra.Group.Equiv.Finite
+            - Mathlib.Algebra.Group.Equiv.Opposite
+            - Mathlib.Algebra.Group.Equiv.TypeTags
+          E3: [AddEquivClass, MulEquivClass, AddEquiv, MulEquiv]
+          families: [F-simp, F-simp-apply, F-to-additive, F-instance, F-simp-coe, F-simp-eq, F-simp-mk, F-simp-iff, F-ctor, F-ext, F-ext-iff, F-coe-mk]
+          counts: {E0: 293, E1: 139, E3: 4}
+          pages: 7.8
+          status: planned
+        - id: V05.C09.S02
+          title: 'Group: Basic'
+          kind: theory
+          modules:
+            - Mathlib.Algebra.Group.Fin.Basic
+            - Mathlib.Algebra.Group.Fin.Tuple
+            - Mathlib.Algebra.Group.Hom.Basic
+            - Mathlib.Algebra.Group.Hom.CompTypeclasses
+            - Mathlib.Algebra.Group.Hom.Defs
+            - Mathlib.Algebra.Group.Hom.End
+            - Mathlib.Algebra.Group.Hom.Instances
+          E3: [MonoidHom, ZeroHom, AddMonoidHom]
+          E2: [Subsingleton.of_oneHomClass]
+          families: [F-simp-iff, F-instance, F-simp, F-to-additive, F-simp-eq, F-simp-apply, F-simp-coe, F-ctor, F-map-op, F-coe-mk, F-ext-iff, F-ext]
+          counts: {E0: 455, E1: 168, E2: 1, E3: 3}
+          pages: 8.2
+          status: planned
+        - id: V05.C09.S03
+          title: 'Group: Defs'
+          kind: theory
+          modules:
+            - Mathlib.Algebra.Group.Int.Defs
+            - Mathlib.Algebra.Group.Int.Even
+            - Mathlib.Algebra.Group.Int.TypeTags
+            - Mathlib.Algebra.Group.Int.Units
+            - Mathlib.Algebra.Group.Invertible.Basic
+            - Mathlib.Algebra.Group.Invertible.Defs
+            - Mathlib.Algebra.Group.Irreducible.Defs
+            - Mathlib.Algebra.Group.Irreducible.Indecomposable
+            - Mathlib.Algebra.Group.Irreducible.Lemmas
+          E3: [Invertible, Irreducible]
+          families: [F-instance, F-simp-eq, F-simp, F-to-additive, F-simp-iff, F-simp-apply, F-ctor]
+          counts: {E0: 71, E1: 123, E3: 2}
+          pages: 5.7
+          status: planned
+    - id: C10
+      title: Nat, Pi and Pointwise
+      prefixes: [Mathlib/Algebra/Group/Nat, Mathlib/Algebra/Group/Pi, Mathlib/Algebra/Group/Pointwise]
+      requires: [V03, V05.C17]
+      sections:
+        - id: V05.C10.S01
+          title: Group
+          kind: theory
+          modules:
+            - Mathlib.Algebra.Group.Nat.Defs
+            - Mathlib.Algebra.Group.Nat.Even
+            - Mathlib.Algebra.Group.Nat.Hom
+            - Mathlib.Algebra.Group.Nat.Range
+            - Mathlib.Algebra.Group.Nat.TypeTags
+            - Mathlib.Algebra.Group.Nat.Units
+            - Mathlib.Algebra.Group.Pi.Basic
+            - Mathlib.Algebra.Group.Pi.Hom
+            - Mathlib.Algebra.Group.Pi.Lemmas
+            - Mathlib.Algebra.Group.Pi.Torsion
+            - Mathlib.Algebra.Group.Pi.Units
+            - Mathlib.Algebra.Group.Pointwise.Finset.Basic
+          E3: [Finset.mul, Finset.sub, Finset.neg, Finset.div, Finset.zero, Finset.add, Finset.one, Finset.inv]
+          families: [F-instance, F-simp-eq, F-to-additive, F-simp, F-simp-apply, F-simp-coe, F-to-dual, F-simp-iff, F-simp-mem, F-def, F-aux-snake]
+          requires: [V03]
+          counts: {E0: 418, E1: 380, E3: 8}
+          pages: 19.1
+          status: planned
+        - id: V05.C10.S02
+          title: Pointwise
+          kind: theory
+          modules:
+            - Mathlib.Algebra.Group.Pointwise.Finset.BigOperators
+            - Mathlib.Algebra.Group.Pointwise.Finset.Density
+            - Mathlib.Algebra.Group.Pointwise.Finset.Interval
+            - Mathlib.Algebra.Group.Pointwise.Finset.Scalar
+            - Mathlib.Algebra.Group.Pointwise.Finset.SelfInv
+            - Mathlib.Algebra.Group.Pointwise.Set.Basic
+          E3: [Finset.smul, Finset.vsub, Finset.vadd, Finset.smulFinset, Finset.sdiv, Finset.vaddFinset]
+          families: [F-simp-coe, F-simp, F-to-dual, F-simp-eq, F-simp-iff, F-def, F-to-additive, F-simp-mem, F-instance, F-simp-apply]
+          requires: [V03, V05.C17]
+          counts: {E0: 236, E1: 335, E3: 6}
+          pages: 16
+          status: planned
+        - id: V05.C10.S03
+          title: Set
+          kind: reference
+          modules:
+            - Mathlib.Algebra.Group.Pointwise.Set.BigOperators
+            - Mathlib.Algebra.Group.Pointwise.Set.Card
+            - Mathlib.Algebra.Group.Pointwise.Set.Finite
+            - Mathlib.Algebra.Group.Pointwise.Set.Lattice
+            - Mathlib.Algebra.Group.Pointwise.Set.ListOfFn
+            - Mathlib.Algebra.Group.Pointwise.Set.Scalar
+            - Mathlib.Algebra.Group.Pointwise.Set.SelfInv
+            - Mathlib.Algebra.Group.Pointwise.Set.Small
+          families: [F-instance, F-simp, F-simp-eq, F-simp-iff, F-to-additive]
+          counts: {E0: 117, E1: 326}
+          pages: 10.9
+          status: planned
+    - id: C11
+      title: Semiconj and Subgroup
+      prefixes: [Mathlib/Algebra/Group/Semiconj, Mathlib/Algebra/Group/Subgroup]
+      requires: [V03, V04, V05.C09, V05.C14]
+      sections:
+        - id: V05.C11.S01
+          title: Group
+          kind: theory
+          modules:
+            - Mathlib.Algebra.Group.Semiconj.Basic
+            - Mathlib.Algebra.Group.Semiconj.Defs
+            - Mathlib.Algebra.Group.Semiconj.Units
+            - Mathlib.Algebra.Group.Subgroup.Actions
+            - Mathlib.Algebra.Group.Subgroup.Basic
+            - Mathlib.Algebra.Group.Subgroup.Defs
+          E3: [Subgroup.subtype, Subgroup, AddSubgroup, Subgroup.Normal]
+          E2: [InvMemClass.inv_mem, NegMemClass.neg_mem]
+          families: [F-simp-iff, F-simp, F-simp-eq, F-instance, F-def, F-simp-apply, F-simp-mem, F-to-dual, F-ctor, F-aux, F-simp-coe, F-simp-mk, F-ext-iff, F-ext, F-to-additive]
+          requires: [V03, V05.C09, V05.C14]
+          counts: {E0: 348, E1: 280, E2: 2, E3: 4}
+          pages: 12.8
+          status: planned
+        - id: V05.C11.S02
+          title: 'Subgroup: Even'
+          kind: theory
+          modules:
+            - Mathlib.Algebra.Group.Subgroup.Even
+            - Mathlib.Algebra.Group.Subgroup.Finite
+            - Mathlib.Algebra.Group.Subgroup.Finsupp
+            - Mathlib.Algebra.Group.Subgroup.Ker
+            - Mathlib.Algebra.Group.Subgroup.Lattice
+            - Mathlib.Algebra.Group.Subgroup.Map
+          E3: [Subgroup.closure, Subgroup.gi, AddSubgroup.closure]
+          families: [F-simp-mem, F-simp-coe, F-simp, F-instance, F-simp-eq, F-simp-apply, F-simp-iff, F-to-dual, F-def]
+          requires: [V03, V04, V05.C14]
+          counts: {E0: 439, E1: 249, E3: 3}
+          pages: 10.7
+          status: planned
+        - id: V05.C11.S03
+          title: 'Subgroup: Mul opposite'
+          kind: reference
+          modules:
+            - Mathlib.Algebra.Group.Subgroup.MulOpposite
+            - Mathlib.Algebra.Group.Subgroup.MulOppositeLemmas
+            - Mathlib.Algebra.Group.Subgroup.Order
+            - Mathlib.Algebra.Group.Subgroup.Pointwise
+            - Mathlib.Algebra.Group.Subgroup.ZPowers.Basic
+            - Mathlib.Algebra.Group.Subgroup.ZPowers.Lemmas
+          families: [F-simp, F-simp-iff, F-simp-coe, F-simp-apply, F-simp-mem, F-to-dual, F-instance, F-simp-eq, F-def, F-to-additive]
+          counts: {E0: 187, E1: 176}
+          pages: 5.9
+          status: planned
+    - id: C12
+      title: Submonoid
+      prefixes: [Mathlib/Algebra/Group/Submonoid]
+      requires: [V03, V04, V05.C14]
+      sections:
+        - id: V05.C12.S01
+          title: 'Submonoid: Basic'
+          kind: theory
+          modules:
+            - Mathlib.Algebra.Group.Submonoid.Basic
+            - Mathlib.Algebra.Group.Submonoid.BigOperators
+            - Mathlib.Algebra.Group.Submonoid.Defs
+            - Mathlib.Algebra.Group.Submonoid.DistribMulAction
+            - Mathlib.Algebra.Group.Submonoid.Finite
+            - Mathlib.Algebra.Group.Submonoid.Finsupp
+            - Mathlib.Algebra.Group.Submonoid.Membership
+            - Mathlib.Algebra.Group.Submonoid.MulAction
+            - Mathlib.Algebra.Group.Submonoid.MulOpposite
+            - Mathlib.Algebra.Group.Submonoid.Operations
+          E3: [Submonoid]
+          E2: [Submonoid.powers_le, Submonoid.le_comap_map]
+          families: [F-simp, F-instance, F-simp-mem, F-simp-coe, F-simp-eq, F-def, F-ctor, F-simp-iff, F-ext-iff, F-to-additive, F-ext, F-simp-mk, F-simp-apply, F-aux-snake, F-to-dual, F-map-op]
+          counts: {E0: 561, E1: 373, E2: 2, E3: 1}
+          pages: 13.5
+          status: planned
+        - id: V05.C12.S02
+          title: 'Submonoid: Pointwise'
+          kind: theory
+          modules:
+            - Mathlib.Algebra.Group.Submonoid.Pointwise
+            - Mathlib.Algebra.Group.Submonoid.Saturation
+            - Mathlib.Algebra.Group.Submonoid.Support
+            - Mathlib.Algebra.Group.Submonoid.Units
+          E3: [SaturatedSubmonoid, Submonoid.MulSaturated, Submonoid.saturation, AddSubmonoid.support, AddSubmonoid.IsPointed, AddSubmonoid.IsSpanning]
+          families: [F-to-dual, F-simp-apply, F-simp, F-simp-mem, F-simp-coe, F-simp-iff, F-instance, F-ext, F-def, F-ctor, F-ext-iff, F-simp-eq]
+          requires: [V04, V05.C14]
+          counts: {E0: 192, E1: 173, E3: 6}
+          pages: 10.6
+          status: planned
+    - id: C13
+      title: Subsemigroup, Type tags, Unique prods and Units
+      prefixes: [Mathlib/Algebra/Group/Subsemigroup, Mathlib/Algebra/Group/TypeTags, Mathlib/Algebra/Group/UniqueProds, Mathlib/Algebra/Group/Units]
+      requires: [V01, V03, V05.C09, V05.C14]
+      sections:
+        - id: V05.C13.S01
+          title: Subsemigroup
+          kind: theory
+          modules:
+            - Mathlib.Algebra.Group.Subsemigroup.Basic
+            - Mathlib.Algebra.Group.Subsemigroup.Defs
+            - Mathlib.Algebra.Group.Subsemigroup.Lemmas
+            - Mathlib.Algebra.Group.Subsemigroup.Membership
+            - Mathlib.Algebra.Group.Subsemigroup.MulOpposite
+            - Mathlib.Algebra.Group.Subsemigroup.Operations
+          E2: [AddMemClass.add_mem, MulMemClass.mul_mem]
+          families: [F-simp, F-simp-coe, F-simp-mem, F-simp-eq, F-instance, F-simp-apply, F-ctor, F-ext, F-def, F-to-additive, F-simp-mk, F-ext-iff, F-simp-iff, F-to-dual]
+          requires: [V03]
+          counts: {E0: 310, E1: 217, E2: 2}
+          pages: 7.5
+          status: planned
+        - id: V05.C13.S02
+          title: Group
+          kind: theory
+          modules:
+            - Mathlib.Algebra.Group.TypeTags.Basic
+            - Mathlib.Algebra.Group.TypeTags.Finite
+            - Mathlib.Algebra.Group.TypeTags.Hom
+            - Mathlib.Algebra.Group.TypeTags.Pointwise
+            - Mathlib.Algebra.Group.UniqueProds.Basic
+            - Mathlib.Algebra.Group.UniqueProds.VectorSpace
+            - Mathlib.Algebra.Group.Units.Basic
+            - Mathlib.Algebra.Group.Units.Defs
+          E3: [Units, IsAddUnit, AddUnits]
+          families: [F-instance, F-simp, F-simp-eq, F-ext, F-ext-iff, F-simp-apply, F-simp-coe, F-to-additive, F-ctor, F-simp-iff, F-simp-mk]
+          requires: [V05.C14]
+          counts: {E0: 377, E1: 243, E3: 3}
+          pages: 10.5
+          status: planned
+        - id: V05.C13.S03
+          title: Units
+          kind: theory
+          modules:
+            - Mathlib.Algebra.Group.Units.Equiv
+            - Mathlib.Algebra.Group.Units.Hom
+            - Mathlib.Algebra.Group.Units.Opposite
+          E3: [MonoidHom.toHomUnits, IsLocalHom, Units.map]
+          families: [F-simp-apply, F-simp, F-instance, F-simp-coe, F-simp-mk, F-ctor, F-simp-eq, F-simp-iff]
+          requires: [V01, V05.C09, V05.C14]
+          counts: {E0: 102, E1: 66, E3: 3}
+          pages: 4.6
+          status: planned
+    - id: C14
+      title: With one and Group
+      prefixes: [Mathlib/Algebra/Group/WithOne, Mathlib/Algebra/Group]
+      requires: [V01, V03, V04, V05.C09, V05.C11, V05.C12, V05.C17]
+      sections:
+        - id: V05.C14.S01
+          title: 'Group: Basic'
+          kind: reference
+          modules:
+            - Mathlib.Algebra.Group.WithOne.Basic
+            - Mathlib.Algebra.Group.WithOne.Defs
+            - Mathlib.Algebra.Group.WithOne.Map
+            - Mathlib.Algebra.Group.AddChar
+            - Mathlib.Algebra.Group.Basic
+          families: [F-simp-apply, F-to-additive, F-simp, F-instance, F-simp-coe, F-simp-iff, F-ext-iff, F-simp-eq, F-ctor, F-ext, F-coe-mk]
+          counts: {E0: 290, E1: 364}
+          pages: 12.1
+          status: planned
+        - id: V05.C14.S02
+          title: 'Group: Center'
+          kind: theory
+          modules:
+            - Mathlib.Algebra.Group.Center
+            - Mathlib.Algebra.Group.Commutator
+            - Mathlib.Algebra.Group.Conj
+            - Mathlib.Algebra.Group.ConjFinite
+            - Mathlib.Algebra.Group.Defs
+          E3: [Set.addCentralizer, Set.center, Set.centralizer, Set.addCenter, commutatorElement, ConjClasses, Group, AddCommGroup, AddGroup]
+          E2: [AddCommGroup.add_comm]
+          families: [F-simp-eq, F-to-additive, F-instance, F-simp, F-ctor, F-def, F-simp-iff]
+          requires: [V03]
+          counts: {E0: 142, E1: 99, E2: 1, E3: 9}
+          pages: 10.7
+          status: planned
+        - id: V05.C14.S03
+          title: 'Group: Div inv monoid'
+          kind: theory
+          modules:
+            - Mathlib.Algebra.Group.DivInvMonoid
+            - Mathlib.Algebra.Group.Embedding
+            - Mathlib.Algebra.Group.End
+            - Mathlib.Algebra.Group.Even
+            - Mathlib.Algebra.Group.EvenFunction
+            - Mathlib.Algebra.Group.Ext
+          E3: [DivInvOneMonoid, IsCyclic]
+          E2: [DivInvMonoid.zpow_zero', DivInvMonoid.zpow_neg', DivInvMonoid.div_eq_mul_inv, DivInvMonoid.zpow_succ']
+          families: [F-simp, F-ctor, F-to-additive, F-instance, F-def, F-simp-eq, F-simp-apply, F-simp-coe, F-simp-iff, F-ext, F-ext-iff]
+          counts: {E0: 242, E1: 233, E2: 4, E3: 2}
+          pages: 10
+          status: planned
+        - id: V05.C14.S04
+          title: 'Group: Finsupp'
+          kind: theory
+          modules:
+            - Mathlib.Algebra.Group.Finsupp
+            - Mathlib.Algebra.Group.ForwardDiff
+            - Mathlib.Algebra.Group.FunLike
+            - Mathlib.Algebra.Group.Graph
+            - Mathlib.Algebra.Group.Ideal
+            - Mathlib.Algebra.Group.Idempotent
+            - Mathlib.Algebra.Group.Indicator
+            - Mathlib.Algebra.Group.InjSurj
+          E2: [Finsupp.induction_on_min, Finsupp.induction_on_max₂, Finsupp.induction_on_min₂, Finsupp.induction_on_max, shift_eq_sum_fwdDiff_iter, AddSubgroup.exists_addEquiv_eq_graph, Subgroup.exists_mulEquiv_eq_graph, AddSubmonoid.exists_addEquiv_eq_mgraph, Submonoid.exists_mulEquiv_eq_mgraph]
+          families: [F-instance, F-simp-coe, F-simp-apply, F-simp, F-to-additive, F-simp-mem, F-simp-eq]
+          requires: [V01, V03, V04, V05.C09, V05.C11, V05.C12]
+          counts: {E0: 122, E1: 265, E2: 9}
+          pages: 10.2
+          status: planned
+        - id: V05.C14.S05
+          title: 'Group: Is apply'
+          kind: theory
+          modules:
+            - Mathlib.Algebra.Group.IsApply
+            - Mathlib.Algebra.Group.IsCommutative
+            - Mathlib.Algebra.Group.MinimalAxioms
+            - Mathlib.Algebra.Group.ModEq
+            - Mathlib.Algebra.Group.Monoid
+          E3: [zero_apply, Group.ofLeftAxioms, Group.ofRightAxioms, Monoid, sq, AddCommMonoid, AddMonoid, MulOneClass, CommMonoid]
+          E2: [CommMonoid.mul_comm, MulOneClass.mul_one, MulOneClass.one_mul, AddCommMonoid.add_comm]
+          families: [F-simp-coe, F-ctor, F-simp-eq, F-simp-apply, F-to-additive, F-simp, F-instance, F-ext-iff, F-ext]
+          counts: {E0: 184, E1: 242, E2: 4, E3: 9}
+          pages: 15.9
+          status: planned
+        - id: V05.C14.S06
+          title: 'Group: Nat pow assoc'
+          kind: theory
+          modules:
+            - Mathlib.Algebra.Group.NatPowAssoc
+            - Mathlib.Algebra.Group.Opposite
+            - Mathlib.Algebra.Group.PNatPowAssoc
+            - Mathlib.Algebra.Group.PUnit
+            - Mathlib.Algebra.Group.PowIterate
+            - Mathlib.Algebra.Group.Prod
+            - Mathlib.Algebra.Group.SelfInv
+            - Mathlib.Algebra.Group.Semigroup
+          E3: [mulMulHom, Prod.instGroup, divMonoidHom, mulMonoidHom]
+          E2: [Semigroup.mul_assoc, add_assoc, add_right_injective, CommSemigroup.mul_comm, add_comm, CommMagma.mul_comm, mul_left_injective, add_left_injective, mul_comm, mul_right_injective]
+          families: [F-instance, F-simp, F-simp-cast, F-ctor, F-simp-iff, F-simp-eq, F-to-additive, F-simp-coe, F-simp-apply, F-def, F-ext-iff, F-ext]
+          requires: [V05.C09]
+          counts: {E0: 377, E1: 196, E2: 10, E3: 4}
+          pages: 11.2
+          status: planned
+        - id: V05.C14.S07
+          title: 'Group: Shrink'
+          kind: reference
+          modules:
+            - Mathlib.Algebra.Group.Shrink
+            - Mathlib.Algebra.Group.Support
+            - Mathlib.Algebra.Group.Torsion
+            - Mathlib.Algebra.Group.TransferInstance
+            - Mathlib.Algebra.Group.Translate
+            - Mathlib.Algebra.Group.ULift
+          families: [F-instance, F-simp, F-simp-apply, F-to-additive, F-simp-iff, F-def]
+          counts: {E0: 145, E1: 105}
+          pages: 3.5
+          status: planned
+    - id: C15
+      title: Action, Pointwise, Submonoid and other topics
+      prefixes: [Mathlib/Algebra/GroupWithZero/Action, Mathlib/Algebra/GroupWithZero/Pointwise, Mathlib/Algebra/GroupWithZero/Submonoid, Mathlib/Algebra/GroupWithZero/Units, Mathlib/Algebra/GroupWithZero]
+      requires: [V01, V03, V05.C09, V05.C11, V05.C12, V05.C13, V05.C14]
+      sections:
+        - id: V05.C15.S01
+          title: Action
+          kind: theory
+          modules:
+            - Mathlib.Algebra.GroupWithZero.Action.Basic
+            - Mathlib.Algebra.GroupWithZero.Action.Center
+            - Mathlib.Algebra.GroupWithZero.Action.ConjAct
+            - Mathlib.Algebra.GroupWithZero.Action.Defs
+            - Mathlib.Algebra.GroupWithZero.Action.End
+            - Mathlib.Algebra.GroupWithZero.Action.FunLike
+            - Mathlib.Algebra.GroupWithZero.Action.Hom
+            - Mathlib.Algebra.GroupWithZero.Action.Opposite
+            - Mathlib.Algebra.GroupWithZero.Action.Pi
+            - Mathlib.Algebra.GroupWithZero.Action.Pointwise.Finset
+            - Mathlib.Algebra.GroupWithZero.Action.Pointwise.Set
+            - Mathlib.Algebra.GroupWithZero.Action.Prod
+            - Mathlib.Algebra.GroupWithZero.Action.Regular
+            - Mathlib.Algebra.GroupWithZero.Action.TransferInstance
+            - Mathlib.Algebra.GroupWithZero.Action.Units
+          E3: [DistribMulAction]
+          families: [F-simp-apply, F-simp, F-instance, F-ext-iff, F-ext, F-ctor, F-def, F-simp-eq]
+          counts: {E0: 124, E1: 134, E3: 1}
+          pages: 5.3
+          status: planned
+        - id: V05.C15.S02
+          title: 'Group with zero: Finset'
+          kind: theory
+          modules:
+            - Mathlib.Algebra.GroupWithZero.Pointwise.Finset
+            - Mathlib.Algebra.GroupWithZero.Pointwise.Set.Basic
+            - Mathlib.Algebra.GroupWithZero.Pointwise.Set.Card
+            - Mathlib.Algebra.GroupWithZero.Submonoid.CancelMulZero
+            - Mathlib.Algebra.GroupWithZero.Submonoid.Instances
+            - Mathlib.Algebra.GroupWithZero.Submonoid.Pointwise
+            - Mathlib.Algebra.GroupWithZero.Submonoid.Primal
+            - Mathlib.Algebra.GroupWithZero.Units.Basic
+            - Mathlib.Algebra.GroupWithZero.Units.Equiv
+            - Mathlib.Algebra.GroupWithZero.Units.Fintype
+            - Mathlib.Algebra.GroupWithZero.Units.Lemmas
+          E3: [Ring.inverse, Fintype.card_units]
+          families: [F-simp, F-instance, F-simp-coe, F-simp-iff, F-simp-eq, F-to-additive, F-simp-apply]
+          requires: [V05.C13]
+          counts: {E0: 93, E1: 118, E3: 2}
+          pages: 5.5
+          status: planned
+        - id: V05.C15.S03
+          title: 'Group with zero: Associated'
+          kind: theory
+          modules:
+            - Mathlib.Algebra.GroupWithZero.Associated
+            - Mathlib.Algebra.GroupWithZero.Basic
+            - Mathlib.Algebra.GroupWithZero.Center
+            - Mathlib.Algebra.GroupWithZero.Commute
+            - Mathlib.Algebra.GroupWithZero.Conj
+            - Mathlib.Algebra.GroupWithZero.Defs
+          E3: [Associated, IsNilpotent, IsReduced, GroupWithZero, MonoidWithZero, CommGroupWithZero]
+          E2: [Associated.symm, pow_ne_zero, GroupWithZero.div_eq_mul_inv, GroupWithZero.inv_zero, GroupWithZero.mul_inv_cancel, GroupWithZero.zpow_zero', GroupWithZero.zpow_neg', GroupWithZero.zpow_succ']
+          families: [F-simp, F-simp-eq, F-instance, F-simp-mk, F-simp-iff, F-simp-apply, F-simp-coe, F-ctor]
+          requires: [V05.C14]
+          counts: {E0: 176, E1: 190, E2: 8, E3: 6}
+          pages: 12.3
+          status: planned
+        - id: V05.C15.S04
+          title: 'Group with zero: Divisibility'
+          kind: theory
+          modules:
+            - Mathlib.Algebra.GroupWithZero.Divisibility
+            - Mathlib.Algebra.GroupWithZero.Equiv
+            - Mathlib.Algebra.GroupWithZero.FunLike
+            - Mathlib.Algebra.GroupWithZero.Hom
+            - Mathlib.Algebra.GroupWithZero.Idempotent
+            - Mathlib.Algebra.GroupWithZero.Indicator
+            - Mathlib.Algebra.GroupWithZero.InjSurj
+            - Mathlib.Algebra.GroupWithZero.Invertible
+            - Mathlib.Algebra.GroupWithZero.Nat
+            - Mathlib.Algebra.GroupWithZero.NeZero
+            - Mathlib.Algebra.GroupWithZero.NonZeroDivisors
+            - Mathlib.Algebra.GroupWithZero.Opposite
+            - Mathlib.Algebra.GroupWithZero.Pi
+            - Mathlib.Algebra.GroupWithZero.Prod
+            - Mathlib.Algebra.GroupWithZero.ProdHom
+            - Mathlib.Algebra.GroupWithZero.Range
+          E3: [mulMonoidWithZeroHom, divMonoidWithZeroHom, MonoidWithZeroHom.valueMonoid_eq_valueGroup, MonoidWithZeroHom.valueMonoid_eq_valueGroup', MonoidWithZeroHom.mem_valueGroup_iff_of_comm, MonoidWithZeroHom.valueGroup]
+          E2: [inv_ne_zero]
+          families: [F-simp, F-simp-iff, F-instance, F-simp-coe, F-ext, F-coe-mk, F-simp-apply, F-def, F-ctor, F-ext-iff, F-simp-eq, F-simp-mk, F-simp-mem]
+          requires: [V03, V05.C09, V05.C11, V05.C12, V05.C13, V05.C14]
+          counts: {E0: 196, E1: 169, E2: 1, E3: 6}
+          pages: 10.6
+          status: planned
+        - id: V05.C15.S05
+          title: 'Group with zero: Regular'
+          kind: theory
+          modules:
+            - Mathlib.Algebra.GroupWithZero.Regular
+            - Mathlib.Algebra.GroupWithZero.Semiconj
+            - Mathlib.Algebra.GroupWithZero.Shrink
+            - Mathlib.Algebra.GroupWithZero.Subgroup
+            - Mathlib.Algebra.GroupWithZero.Torsion
+            - Mathlib.Algebra.GroupWithZero.TransferInstance
+            - Mathlib.Algebra.GroupWithZero.ULift
+            - Mathlib.Algebra.GroupWithZero.WithZero
+          E3: [WithZero.map', WithZero.exp]
+          families: [F-simp-iff, F-simp, F-instance, F-simp-coe, F-def, F-simp-apply, F-simp-eq]
+          requires: [V01, V05.C14]
+          counts: {E0: 115, E1: 65, E3: 2}
+          pages: 3.8
+          status: planned
+    - id: C16
+      title: Free, Free monoid, Free abelian group and other topics
+      prefixes: [Mathlib/Algebra/Free, Mathlib/Algebra/FreeMonoid, Mathlib/Algebra/FreeAbelianGroup, Mathlib/Algebra/PresentedMonoid, Mathlib/Algebra/Quandle]
+      requires: [V01, V03, V05.C07, V05.C09, V05.C14, V05.C17, V06]
+      sections:
+        - id: V05.C16.S01
+          title: Free
+          kind: theory
+          modules:
+            - Mathlib.Algebra.Free
+            - Mathlib.Algebra.FreeMonoid.Basic
+            - Mathlib.Algebra.FreeMonoid.Count
+            - Mathlib.Algebra.FreeMonoid.FreeSemigroup
+            - Mathlib.Algebra.FreeMonoid.Symbols
+            - Mathlib.Algebra.FreeMonoid.UniqueProds
+          E3: [FreeMonoid.lift, FreeMonoid.of, FreeMonoid.map]
+          families: [F-simp, F-ext-iff, F-instance, F-simp-apply, F-simp-eq, F-ctor, F-ext, F-simp-mk, F-aux, F-def, F-simp-mem]
+          requires: [V01, V05.C09, V05.C14]
+          counts: {E0: 272, E1: 177, E3: 3}
+          pages: 8.3
+          status: planned
+        - id: V05.C16.S02
+          title: Finsupp
+          kind: theory
+          modules:
+            - Mathlib.Algebra.FreeAbelianGroup.Finsupp
+            - Mathlib.Algebra.FreeAbelianGroup.UniqueSums
+            - Mathlib.Algebra.PresentedMonoid.Basic
+            - Mathlib.Algebra.Quandle
+          E3: [FreeAddCommGroup.equivFinsupp, FreeAddCommGroup.support, FreeAddCommGroup.coeff, Rack.toEnvelGroup.univ_uniq, ShelfHom, Rack.EnvelGroup, Quandle, Rack.toEnvelGroup.map, Rack, Rack.toEnvelGroup.univ, Quandle.Conj, UnitalShelf, Shelf, Rack.oppositeRack]
+          families: [F-simp, F-simp-mem, F-simp-apply, F-simp-eq, F-simp-iff, F-instance, F-ext-iff, F-ext, F-ctor, F-def, F-aux]
+          requires: [V01, V03, V05.C07, V05.C09, V05.C14, V05.C17, V06]
+          counts: {E0: 101, E1: 90, E3: 14}
+          pages: 14.2
+          status: planned
+    - id: C17
+      title: Torsor, Opposites, Regular and other topics
+      prefixes: [Mathlib/Algebra/Torsor, Mathlib/Algebra/Opposites, Mathlib/Algebra/Regular, Mathlib/Algebra/Divisibility, Mathlib/Algebra/NeZero, Mathlib/Algebra/Notation]
+      requires: [V01, V05.C14]
+      sections:
+        - id: V05.C17.S01
+          title: 'Basic: basics'
+          kind: theory
+          modules:
+            - Mathlib.Algebra.Torsor.Basic
+            - Mathlib.Algebra.Torsor.Defs
+            - Mathlib.Algebra.Opposites
+            - Mathlib.Algebra.Regular.Basic
+            - Mathlib.Algebra.Regular.Defs
+            - Mathlib.Algebra.Regular.Opposite
+            - Mathlib.Algebra.Regular.Pi
+            - Mathlib.Algebra.Regular.Pow
+            - Mathlib.Algebra.Regular.Prod
+            - Mathlib.Algebra.Regular.SMul
+            - Mathlib.Algebra.Regular.ULift
+          E3: [AddTorsor, IsRegular]
+          E2: [Equiv.pointReflection_fixed_iff_of_injective_two_nsmul, MulOpposite.unop_injective, AddOpposite.unop_injective]
+          families: [F-simp, F-simp-mk, F-simp-iff, F-simp-apply, F-def, F-instance, F-simp-coe, F-simp-eq, F-ctor, F-to-additive]
+          requires: [V01, V05.C14]
+          counts: {E0: 271, E1: 195, E2: 3, E3: 2}
+          pages: 8.6
+          status: planned
+        - id: V05.C17.S02
+          title: 'Basic: basics'
+          kind: theory
+          modules:
+            - Mathlib.Algebra.Divisibility.Basic
+            - Mathlib.Algebra.Divisibility.Finite
+            - Mathlib.Algebra.Divisibility.Hom
+            - Mathlib.Algebra.Divisibility.Prod
+            - Mathlib.Algebra.Divisibility.Units
+            - Mathlib.Algebra.NeZero
+            - Mathlib.Algebra.Notation
+            - Mathlib.Algebra.Notation.Bracket
+            - Mathlib.Algebra.Notation.Defs
+            - Mathlib.Algebra.Notation.FiniteSupport
+            - Mathlib.Algebra.Notation.Indicator
+            - Mathlib.Algebra.Notation.Lemmas
+            - Mathlib.Algebra.Notation.Pi.Basic
+          E3: [semigroupDvd, Bracket, Star]
+          E2: [pow_dvd_pow, dvd_rfl]
+          families: [F-instance, F-def, F-simp-iff, F-simp, F-ctor, F-simp-mk, F-ext, F-to-additive, F-ext-iff, F-simp-eq]
+          requires: [V05.C14]
+          counts: {E0: 133, E1: 239, E2: 2, E3: 3}
+          pages: 10.7
+          status: planned
+        - id: V05.C17.S03
+          title: Notation
+          kind: reference
+          modules:
+            - Mathlib.Algebra.Notation.Pi.Defs
+            - Mathlib.Algebra.Notation.Prod
+            - Mathlib.Algebra.Notation.Support
+          families: [F-def, F-instance, F-simp-apply, F-simp, F-to-additive, F-simp-mk, F-simp-eq, F-simp-mem, F-simp-iff]
+          counts: {E0: 143, E1: 75}
+          pages: 2.5
+          status: planned
+    - id: C18
+      title: Pointwise, Symmetrized, Tropical and other topics
+      prefixes: [Mathlib/Algebra/Pointwise, Mathlib/Algebra/Symmetrized, Mathlib/Algebra/Tropical, Mathlib/Algebra/AddConstMap, Mathlib/Algebra/AffineMonoid, Mathlib/Algebra/Prime, Mathlib/Algebra/IsPrimePow, Mathlib/Algebra/Squarefree, Mathlib/Algebra/Quotient, Mathlib/Geometry/Group]
+      requires: [V05.C07, V05.C14, V05.C15, V05.C17]
+      sections:
+        - id: V05.C18.S01
+          title: Stabilizer
+          kind: reference
+          modules:
+            - Mathlib.Algebra.Pointwise.Stabilizer
+            - Mathlib.Algebra.Symmetrized
+            - Mathlib.Algebra.Tropical.Basic
+            - Mathlib.Algebra.Tropical.BigOperators
+            - Mathlib.Algebra.Tropical.Lattice
+            - Mathlib.Algebra.AddConstMap.Basic
+            - Mathlib.Algebra.AddConstMap.Equiv
+            - Mathlib.Algebra.AffineMonoid.Basic
+            - Mathlib.Algebra.AffineMonoid.Embedding
+            - Mathlib.Algebra.AffineMonoid.Irreducible
+            - Mathlib.Algebra.AffineMonoid.UniqueSums
+          families: [F-simp, F-to-additive, F-instance, F-simp-iff, F-def, F-to-dual, F-simp-eq, F-simp-apply, F-simp-coe, F-ctor, F-ext-iff, F-map-op, F-coe-mk, F-ext]
+          counts: {E0: 391, E1: 161}
+          pages: 5.4
+          status: planned
+        - id: V05.C18.S02
+          title: Defs
+          kind: theory
+          modules:
+            - Mathlib.Algebra.Prime.Defs
+            - Mathlib.Algebra.Prime.Lemmas
+            - Mathlib.Algebra.IsPrimePow
+            - Mathlib.Algebra.Squarefree.Basic
+          E3: [Prime, irreducible_iff_prime, Squarefree]
+          families: [F-to-additive, F-simp, F-def, F-instance]
+          requires: [V05.C14, V05.C15]
+          counts: {E0: 15, E1: 89, E3: 3}
+          pages: 5.4
+          status: planned
+        - id: V05.C18.S03
+          title: Quotient
+          kind: theory
+          modules:
+            - Mathlib.Algebra.Quotient
+            - Mathlib.Geometry.Group.Growth.LinearLowerBound
+            - Mathlib.Geometry.Group.Growth.QuotientInter
+            - Mathlib.Geometry.Group.WordMetric
+            - Mathlib.Geometry.Group.WordProd
+          E3: [Group.Generators.normedGroup, Group.Generators.wordLength, Group.Generators.exists_isGeodesic, Group.Generators.IsGeodesic]
+          families: [F-ctor, F-simp, F-simp-iff]
+          requires: [V05.C07, V05.C14]
+          counts: {E0: 13, E1: 38, E3: 4}
+          pages: 4.5
+          status: planned

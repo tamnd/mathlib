@@ -1,0 +1,754 @@
+# The section plan of V34 (spec 09.1, 07.7). mlib plan made the draft from the index at e54979a532. A person accepts it and then edits it by hand.
+volume: V34
+title: The tactics of Mathlib
+mathlib: e54979a532247ae4eb9d5578a8fd40a1bc332101
+date: "2026-11-26"
+by: mlib plan dev
+status: proposed
+pages: 262.8
+chapters:
+    - id: C01
+      title: Algebra, Arith mult, Attr and other topics
+      prefixes: [Mathlib/Tactic/Algebra, Mathlib/Tactic/ArithMult, Mathlib/Tactic/Attr, Mathlib/Tactic/Basify, Mathlib/Tactic/Bound, Mathlib/Tactic/CancelDenoms, Mathlib/Tactic/CategoryTheory]
+      sections:
+        - id: V34.C01.S01
+          title: Algebra nF
+          kind: reference
+          modules:
+            - Mathlib.Tactic.Algebra.AlgebraNF
+            - Mathlib.Tactic.Algebra.Basic
+            - Mathlib.Tactic.Algebra.Lemmas
+            - Mathlib.Tactic.ArithMult
+            - Mathlib.Tactic.ArithMult.Init
+            - Mathlib.Tactic.Attr.Core
+            - Mathlib.Tactic.Attr.Register
+            - Mathlib.Tactic.Basify
+            - Mathlib.Tactic.Basify.Attr
+            - Mathlib.Tactic.Bound
+            - Mathlib.Tactic.Bound.Attribute
+            - Mathlib.Tactic.Bound.Init
+          families: [F-ctor, F-aux, F-simp, F-to-additive, F-instance]
+          counts: {E0: 14, E1: 154}
+          pages: 5.1
+          status: planned
+        - id: V34.C01.S02
+          title: Cancel denoms
+          kind: theory
+          modules:
+            - Mathlib.Tactic.CancelDenoms
+            - Mathlib.Tactic.CancelDenoms.Core
+            - Mathlib.Tactic.CategoryTheory.BicategoricalComp
+            - Mathlib.Tactic.CategoryTheory.Bicategory.Basic
+            - Mathlib.Tactic.CategoryTheory.Bicategory.Datatypes
+            - Mathlib.Tactic.CategoryTheory.Bicategory.Normalize
+            - Mathlib.Tactic.CategoryTheory.Bicategory.PureCoherence
+            - Mathlib.Tactic.CategoryTheory.BicategoryCoherence
+            - Mathlib.Tactic.CategoryTheory.CancelIso
+            - Mathlib.Tactic.CategoryTheory.CategoryStar
+            - Mathlib.Tactic.CategoryTheory.CheckCompositions
+            - Mathlib.Tactic.CategoryTheory.Coherence
+            - Mathlib.Tactic.CategoryTheory.Coherence.Basic
+            - Mathlib.Tactic.CategoryTheory.Coherence.Datatypes
+          E2: [Mathlib.Tactic.CancelDenoms.derive_trans₂, Mathlib.Tactic.CancelDenoms.derive_trans]
+          families: [F-simp, F-ctor, F-instance]
+          counts: {E0: 165, E1: 311, E2: 2}
+          pages: 10.7
+          status: planned
+        - id: V34.C01.S03
+          title: Category theory
+          kind: theory
+          modules:
+            - Mathlib.Tactic.CategoryTheory.Coherence.Normalize
+            - Mathlib.Tactic.CategoryTheory.Coherence.PureCoherence
+            - Mathlib.Tactic.CategoryTheory.Elementwise
+            - Mathlib.Tactic.CategoryTheory.IsoReassoc
+            - Mathlib.Tactic.CategoryTheory.Map
+            - Mathlib.Tactic.CategoryTheory.Monoidal.Basic
+            - Mathlib.Tactic.CategoryTheory.Monoidal.Datatypes
+            - Mathlib.Tactic.CategoryTheory.Monoidal.Normalize
+            - Mathlib.Tactic.CategoryTheory.Monoidal.PureCoherence
+            - Mathlib.Tactic.CategoryTheory.MonoidalComp
+            - Mathlib.Tactic.CategoryTheory.Reassoc
+            - Mathlib.Tactic.CategoryTheory.Slice
+            - Mathlib.Tactic.CategoryTheory.ToApp
+          E3: [Mathlib.Tactic.BicategoryLike.eval]
+          families: [F-ctor, F-instance, F-simp, F-aux]
+          counts: {E0: 89, E1: 255, E3: 1}
+          pages: 9.3
+          status: planned
+    - id: C02
+      title: Click suggestions and Compute asymptotics
+      prefixes: [Mathlib/Tactic/ClickSuggestions, Mathlib/Tactic/ComputeAsymptotics]
+      requires: [V02, V03, V04, V05, V06, V13, V15, V16, V33]
+      sections:
+        - id: V34.C02.S01
+          title: Click suggestions
+          kind: reference
+          modules:
+            - Mathlib.Tactic.ClickSuggestions
+            - Mathlib.Tactic.ClickSuggestions.Apply
+            - Mathlib.Tactic.ClickSuggestions.ApplyAt
+            - Mathlib.Tactic.ClickSuggestions.FindPremises
+            - Mathlib.Tactic.ClickSuggestions.GRewrite
+            - Mathlib.Tactic.ClickSuggestions.Rewrite
+            - Mathlib.Tactic.ClickSuggestions.SectionState
+            - Mathlib.Tactic.ClickSuggestions.TryPremises
+            - Mathlib.Tactic.ClickSuggestions.Unfold
+            - Mathlib.Tactic.ClickSuggestions.Util
+          families: [F-instance, F-ctor, F-simp]
+          counts: {E0: 58, E1: 193}
+          pages: 6.4
+          status: planned
+        - id: V34.C02.S02
+          title: Compute asymptotics
+          kind: theory
+          modules:
+            - Mathlib.Tactic.ComputeAsymptotics.Lemmas
+            - Mathlib.Tactic.ComputeAsymptotics.Multiseries.Basic
+            - Mathlib.Tactic.ComputeAsymptotics.Multiseries.Basis
+            - Mathlib.Tactic.ComputeAsymptotics.Multiseries.Corecursion
+          E3: [Tactic.ComputeAsymptotics.tendsto_nhdsGT_of_tendsto_atTop, Tactic.ComputeAsymptotics.isBigO_of_div_tendsto_atBot, Tactic.ComputeAsymptotics.isBigO_of_div_tendsto_atTop, Tactic.ComputeAsymptotics.tendsto_nhdsLT_of_tendsto_atTop, Tactic.ComputeAsymptotics.tendsto_nhdsNE_of_tendsto_atTop, Tactic.ComputeAsymptotics.Seq.gcorec, Tactic.ComputeAsymptotics.Seq.FriendlyOperation.coind, Tactic.ComputeAsymptotics.Seq.FriendlyOperation.coind_comp_friend_left, Tactic.ComputeAsymptotics.Seq.FriendlyOperation.coind_comp_friend_right, Tactic.ComputeAsymptotics.Seq.FriendlyOperationClass]
+          E2: [Tactic.ComputeAsymptotics.WellFormedBasis.pow_isLittleO_pow_of_log, Tactic.ComputeAsymptotics.Seq.FriendlyOperation.exists_fixed_point]
+          families: [F-to-dual, F-simp, F-to-additive, F-def, F-instance, F-ctor, F-aux-snake]
+          requires: [V02, V03, V04, V05, V06, V13, V15, V33]
+          counts: {E0: 31, E1: 90, E2: 2, E3: 10}
+          pages: 11.3
+          status: planned
+        - id: V34.C02.S03
+          title: Multiseries
+          kind: theory
+          modules:
+            - Mathlib.Tactic.ComputeAsymptotics.Multiseries.Defs
+            - Mathlib.Tactic.ComputeAsymptotics.Multiseries.Majorized
+            - Mathlib.Tactic.ComputeAsymptotics.Multiseries.Monomial.Basic
+            - Mathlib.Tactic.ComputeAsymptotics.Multiseries.Monomial.Predicates
+            - Mathlib.Tactic.ComputeAsymptotics.Multiseries.Trimming
+          E3: [Tactic.ComputeAsymptotics.Basis, Tactic.ComputeAsymptotics.MultiseriesExpansion.IsZero, Tactic.ComputeAsymptotics.MultiseriesExpansion.Trimmed.cons, Tactic.ComputeAsymptotics.MultiseriesExpansion.Trimmed.nil, Tactic.ComputeAsymptotics.MultiseriesExpansion.Multiseries.Trimmed.cons, Tactic.ComputeAsymptotics.MultiseriesExpansion.IsZero.nil, Tactic.ComputeAsymptotics.MultiseriesExpansion.Trimmed.below.cons, Tactic.ComputeAsymptotics.MultiseriesExpansion.Multiseries.Trimmed.nil, Tactic.ComputeAsymptotics.MultiseriesExpansion.Trimmed.below.nil, Tactic.ComputeAsymptotics.MultiseriesExpansion.Trimmed, Tactic.ComputeAsymptotics.MultiseriesExpansion.Multiseries.Trimmed]
+          E2: [Tactic.ComputeAsymptotics.MultiseriesExpansion.Multiseries.Sorted.coind]
+          families: [F-simp, F-def, F-simp-iff, F-ext-iff, F-ctor, F-instance, F-simp-eq, F-simp-mem, F-to-additive]
+          requires: [V02, V04]
+          counts: {E0: 93, E1: 138, E2: 1, E3: 11}
+          pages: 13.6
+          status: planned
+    - id: C03
+      title: Continuity, Determinant and Echelon
+      prefixes: [Mathlib/Tactic/Continuity, Mathlib/Tactic/Determinant, Mathlib/Tactic/Echelon]
+      requires: [V01, V02, V03, V04, V05, V06, V07, V34.C06, V34.C07]
+      sections:
+        - id: V34.C03.S01
+          title: Continuity
+          kind: theory
+          modules:
+            - Mathlib.Tactic.Continuity
+            - Mathlib.Tactic.Continuity.Init
+            - Mathlib.Tactic.Determinant.Bird.Cert
+            - Mathlib.Tactic.Determinant.Bird.Meta
+            - Mathlib.Tactic.Determinant.Echelon.Cert
+            - Mathlib.Tactic.Determinant.Echelon.Reflection
+          E3: [Mathlib.Tactic.Determinant.certEntry, Mathlib.Tactic.Determinant.certIterStepEntry, Mathlib.Tactic.Determinant.certBirdDet, Mathlib.Tactic.Determinant.certSumFromStep, Mathlib.Tactic.Determinant.certSumFromStop, Mathlib.Tactic.Determinant.reifyBirdDet, Mathlib.Tactic.Determinant.certifyDiagProd, Mathlib.Tactic.Determinant.detValue, Mathlib.Tactic.Determinant.proveEchelonDet, Mathlib.Tactic.Determinant.diagProd, Mathlib.Tactic.Determinant.det_eq_of_decomposition, Mathlib.Tactic.Determinant.prod_diag_ofLists]
+          families: [F-simp, F-to-additive, F-ctor]
+          requires: [V01, V02, V03, V05, V06, V07, V34.C06, V34.C07]
+          counts: {E0: 9, E1: 56, E3: 12}
+          pages: 11.5
+          status: planned
+        - id: V34.C03.S02
+          title: 'Echelon: Bareiss'
+          kind: theory
+          modules:
+            - Mathlib.Tactic.Echelon.Bareiss
+            - Mathlib.Tactic.Echelon.Cert
+            - Mathlib.Tactic.Echelon.Core
+            - Mathlib.Tactic.Echelon.Rat
+          E3: [Mathlib.Tactic.Echelon.modelFor, Mathlib.Tactic.Echelon.BareissResult, Mathlib.Tactic.Echelon.mkBareissDecomposition, Mathlib.Tactic.Echelon.certifyDecomposition, Mathlib.Tactic.Echelon.DecompositionCert, Mathlib.Tactic.Echelon.BareissData, Mathlib.Tactic.Echelon.EntryCertifier, Mathlib.Tactic.Echelon.bareissDecomp, Mathlib.Tactic.Echelon.Model, Mathlib.Tactic.Echelon.RingOps]
+          families: [F-ctor, F-simp, F-aux, F-instance, F-to-additive]
+          requires: [V34.C06]
+          counts: {E0: 19, E1: 59, E3: 10}
+          pages: 10
+          status: planned
+        - id: V34.C03.S03
+          title: 'Echelon: Reflection'
+          kind: theory
+          modules:
+            - Mathlib.Tactic.Echelon.Reflection
+            - Mathlib.Tactic.Echelon.Zsqrtd
+          E3: [Mathlib.Tactic.Echelon.IsLowerTriangularDiagList, Mathlib.Tactic.Echelon.pivotOfList, Mathlib.Tactic.Echelon.IsPivotedList]
+          families: [F-ctor]
+          counts: {E0: 8, E1: 12, E3: 3}
+          pages: 2.8
+          status: planned
+    - id: C04
+      title: Explode, Field simp, Finiteness and other topics
+      prefixes: [Mathlib/Tactic/Explode, Mathlib/Tactic/FieldSimp, Mathlib/Tactic/Finiteness, Mathlib/Tactic/FunProp, Mathlib/Tactic/GCongr, Mathlib/Tactic/GRewrite, Mathlib/Tactic/Hessenberg]
+      requires: [V01, V04, V06, V07, V09, V34.C06]
+      sections:
+        - id: V34.C04.S01
+          title: Explode
+          kind: theory
+          modules:
+            - Mathlib.Tactic.Explode
+            - Mathlib.Tactic.Explode.Datatypes
+            - Mathlib.Tactic.Explode.Pretty
+            - Mathlib.Tactic.FieldSimp
+            - Mathlib.Tactic.FieldSimp.Attr
+            - Mathlib.Tactic.FieldSimp.Discharger
+            - Mathlib.Tactic.FieldSimp.Lemmas
+          E3: [Mathlib.Tactic.FieldSimp.discharge]
+          families: [F-simp, F-instance, F-ctor, F-simp-apply, F-to-additive]
+          counts: {E0: 29, E1: 129, E3: 1}
+          pages: 5.1
+          status: planned
+        - id: V34.C04.S02
+          title: Finiteness
+          kind: theory
+          modules:
+            - Mathlib.Tactic.Finiteness
+            - Mathlib.Tactic.Finiteness.Attr
+            - Mathlib.Tactic.FunProp
+            - Mathlib.Tactic.FunProp.Attr
+            - Mathlib.Tactic.FunProp.Core
+            - Mathlib.Tactic.FunProp.Decl
+            - Mathlib.Tactic.FunProp.Elab
+            - Mathlib.Tactic.FunProp.FunctionData
+            - Mathlib.Tactic.FunProp.Mor
+            - Mathlib.Tactic.FunProp.Theorems
+            - Mathlib.Tactic.FunProp.ToBatteries
+            - Mathlib.Tactic.FunProp.Types
+          E3: [finiteness]
+          families: [F-ctor, F-simp, F-instance]
+          counts: {E0: 99, E1: 257, E3: 1}
+          pages: 9.4
+          status: planned
+        - id: V34.C04.S03
+          title: GCongr
+          kind: theory
+          modules:
+            - Mathlib.Tactic.GCongr
+            - Mathlib.Tactic.GCongr.Core
+            - Mathlib.Tactic.GCongr.CoreAttrs
+            - Mathlib.Tactic.GCongr.ForwardAttr
+            - Mathlib.Tactic.GRewrite
+            - Mathlib.Tactic.GRewrite.Core
+            - Mathlib.Tactic.GRewrite.Elab
+            - Mathlib.Tactic.Hessenberg.Charpoly
+            - Mathlib.Tactic.Hessenberg.CoeffList
+            - Mathlib.Tactic.Hessenberg.Reduce
+            - Mathlib.Tactic.Hessenberg.Similarity
+          E3: [Mathlib.Tactic.Hessenberg.ofCoeffList_coeffHessCharpoly, Mathlib.Tactic.Hessenberg.coeffHessCharpoly, Mathlib.Tactic.Hessenberg.charpoly_eq_hessCharpoly, Mathlib.Tactic.Hessenberg.hessCharpoly, Mathlib.Tactic.Hessenberg.charpolyCoeffList, Mathlib.Tactic.Hessenberg.inferCharpolyRing, Mathlib.Tactic.Hessenberg.CoeffListResult, Mathlib.Tactic.Hessenberg.SimilarityResult, Mathlib.Tactic.Hessenberg.mkHessenbergSimilarity]
+          families: [F-ctor, F-instance, F-simp]
+          requires: [V01, V04, V06, V07, V09, V34.C06]
+          counts: {E0: 31, E1: 139, E3: 9}
+          pages: 11.8
+          status: planned
+    - id: C05
+      title: Inclusion and Linarith
+      prefixes: [Mathlib/Tactic/Inclusion, Mathlib/Tactic/Linarith]
+      sections:
+        - id: V34.C05.S01
+          title: Inclusion
+          kind: reference
+          modules:
+            - Mathlib.Tactic.Inclusion.Core.Core
+            - Mathlib.Tactic.Inclusion.Core.DiscrTreeExt
+            - Mathlib.Tactic.Inclusion.Core.Elab
+            - Mathlib.Tactic.Inclusion.Core.Expr
+            - Mathlib.Tactic.Inclusion.Core.Extensions
+            - Mathlib.Tactic.Inclusion.Core.Inclusion
+            - Mathlib.Tactic.Inclusion.Core.ToSet
+            - Mathlib.Tactic.Inclusion.Core.Types
+            - Mathlib.Tactic.Inclusion.Extension.Core.Core
+            - Mathlib.Tactic.Inclusion.Extension.Core.Init
+            - Mathlib.Tactic.Inclusion.Extension.Interval.Basic
+            - Mathlib.Tactic.Inclusion.Extension.Interval.BinarySplit
+            - Mathlib.Tactic.Inclusion.Extension.IntervalDyadicReal.Basic
+            - Mathlib.Tactic.Inclusion.Extension.IntervalDyadicReal.BinarySplit
+            - Mathlib.Tactic.Inclusion.Extension.IntervalDyadicReal.Dyadic
+          families: [F-simp, F-ctor, F-instance, F-simp-mem, F-def, F-to-dual, F-simp-eq, F-to-additive]
+          counts: {E0: 154, E1: 313}
+          pages: 10.4
+          status: planned
+        - id: V34.C05.S02
+          title: Exp
+          kind: reference
+          modules:
+            - Mathlib.Tactic.Inclusion.Extension.IntervalDyadicReal.Exp
+            - Mathlib.Tactic.Inclusion.Extension.IntervalDyadicReal.Hypotheses
+            - Mathlib.Tactic.Inclusion.Extension.IntervalDyadicReal.Init
+            - Mathlib.Tactic.Inclusion.Extension.IntervalDyadicReal.Log
+            - Mathlib.Tactic.Inclusion.Extension.IntervalDyadicReal.Rational
+            - Mathlib.Tactic.Inclusion.Extension.IntervalDyadicReal.Sqrt
+            - Mathlib.Tactic.Inclusion.Extension.IntervalDyadicReal.Tactic
+            - Mathlib.Tactic.Inclusion.Extension.IntervalInt.Basic
+            - Mathlib.Tactic.Inclusion.Extension.IntervalInt.BinarySplit
+            - Mathlib.Tactic.Inclusion.Extension.IntervalInt.Hypotheses
+            - Mathlib.Tactic.Inclusion.Extension.IntervalInt.Init
+            - Mathlib.Tactic.Inclusion.ExtensionAPI.Attr
+            - Mathlib.Tactic.Inclusion.ExtensionAPI.Basic
+            - Mathlib.Tactic.Linarith
+            - Mathlib.Tactic.Linarith.Datatypes
+            - Mathlib.Tactic.Linarith.Frontend
+            - Mathlib.Tactic.Linarith.Lemmas
+            - Mathlib.Tactic.Linarith.NNRealPreprocessor
+            - Mathlib.Tactic.Linarith.Oracle.FourierMotzkin
+            - Mathlib.Tactic.Linarith.Oracle.SimplexAlgorithm
+            - Mathlib.Tactic.Linarith.Oracle.SimplexAlgorithm.Datatypes
+          families: [F-instance, F-to-dual, F-simp, F-ctor]
+          counts: {E0: 70, E1: 321}
+          pages: 10.7
+          status: planned
+        - id: V34.C05.S03
+          title: Linarith
+          kind: theory
+          modules:
+            - Mathlib.Tactic.Linarith.Oracle.SimplexAlgorithm.Gauss
+            - Mathlib.Tactic.Linarith.Oracle.SimplexAlgorithm.PositiveVector
+            - Mathlib.Tactic.Linarith.Oracle.SimplexAlgorithm.SimplexAlgorithm
+            - Mathlib.Tactic.Linarith.Parsing
+            - Mathlib.Tactic.Linarith.Preprocessing
+            - Mathlib.Tactic.Linarith.Verification
+          E3: [Mathlib.Tactic.Linarith.proveFalseByLinarith]
+          families: [F-ctor, F-instance, F-aux]
+          counts: {E0: 3, E1: 70, E3: 1}
+          pages: 3.1
+          status: planned
+    - id: C06
+      title: Linear combination, Linter, Matrix and other topics
+      prefixes: [Mathlib/Tactic/LinearCombination, Mathlib/Tactic/Linter, Mathlib/Tactic/Matrix, Mathlib/Tactic/Measurability, Mathlib/Tactic/Monotonicity, Mathlib/Tactic/Nontriviality, Mathlib/Tactic/NormNum]
+      requires: [V01, V02, V05, V06]
+      sections:
+        - id: V34.C06.S01
+          title: Linear combination
+          kind: reference
+          modules:
+            - Mathlib.Tactic.LinearCombination
+            - Mathlib.Tactic.LinearCombination.Lemmas
+            - Mathlib.Tactic.Linter
+            - Mathlib.Tactic.Linter.AuxLemma
+            - Mathlib.Tactic.Linter.CommandRanges
+            - Mathlib.Tactic.Linter.DeclType
+            - Mathlib.Tactic.Linter.DeprecatedModule
+            - Mathlib.Tactic.Linter.DeprecatedSyntaxLinter
+            - Mathlib.Tactic.Linter.DirectoryDependency
+            - Mathlib.Tactic.Linter.DocPrime
+            - Mathlib.Tactic.Linter.DocString
+            - Mathlib.Tactic.Linter.EmptyLine
+            - Mathlib.Tactic.Linter.FindDeprecations
+            - Mathlib.Tactic.Linter.FlexibleLinter
+            - Mathlib.Tactic.Linter.GlobalAttributeIn
+            - Mathlib.Tactic.Linter.HashCommandLinter
+            - Mathlib.Tactic.Linter.HaveILetI
+            - Mathlib.Tactic.Linter.HaveLetLinter
+            - Mathlib.Tactic.Linter.Header
+            - Mathlib.Tactic.Linter.InternalConstructor
+            - Mathlib.Tactic.Linter.Lint
+            - Mathlib.Tactic.Linter.MinImports
+            - Mathlib.Tactic.Linter.Multigoal
+            - Mathlib.Tactic.Linter.NumericProjection
+            - Mathlib.Tactic.Linter.OldObtain
+            - Mathlib.Tactic.Linter.OverlappingInstances
+            - Mathlib.Tactic.Linter.PPRoundtrip
+            - Mathlib.Tactic.Linter.PrivateModule
+            - Mathlib.Tactic.Linter.Style
+            - Mathlib.Tactic.Linter.SyntaxBased
+            - Mathlib.Tactic.Linter.TacticDocumentation
+            - Mathlib.Tactic.Linter.TextBased
+            - Mathlib.Tactic.Linter.TextBased.UnicodeLinter
+            - Mathlib.Tactic.Linter.UnusedInstancesInType
+            - Mathlib.Tactic.Linter.UnusedTactic
+            - Mathlib.Tactic.Linter.UpstreamableDecl
+            - Mathlib.Tactic.Linter.ValidatePRTitle
+            - Mathlib.Tactic.Linter.Whitespace
+          families: [F-simp, F-ctor, F-instance]
+          counts: {E0: 19, E1: 169}
+          pages: 5.6
+          status: planned
+        - id: V34.C06.S02
+          title: Matrix
+          kind: theory
+          modules:
+            - Mathlib.Tactic.Matrix.Cert
+            - Mathlib.Tactic.Matrix.ListMatrix
+            - Mathlib.Tactic.Matrix.MulExpand
+            - Mathlib.Tactic.Matrix.OfLists
+            - Mathlib.Tactic.Matrix.Parsing
+            - Mathlib.Tactic.Matrix.Swaps
+          E3: [Mathlib.Tactic.Matrix.certifyProductEq, Mathlib.Tactic.Matrix.certifyRowsEq, Mathlib.Tactic.Matrix.certifyOfArray, 'Mathlib.Tactic.Matrix.matchMatrixLit?', Mathlib.Tactic.Matrix.intCast_sign_permOfSwaps, Mathlib.Tactic.Matrix.mkSwapsLitQ, Mathlib.Tactic.Matrix.certifyPermSign, Mathlib.Tactic.Matrix.permOfSwaps, Mathlib.Tactic.Matrix.certifyPermEq]
+          families: [F-simp, F-ctor, F-simp-eq, F-simp-apply]
+          requires: [V01, V02, V05, V06]
+          counts: {E0: 11, E1: 51, E3: 9}
+          pages: 8.9
+          status: planned
+        - id: V34.C06.S03
+          title: Measurability
+          kind: reference
+          modules:
+            - Mathlib.Tactic.Measurability
+            - Mathlib.Tactic.Measurability.Init
+            - Mathlib.Tactic.Monotonicity
+            - Mathlib.Tactic.Monotonicity.Attr
+            - Mathlib.Tactic.Monotonicity.Basic
+            - Mathlib.Tactic.Monotonicity.Lemmas
+            - Mathlib.Tactic.Nontriviality
+            - Mathlib.Tactic.Nontriviality.Core
+            - Mathlib.Tactic.NormNum
+            - Mathlib.Tactic.NormNum.Abs
+            - Mathlib.Tactic.NormNum.Basic
+            - Mathlib.Tactic.NormNum.BigOperators
+            - Mathlib.Tactic.NormNum.Core
+            - Mathlib.Tactic.NormNum.DivMod
+            - Mathlib.Tactic.NormNum.Eq
+            - Mathlib.Tactic.NormNum.GCD
+            - Mathlib.Tactic.NormNum.Ineq
+            - Mathlib.Tactic.NormNum.Inv
+            - Mathlib.Tactic.NormNum.Irrational
+            - Mathlib.Tactic.NormNum.IsCoprime
+            - Mathlib.Tactic.NormNum.IsSquare
+            - Mathlib.Tactic.NormNum.LegendreSymbol
+          families: [F-ext, F-to-additive, F-ctor, F-simp, F-instance]
+          counts: {E0: 22, E1: 327}
+          pages: 10.9
+          status: planned
+        - id: V34.C06.S04
+          title: Norm num
+          kind: reference
+          modules:
+            - Mathlib.Tactic.NormNum.ModEq
+            - Mathlib.Tactic.NormNum.NatFactorial
+            - Mathlib.Tactic.NormNum.NatFib
+            - Mathlib.Tactic.NormNum.NatLog
+            - Mathlib.Tactic.NormNum.NatSqrt
+            - Mathlib.Tactic.NormNum.OfScientific
+            - Mathlib.Tactic.NormNum.Ordinal
+            - Mathlib.Tactic.NormNum.Parity
+            - Mathlib.Tactic.NormNum.Pow
+            - Mathlib.Tactic.NormNum.PowMod
+            - Mathlib.Tactic.NormNum.Prime
+            - Mathlib.Tactic.NormNum.RealSqrt
+            - Mathlib.Tactic.NormNum.Result
+          families: [F-aux-snake, F-to-additive, F-aux, F-ctor, F-instance, F-simp]
+          counts: {E0: 31, E1: 197}
+          pages: 6.6
+          status: planned
+    - id: C07
+      title: Order, Polynomial, Positivity and other topics
+      prefixes: [Mathlib/Tactic/Order, Mathlib/Tactic/Polynomial, Mathlib/Tactic/Positivity, Mathlib/Tactic/Primality, Mathlib/Tactic/Push, Mathlib/Tactic/ReduceModChar, Mathlib/Tactic/Relation, Mathlib/Tactic/Ring]
+      requires: [V01]
+      sections:
+        - id: V34.C07.S01
+          title: Order
+          kind: reference
+          modules:
+            - Mathlib.Tactic.Order
+            - Mathlib.Tactic.Order.CollectFacts
+            - Mathlib.Tactic.Order.Graph.Basic
+            - Mathlib.Tactic.Order.Graph.Tarjan
+            - Mathlib.Tactic.Order.Preprocessing
+            - Mathlib.Tactic.Order.ToInt
+            - Mathlib.Tactic.Polynomial.Basic
+            - Mathlib.Tactic.Polynomial.Core
+            - Mathlib.Tactic.Positivity
+            - Mathlib.Tactic.Positivity.Basic
+            - Mathlib.Tactic.Positivity.Core
+            - Mathlib.Tactic.Positivity.Finset
+          families: [F-simp, F-instance, F-ctor, F-to-dual, F-to-additive]
+          counts: {E0: 47, E1: 205}
+          pages: 6.8
+          status: planned
+        - id: V34.C07.S02
+          title: Primality
+          kind: theory
+          modules:
+            - Mathlib.Tactic.Primality
+            - Mathlib.Tactic.Primality.Cert
+            - Mathlib.Tactic.Primality.Lucas
+            - Mathlib.Tactic.Primality.Producers
+            - Mathlib.Tactic.Push
+            - Mathlib.Tactic.Push.Attr
+            - Mathlib.Tactic.ReduceModChar
+            - Mathlib.Tactic.ReduceModChar.Ext
+            - Mathlib.Tactic.Relation.Rfl
+            - Mathlib.Tactic.Relation.Symm
+            - Mathlib.Tactic.Ring
+            - Mathlib.Tactic.Ring.Basic
+            - Mathlib.Tactic.Ring.Common
+          E2: [Mathlib.Tactic.rel_of_eq_and_refl]
+          families: [F-ctor, F-simp, F-def, F-instance, F-to-additive]
+          counts: {E0: 86, E1: 383, E2: 1}
+          pages: 12.9
+          status: planned
+        - id: V34.C07.S03
+          title: Ring
+          kind: theory
+          modules:
+            - Mathlib.Tactic.Ring.Compare
+            - Mathlib.Tactic.Ring.NamePolyVars
+            - Mathlib.Tactic.Ring.NamePowerVars
+            - Mathlib.Tactic.Ring.PNat
+            - Mathlib.Tactic.Ring.RingNF
+          E3: [Mathlib.Tactic.Ring.proveLT, Mathlib.Tactic.Ring.proveLE]
+          families: [F-ctor, F-instance, F-simp]
+          requires: [V01]
+          counts: {E0: 21, E1: 60, E3: 2}
+          pages: 3.6
+          status: planned
+    - id: C08
+      title: Simproc, Simps, Tactic analysis and Translate
+      prefixes: [Mathlib/Tactic/Simproc, Mathlib/Tactic/Simps, Mathlib/Tactic/TacticAnalysis, Mathlib/Tactic/Translate]
+      requires: [V05]
+      sections:
+        - id: V34.C08.S01
+          title: Simproc
+          kind: theory
+          modules:
+            - Mathlib.Tactic.Simproc.Divisors
+            - Mathlib.Tactic.Simproc.ExistsAndEq
+            - Mathlib.Tactic.Simproc.Factors
+            - Mathlib.Tactic.Simproc.FinsetInterval
+            - Mathlib.Tactic.Simproc.IsIndecomposable
+            - Mathlib.Tactic.Simproc.VecPerm
+          E3: [Mathlib.Tactic.Matrix.IsIndecomposable.SpansFrom, Matrix.reduceIsIndecomposable, Mathlib.Tactic.Matrix.IsIndecomposable.packedAdj, Mathlib.Tactic.Matrix.IsIndecomposable.isClosed, Mathlib.Tactic.Matrix.IsIndecomposable.packRows, Mathlib.Tactic.Matrix.IsIndecomposable.decideStronglyConnected]
+          families: [F-ctor, F-instance, F-simp]
+          requires: [V05]
+          counts: {E0: 14, E1: 64, E3: 6}
+          pages: 6.9
+          status: planned
+        - id: V34.C08.S02
+          title: Simps
+          kind: reference
+          modules:
+            - Mathlib.Tactic.Simps
+            - Mathlib.Tactic.Simps.Basic
+            - Mathlib.Tactic.Simps.NotationClass
+            - Mathlib.Tactic.TacticAnalysis
+            - Mathlib.Tactic.TacticAnalysis.Declarations
+          families: [F-instance, F-ctor, F-simp, F-aux, F-to-additive]
+          counts: {E0: 41, E1: 196}
+          pages: 6.5
+          status: planned
+        - id: V34.C08.S03
+          title: Translate
+          kind: reference
+          modules:
+            - Mathlib.Tactic.Translate.Attributes
+            - Mathlib.Tactic.Translate.Core
+            - Mathlib.Tactic.Translate.Expr
+            - Mathlib.Tactic.Translate.GuessName
+            - Mathlib.Tactic.Translate.Reorder
+            - Mathlib.Tactic.Translate.TagUnfoldBoundary
+            - Mathlib.Tactic.Translate.ToAdditive
+            - Mathlib.Tactic.Translate.ToDual
+            - Mathlib.Tactic.Translate.UnfoldBoundary
+          families: [F-aux, F-ctor, F-simp, F-instance]
+          counts: {E0: 31, E1: 200}
+          pages: 6.7
+          status: planned
+    - id: C09
+      title: Widget, Tactic, Ineq and Expr
+      prefixes: [Mathlib/Tactic/Widget, Mathlib/Tactic, Mathlib/Data/Ineq, Mathlib/Algebra/Expr]
+      requires: [V04, V05, V06]
+      sections:
+        - id: V34.C09.S01
+          title: Widget
+          kind: reference
+          modules:
+            - Mathlib.Tactic.Widget.Calc
+            - Mathlib.Tactic.Widget.CommDiag
+            - Mathlib.Tactic.Widget.CongrM
+            - Mathlib.Tactic.Widget.Conv
+            - Mathlib.Tactic.Widget.GCongr
+            - Mathlib.Tactic.Widget.LibraryRewrite
+            - Mathlib.Tactic.Widget.SelectInsertParamsClass
+            - Mathlib.Tactic.Widget.SelectPanelUtils
+            - Mathlib.Tactic.Widget.StringDiagram
+          families: [F-ctor, F-instance, F-simp, F-aux]
+          counts: {E0: 46, E1: 189}
+          pages: 6.3
+          status: planned
+        - id: V34.C09.S02
+          title: Tactic
+          kind: reference
+          modules:
+            - Mathlib.Tactic
+            - Mathlib.Tactic.Abel
+            - Mathlib.Tactic.AdaptationNote
+            - Mathlib.Tactic.AddGroup
+            - Mathlib.Tactic.Algebraize
+            - Mathlib.Tactic.ApplyAt
+            - Mathlib.Tactic.ApplyCongr
+            - Mathlib.Tactic.ApplyFun
+            - Mathlib.Tactic.ApplyWith
+            - Mathlib.Tactic.Assume
+            - Mathlib.Tactic.BDSimp
+            - Mathlib.Tactic.Basic
+            - Mathlib.Tactic.ByCases
+            - Mathlib.Tactic.ByContra
+            - Mathlib.Tactic.Cases
+            - Mathlib.Tactic.CasesM
+            - Mathlib.Tactic.Change
+            - Mathlib.Tactic.Check
+            - Mathlib.Tactic.Choose
+            - Mathlib.Tactic.Clean
+            - Mathlib.Tactic.ClearExcept
+            - Mathlib.Tactic.ClearExclamation
+            - Mathlib.Tactic.Clear_
+            - Mathlib.Tactic.Coe
+            - Mathlib.Tactic.Common
+            - Mathlib.Tactic.ComputeDegree
+            - Mathlib.Tactic.CongrExclamation
+            - Mathlib.Tactic.CongrM
+            - Mathlib.Tactic.Constructor
+            - Mathlib.Tactic.ContinuousFunctionalCalculus
+            - Mathlib.Tactic.Contrapose
+            - Mathlib.Tactic.Conv
+            - Mathlib.Tactic.Convert
+          families: [F-instance, F-ctor, F-simp, F-to-additive]
+          counts: {E0: 37, E1: 308}
+          pages: 10.3
+          status: planned
+        - id: V34.C09.S03
+          title: Core
+          kind: reference
+          modules:
+            - Mathlib.Tactic.Core
+            - Mathlib.Tactic.CrossRefAttribute
+            - Mathlib.Tactic.DSimpPercent
+            - Mathlib.Tactic.DeclarationNames
+            - Mathlib.Tactic.DefEqAbuse
+            - Mathlib.Tactic.DefEqTransformations
+            - Mathlib.Tactic.DepRewrite
+            - Mathlib.Tactic.DeprecateTo
+            - Mathlib.Tactic.DeriveCountable
+            - Mathlib.Tactic.DeriveEncodable
+            - Mathlib.Tactic.DeriveFintype
+            - Mathlib.Tactic.DeriveTraversable
+            - Mathlib.Tactic.DuplicateDecls
+            - Mathlib.Tactic.ENatToNat
+            - Mathlib.Tactic.Eqns
+            - Mathlib.Tactic.ErwQuestion
+            - Mathlib.Tactic.Eval
+            - Mathlib.Tactic.ExistsI
+            - Mathlib.Tactic.Ext
+            - Mathlib.Tactic.ExtendDoc
+            - Mathlib.Tactic.ExtractGoal
+            - Mathlib.Tactic.FBinop
+            - Mathlib.Tactic.FailIfNoProgress
+            - Mathlib.Tactic.FastInstance
+            - Mathlib.Tactic.Field
+            - Mathlib.Tactic.FinCases
+          families: [F-instance, F-simp, F-ctor, F-to-additive]
+          counts: {E0: 42, E1: 302}
+          pages: 10.1
+          status: planned
+        - id: V34.C09.S04
+          title: Find
+          kind: theory
+          modules:
+            - Mathlib.Tactic.Find
+            - Mathlib.Tactic.FindSyntax
+            - Mathlib.Tactic.Generalize
+            - Mathlib.Tactic.GrindAttrs
+            - Mathlib.Tactic.Group
+            - Mathlib.Tactic.GuardGoalNums
+            - Mathlib.Tactic.GuardHypNums
+            - Mathlib.Tactic.Have
+            - Mathlib.Tactic.HaveI
+            - Mathlib.Tactic.HigherOrder
+            - Mathlib.Tactic.Hint
+            - Mathlib.Tactic.ITauto
+            - Mathlib.Tactic.Ineq
+            - Mathlib.Tactic.InferParam
+            - Mathlib.Tactic.Inhabit
+            - Mathlib.Tactic.IntervalCases
+            - Mathlib.Tactic.IrreducibleDef
+            - Mathlib.Tactic.Lemma
+            - Mathlib.Tactic.Lift
+            - Mathlib.Tactic.MinImports
+            - Mathlib.Tactic.MkIffOfInductiveProp
+            - Mathlib.Tactic.ModCases
+            - Mathlib.Tactic.Module
+          E3: [lemma]
+          families: [F-simp, F-ctor, F-instance, F-to-dual, F-aux, F-simp-apply]
+          counts: {E0: 84, E1: 275, E3: 1}
+          pages: 10
+          status: planned
+        - id: V34.C09.S05
+          title: Module nF
+          kind: theory
+          modules:
+            - Mathlib.Tactic.ModuleNF
+            - Mathlib.Tactic.MoveAdd
+            - Mathlib.Tactic.NoncommRing
+            - Mathlib.Tactic.NormCharpoly
+            - Mathlib.Tactic.NormDet
+            - Mathlib.Tactic.NormMatMul
+            - Mathlib.Tactic.NormRank
+            - Mathlib.Tactic.NthRewrite
+            - Mathlib.Tactic.Observe
+            - Mathlib.Tactic.OfNat
+            - Mathlib.Tactic.PNatToNat
+            - Mathlib.Tactic.PPWithUniv
+            - Mathlib.Tactic.Peel
+            - Mathlib.Tactic.Polyrith
+            - Mathlib.Tactic.ProdAssoc
+            - Mathlib.Tactic.ProxyType
+            - Mathlib.Tactic.Qify
+            - Mathlib.Tactic.RSuffices
+            - Mathlib.Tactic.RealRootCount.SturmCertificate
+            - Mathlib.Tactic.Recover
+            - Mathlib.Tactic.Rename
+            - Mathlib.Tactic.RenameBVar
+            - Mathlib.Tactic.Replace
+            - Mathlib.Tactic.Rify
+            - Mathlib.Tactic.Sat.FromLRAT
+          E3: ['Mathlib.Tactic.RealRootCount.realRootCount?', Mathlib.Tactic.RealRootCount.SturmCertificate.fromCoeffList, 'Mathlib.Tactic.RealRootCount.SturmCertificate.entries?', 'Mathlib.Tactic.RealRootCount.realRootCountIoo?', Mathlib.Tactic.RealRootCount.SturmCertificate]
+          families: [F-aux, F-simp, F-instance, F-ctor]
+          requires: [V04, V05, V06]
+          counts: {E0: 37, E1: 217, E3: 5}
+          pages: 11.2
+          status: planned
+        - id: V34.C09.S06
+          title: Says
+          kind: reference
+          modules:
+            - Mathlib.Tactic.Says
+            - Mathlib.Tactic.ScopedNS
+            - Mathlib.Tactic.Set
+            - Mathlib.Tactic.SetLike
+            - Mathlib.Tactic.SetNotationForOrder
+            - Mathlib.Tactic.Setm
+            - Mathlib.Tactic.SimpIntro
+            - Mathlib.Tactic.SimpLibraryNote
+            - Mathlib.Tactic.SimpRw
+            - Mathlib.Tactic.SplitIfs
+            - Mathlib.Tactic.Spread
+            - Mathlib.Tactic.StacksAttribute
+            - Mathlib.Tactic.Subsingleton
+            - Mathlib.Tactic.Substs
+            - Mathlib.Tactic.SuccessIfFailWithMsg
+            - Mathlib.Tactic.SudoSetOption
+            - Mathlib.Tactic.SuppressCompilation
+            - Mathlib.Tactic.SwapVar
+            - Mathlib.Tactic.TFAE
+            - Mathlib.Tactic.Tauto
+            - Mathlib.Tactic.TautoSet
+            - Mathlib.Tactic.TermCongr
+            - Mathlib.Tactic.ToAdditive
+            - Mathlib.Tactic.ToDual
+            - Mathlib.Tactic.ToExpr
+            - Mathlib.Tactic.ToFun
+            - Mathlib.Tactic.ToLevel
+            - Mathlib.Tactic.Trace
+            - Mathlib.Tactic.TryThis
+            - Mathlib.Tactic.TypeCheck
+            - Mathlib.Tactic.TypeStar
+            - Mathlib.Tactic.UnsetOption
+            - Mathlib.Tactic.Use
+            - Mathlib.Tactic.Variable
+            - Mathlib.Tactic.WLOG
+            - Mathlib.Tactic.WithoutCDot
+            - Mathlib.Tactic.Zify
+            - Mathlib.Data.Ineq
+            - Mathlib.Algebra.Expr
+          families: [F-aux, F-ctor, F-instance, F-simp, F-to-additive, F-to-dual]
+          counts: {E0: 33, E1: 249}
+          pages: 8.3
+          status: planned
