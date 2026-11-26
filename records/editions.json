@@ -1,0 +1,12 @@
+[
+ {
+  "edition": "v4.36.0",
+  "mathlib": "fc4f59e577feb1a4956671bc04ac18aaaf8cd842",
+  "lean": "v4.36.0",
+  "tag_date": "2026-11-16",
+  "opened": "2026-11-26",
+  "mathlib_lean": "529587fcca192c7d40ee2dc4f753c06a903930b4",
+  "state": "open",
+  "notes": "The first edition. The edge starts on the same day at the LKG of master."
+ }
+]
