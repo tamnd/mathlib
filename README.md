@@ -6,6 +6,10 @@ Mathlib is the mathematical library of the Lean theorem prover. Its home is [lea
 
 The Mathlib Handbook is a textbook of all the mathematics in Mathlib, written by mathematicians for students. It is true to the latest Mathlib, and it comes as PDF, EPUB and HTML books. The site is https://mathlib.tamnd.com.
 
+## Download
+
+The PDF and EPUB files of the volumes and of the Catalogue are on the [latest release of mathlib-handbook](https://github.com/tamnd/mathlib-handbook/releases/latest). A volume that no person has reviewed yet has `-draft` in its file name, and its copyright page says why.
+
 ## The repositories
 
 | Repository | Content |
