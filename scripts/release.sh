@@ -9,7 +9,7 @@
 #   1. mathlib-lean: a release PR that moves the Unreleased section of CHANGELOG.md, then the tag and the release.
 #   2. mathlib-agent: the same. The release workflow of the tag attaches the binaries.
 #   3. mathlib: the same.
-#   4. mathlib-handbook: the same, and the PR also pins EDITION to the release commits of mathlib and mathlib-lean, with a line in CHANGELOG.md.
+#   4. mathlib-handbook: the same, and the PR also pins EDITION to the release commits of mathlib, mathlib-lean and mathlib-agent, with a line in CHANGELOG.md.
 # Each PR has the labels release and type/chore, and the script merges it at once.
 set -eu
 
@@ -96,6 +96,7 @@ LEAN=$(git rev-parse HEAD)
 # 2. mathlib-agent.
 cd "$ROOT/mathlib-agent"
 release_repo mathlib-agent
+AGENT=$(git rev-parse HEAD)
 
 # 3. mathlib.
 cd "$ROOT/mathlib"
@@ -104,23 +105,32 @@ MATHLIB=$(git rev-parse HEAD)
 
 # 4. mathlib-handbook, pinned to the release commits.
 cd "$ROOT/mathlib-handbook"
-python3 - "$V" "$MATHLIB" "$LEAN" <<'EOF'
+python3 - "$V" "$MATHLIB" "$LEAN" "$AGENT" <<'EOF'
 import re, sys
-v, mathlib, lean = sys.argv[1], sys.argv[2], sys.argv[3]
+v, mathlib, lean, agent = sys.argv[1:5]
 s = open("EDITION").read()
 s = re.sub(r"(?m)^version .*$", "version " + v.lstrip("v"), s)
 s = re.sub(r"(?m)^mathlib( .*)?$", "mathlib " + mathlib, s)
 s = re.sub(r"(?m)^mathlib-lean( .*)?$", "mathlib-lean " + lean, s)
+if re.search(r"(?m)^mathlib-agent( .*)?$", s):
+    s = re.sub(r"(?m)^mathlib-agent( .*)?$", "mathlib-agent " + agent, s)
+else:
+    s += "mathlib-agent " + agent + "\n"
 open("EDITION", "w").write(s)
-line = f"- `EDITION` pins mathlib at `{mathlib[:10]}` and mathlib-lean at `{lean[:10]}`, the commits of their release {v}.\n"
+line = (f"- `EDITION` pins mathlib at `{mathlib[:10]}`, mathlib-lean at `{lean[:10]}` and mathlib-agent at `{agent[:10]}`, "
+        f"the commits of their release {v}.\n")
 c = open("CHANGELOG.md").read()
 head = "## Unreleased\n"
 i = c.index(head) + len(head)
-rest = c[i:]
-if rest.startswith("\n### Changed\n\n"):
-    c = c[:i] + "\n### Changed\n\n" + line + rest[len("\n### Changed\n\n"):]
+# The line goes first in the Changed part of the Unreleased section. With no Changed part, a new one goes first.
+end = c.find("\n## ", i)
+end = len(c) if end < 0 else end
+j = c.find("### Changed\n\n", i, end)
+if j >= 0:
+    j += len("### Changed\n\n")
+    c = c[:j] + line + c[j:]
 else:
-    c = c[:i] + "\n### Changed\n\n" + line + rest
+    c = c[:i] + "\n### Changed\n\n" + line + c[i:]
 open("CHANGELOG.md", "w").write(c)
 EOF
 release_repo mathlib-handbook
