@@ -113,6 +113,7 @@ reviewed_by: []
 
 - `modules` and `explains` give the coverage (04). `E1: auto` lets the builder take all the declarations of the modules that have no other home.
 - `mathlib` is the commit at which a person or a role last read the section against the library. `mlhb check` warns when the drift report (05.5) has a change to a declaration of the section after that commit, and the section goes to status `stale` (7.8).
+- `stale_since` and `stale_from` are only on a stale section. `stale_since` is the first commit with a drift item that made the section stale. `stale_from` is the status before the mark, so that the refresher can set it back. `mlib stale -apply` writes them, and the refresher removes them.
 - `requires` uses volume and chapter ids. `mlhb paths` builds the reading graph from it.
 - `reads_with` uses the keys of `books/` (as in mmp-handbook) with a location.
 

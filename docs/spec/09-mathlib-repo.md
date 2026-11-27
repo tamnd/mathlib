@@ -20,6 +20,7 @@
 | `records/depth.json` | the computed depths | `mlib sync` |
 | `records/coverage.json` | the numbers of 04.5 by volume and by edition | `mlib coverage` |
 | `records/drift/<date>.json` | the drift record of each sync (05.4) | `mlib sync` |
+| `records/stale.json` | the refresher queue items: each stale section with its drift items and the commit of each (05.5) | `mlib stale`, `mlib sync` |
 | `records/runs/<id>/` | the run records of the roles | `mlib agent run` |
 | `agent/ledger.jsonl` | the spend of each run | the runner |
 | `site/` | the pages of the site that are not generated | people |
