@@ -4,6 +4,13 @@ Each release has a section. The newest release is first.
 
 ## Unreleased
 
+### Decided
+
+The owner signed these recommendations of spec 16 on 2026-11-27.
+
+- Q-05. One edition for each stable tag of Mathlib, about one each month, while the refresher keeps C-fresh at 95% or more within 14 days (G5). Move to one edition for every second tag if the refresher cost is more than a third of the budget for three months in a row.
+- Q-20. Write new exercises by default. Adapt an exercise with credit only from a source with an open licence, such as MIL (CC BY 4.0). Ask the authors before a section follows a closed book closely. Each adapted exercise has a credit line.
+
 ### Changed
 
 - The workflow `index` uploads a third asset, `proofs-<date>-<commit>.jsonl.gz`, with the theorems that each proof uses (tamnd/mathlib-lean#15). Spec 09.3 says that `proofUses` keeps only the theorems.
