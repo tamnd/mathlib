@@ -13,6 +13,7 @@ The owner signed these recommendations of spec 16 on 2026-11-27.
 
 ### Changed
 
+- The notes of each release of the four repositories have the part "The books", with the link to the PDF and EPUB files of the release of tamnd/mathlib-handbook.
 - The workflow `index` uploads a third asset, `proofs-<date>-<commit>.jsonl.gz`, with the theorems that each proof uses (tamnd/mathlib-lean#15). Spec 09.3 says that `proofUses` keeps only the theorems.
 - Spec 07.7 gives the fields `stale_since` and `stale_from` of a stale section, and spec 09 gives the file `records/stale.json` of the refresher queue items (tamnd/mathlib-agent#19).
 
