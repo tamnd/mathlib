@@ -4,6 +4,11 @@ Each release has a section. The newest release is first.
 
 ## Unreleased
 
+### Added
+
+- The file `blueprint/paths.yaml` gives the reading paths of spec 06.6: the paths U, A, N, G, T, C, L and F, with the volumes and the chapters of each step. The pages `/teach/` of the site read this file.
+- The workflow `deploy` takes a checkout of tamnd/mathlib-handbook and gives it to `mlib site build -book`, for the exercises of the pages `/teach/`.
+
 ## v0.3.0 - 2026-11-27
 
 ### Decided

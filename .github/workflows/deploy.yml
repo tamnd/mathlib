@@ -32,6 +32,12 @@ jobs:
           repository: tamnd/mathlib-agent
           ref: main
           path: toolchain
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+          repository: tamnd/mathlib-handbook
+          ref: main
+          path: book
       - uses: actions/setup-go@d8cbb8045d7f43706b9177cceb36c1f91a6644d5 # v7.1.0
         with:
           go-version-file: toolchain/go.mod
@@ -49,7 +55,7 @@ jobs:
           "$RUNNER_TEMP/mlib" index fetch -commit latest -out index
       - name: build the site
         run: |
-          "$RUNNER_TEMP/mlib" site build -index index -map content -out content/public -url https://mathlib.tamnd.com
+          "$RUNNER_TEMP/mlib" site build -index index -map content -book book -out content/public -url https://mathlib.tamnd.com
       - name: check the site
         run: |
           "$RUNNER_TEMP/mlib" site check -out content/public
