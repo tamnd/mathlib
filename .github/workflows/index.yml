@@ -79,9 +79,10 @@ jobs:
             echo "| Peak memory (KB) | $(grep 'Maximum resident' time.txt | awk '{print $NF}') |"
             echo "| Declarations | $(head -1 out/index.jsonl | jq .count) |"
             echo "| Modules | $(head -1 out/modules.jsonl | jq .count) |"
+            echo "| Proofs | $(head -1 out/proofs.jsonl | jq .count) |"
             echo "| Records with an error | $(grep -c '"error":' out/index.jsonl || true) |"
           } >> "$GITHUB_STEP_SUMMARY"
-          gzip -9 out/index.jsonl out/modules.jsonl
+          gzip -9 out/index.jsonl out/modules.jsonl out/proofs.jsonl
           ls -l out >> "$GITHUB_STEP_SUMMARY"
       - name: upload the index
         if: steps.commit.outputs.skip != 'true'
@@ -91,7 +92,8 @@ jobs:
         run: |
           mv out/index.jsonl.gz "index-$KEY.jsonl.gz"
           mv out/modules.jsonl.gz "modules-$KEY.jsonl.gz"
-          gh release upload "$TAG" -R "$REPO" --clobber "index-$KEY.jsonl.gz" "modules-$KEY.jsonl.gz"
+          mv out/proofs.jsonl.gz "proofs-$KEY.jsonl.gz"
+          gh release upload "$TAG" -R "$REPO" --clobber "index-$KEY.jsonl.gz" "modules-$KEY.jsonl.gz" "proofs-$KEY.jsonl.gz"
       - name: remove the old indexes
         if: steps.commit.outputs.skip != 'true'
         env:
@@ -100,4 +102,5 @@ jobs:
           gh release view "$TAG" -R "$REPO" --json assets -q '.assets[].name' | grep '^index-' | sort -r | tail -n +"$((KEEP + 1))" | while read -r name; do
             gh release delete-asset "$TAG" "$name" -R "$REPO" -y
             gh release delete-asset "$TAG" "modules-${name#index-}" -R "$REPO" -y || true
+            gh release delete-asset "$TAG" "proofs-${name#index-}" -R "$REPO" -y || true
           done

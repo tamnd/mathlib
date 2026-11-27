@@ -66,7 +66,7 @@ The **index** is the output of `scripts/Index.lean` in `tamnd/mathlib-lean` (10.
 | `doc` | the docstring, if any |
 | `attrs` | the attributes that matter to a reader: `simp`, `ext`, `instance`, `class`, `to_additive` source or target, `deprecated` with its target and date, `reducible`, `irreducible`, `norm_cast`, `continuity`, `fun_prop`, `simps` |
 | `uses` | the constants that the type and, for a definition, the value use, restricted to Mathlib |
-| `proofUses` | for a theorem, the Mathlib constants that its proof uses. Kept in a separate file, since it is large |
+| `proofUses` | for a theorem, the theorems of Mathlib that its proof uses. It is in the separate file `proofs.jsonl`, since it is large. The other constants of a proof are not in the list: a definition in a proof is almost always also in the type |
 | `axioms` | only for declarations whose axioms are not the three standard ones |
 
 The index of the module docstrings is a second file: one record per module with the docstring and the headings of it. `mlib` reads the "Main definitions" and "Main results" lists from it (04.4).

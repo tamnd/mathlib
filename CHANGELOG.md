@@ -4,6 +4,10 @@ Each release has a section. The newest release is first.
 
 ## Unreleased
 
+### Changed
+
+- The workflow `index` uploads a third asset, `proofs-<date>-<commit>.jsonl.gz`, with the theorems that each proof uses (tamnd/mathlib-lean#15). Spec 09.3 says that `proofUses` keeps only the theorems.
+
 ## v0.2.0 - 2026-11-27
 
 ### Decided
