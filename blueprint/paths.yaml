@@ -1,0 +1,58 @@
+# The reading paths of spec 06.6. mlib site build shows each path at /teach/<id>/ as a course.
+# A step gives a volume and, if the path takes only some chapters, the first and the last chapter.
+# A path with after starts where the other paths end.
+paths:
+  - id: U
+    title: The undergraduate core
+    for: an undergraduate degree, as in the file undergrad.yaml of Mathlib
+    steps:
+      - {volume: V00}
+      - {volume: V01}
+      - {volume: V02}
+      - {volume: V03}
+      - {volume: V04, chapters: [1, 4]}
+      - {volume: V05}
+      - {volume: V06}
+      - {volume: V07}
+      - {volume: V09, chapters: [1, 6]}
+      - {volume: V11}
+      - {volume: V13}
+      - {volume: V15}
+      - {volume: V18, chapters: [1, 6]}
+      - {volume: V20, chapters: [1, 5]}
+      - {volume: V22}
+  - id: A
+    title: Algebra
+    for: an algebraist
+    after: [U]
+    steps: [{volume: V08}, {volume: V09}, {volume: V10}, {volume: V11}, {volume: V12}, {volume: V24}, {volume: V26}, {volume: V29}]
+  - id: N
+    title: Number theory
+    for: a student of number theory
+    after: [U]
+    steps: [{volume: V10}, {volume: V11}, {volume: V12}, {volume: V14}, {volume: V19}]
+  - id: G
+    title: Analysis and probability
+    for: a student of analysis and probability
+    after: [U]
+    steps: [{volume: V14}, {volume: V16}, {volume: V17}, {volume: V18}, {volume: V19}, {volume: V20}, {volume: V21}]
+  - id: T
+    title: Geometry and topology
+    for: a student of geometry and topology
+    after: [U]
+    steps: [{volume: V14}, {volume: V17}, {volume: V23}, {volume: V24}, {volume: V27}]
+  - id: C
+    title: Categories and algebraic geometry
+    for: a student of categories and algebraic geometry
+    after: [A]
+    steps: [{volume: V24}, {volume: V25}, {volume: V26}, {volume: V27}, {volume: V28}]
+  - id: L
+    title: The library fast
+    for: a Lean user who wants the library fast
+    steps: [{volume: V00}, {volume: V01}, {volume: V34}]
+    note: Then read the Mathlib boxes and the reference parts of any volume.
+  - id: F
+    title: The status of an area
+    for: a mathematician who wants the status of an area
+    steps: []
+    note: Read the volume introduction, the chapter "What Mathlib does not yet have" (spec 03.5) and the Catalogue of the volume.
