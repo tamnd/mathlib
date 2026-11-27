@@ -523,6 +523,18 @@ volumes:
       - Mathlib/RepresentationTheory/Homological
       - Mathlib/CategoryTheory/GradedObject
       - Mathlib/CategoryTheory/DifferentialObject
+      - Mathlib/CategoryTheory/Preadditive/Projective/Resolution
+      - Mathlib/CategoryTheory/Preadditive/Injective/Resolution
+      - Mathlib/CategoryTheory/Abelian/Projective/Resolution
+      - Mathlib/CategoryTheory/Abelian/Injective/Resolution
+      - Mathlib/CategoryTheory/Abelian/LeftDerived
+      - Mathlib/CategoryTheory/Abelian/RightDerived
+      - Mathlib/CategoryTheory/Abelian/Ext
+      - Mathlib/CategoryTheory/Monoidal/Tor
+      - Mathlib/CategoryTheory/Abelian/Projective/Dimension
+      - Mathlib/CategoryTheory/Abelian/Injective/Dimension
+      - Mathlib/CategoryTheory/Abelian/Projective/Ext
+      - Mathlib/CategoryTheory/Abelian/Injective/Ext
   - id: V27
     title: "Algebraic topology and condensed mathematics"
     part: V
