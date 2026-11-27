@@ -4,6 +4,22 @@ Each release has a section. The newest release is first.
 
 ## Unreleased
 
+### Decided
+
+The owner signed these recommendations of spec 16 on 2026-11-27.
+
+- Q-14. The Lean of the companion stays Markdown and SubVerso. A Verso web edition is asked again after M5 only if readers ask for hovers that the site does not give.
+- Q-22. The Catalogue keeps a PDF and an EPUB for each volume. The downloads are counted again at M6, and the Catalogue moves to the site only if its files then have fewer downloads than the volume files.
+- Q-24. The volumes stay PDF and EPUB only. Print on demand for V00 to V12, at cost, opens when the first reader asks.
+
+### Added
+
+- `reports/m5-coverage.md` gives C-E3 for the whole library (6% of 8,225 E3 candidates) and sets again the plan for the rest: an E3 pass for each volume before its release, and C-E3 in two parts, the curated part and the docstring part.
+
+### Changed
+
+- `records/coverage.json` and `records/modules.json` now have C-home, C-depth and C-E3 from the front matter of the handbook at v0.5.0, and the home sections of each module.
+
 ## v0.5.0 - 2026-11-27
 
 ## v0.4.1 - 2026-11-27
