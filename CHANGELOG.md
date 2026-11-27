@@ -7,6 +7,7 @@ Each release has a section. The newest release is first.
 ### Changed
 
 - The workflow `index` uploads a third asset, `proofs-<date>-<commit>.jsonl.gz`, with the theorems that each proof uses (tamnd/mathlib-lean#15). Spec 09.3 says that `proofUses` keeps only the theorems.
+- Spec 07.7 gives the fields `stale_since` and `stale_from` of a stale section, and spec 09 gives the file `records/stale.json` of the refresher queue items (tamnd/mathlib-agent#19).
 
 ## v0.2.0 - 2026-11-27
 
