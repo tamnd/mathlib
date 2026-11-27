@@ -3,7 +3,7 @@
 #
 # Usage: scripts/release.sh v0.0.1 [milestone issue]
 #
-# The four clones mathlib, mathlib-agent, mathlib-lean and mathlib-handbook must be side by side, on main, with no local change.
+# The four clones mathlib, mathlib-agent, mathlib-lean and mathlib-handbook must be side by side, on main, with no change to a tracked file. Untracked files can stay, for example the folder of a volume that a writer drafts, and the release commit does not take them.
 # The milestone issue is the tracking issue of tamnd/mathlib that the release PRs refer to. The default is 1 (M0).
 # The script does these steps:
 #   1. mathlib-lean: a release PR that moves the Unreleased section of CHANGELOG.md, then the tag and the release.
@@ -29,7 +29,7 @@ for r in mathlib mathlib-agent mathlib-lean mathlib-handbook; do
   cd "$ROOT/$r"
   git switch -q main
   git pull -q --ff-only
-  if [ -n "$(git status --porcelain)" ]; then echo "$r has local changes" >&2; exit 1; fi
+  if [ -n "$(git status --porcelain --untracked-files=no)" ]; then echo "$r has local changes" >&2; exit 1; fi
   if git rev-parse -q --verify "refs/tags/$V" >/dev/null || git ls-remote --exit-code --tags origin "$V" >/dev/null 2>&1; then
     echo "$r has the tag $V already" >&2; exit 1
   fi
@@ -65,7 +65,7 @@ release_repo() {
   shift
   git switch -q -c "release-$V"
   bump_changelog
-  git add -A
+  git add -u
   git commit -q -m "Release $V"
   git push -q -u origin "release-$V"
   if [ "$repo" = mathlib ]; then ref="#$ISSUE"; else ref="$OWNER/mathlib#$ISSUE"; fi

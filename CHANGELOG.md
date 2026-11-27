@@ -4,6 +4,10 @@ Each release has a section. The newest release is first.
 
 ## Unreleased
 
+### Changed
+
+- `scripts/release.sh` accepts untracked files in the four clones, and the release commit takes only the tracked files. A patch release can now go out while a writer drafts a volume in a new folder.
+
 ## v0.4.0 - 2026-11-27
 
 ### Decided
