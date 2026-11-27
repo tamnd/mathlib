@@ -51,6 +51,12 @@ EOF
 # Print the section of the version in CHANGELOG.md.
 notes() {
   awk -v h="## $V - $DATE" '$0 == h {on = 1; next} on && /^## / {exit} on {print}' CHANGELOG.md
+  cat <<EOF
+
+### The books
+
+The PDF and EPUB files of the volumes and of the Catalogue of this edition are attached to the release $V of $OWNER/mathlib-handbook: https://github.com/$OWNER/mathlib-handbook/releases/tag/$V. The CI of the tag builds them, and they are there some minutes after the tag. The file SHA256SUMS gives the SHA-256 sum of each file.
+EOF
 }
 
 # Open the release PR of the current repository, merge it, then tag the merge commit and make the release.
