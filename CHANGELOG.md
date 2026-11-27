@@ -4,6 +4,12 @@ Each release has a section. The newest release is first.
 
 ## Unreleased
 
+### Decided
+
+The owner signed this recommendation of spec 16 on 2026-11-27.
+
+- Q-16. Offer the reviewed E1 sentences of the declarations with no docstring to Mathlib, one area at a time, after M3 and only if the maintainers want it. The offer goes to the docstring work of the Mathlib Initiative (01.3). The project opens no bulk pull request.
+
 ### Added
 
 - The file `blueprint/paths.yaml` gives the reading paths of spec 06.6: the paths U, A, N, G, T, C, L and F, with the volumes and the chapters of each step. The pages `/teach/` of the site read this file.
