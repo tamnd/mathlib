@@ -4,6 +4,8 @@ Each release has a section. The newest release is first.
 
 ## Unreleased
 
+- `reports/m8-coverage.md` gives C-E3 after the first draft of all 35 volumes: 14% for the whole library, and 44% for the curated part. `records/coverage.json` and `records/modules.json` have the new numbers.
+
 ## v0.8.0 - 2026-11-28
 
 ## v0.7.1 - 2026-11-28
